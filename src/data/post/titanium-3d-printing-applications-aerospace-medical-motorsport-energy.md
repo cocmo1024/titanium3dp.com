@@ -8,14 +8,12 @@ tags: ['applications', 'aerospace', 'medical', 'motorsport', 'energy', 'lightwei
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/4.webp
 metadata:
-  title: 'Titanium 3D Printing Applications: Aerospace, Medical, Motorsport & Energy'
+  title: 'Titanium AM Application Fit'
   description: 'Titanium 3D printing application guide for aerospace lightweighting, motorsport parts, medical-adjacent structures, energy hardware, internal channels, and part consolidation.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/
 ---
 
 Titanium AM earns its cost only when geometry changes the engineering outcome. The strongest applications do not use AM because titanium is expensive or impressive. They use AM because machining, casting, or forging cannot deliver the same system result with comparable lead time or assembly risk.
-
-![Titanium 3D printing application families](../../assets/images/titanium/4.webp)
 
 ## Aerospace Lightweighting
 

@@ -8,14 +8,12 @@ tags: ['materials', 'ti6al4v', 'eli', 'cp-titanium', 'lpbf', 'ebm']
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/1.webp
 metadata:
-  title: 'Titanium AM Material Selection: Ti-6Al-4V vs ELI vs CP Ti'
+  title: 'Titanium AM Material Selection'
   description: 'Material selection guide for titanium additive manufacturing: Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and CP Ti in LPBF and EBM.'
   canonical: https://titanium3dp.com/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/
 ---
 
 Titanium is not one material choice. In additive manufacturing, the alloy grade controls strength, ductility, oxygen sensitivity, fatigue assumptions, post-processing, and the evidence package needed for acceptance. A good RFQ names the material, but it also explains why that material is required.
-
-![Titanium AM material selection for Ti-6Al-4V, ELI, and CP titanium](../../assets/images/titanium/1.webp)
 
 ## Ti-6Al-4V Grade 5
 

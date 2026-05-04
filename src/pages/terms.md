@@ -26,4 +26,4 @@ This website may link to third-party websites or services. TITANIUM 3DP is not r
 
 ## Contact
 
-Questions about these terms can be sent to info@szcomo.com.
+Questions about these terms can be sent to [info@szcomo.com](mailto:info@szcomo.com).

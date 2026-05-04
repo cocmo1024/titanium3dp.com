@@ -8,14 +8,12 @@ tags: ['qualification', 'inspection', 'ct', 'cmm', 'coupons', 'traceability', 'd
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/5.webp
 metadata:
-  title: 'Titanium AM Qualification Evidence: CT, CMM, Coupons & Traceability'
+  title: 'Titanium AM Inspection Evidence'
   description: 'Titanium AM qualification guide covering CT, CMM, tensile coupons, density, surface roughness, COA, COC, build records, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/
 ---
 
 Titanium AM approvals are driven by evidence packages, not marketing claims. The right inspection plan depends on the part risk, acceptance criteria, and what data will actually change the decision.
-
-![Titanium AM inspection evidence for CT, CMM, and coupons](../../assets/images/titanium/5.webp)
 
 ## CMM and Datum Strategy
 

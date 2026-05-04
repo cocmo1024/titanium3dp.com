@@ -3,6 +3,7 @@ import type { Stats as Props } from '~/types';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
 
 const {
   title = await Astro.slots.render('title'),
@@ -15,26 +16,45 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const statsClasses = (classes?.stats as Record<string, string>) ?? {};
+const hasCustomStatsItem = Boolean(statsClasses.item);
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
-  <div class="flex flex-wrap justify-center -m-4 text-center">
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <div class={twMerge('flex flex-wrap justify-center -m-4 text-center', statsClasses.container)}>
     {
       stats &&
         stats.map(({ amount, title, icon }) => (
-          <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:border-page-border md:last:border-none intersect-once intersect-quarter">
+          <div
+            class={twMerge(
+              `p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:border-page-border ${
+                hasCustomStatsItem ? '' : 'md:last:border-none'
+              } intersect-once intersect-quarter`,
+              statsClasses.item
+            )}
+          >
             {icon && (
               <div class="flex items-center justify-center mx-auto mb-4 text-primary">
                 <Icon name={icon} class="w-10 h-10" />
               </div>
             )}
             {amount && (
-              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-accent lg:text-5xl xl:text-6xl">
+              <div
+                class={twMerge(
+                  'font-heading text-primary text-[2.6rem] font-bold dark:text-accent lg:text-5xl xl:text-6xl',
+                  statsClasses.amount
+                )}
+              >
                 {amount}
               </div>
             )}
-            {title && <div class="text-sm font-medium uppercase tracking-widest text-muted lg:text-base">{title}</div>}
+            {title && (
+              <div class={twMerge('text-sm font-medium uppercase tracking-widest text-muted lg:text-base', statsClasses.title)}>
+                {title}
+              </div>
+            )}
           </div>
         ))
     }

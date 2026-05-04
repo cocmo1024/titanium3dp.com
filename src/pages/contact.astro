@@ -2,64 +2,9 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
-
-const contactShowcases = [
-  {
-    imagePosition: 'left' as const,
-    image: {
-      src: '~/assets/images/titanium/6.webp',
-      alt: 'Titanium AM RFQ email review workspace',
-    },
-    title: 'What to include',
-    description:
-      'A short email is fine if the project is simple. Add the details that affect quotation, manufacturability, acceptance, and schedule.',
-    points: [
-      {
-        title: 'Drawings and CAD',
-        description: 'Attach STEP, X_T, native CAD, or drawings with datums, critical dimensions, and functional surfaces.',
-      },
-      {
-        title: 'Quantity and timing',
-        description: 'State prototype quantity, production quantity, build-lot expectations, target delivery date, and ship-to country.',
-      },
-      {
-        title: 'Requirements',
-        description:
-          'Include alloy standard, process preference, HIP or heat treatment, machining, surface finish, CMM, CT, coupons, COA, COC, or traceability requirements.',
-      },
-    ],
-  },
-  {
-    imagePosition: 'right' as const,
-    image: {
-      src: '~/assets/images/titanium/5.webp',
-      alt: 'Titanium AM quotation response workflow',
-    },
-    title: 'How we respond',
-    description:
-      'Formal quotations and commercial terms are valid only when issued from our official corporate email.',
-    points: [
-      {
-        title: 'Quote when clear',
-        description: 'If geometry, alloy, quantity, finishing, and inspection scope are clear, we can respond with a quote.',
-      },
-      {
-        title: 'Ask when risk is hidden',
-        description:
-          'If support removal, datums, HIP, CT, fatigue, leak, or documentation scope is unclear, we ask focused questions before quoting.',
-      },
-      {
-        title: 'Technical discussion when needed',
-        description:
-          'For complex parts, we discuss material, manufacturability, post-processing, inspection, and lead-time drivers as needed.',
-      },
-    ],
-  },
-];
 
 const metadata = {
   title: 'Titanium AM RFQ Contact | Send CAD for Quote',
@@ -87,14 +32,14 @@ const metadata = {
   <HeroText
     tagline="Project RFQ"
     title="Contact TITANIUM 3DP"
-    subtitle="For RFQs, material specs, technical questions, or cooperation, contact us by email. We respond as quickly as possible."
+    subtitle="Email CAD, drawings, quantity, alloy target, lead time, and required post-processing or inspection evidence."
   />
 
   <CallToAction
     id="form"
     classes={{ container: sectionContainerClass }}
     title="Send the RFQ by email"
-    subtitle="Email STEP, drawings, target alloy, process preference, quantity, lead time, and requirements that matter for the part."
+    subtitle="For complex parts, include critical surfaces, operating conditions, post-processing, CMM/CT, coupons, COA/COC, or traceability needs."
     actions={[
       {
         variant: 'primary',
@@ -107,12 +52,5 @@ const metadata = {
         href: '/rfq/',
       },
     ]}
-  />
-
-  <SplitShowcase
-    title="Email-first RFQ path"
-    subtitle="Send the drawing and what you know. Leave unknown fields blank rather than guessing."
-    items={contactShowcases}
-    classes={{ container: sectionContainerClass }}
   />
 </Layout>

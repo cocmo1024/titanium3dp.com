@@ -68,7 +68,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 const shouldIndexSitemapPage = (page: string) => {
   const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
-  const isPaginatedArchive = /^\/(?:blog|category\/Case-Studies)(?:\/category\/[^/]+)?\/\d+$/.test(pathname);
+  const isPaginatedArchive = /^\/(?:blog|case-studies)(?:\/category\/[^/]+)?\/\d+$/.test(pathname);
   const isStaticLegacyFallback = pathname.startsWith('/tags/');
 
   return (

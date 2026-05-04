@@ -8,14 +8,12 @@ tags: ['rfq', 'procurement', 'cost-drivers', 'traceability', 'deliverables', 'hi
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/6.webp
 metadata:
-  title: 'Titanium AM RFQ Guide: Cost, Traceability & Deliverables'
+  title: 'Titanium AM RFQ Guide'
   description: 'Titanium AM procurement guide for RFQ inputs, cost drivers, traceability level, acceptance evidence, post-processing, machining, CT, CMM, and deliverables.'
   canonical: https://titanium3dp.com/posts/titanium-am-rfq-procurement-cost-traceability-deliverables/
 ---
 
 Titanium AM quoting breaks down when requirements remain implicit. A print-only quote may look fast and inexpensive, but procurement usually needs a delivered functional part with post-processing, inspection, and documents aligned to acceptance criteria.
-
-![Titanium AM RFQ and procurement deliverables](../../assets/images/titanium/6.webp)
 
 ## Cost Drivers
 

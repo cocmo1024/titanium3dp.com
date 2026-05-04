@@ -8,14 +8,12 @@ tags: ['post-processing', 'hip', 'stress-relief', 'machining', 'surface-finish',
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/3.webp
 metadata:
-  title: 'Post-Processing for Titanium 3D Printing: HIP, Machining & Finish'
+  title: 'Titanium 3D Printing Post-Processing'
   description: 'Post-processing guide for titanium 3D printing covering stress relief, anneal, HIP, support removal, machining datums, surface finish, cleaning, and inspection sequence.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-post-processing-hip-machining-surface-finish/
 ---
 
 Titanium AM is a process chain, not a single print step. The delivered part is shaped by stress relief, support removal, HIP when justified, machining, surface finishing, cleaning, and inspection. A quote that ignores these steps is usually a print-only estimate, not a functional-part quote.
-
-![Titanium AM post-processing process chain](../../assets/images/titanium/3.webp)
 
 ## Stress Relief
 

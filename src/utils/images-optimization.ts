@@ -21,6 +21,7 @@ export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
   layout?: Layout;
   widths?: number[] | null;
   aspectRatio?: string | number | null;
+  objectFit?: string;
   objectPosition?: string;
 
   format?: string;
@@ -280,6 +281,7 @@ export async function getImagesOptimized(
     height,
     sizes,
     aspectRatio,
+    objectFit,
     objectPosition,
     widths,
     layout = 'constrained',
@@ -300,6 +302,14 @@ export async function getImagesOptimized(
   widths ||= config.deviceSizes;
   sizes ||= getSizes(Number(width) || undefined, layout);
   aspectRatio = parseAspectRatio(aspectRatio);
+
+  const isLocalDevAsset =
+    typeof image !== 'string' &&
+    typeof image.src === 'string' &&
+    (image.src.includes('/@fs/') || image.src.includes('?origWidth='));
+  if (isLocalDevAsset) {
+    widths = [];
+  }
 
   // Calculate dimensions from aspect ratio
   if (aspectRatio) {
@@ -327,9 +337,13 @@ export async function getImagesOptimized(
   let breakpoints = getBreakpoints({ width: width, breakpoints: widths, layout: layout });
   breakpoints = [...new Set(breakpoints)].sort((a, b) => a - b);
 
-  const srcset = (await transform(image, breakpoints, Number(width) || undefined, Number(height) || undefined, format))
+  let srcset = (await transform(image, breakpoints, Number(width) || undefined, Number(height) || undefined, format))
     .map(({ src, width }) => `${src} ${width}w`)
     .join(', ');
+
+  if (srcset.includes('%2F%40fs') || srcset.includes('/@fs/')) {
+    srcset = '';
+  }
 
   return {
     src: typeof image === 'string' ? image : image.src,
@@ -342,6 +356,7 @@ export async function getImagesOptimized(
         width: width,
         height: height,
         aspectRatio: aspectRatio,
+        objectFit: objectFit,
         objectPosition: objectPosition,
         layout: layout,
       })}${style ?? ''}`,

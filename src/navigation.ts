@@ -11,36 +11,11 @@ export const headerData = {
     },
     {
       text: 'Engineering',
-      links: [
-        {
-          text: 'DfAM rules',
-          href: getPermalink('/posts/titanium-dfam-rules-lpbf-ebm-supports-overhangs-thin-walls'),
-        },
-        {
-          text: 'Qualification evidence',
-          href: getPermalink('/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons'),
-        },
-        {
-          text: 'RFQ guide',
-          href: getPermalink('/rfq'),
-        },
-      ],
+      href: getPermalink('/#engineering-guide'),
     },
     {
       text: 'Applications',
       href: getPermalink('/applications'),
-    },
-    {
-      text: 'Case Studies',
-      href: getBlogPermalink(),
-    },
-    {
-      text: 'FAQ',
-      href: getPermalink('/faq'),
-    },
-    {
-      text: 'Contact',
-      href: getPermalink('/contact'),
     },
   ],
   actions: [{ text: 'Email RFQ', href: rfqEmailHref, title: 'Email info@szcomo.com' }],

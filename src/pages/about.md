@@ -28,4 +28,4 @@ Simple geometry, tight all-over tolerances without machining access, high-volume
 
 ## Contact
 
-RFQ files and project questions can be sent to info@szcomo.com.
+RFQ files and project questions can be sent to [info@szcomo.com](mailto:info@szcomo.com).

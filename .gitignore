@@ -1,6 +1,7 @@
 # build output
 dist/
 .output/
+output/
 
 # unused template source images kept locally during migration
 src/assets/images/copper/

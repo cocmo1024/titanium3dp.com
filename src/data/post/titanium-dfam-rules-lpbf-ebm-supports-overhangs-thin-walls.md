@@ -8,14 +8,12 @@ tags: ['dfam', 'lpbf', 'ebm', 'supports', 'overhangs', 'thin-walls', 'fatigue']
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/2.webp
 metadata:
-  title: 'Titanium DfAM Rules: Supports, Overhangs, Thin Walls & Distortion'
+  title: 'Titanium DfAM Rules'
   description: 'DfAM guide for titanium LPBF and EBM parts covering support strategy, overhangs, thin-wall feasibility, trapped powder, distortion control, and fatigue-sensitive surfaces.'
   canonical: https://titanium3dp.com/posts/titanium-dfam-rules-lpbf-ebm-supports-overhangs-thin-walls/
 ---
 
 Titanium AM problems are rarely random. Geometry drives support strategy. Support strategy drives thermal history. Thermal history drives distortion, residual stress, surface condition, and fatigue behavior. DfAM should therefore be handled before a quote hardens into a build plan.
-
-![Titanium DfAM rules for supports and distortion control](../../assets/images/titanium/2.webp)
 
 ## Protect Critical Surfaces
 

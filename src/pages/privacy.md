@@ -1,6 +1,6 @@
 ---
 title: 'Privacy Policy'
-description: 'TITANIUM 3DP privacy policy for RFQ inquiries, CAD files, drawings, project notes, titanium material requirements, inspection scope, and contact information submitted through the website.'
+description: 'TITANIUM 3DP privacy policy for RFQ inquiries, CAD files, drawings, project notes, titanium material requirements, inspection scope, and contact information.'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
@@ -32,4 +32,4 @@ Project information is not sold. It may be shared with internal engineering, man
 
 ## Contact
 
-Privacy questions can be sent to info@szcomo.com.
+Privacy questions can be sent to [info@szcomo.com](mailto:info@szcomo.com).

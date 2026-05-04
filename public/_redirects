@@ -6,10 +6,12 @@
 /Terms /terms/ 301
 /Termst/ /terms/ 301
 /Termst /terms/ 301
-/blog/ /category/Case-Studies/ 301
-/blog /category/Case-Studies/ 301
-/category/EngineeringGuide/ /category/Case-Studies/ 301
-/category/EngineeringGuide /category/Case-Studies/ 301
+/blog/ /case-studies/ 301
+/blog /case-studies/ 301
+/category/Case-Studies/ /case-studies/ 301
+/category/Case-Studies /case-studies/ 301
+/category/EngineeringGuide/ /case-studies/ 301
+/category/EngineeringGuide /case-studies/ 301
 /posts/EngineeringGuide/titanium-additive-manufacturing-components-2026/ /posts/titanium-additive-manufacturing-components-2026/ 301
 /posts/EngineeringGuide/titanium-additive-manufacturing-components-2026 /posts/titanium-additive-manufacturing-components-2026/ 301
 /copper-cold-plates/ /applications/ 301

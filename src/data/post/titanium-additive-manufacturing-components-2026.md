@@ -8,7 +8,7 @@ tags: ['titanium-am', 'lightweighting', 'ti6al4v', 'dfam', 'fatigue', 'case-stud
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/4.webp
 metadata:
-  title: 'Titanium AM Applications for Real Weight Reduction (2026)'
+  title: 'Titanium AM Lightweighting'
   description: 'A titanium additive manufacturing screening guide for real weight reduction in aerospace, robotics, medical, energy, and structural applications.'
   canonical: https://titanium3dp.com/posts/titanium-additive-manufacturing-components-2026/
 ---

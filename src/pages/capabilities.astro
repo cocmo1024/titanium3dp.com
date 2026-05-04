@@ -4,6 +4,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
@@ -92,7 +93,7 @@ const capabilityShowcases = [
 ];
 
 const metadata = {
-  title: 'Titanium AM Capabilities | LPBF, EBM, HIP & Inspection',
+  title: 'Titanium AM Capabilities',
   description:
     'Titanium additive manufacturing capabilities for LPBF and EBM DfAM review, Ti-6Al-4V material selection, HIP, machining, CMM, CT, coupons, and traceability documentation.',
   openGraph: {
@@ -222,6 +223,21 @@ const metadata = {
           'Quotation support based on CAD, drawing, alloy target, quantity, lead time, post-processing, inspection, and documentation requirements.',
         icon: 'tabler:headset',
       },
+    ]}
+  />
+
+  <CallToAction
+    classes={{ container: sectionContainerClass }}
+    title="Send CAD for titanium AM review"
+    subtitle="Include alloy target, quantity, lead time, critical surfaces, post-processing, inspection, and documentation requirements."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com',
+        icon: 'tabler:mail',
+      },
+      { text: 'Prepare RFQ inputs', href: '/rfq/' },
     ]}
   />
 </Layout>
