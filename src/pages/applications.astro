@@ -1,0 +1,193 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const applicationShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/titanium/4.webp',
+      alt: 'Titanium 3D printed aerospace, motorsport, medical, and energy applications',
+    },
+    title: 'Weight reduction that changes system behavior',
+    description:
+      'Titanium AM is strongest when mass reduction improves flight, vehicle, robot, or rotating-system behavior and the fatigue/evidence burden is planned from the start.',
+    points: [
+      {
+        title: 'Topology-optimized structures',
+        description: 'Organic load paths, variable sections, hollow structures, and stiffness-to-weight optimization.',
+      },
+      {
+        title: 'Part consolidation',
+        description: 'Eliminate fasteners, overlaps, joints, and assembly interfaces when repairability and qualification burden are acceptable.',
+      },
+      {
+        title: 'Qualification boundary',
+        description: 'The cost and schedule only work when inspection, surface finish, and fatigue evidence are aligned with risk.',
+        callToAction: { text: 'Weight reduction case guide', href: '/posts/titanium-additive-manufacturing-components-2026/' },
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/titanium/7.webp',
+      alt: 'Titanium additive manufacturing application screening rules',
+    },
+    title: 'Application screening before quotation',
+    description:
+      'Not every titanium part belongs in AM. Screen the application around geometry value, load case, machining access, evidence budget, and procurement approval path.',
+    points: [
+      {
+        title: 'Good fit',
+        description: 'Complex load paths, internal channels, compact assemblies, patient-specific forms, and high value per kilogram saved.',
+      },
+      {
+        title: 'Weak fit',
+        description: 'Simple stock-like geometry, high-volume cost pressure, high fatigue claims with low evidence budget, or inaccessible supports.',
+      },
+      {
+        title: 'RFQ decision',
+        description: 'A useful quote connects application outcome to process route, finishing, inspection, documentation, and lead time.',
+      },
+    ],
+  },
+];
+
+const metadata = {
+  title: 'Titanium 3D Printing Applications | Aerospace, Medical & Energy',
+  description:
+    'Titanium 3D printing applications for aerospace lightweighting, motorsport performance parts, medical structures, energy hardware, internal channels, and part consolidation.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/titanium/4.webp',
+        width: 1200,
+        height: 628,
+        alt: 'Titanium 3D printing applications',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Applications', item: '/applications/' },
+    ]),
+    createItemListSchema('Titanium AM applications', [
+      {
+        name: 'Aerospace lightweight structures',
+        description: 'Topology-optimized brackets, mounts, housings, ducts, and secondary structures.',
+        url: '/applications/#aerospace',
+      },
+      {
+        name: 'Motorsport and robotics',
+        description: 'Lightweight arms, end effectors, powertrain parts, and dynamic structures where mass reduction matters.',
+        url: '/applications/#motorsport-robotics',
+      },
+      {
+        name: 'Medical and patient-specific structures',
+        description: 'Ti-6Al-4V ELI routes, porous structures, patient-specific geometry, and documentation planning.',
+        url: '/applications/#medical',
+      },
+      {
+        name: 'Energy and flow hardware',
+        description: 'Internal channels, compact housings, thermal/flow structures, and high-strength titanium assemblies.',
+        url: '/applications/#energy-flow',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Applications"
+    title="Use titanium AM where geometry changes the outcome"
+    subtitle="Titanium additive manufacturing earns its cost when weight reduction, part consolidation, internal geometry, or patient-specific form changes system performance enough to justify qualification and evidence."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email application review',
+        href: 'mailto:info@szcomo.com',
+      },
+      { text: 'RFQ inputs', href: '/rfq/' },
+    ]}
+    image={{
+      src: '~/assets/images/titanium/4.webp',
+      alt: 'Titanium 3D printing application parts',
+      class: 'mx-auto w-full',
+    }}
+  />
+
+  <Features2
+    title="Application families"
+    subtitle="Start from the part function and failure mode before choosing LPBF, EBM, machining, casting, or forging."
+    columns={3}
+    items={[
+      {
+        title: 'Aerospace lightweighting',
+        description:
+          'Brackets, mounts, ducts, housings, and secondary structures where load-path geometry and evidence packages can justify AM.',
+        icon: 'tabler:plane',
+      },
+      {
+        title: 'Motorsport and robotics',
+        description:
+          'End effectors, arms, mounts, and powertrain-adjacent structures where dynamic response improves when mass is removed.',
+        icon: 'tabler:engine',
+      },
+      {
+        title: 'Medical structures',
+        description:
+          'ELI material routes, porous surfaces, patient-specific geometry, and validation scope for medical-adjacent use cases.',
+        icon: 'tabler:medical-cross',
+      },
+      {
+        title: 'Energy and flow components',
+        description:
+          'High-strength housings, internal channels, thermal/flow structures, and compact titanium assemblies.',
+        icon: 'tabler:flame',
+      },
+      {
+        title: 'Part consolidation',
+        description:
+          'Fewer fasteners, lower assembly mass, integrated interfaces, and reduced alignment stack-ups when qualification burden is acceptable.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'When to avoid AM',
+        description:
+          'Simple geometry, all-over tight tolerances, no evidence budget, or high-volume cost sensitivity may favor conventional routes.',
+        icon: 'tabler:alert-triangle',
+      },
+    ]}
+  />
+
+  <SplitShowcase
+    title="Application-specific review"
+    subtitle="Use the actual system benefit to decide whether titanium AM is worth quoting."
+    tagline="Where AM can help"
+    items={applicationShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <CallToAction
+    classes={{ container: sectionContainerClass }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com',
+      },
+    ]}
+    title="Need a titanium AM application review?"
+    subtitle="Send CAD, target alloy, quantity, lead time, load case, operating environment, critical dimensions, post-processing needs, and inspection requirements."
+  />
+</Layout>

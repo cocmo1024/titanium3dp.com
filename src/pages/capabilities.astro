@@ -1,0 +1,227 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const capabilityShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/titanium/2.webp',
+      alt: 'Titanium LPBF and EBM DfAM manufacturability review',
+    },
+    title: 'Process fit before quotation',
+    description:
+      'The practical route depends on geometry, alloy, process physics, support access, post-processing, and the function the part must prove.',
+    points: [
+      {
+        title: 'LPBF titanium',
+        description:
+          'Reviewed for fine features, tight geometric control, lightweight structures, lattices, and compact functional parts.',
+      },
+      {
+        title: 'EBM titanium',
+        description:
+          'Reviewed where elevated powder-bed temperature, thicker sections, or process-specific support behavior may fit the application.',
+      },
+      {
+        title: 'Conventional alternatives',
+        description:
+          'Machining, casting, or forging remain better when geometry is simple or qualification cost overwhelms the benefit.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/titanium/5.webp',
+      alt: 'Titanium AM inspection requirements for CMM, CT, coupons, and traceability',
+    },
+    title: 'Inspection requirements',
+    description:
+      'If the part has fatigue, leak, dimensional, surface, density, or traceability requirements, include them with the RFQ so they shape the quote from the start.',
+    points: [
+      {
+        title: 'Dimensional verification',
+        description: 'CMM plans should reference stable datums and finished functional interfaces.',
+      },
+      {
+        title: 'Internal evidence',
+        description: 'CT can check internal geometry and defects above the effective resolution; acceptance thresholds must be explicit.',
+      },
+      {
+        title: 'Mechanical evidence',
+        description: 'Coupons, density checks, and post-processing records should match the risk class and build-lot definition.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/titanium/6.webp',
+      alt: 'Titanium AM RFQ review workspace with cost and traceability planning',
+    },
+    title: 'What helps us quote',
+    description:
+      'A useful RFQ connects part geometry to alloy target, quantity, operating environment, finishing route, inspection scope, and deliverables.',
+    points: [
+      {
+        title: 'Functional surfaces marked',
+        description: 'Identify datums, sealing faces, contact planes, bores, threads, ports, and keep-out surfaces.',
+      },
+      {
+        title: 'Service load defined',
+        description: 'Provide load spectrum, temperature, corrosion, biocompatibility, fatigue, leak, or flow requirements.',
+      },
+      {
+        title: 'Testing requested',
+        description: 'Specify CMM, CT, coupons, density, surface roughness, COA, COC, build record, or traceability requirements.',
+        callToAction: {
+          text: 'Send RFQ inputs',
+          href: 'mailto:info@szcomo.com',
+        },
+      },
+    ],
+  },
+];
+
+const metadata = {
+  title: 'Titanium AM Capabilities | LPBF, EBM, HIP & Inspection',
+  description:
+    'Titanium additive manufacturing capabilities for LPBF and EBM DfAM review, Ti-6Al-4V material selection, HIP, machining, CMM, CT, coupons, and traceability documentation.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/titanium/5.webp',
+        width: 1200,
+        height: 675,
+        alt: 'Titanium AM capabilities and inspection evidence',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Capabilities', item: '/capabilities/' },
+    ]),
+    createItemListSchema('Titanium AM capability areas', [
+      {
+        name: 'Material and process fit',
+        description: 'Ti-6Al-4V, Ti-6Al-4V ELI, CP Ti, LPBF, EBM, DED screening, and conventional alternatives.',
+        url: '/capabilities/#materials-process',
+      },
+      {
+        name: 'Post-processing and finishing',
+        description: 'Stress relief, anneal, HIP, support removal, machining, polishing, cleaning, and surface strategy.',
+        url: '/capabilities/#post-processing',
+      },
+      {
+        name: 'Inspection and documentation',
+        description: 'CMM, CT, coupons, density, COA/COC, build records, and traceability packages.',
+        url: '/capabilities/#inspection',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Capabilities"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com',
+        icon: 'tabler:mail',
+      },
+      { text: 'Review RFQ inputs', href: '/rfq/' },
+    ]}
+    image={{
+      src: '~/assets/images/titanium/5.webp',
+      alt: 'Industrial titanium additive manufacturing components and inspection evidence',
+      class: 'mx-auto w-full',
+    }}
+  >
+    <Fragment slot="title">
+      Engineering support for <br />
+      <span class="text-accent">inspection-ready titanium AM parts</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      TITANIUM 3DP supports titanium additive manufacturing RFQs by reviewing alloy choice, manufacturability,
+      post-processing, machining access, inspection evidence, and traceability requirements.
+    </Fragment>
+  </Hero>
+
+  <Stats
+    title="Review areas"
+    stats={[
+      { title: 'Titanium material paths', amount: 'G5 / G23 / CP' },
+      { title: 'Process routes', amount: 'LPBF / EBM' },
+      { title: 'Post-processing', amount: 'SR / HIP / CNC' },
+      { title: 'Evidence methods', amount: 'CMM / CT / COA' },
+    ]}
+  />
+
+  <Features3
+    id="materials-process"
+    title="Materials and process fit"
+    subtitle="The first decision is whether the alloy and process route can support the operating target, geometry, post-processing, and evidence requirement."
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Alloy path',
+        description: 'Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, CP Ti, or special titanium routes reviewed against risk.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'DfAM feasibility',
+        description: 'Supports, overhangs, thin walls, trapped powder, orientation, distortion, and machinable datums.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Process-chain route',
+        description: 'Print route, stress relief, HIP, support removal, machining, finishing, cleaning, and inspection sequence.',
+        icon: 'tabler:route',
+      },
+    ]}
+  />
+
+  <SplitShowcase
+    id="inspection"
+    title="Capability review modules"
+    subtitle="The quote path is clearer when process fit, post-processing, and acceptance evidence are stated early."
+    tagline="Engineering review"
+    items={capabilityShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <Features2
+    title="How we support the quote"
+    tagline="Contact us"
+    columns={2}
+    items={[
+      {
+        title: 'Manufacturability review',
+        description:
+          'Review for AM fit, geometry risk, support and powder-removal constraints, finishing access, and process alternatives.',
+        icon: 'tabler:messages',
+      },
+      {
+        title: 'Quotation support',
+        description:
+          'Quotation support based on CAD, drawing, alloy target, quantity, lead time, post-processing, inspection, and documentation requirements.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+</Layout>

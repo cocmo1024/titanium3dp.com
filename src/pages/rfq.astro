@@ -1,0 +1,265 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const rfqEmail = 'info@szcomo.com';
+const rfqEmailHref = 'mailto:info@szcomo.com';
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+const rfqTemplate = `Subject: Titanium AM RFQ - [alloy/process] - [qty] - [target date]
+
+Hello TITANIUM 3DP,
+
+Please review the attached CAD/drawings for quotation.
+
+Part/application:
+Target alloy or standard:
+Process preference, if any:
+Attached files:
+Quantity and build lot definition:
+Target lead time:
+Critical dimensions, datums, or functional surfaces:
+Operating conditions:
+Post-processing required:
+Surface finish requirements:
+Inspection scope:
+Documentation package:
+Ship-to country and Incoterms:
+
+Notes:
+
+Best regards,`;
+
+const rfqShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/titanium/6.webp',
+      alt: 'Titanium AM RFQ review inputs for cost, traceability, and deliverables',
+    },
+    title: 'How we handle different RFQs',
+    description: 'The response depends on part risk, geometry clarity, and the evidence package requested.',
+    points: [
+      {
+        title: 'Simple prototype quote',
+        description: 'If geometry, alloy, quantity, and finishing are clear, the reply may be a straightforward quote.',
+      },
+      {
+        title: 'Clarification needed',
+        description:
+          'If datums, support removal, HIP, CT, CMM, fatigue, leak, or traceability requirements are unclear, we ask focused questions first.',
+      },
+      {
+        title: 'Production-intent review',
+        description:
+          'For higher-risk parts, we align process route, post-processing, inspection evidence, documentation, and lead-time drivers.',
+      },
+    ],
+  },
+  {
+    imagePosition: 'right' as const,
+    image: {
+      src: '~/assets/images/titanium/5.webp',
+      alt: 'Titanium AM inspection and qualification evidence for RFQ preparation',
+    },
+    title: 'Information that helps quotation',
+    description: 'Do not overprepare if the project is simple. Send what you have, and identify what is critical.',
+    points: [
+      {
+        title: 'Geometry package',
+        description:
+          'STEP, X_T, or native CAD plus 2D drawings for datums, GD&T, critical dimensions, sealing faces, bores, threads, and interfaces.',
+      },
+      {
+        title: 'Functional requirements',
+        description:
+          'Load spectrum, temperature, corrosion or biocompatibility environment, fatigue concern, leak target, flow path, or surface requirement.',
+      },
+      {
+        title: 'Evidence package',
+        description:
+          'COA, COC, build record, powder lot traceability, CMM, CT, tensile coupons, density evidence, roughness checks, and packing requirements.',
+      },
+    ],
+  },
+];
+
+const metadata = {
+  title: 'Titanium AM RFQ Checklist | CAD, HIP, CT & Traceability',
+  description:
+    'Titanium AM RFQ checklist for alloy grade, LPBF/EBM process, STEP files, drawings, datums, tolerances, HIP, machining, CT, CMM, COA, COC, and traceability.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/titanium/6.webp',
+        width: 1200,
+        height: 628,
+        alt: 'Titanium additive manufacturing RFQ checklist',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'RFQ Inputs', item: '/rfq/' },
+    ]),
+    createItemListSchema('Titanium AM RFQ checklist', [
+      {
+        name: 'Alloy and process',
+        description: 'Ti-6Al-4V, Ti-6Al-4V ELI, CP Ti, standard, LPBF, EBM, or DED preference.',
+        url: '/rfq/',
+      },
+      {
+        name: 'Geometry and datums',
+        description: 'STEP, drawings, datum scheme, GD&T, critical surfaces, machining stock, and support keep-out zones.',
+        url: '/rfq/',
+      },
+      {
+        name: 'Post-processing and evidence',
+        description: 'Stress relief, HIP, machining, CMM, CT, coupons, COA/COC, and traceability level.',
+        url: '/rfq/',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="RFQ inputs"
+    title="Send enough information for an engineering-valid titanium AM quote"
+    subtitle="A simple prototype may only need CAD, alloy, quantity, and timing. Production-intent or high-risk parts need process, post-processing, inspection, and documentation requirements stated early."
+  />
+
+  <section class="relative not-prose py-10 md:py-14">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div
+        class="rounded-md border border-page-border bg-surface p-6 shadow-sm shadow-slate-900/10 dark:shadow-none md:p-8"
+      >
+        <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-primary">Email format</p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Use this structure if it helps.</h2>
+            <p class="mt-3 max-w-3xl text-muted">
+              Leave unknown fields blank rather than guessing. Missing evidence requirements often create a second quote loop.
+            </p>
+          </div>
+          <a
+            class="inline-flex shrink-0 items-center justify-center rounded-md border border-page-border px-4 py-2 text-sm font-semibold text-heading hover:bg-surface-raised"
+            href={rfqEmailHref}
+          >
+            Email {rfqEmail}
+          </a>
+        </div>
+
+        <pre
+          id="rfq-email-template"
+          class="mt-6 overflow-x-auto whitespace-pre-wrap rounded-md border border-page-border bg-[#050814] p-5 text-sm leading-6 text-[#f7f8f4]">{rfqTemplate}</pre>
+
+        <button
+          type="button"
+          data-aw-copy-rfq-template
+          data-aw-copy-target="rfq-email-template"
+          class="mt-4 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-secondary"
+        >
+          Copy RFQ email template
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <SplitShowcase
+    title="RFQ review flow"
+    tagline="Practical inputs"
+    subtitle="Send the drawing first. Add the requirements that affect titanium AM route selection, acceptance, and procurement approval."
+    items={rfqShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <FAQs
+    title="RFQ FAQs"
+    subtitle="These questions usually determine whether a titanium AM quote can move quickly."
+    columns={1}
+    items={[
+      {
+        title: 'Can you quote from an STL only?',
+        description:
+          'An STL can support a rough estimate, but actionable quoting and tolerance planning normally need STEP plus a drawing with datums, critical features, and inspection intent.',
+      },
+      {
+        title: 'What drives cost more than part volume?',
+        description:
+          'Support removability, build height, internal powder evacuation, HIP or heat treatment, machining access, CMM/CT scope, and traceability documentation often dominate cost.',
+      },
+      {
+        title: 'What is the difference between print-only and delivered functional part pricing?',
+        description:
+          'Print-only covers the build and basic depowdering. A delivered functional part includes support removal, post-processing, machining, finishing, inspection, and documentation aligned to acceptance criteria.',
+      },
+      {
+        title: 'How should I compare supplier quotes fairly?',
+        description:
+          'Normalize the alloy/spec, process route, post-processing, machining, inspection scope, documentation package, Incoterms, and lead-time assumptions. Cheap print-only quotes often exclude acceptance evidence.',
+      },
+    ]}
+  />
+
+  <Features3
+    title="Related titanium AM guides"
+    subtitle="Use these when the project needs more than a simple drawing-and-quantity quote."
+    columns={3}
+    items={[
+      {
+        title: 'Material selection',
+        description:
+          'Compare Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and CP Ti against performance, compliance, and evidence needs.',
+        icon: 'tabler:atom',
+        callToAction: {
+          text: 'Read material guide',
+          href: '/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/',
+        },
+      },
+      {
+        title: 'DfAM rules',
+        description: 'Plan supports, overhangs, thin walls, powder removal, distortion control, and fatigue-sensitive surfaces.',
+        icon: 'tabler:tools',
+        callToAction: {
+          text: 'Read DfAM guide',
+          href: '/posts/titanium-dfam-rules-lpbf-ebm-supports-overhangs-thin-walls/',
+        },
+      },
+      {
+        title: 'Qualification evidence',
+        description:
+          'Choose CT, CMM, coupons, density checks, COA/COC, build records, and traceability based on part risk.',
+        icon: 'tabler:file-certificate',
+        callToAction: {
+          text: 'Read evidence guide',
+          href: '/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/',
+        },
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Send the drawing and requirements"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: rfqEmailHref,
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with CAD, drawings,
+      alloy target, process preference, quantity, lead time, service conditions, post-processing, inspection, and documentation needs.
+    </Fragment>
+  </CallToAction>
+</Layout>

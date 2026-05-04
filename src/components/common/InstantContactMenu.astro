@@ -1,0 +1,24 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const phone = '8615301541312';
+const greeting =
+  'Hello, I would like to discuss a titanium additive manufacturing RFQ. I can send CAD drawings, alloy target, quantity, and requirements.';
+const encodedGreeting = encodeURIComponent(greeting);
+
+const whatsappHref = `https://wa.me/${phone}?text=${encodedGreeting}`;
+---
+
+<a
+  class="inline-flex items-center rounded-lg p-2.5 text-sm text-muted transition hover:bg-surface-raised hover:text-[#128c7e] focus:outline-none focus:ring-4 focus:ring-page-border dark:hover:text-[#25d366]"
+  href={whatsappHref}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Send RFQ via WhatsApp"
+  title="Send RFQ via WhatsApp"
+  data-aw-instant-contact-link
+  data-aw-contact-channel="whatsapp"
+>
+  <Icon name="tabler:brand-whatsapp" class="h-5 w-5" />
+  <span class="sr-only">Send RFQ via WhatsApp</span>
+</a>

@@ -1,0 +1,54 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.titanium3dp.com" }],
+      "destination": "https://titanium3dp.com/:path*",
+      "permanent": true
+    },
+    { "source": "/FAQ/", "destination": "/faq/", "permanent": true },
+    { "source": "/FAQ", "destination": "/faq/", "permanent": true },
+    { "source": "/Contact/", "destination": "/contact/", "permanent": true },
+    { "source": "/Contact", "destination": "/contact/", "permanent": true },
+    { "source": "/Terms/", "destination": "/terms/", "permanent": true },
+    { "source": "/Terms", "destination": "/terms/", "permanent": true },
+    { "source": "/Termst/", "destination": "/terms/", "permanent": true },
+    { "source": "/Termst", "destination": "/terms/", "permanent": true },
+    { "source": "/blog/", "destination": "/category/Case-Studies/", "permanent": true },
+    { "source": "/blog", "destination": "/category/Case-Studies/", "permanent": true },
+    { "source": "/category/EngineeringGuide/", "destination": "/category/Case-Studies/", "permanent": true },
+    { "source": "/category/EngineeringGuide", "destination": "/category/Case-Studies/", "permanent": true },
+    { "source": "/posts/EngineeringGuide/titanium-additive-manufacturing-components-2026/", "destination": "/posts/titanium-additive-manufacturing-components-2026/", "permanent": true },
+    { "source": "/posts/EngineeringGuide/titanium-additive-manufacturing-components-2026", "destination": "/posts/titanium-additive-manufacturing-components-2026/", "permanent": true },
+    { "source": "/copper-cold-plates/", "destination": "/applications/", "permanent": true },
+    { "source": "/copper-cold-plates", "destination": "/applications/", "permanent": true },
+    { "source": "/copper-heat-sinks/", "destination": "/applications/", "permanent": true },
+    { "source": "/copper-heat-sinks", "destination": "/applications/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000" }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

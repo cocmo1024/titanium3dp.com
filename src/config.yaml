@@ -1,0 +1,69 @@
+site:
+  name: TITANIUM 3DP
+  site: 'https://titanium3dp.com'
+  base: '/'
+  trailingSlash: true
+
+  googleSiteVerificationId: false
+
+metadata:
+  title:
+    default: TITANIUM 3DP | Titanium 3D Printing Services
+    template: '%s | TITANIUM 3DP'
+  description: 'Industrial titanium 3D printing services for Ti-6Al-4V, Ti-6Al-4V ELI, and CP Ti parts, with DfAM review, HIP, machining, inspection, and RFQ-ready documentation.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: TITANIUM 3DP
+    images:
+      - url: '~/assets/images/titanium/titanium-hero.webp'
+        width: 1200
+        height: 675
+    type: website
+  twitter:
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/posts/%slug%'
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'category/Case-Studies'
+      robots:
+        index: true
+
+    category:
+      isEnabled: false
+      pathname: 'blog/category'
+      robots:
+        index: false
+
+    tag:
+      isEnabled: true
+      pathname: 'blog/tag'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: false
+
+ui:
+  theme: 'dark'

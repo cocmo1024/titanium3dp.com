@@ -1,0 +1,146 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+
+const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
+
+const materialShowcases = [
+  {
+    imagePosition: 'left' as const,
+    image: {
+      src: '~/assets/images/titanium/1.webp',
+      alt: 'Titanium material selection for LPBF and EBM additive manufacturing',
+    },
+    title: 'Material selection should follow the risk class',
+    description:
+      'Titanium AM material choice depends on fatigue sensitivity, ductility, temperature, corrosion, oxygen control, evidence level, and whether the part is a prototype or a production-intent component.',
+    points: [
+      {
+        title: 'Define the standard',
+        description:
+          'State the alloy grade and any ASTM, AMS, ISO, or customer specification instead of relying on an informal material name.',
+      },
+      {
+        title: 'Match post-processing',
+        description:
+          'Stress relief, anneal, solution/aging, HIP, machining, and surface finishing can materially change acceptance assumptions.',
+      },
+      {
+        title: 'Tie evidence to risk',
+        description:
+          'Material COA, build records, coupons, CMM, CT, and traceability should scale with the part consequence.',
+      },
+    ],
+  },
+];
+
+const metadata = {
+  title: 'Titanium AM Materials | Ti-6Al-4V, ELI & CP Ti',
+  description:
+    'Titanium additive manufacturing material selection for Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and CP Ti Grades 1-4 in LPBF and EBM parts.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/titanium/1.webp',
+        width: 1200,
+        height: 628,
+        alt: 'Titanium AM material selection guide',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials/' },
+    ]),
+    createItemListSchema('Titanium AM material paths', [
+      {
+        name: 'Ti-6Al-4V Grade 5',
+        description: 'General high strength-to-weight titanium alloy route for structural LPBF and EBM parts.',
+        url: '/materials/#ti6al4v-grade-5',
+      },
+      {
+        name: 'Ti-6Al-4V ELI Grade 23',
+        description: 'Extra-low interstitial material path for fatigue-sensitive, medical-adjacent, and high-reliability parts.',
+        url: '/materials/#ti6al4v-eli-grade-23',
+      },
+      {
+        name: 'CP Ti Grades 1-4',
+        description: 'Commercially pure titanium path for ductility, corrosion behavior, or non-structural titanium requirements.',
+        url: '/materials/#cp-ti-grades-1-4',
+      },
+    ]),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Materials"
+    title="Titanium materials for additive manufacturing"
+    subtitle="Start with the required function, risk class, and evidence level. Then choose Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, CP Ti, or a special material route as needed."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email material review',
+        href: 'mailto:info@szcomo.com',
+      },
+      { text: 'RFQ inputs', href: '/rfq/' },
+    ]}
+    image={{
+      src: '~/assets/images/titanium/1.webp',
+      alt: 'Ti-6Al-4V and CP titanium additive manufacturing material review',
+      class: 'mx-auto w-full',
+    }}
+  />
+
+  <Features2
+    title="Common titanium AM material paths"
+    subtitle="The right grade is selected against fatigue risk, ductility, oxygen control, corrosion exposure, and documentation expectations."
+    columns={3}
+    items={[
+      {
+        title: 'Ti-6Al-4V Grade 5',
+        description:
+          'Common for strength-to-weight structural parts, brackets, housings, mounts, and performance hardware where repeatable post-processing and inspection can be planned.',
+        icon: 'tabler:hexagon-letter-t',
+        callToAction: {
+          text: 'Read guide',
+          href: '/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/',
+        },
+      },
+      {
+        title: 'Ti-6Al-4V ELI Grade 23',
+        description:
+          'Chosen when tighter interstitial limits and fracture/fatigue expectations matter, including medical-adjacent and high-reliability applications.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'CP Ti Grades 1-4',
+        description:
+          'Reviewed where ductility, corrosion resistance, or a commercially pure titanium requirement is more important than maximum strength.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  />
+
+  <SplitShowcase items={materialShowcases} classes={{ container: sectionContainerClass }} />
+
+  <CallToAction
+    classes={{ container: sectionContainerClass }}
+    title="Not sure which titanium grade fits the part?"
+    subtitle="Send CAD, drawings, operating environment, load spectrum, temperature, corrosion or biocompatibility constraints, quantity, and required evidence package."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email drawing for review',
+        href: 'mailto:info@szcomo.com',
+      },
+    ]}
+  />
+</Layout>

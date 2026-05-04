@@ -1,0 +1,97 @@
+---
+import { I18N, METADATA, SITE } from 'astrowind:config';
+import appleTouchIcon from '~/assets/favicons/apple-touch-icon.png';
+import type { MetaData, JsonLdNode } from '~/types';
+import { getCanonical } from '~/utils/permalinks';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata = {} } = Astro.props;
+
+const siteUrl = String(SITE.site).replace(/\/$/, '');
+const canonical = metadata.canonical || String(getCanonical(String(Astro.url.pathname)));
+const pageTitle = metadata.title || METADATA?.title?.default || SITE.name;
+const pageDescription = metadata.description || METADATA?.description;
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
+const logoUrl = String(new URL(appleTouchIcon.src, `${siteUrl}/`));
+
+const normalizeStructuredData = (item: JsonLdNode): JsonLdNode => {
+  const node = { ...item };
+  delete node['@context'];
+  return node;
+};
+
+const pageStructuredData = metadata.structuredData
+  ? (Array.isArray(metadata.structuredData) ? metadata.structuredData : [metadata.structuredData]).map(
+      normalizeStructuredData
+    )
+  : [];
+
+const graph: JsonLdNode[] = [
+  {
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE.name,
+    legalName: 'Suzhou Como Precision Materials Co., Ltd.',
+    url: `${siteUrl}/`,
+    email: 'info@szcomo.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+      width: 180,
+      height: 180,
+    },
+    description: METADATA?.description,
+    knowsAbout: [
+      'Titanium 3D printing',
+      'LPBF titanium additive manufacturing',
+      'EBM titanium additive manufacturing',
+      'Ti-6Al-4V Grade 5',
+      'Ti-6Al-4V ELI Grade 23',
+      'Commercially pure titanium',
+      'Titanium DfAM review',
+      'HIP and heat treatment',
+      'CMM and CT inspection planning',
+      'Traceability and RFQ documentation',
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        email: 'info@szcomo.com',
+        availableLanguage: ['en', 'zh'],
+      },
+    ],
+  },
+  {
+    '@type': 'WebSite',
+    '@id': websiteId,
+    url: `${siteUrl}/`,
+    name: SITE.name,
+    description: METADATA?.description,
+    publisher: { '@id': organizationId },
+    inLanguage: I18N?.language || 'en',
+  },
+  {
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: pageTitle,
+    ...(pageDescription ? { description: pageDescription } : {}),
+    isPartOf: { '@id': websiteId },
+    about: { '@id': organizationId },
+    inLanguage: I18N?.language || 'en',
+  },
+  ...pageStructuredData,
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': graph,
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

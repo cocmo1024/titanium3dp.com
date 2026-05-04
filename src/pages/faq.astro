@@ -1,0 +1,167 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createBreadcrumbSchema, createFAQSchema } from '~/utils/structured-data';
+
+const faqItems = [
+  {
+    title: 'What information must be included in a titanium AM RFQ?',
+    description:
+      'Include alloy grade and standard, process preference, quantity and lot definition, STEP files, drawings with datums, critical tolerances, functional surfaces, post-processing, inspection scope, documentation level, Incoterms, and ship-to country.',
+  },
+  {
+    title: 'How do I decide whether LPBF, EBM, or DED is right?',
+    description:
+      'LPBF is usually used for fine features and tighter geometric control. EBM can fit thicker sections and hot powder-bed process needs. DED is usually for larger near-net parts, repair, or deposition where machining is expected.',
+  },
+  {
+    title: 'What is the practical difference between prototype and production titanium AM?',
+    description:
+      'Prototype work usually has limited statistical evidence. Production requires locked parameters, powder and build-lot controls, repeatable post-processing, and stable acceptance criteria tied to part class.',
+  },
+  {
+    title: 'What drives titanium AM cost more than part volume?',
+    description:
+      'Support strategy, build height, orientation, powder evacuation, HIP or heat treatment, machining access, CMM/CT scope, and traceability documentation often drive cost more than raw part volume.',
+  },
+  {
+    title: 'What tolerances are realistic before machining?',
+    description:
+      'As-printed tolerance is geometry and datum dependent. Critical interfaces should usually include machining stock and stable datums. Tight all-over tolerance without machining access is expensive and risky.',
+  },
+  {
+    title: 'When is titanium AM not a fit?',
+    description:
+      'It is usually not a fit for simple geometry, high-volume cost sensitivity, tight all-over tolerances with no finishing access, inaccessible trapped powder, or high fatigue/leak demands without an evidence budget.',
+  },
+  {
+    title: 'What titanium alloys are most common in AM?',
+    description:
+      'Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI Grade 23 are the most common. CP Ti Grades 1-4 are reviewed when ductility, corrosion behavior, or a commercially pure titanium requirement matters.',
+  },
+  {
+    title: 'What is the difference between Grade 5 and Grade 23 ELI?',
+    description:
+      'Grade 23 ELI has tighter interstitial limits, especially oxygen and often nitrogen/hydrogen, which can support fracture toughness and fatigue-sensitive requirements in certain applications.',
+  },
+  {
+    title: 'Why does oxygen control matter for titanium powder?',
+    description:
+      'Titanium is reactive. Oxygen, nitrogen, and hydrogen affect strength, ductility, and fatigue. Powder reuse and handling should be controlled and traceable for higher-risk parts.',
+  },
+  {
+    title: 'How should internal channels be designed?',
+    description:
+      'Prioritize depowdering and inspection. Include access ports, avoid dead ends, reduce sudden section changes, and define flow, roughness, blockage, CT, or pressure-drop criteria when channels are functional.',
+  },
+  {
+    title: 'Can titanium AM produce leak-tight manifolds?',
+    description:
+      'Leak-tightness depends on porosity control, surface closure, HIP when justified, interface design, and validation. Specify leak rate, test method, pressure differential, and whether internal surfaces can be treated.',
+  },
+  {
+    title: 'What is the right approach for threads and precision holes?',
+    description:
+      'Print undersize and machine to final for high-quality threads or bores. As-printed threads are usually prototype-only or low-duty features unless the requirement is loose.',
+  },
+  {
+    title: 'Why is stress relief commonly required?',
+    description:
+      'LPBF introduces residual stress from steep thermal gradients. Stress relief reduces distortion risk during support removal and machining and is often the minimum stability step.',
+  },
+  {
+    title: 'When is HIP necessary?',
+    description:
+      'HIP is used when internal porosity reduction matters for fatigue, fracture-critical, or leak-critical applications. It is not always needed for non-critical prototypes.',
+  },
+  {
+    title: 'Does HIP eliminate all defects?',
+    description:
+      'No. HIP can close certain pores, but it does not correct geometry or reliably fix every lack-of-fusion or surface-connected defect. It must be combined with design, process control, and inspection.',
+  },
+  {
+    title: 'What inspection methods are most useful?',
+    description:
+      'CMM verifies dimensions against datums, CT checks internal geometry and defects above resolution, roughness checks define surface state, and coupons support mechanical evidence when risk requires it.',
+  },
+  {
+    title: 'What can CT prove and not prove?',
+    description:
+      'CT can detect voids or internal features above the effective scan resolution. It cannot prove absolute absence of porosity. Detection threshold and acceptance criteria must be explicit.',
+  },
+  {
+    title: 'Do I need tensile coupons for every build?',
+    description:
+      'High-risk or production-intent parts may require coupons per build lot or defined frequency. For prototypes, coupons may be optional unless mechanical properties gate acceptance.',
+  },
+  {
+    title: 'What does traceability mean in practice?',
+    description:
+      'Traceability links the part to powder lot and reuse state, build file/version, machine and parameter set, build date, post-processing batch, inspection reports, and delivered certificate package.',
+  },
+  {
+    title: 'What documents are commonly included?',
+    description:
+      'Common documents include COC, powder COA, dimensional inspection report when requested, post-processing record, and labels. Higher evidence levels add build records, CT reports, coupon results, and deviation logs.',
+  },
+  {
+    title: 'What is the difference between print-only and delivered functional part pricing?',
+    description:
+      'Print-only covers build and basic depowdering. Delivered functional parts include support removal, heat treatment, HIP if needed, machining, finishing, inspection, and documentation.',
+  },
+  {
+    title: 'How do I compare quotes across suppliers fairly?',
+    description:
+      'Compare the same alloy, process, post-processing, machining, inspection scope, documentation package, Incoterms, and delivery assumptions. Many low quotes exclude acceptance evidence.',
+  },
+  {
+    title: 'Can you handle sensitive projects?',
+    description:
+      'We can discuss NDA and data-handling expectations. Do not send export-controlled, classified, or restricted files unless a suitable agreement and handling process are already in place.',
+  },
+  {
+    title: 'What is the cleanest quote email template?',
+    description:
+      'Use the RFQ page format: alloy, process, quantity, STEP plus drawing, datums, critical tolerances, post-processing, surface finish, inspection scope, documentation package, ship-to country, and target date.',
+  },
+];
+
+const metadata = {
+  title: 'Titanium AM FAQ | RFQ, Tolerances, HIP, CT & Traceability',
+  description:
+    'FAQ for titanium additive manufacturing RFQs: Ti-6Al-4V materials, LPBF/EBM process selection, tolerances, HIP, CT, CMM, coupons, traceability, and procurement evidence.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'FAQ', item: '/faq/' },
+    ]),
+    createFAQSchema(faqItems),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="FAQ"
+    title="Titanium AM FAQ: RFQ, tolerances, HIP, CT, and traceability"
+    subtitle="Practical answers for engineers and procurement teams preparing titanium LPBF or EBM RFQs."
+  />
+
+  <FAQs title="Frequently asked questions" columns={1} items={faqItems} />
+
+  <CallToAction
+    title="Need a quote with feasibility notes?"
+    subtitle="Send STEP, drawings, alloy target, quantity, lead time, critical dimensions, datum scheme, post-processing, and inspection requirements."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email info@szcomo.com',
+        href: 'mailto:info@szcomo.com',
+        icon: 'tabler:mail',
+      },
+      { text: 'RFQ checklist', href: '/rfq/' },
+    ]}
+  />
+</Layout>
