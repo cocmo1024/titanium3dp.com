@@ -11,6 +11,9 @@ export default {
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
         link: 'var(--aw-color-link)',
+        'on-primary': 'var(--aw-color-on-primary)',
+        'on-accent': 'var(--aw-color-on-accent)',
+        whatsapp: 'var(--aw-color-whatsapp)',
         heading: 'var(--aw-color-text-heading)',
         page: 'var(--aw-color-text-page)',
         default: 'var(--aw-color-text-default)',
@@ -18,6 +21,8 @@ export default {
         surface: 'var(--aw-color-surface)',
         'surface-raised': 'var(--aw-color-surface-raised)',
         'page-border': 'var(--aw-color-border)',
+        'code-bg': 'var(--aw-color-code-bg)',
+        'code-text': 'var(--aw-color-code-text)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
