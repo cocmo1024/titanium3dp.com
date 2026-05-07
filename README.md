@@ -11,6 +11,10 @@ The site is a B2B lead-generation and engineering reference site for titanium ad
 - `npm run build`
 - `npm run preview`
 
+## Content Protocols
+
+- [`docs/industrial-article-image-prompt-protocol.md`](docs/industrial-article-image-prompt-protocol.md): image-prompt generation logic for future engineering articles.
+
 ## Public Routes
 
 - `/`

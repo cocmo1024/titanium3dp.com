@@ -28,7 +28,7 @@ const currentPage = page.currentPage ?? 1;
 const metadata = {
   title: `Case Studies${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
   description:
-    'Titanium additive manufacturing case studies and engineering guides for material selection, DfAM, HIP, machining, inspection, qualification, and RFQ preparation.',
+    'Titanium additive manufacturing case studies and engineering guides for process selection, material selection, DfAM, HIP, machining, inspection, qualification, and RFQ preparation.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -56,7 +56,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-5xl">
     <Headline
-      subtitle="Engineering notes for titanium material selection, DfAM risk, post-processing, inspection evidence, application fit, and RFQ preparation."
+      subtitle="Engineering notes for titanium process selection, material selection, DfAM risk, post-processing, inspection evidence, application fit, and RFQ preparation."
     >
       Case Studies
     </Headline>

@@ -332,6 +332,7 @@ export async function getRelatedPosts(originalPost: Post, maxResults: number = 4
 const ignoredRelatedTokens = new Set(['and', 'are', 'for', 'from', 'guide', 'into', 'the', 'this', 'with', 'your']);
 
 const topicFamilies = [
+  ['process', 'route', 'routes', 'lpbf', 'ebm', 'ded', 'deposition', 'powder', 'bed'],
   ['material', 'materials', 'titanium', 'ti6al4v', 'eli', 'grade', 'powder', 'oxygen', 'chemistry'],
   ['dfam', 'support', 'supports', 'overhang', 'wall', 'walls', 'distortion', 'orientation', 'powder'],
   ['rfq', 'specification', 'checklist', 'quote', 'acceptance', 'criteria'],
