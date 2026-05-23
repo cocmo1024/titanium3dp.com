@@ -1,7 +1,7 @@
 ---
 title: 'Titanium AM Qualification and Inspection Evidence'
 publishDate: 2026-01-01
-updateDate: 2026-05-04
+updateDate: 2026-05-24
 excerpt: 'How to specify CT, CMM, tensile coupons, density, surface roughness, COA/COC, build records, and traceability for titanium AM parts.'
 category: 'Case Studies'
 tags: ['qualification', 'inspection', 'ct', 'cmm', 'coupons', 'traceability', 'density']
@@ -21,6 +21,8 @@ CMM is useful only when the drawing defines stable, accessible datums. Datums on
 
 If datums are created by machining, the drawing and inspection plan should reflect the sequence: print, stress relief, machine datum, finish critical features, inspect.
 
+For more detail on route-aware datums, machining stock, and CMM scope, use [Titanium 3D Printing Tolerances: Datum Planning and CMM](/posts/titanium-3d-printing-tolerances-datum-planning-cmm/).
+
 ## CT Scanning
 
 CT can validate internal geometry and detect voids above the effective scan resolution. It cannot prove "no porosity." It proves no detectable defect above the threshold under the selected scan settings.
@@ -32,6 +34,8 @@ For CT to be useful, specify:
 - Acceptance criteria.
 - Areas of interest.
 - Whether internal channels, lattices, or wall thickness are part of the scope.
+
+When the CT scope includes enclosed flow paths, pair the evidence plan with [Titanium 3D Printed Internal Channels: Powder Removal and CT](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/).
 
 ## Mechanical Coupons
 
@@ -49,6 +53,8 @@ For critical parts, average density alone is not enough evidence.
 
 Surface condition affects fatigue, sealing, friction, flow, and corrosion initiation. Down-facing and internal surfaces are often rougher than upward-facing surfaces. If roughness matters, specify the surface, target, measurement method, and finishing route.
 
+For fatigue-sensitive surfaces, connect roughness requirements to the full route in [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/), not only to a generic finish note.
+
 ## Traceability Documents
 
 Traceability connects the delivered part to powder lot, reuse state, build file, machine, parameter set, build date, post-processing batch, inspection results, and certificates.
@@ -56,3 +62,5 @@ Traceability connects the delivered part to powder lot, reuse state, build file,
 Common documents include COA, COC, dimensional report, post-processing record, and labels. Higher evidence packages may add build records, CT reports, coupon results, density evidence, and deviation logs.
 
 Evidence should be proportional to risk. Under-specifying evidence creates approval delays; over-specifying evidence adds cost without improving the decision.
+
+For aerospace and defense sourcing, traceability also affects alternate-route approval; see [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/).

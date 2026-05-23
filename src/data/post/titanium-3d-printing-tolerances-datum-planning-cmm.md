@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing Tolerances: Datum Planning and CMM'
 publishDate: 2026-05-23
-updateDate: 2026-05-23
+updateDate: 2026-05-24
 excerpt: 'How to specify titanium 3D printing tolerances with datum planning, machining stock, GD&T intent, CMM inspection, and RFQ wording for accepted parts.'
 category: 'Case Studies'
 tags: ['tolerances', 'datum-planning', 'cmm', 'machining', 'dfam', 'rfq', 'inspection', 'lpbf']
@@ -204,6 +204,8 @@ Good places to spend:
 - CMM reporting for assembly-critical geometry.
 - CT or functional testing when internal features affect acceptance.
 - Surface finishing where fatigue, sealing, friction, or flow requires it.
+
+If the tight feature is also fatigue-critical, review [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/) before deciding whether machining, polishing, HIP, CT, or coupons belong in the route.
 
 Common waste:
 

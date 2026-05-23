@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printed Internal Channels: Powder Removal and CT'
 publishDate: 2026-05-18
-updateDate: 2026-05-18
+updateDate: 2026-05-24
 excerpt: 'Engineering guide for titanium 3D printed internal channels, powder removal, trapped-powder risk, CT inspection, cleaning access, surface finish, and RFQ acceptance criteria.'
 category: 'Case Studies'
 tags: ['internal-channels', 'powder-removal', 'ct', 'dfam', 'lpbf', 'ebm', 'rfq', 'inspection']
@@ -47,6 +47,8 @@ This can create real value when the project needs:
 - Low-volume parts where tooling, welding, or assembly cost is the bottleneck.
 
 The same geometry can become a liability if the channel is treated as a hidden CAD feature. In powder-bed titanium AM, every internal passage must survive the build, release trapped powder, tolerate internal surface texture, and pass the evidence plan required by the application.
+
+For aerospace and defense programs using manifolds, ducts, or compact flow bodies as alternate supply-chain candidates, see [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/).
 
 For broader application screening, see [Titanium 3D Printing Applications: Aerospace, Medical, Motorsport, and Energy](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/).
 

@@ -1,7 +1,7 @@
 ---
 title: 'Titanium AM Process Selection: LPBF vs EBM vs DED'
 publishDate: 2026-05-07
-updateDate: 2026-05-07
+updateDate: 2026-05-24
 excerpt: 'How to choose LPBF, EBM, or DED for titanium additive manufacturing based on geometry, part size, surface condition, post-processing, inspection, and RFQ risk.'
 category: 'Case Studies'
 tags: ['process-selection', 'lpbf', 'ebm', 'ded', 'dfam', 'rfq', 'post-processing']
@@ -99,6 +99,8 @@ DED can be attractive when:
 - The acceptance plan can address deposit integrity, dilution or interface risk, dimensional stock, heat input, and inspection.
 
 The RFQ should show both the deposited target and the final machined geometry. Without that distinction, the quote may miss the actual work.
+
+For aerospace and defense teams reviewing DED as a bridge route or large near-net alternative, see [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/).
 
 ## How Process Choice Changes Cost
 

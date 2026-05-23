@@ -1,7 +1,7 @@
 ---
 title: 'Titanium AM Material Selection: Ti-6Al-4V, ELI, and CP Titanium'
 publishDate: 2026-01-05
-updateDate: 2026-05-04
+updateDate: 2026-05-24
 excerpt: 'How to choose Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, or CP Ti for titanium LPBF/EBM parts based on fatigue, ductility, corrosion, and evidence needs.'
 category: 'Case Studies'
 tags: ['materials', 'ti6al4v', 'eli', 'cp-titanium', 'lpbf', 'ebm']
@@ -21,11 +21,15 @@ Ti-6Al-4V Grade 5 is the default starting point for many titanium AM structural 
 
 Choose Grade 5 when the requirement is structural performance and the acceptance path can tolerate the material's normal interstitial range. The quote should still define the standard, process route, post-processing, and inspection scope. A generic "Ti64" note is not enough for production-intent work.
 
+If the process route is still open, pair the material decision with [Titanium AM Process Selection: LPBF vs EBM vs DED](/posts/titanium-am-process-selection-lpbf-ebm-ded/) so alloy, geometry, surface condition, and evidence are reviewed together.
+
 ## Ti-6Al-4V ELI Grade 23
 
 Grade 23 ELI has tighter interstitial limits, especially oxygen and often nitrogen/hydrogen. This can support fracture toughness and fatigue-sensitive requirements in certain applications. It is often discussed for medical-adjacent parts and high-reliability structures.
 
 Use ELI when the evidence requirement justifies it. If the only reason is "higher quality," the RFQ is underspecified. State the mechanical requirement, standard, surface condition, post-processing, and documentation expectation.
+
+For cyclic loading or high-reliability structures, use the [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/) guide before assuming that material grade alone solves fatigue risk.
 
 ## CP Titanium Grades 1-4
 
@@ -48,3 +52,5 @@ High-risk applications should define chemistry limits, PSD reporting, powder lot
 - Evidence: COA, COC, build record, CMM, CT, coupons, density, traceability.
 
 The fastest material decision starts from acceptance criteria, not from a material name alone.
+
+Once the alloy is selected, define the supporting evidence with [Titanium AM Qualification and Inspection Evidence](/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/) and normalize purchasing scope with the [Titanium AM RFQ and Procurement Guide](/posts/titanium-am-rfq-procurement-cost-traceability-deliverables/).

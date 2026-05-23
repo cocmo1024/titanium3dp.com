@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing Applications: Aerospace, Medical, Motorsport, and Energy'
 publishDate: 2026-01-02
-updateDate: 2026-05-04
+updateDate: 2026-05-24
 excerpt: 'Where titanium LPBF and EBM deliver measurable value: aerospace lightweighting, motorsport structures, medical-adjacent parts, energy components, and internal channels.'
 category: 'Case Studies'
 tags: ['applications', 'aerospace', 'medical', 'motorsport', 'energy', 'lightweighting']
@@ -21,11 +21,15 @@ Aerospace applications often justify titanium AM when weight reduction, part con
 
 The boundary is evidence. Fatigue, surface condition, build orientation, coupons, CMM, CT, and traceability can dominate cost. If the documentation budget is missing, the application may not be viable.
 
+For supply-chain-driven aerospace and defense sourcing, use the [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/) guide to separate a fast printed shape from a qualified alternate production route.
+
 ## Motorsport and Robotics
 
 Motorsport and robotics parts can benefit when lower mass improves acceleration, response, vibration behavior, or energy use. End effectors, arms, mounts, and performance structures are good candidates when load path, stiffness, and dynamics drive the design.
 
 The hidden risk is over-optimization. Removing too much material can reduce stiffness or introduce fatigue-sensitive features.
+
+When cyclic load, vibration, or thin load-path transitions matter, review the [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/) guide before comparing print-only quotes.
 
 ## Medical and Patient-Specific Structures
 
@@ -38,6 +42,8 @@ Regulatory responsibility and validation scope must be explicit. A quote cannot 
 Energy components may use titanium AM for internal channels, compact housings, corrosion resistance, and strength-to-weight performance. Titanium is not a high-conductivity material compared with copper or aluminum, so thermal hardware should be justified by strength, mass, corrosion, or integrated geometry.
 
 For channels and manifolds, depowdering, internal roughness, pressure testing, and leak requirements should be included in the RFQ.
+
+For a deeper channel-specific route, see [Titanium 3D Printed Internal Channels: Powder Removal and CT](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/).
 
 ## Part Consolidation
 
@@ -54,3 +60,5 @@ The best consolidation cases have a measurable assembly benefit. The weakest cas
 - Is the delivered functional part more valuable than the print-only shape?
 
 If the answer is unclear, start with an application review before requesting production pricing.
+
+If several answers are negative, run the [When Not to Use Titanium Additive Manufacturing](/posts/when-not-to-use-titanium-additive-manufacturing/) screen before spending time on a detailed RFQ.

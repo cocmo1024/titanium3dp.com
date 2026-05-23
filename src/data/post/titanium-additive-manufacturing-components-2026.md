@@ -1,7 +1,7 @@
 ---
 title: 'Titanium Additive Manufacturing Applications That Achieved Real Weight Reduction (2026)'
 publishDate: 2026-01-06
-updateDate: 2026-05-04
+updateDate: 2026-05-24
 excerpt: 'Engineering screening guide for titanium AM weight reduction: topology optimization, lattices, part consolidation, fatigue boundaries, and system-level ROI.'
 category: 'Case Studies'
 tags: ['titanium-am', 'lightweighting', 'ti6al4v', 'dfam', 'fatigue', 'case-studies']
@@ -23,6 +23,8 @@ This guide uses three screening rules:
 - AM must enable geometry-driven stiffness, load-path optimization, internal routing, or part consolidation.
 - The added cost of printing, post-processing, inspection, and documentation must be accepted by the system benefit.
 
+For a broader view of where titanium AM fits across aerospace, medical-adjacent, motorsport, robotics, and energy hardware, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/).
+
 ## Topology-Optimized Titanium Structural Brackets
 
 **Application context:** aerospace structures, high-end industrial equipment, and robotics frames.
@@ -30,6 +32,8 @@ This guide uses three screening rules:
 **Material and process:** Ti-6Al-4V LPBF, usually followed by stress relief and finish machining on datums and interfaces.
 
 AM achieves real weight reduction when material follows the load path instead of the milling tool. Organic ribs, variable cross-sections, and integrated mounting features can remove low-utilization mass. The hidden boundary is fatigue: sharp transitions, support scars, and rough surfaces can quickly erase the benefit. A bracket is a good AM candidate only when fatigue is analyzed and finishing is planned before release.
+
+For fatigue-critical brackets, use the [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/) guide to connect surface condition, support scars, HIP, and inspection evidence before the design is frozen.
 
 ## Titanium Lattice-Reinforced Components
 
@@ -49,9 +53,13 @@ Titanium is not a high-conductivity thermal material compared with copper or alu
 
 The AM value is usually internal routing: curved channels, structural walls that also guide flow, and compact housings that remove external tubing or joints. The boundary is clear: if thermal efficiency is the only target, another material or process may win.
 
+If the value depends on enclosed flow paths, pair this screening with the [Titanium 3D Printed Internal Channels](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/) guide so powder removal, CT, and pressure-test assumptions are not treated as late-stage details.
+
 ## Aerospace Brackets Reaching Flight Hardware
 
 Flight hardware can justify titanium AM when the mass saving is valuable enough to pay for process control, post-processing, inspection, and documentation. Certification cost often dominates print cost. A "good" geometry is not enough.
+
+For aerospace and defense programs using AM as a second source or bridge route, see [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/).
 
 The RFQ should define alloy standard, build lot, process route, stress relief/HIP expectations, machined datums, inspection scope, and document package. Without that, the quote may look cheap but fail acceptance later.
 
@@ -76,3 +84,5 @@ A titanium component should be additively manufactured only when all three state
 - Cost increase is justified by performance, integration, schedule, or acceptance value.
 
 If any condition is missing, do not treat titanium AM as the default manufacturing route.
+
+When the project still looks viable, the next step is to normalize cost and scope with the [Titanium 3D Printing Cost Drivers](/posts/titanium-3d-printing-cost-drivers-rfq-price-reduction/) guide and the [Titanium AM RFQ and Procurement Guide](/posts/titanium-am-rfq-procurement-cost-traceability-deliverables/).

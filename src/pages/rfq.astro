@@ -116,7 +116,8 @@ const metadata = {
       },
       {
         name: 'Geometry and datums',
-        description: 'STEP, drawings, datum scheme, GD&T, critical surfaces, machining stock, and support keep-out zones.',
+        description:
+          'STEP, drawings, datum scheme, GD&T, critical surfaces, machining stock, and support keep-out zones.',
         url: '/rfq/',
       },
       {
@@ -146,7 +147,8 @@ const metadata = {
             <p class="text-sm font-semibold uppercase tracking-wide text-primary">Email format</p>
             <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">Use this structure if it helps.</h2>
             <p class="mt-3 max-w-3xl text-muted">
-              Leave unknown fields blank rather than guessing. Missing evidence requirements often create a second quote loop.
+              Leave unknown fields blank rather than guessing. Missing evidence requirements often create a second quote
+              loop.
             </p>
           </div>
           <a
@@ -211,7 +213,7 @@ const metadata = {
 
   <Features3
     title="Related titanium AM guides"
-    subtitle="Use these when the project needs more than a simple drawing-and-quantity quote."
+    subtitle="Use these when the project needs more than a simple drawing-and-quantity quote, especially when cost, tolerance, qualification, or supply-chain risk affects approval."
     columns={3}
     items={[
       {
@@ -226,7 +228,8 @@ const metadata = {
       },
       {
         title: 'DfAM rules',
-        description: 'Plan supports, overhangs, thin walls, powder removal, distortion control, and fatigue-sensitive surfaces.',
+        description:
+          'Plan supports, overhangs, thin walls, powder removal, distortion control, and fatigue-sensitive surfaces.',
         icon: 'tabler:tools',
         callToAction: {
           text: 'Read DfAM guide',
@@ -241,6 +244,36 @@ const metadata = {
         callToAction: {
           text: 'Read evidence guide',
           href: '/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/',
+        },
+      },
+      {
+        title: 'Cost drivers',
+        description:
+          'Normalize print-only, post-processing, machining, inspection, documentation, and traceability assumptions before comparing prices.',
+        icon: 'tabler:receipt-2',
+        callToAction: {
+          text: 'Read cost guide',
+          href: '/posts/titanium-3d-printing-cost-drivers-rfq-price-reduction/',
+        },
+      },
+      {
+        title: 'Tolerance planning',
+        description:
+          'Separate as-built, finished, and machined features so datums, CMM scope, and acceptance criteria are quote-ready.',
+        icon: 'tabler:ruler-measure',
+        callToAction: {
+          text: 'Read tolerance guide',
+          href: '/posts/titanium-3d-printing-tolerances-datum-planning-cmm/',
+        },
+      },
+      {
+        title: 'Aerospace and defense sourcing',
+        description:
+          'Plan alternate supply routes around LPBF, DED, post-processing, inspection evidence, and traceability requirements.',
+        icon: 'tabler:plane-tilt',
+        callToAction: {
+          text: 'Read supply-chain guide',
+          href: '/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/',
         },
       },
     ]}
@@ -258,8 +291,9 @@ const metadata = {
     ]}
   >
     <Fragment slot="subtitle">
-      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with CAD, drawings,
-      alloy target, process preference, quantity, lead time, service conditions, post-processing, inspection, and documentation needs.
+      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with CAD, drawings, alloy
+      target, process preference, quantity, lead time, service conditions, post-processing, inspection, and documentation
+      needs.
     </Fragment>
   </CallToAction>
 </Layout>

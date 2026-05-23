@@ -1,6 +1,7 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -25,12 +26,17 @@ const applicationShowcases = [
       },
       {
         title: 'Part consolidation',
-        description: 'Eliminate fasteners, overlaps, joints, and assembly interfaces when repairability and qualification burden are acceptable.',
+        description:
+          'Eliminate fasteners, overlaps, joints, and assembly interfaces when repairability and qualification burden are acceptable.',
       },
       {
         title: 'Qualification boundary',
-        description: 'The cost and schedule only work when inspection, surface finish, and fatigue evidence are aligned with risk.',
-        callToAction: { text: 'Weight reduction case guide', href: '/posts/titanium-additive-manufacturing-components-2026/' },
+        description:
+          'The cost and schedule only work when inspection, surface finish, and fatigue evidence are aligned with risk.',
+        callToAction: {
+          text: 'Weight reduction case guide',
+          href: '/posts/titanium-additive-manufacturing-components-2026/',
+        },
       },
     ],
   },
@@ -46,15 +52,22 @@ const applicationShowcases = [
     points: [
       {
         title: 'Good fit',
-        description: 'Complex load paths, internal channels, compact assemblies, patient-specific forms, and high value per kilogram saved.',
+        description:
+          'Complex load paths, internal channels, compact assemblies, patient-specific forms, and high value per kilogram saved.',
       },
       {
         title: 'Weak fit',
-        description: 'Simple stock-like geometry, high-volume cost pressure, high fatigue claims with low evidence budget, or inaccessible supports.',
+        description:
+          'Simple stock-like geometry, high-volume cost pressure, high fatigue claims with low evidence budget, or inaccessible supports.',
       },
       {
         title: 'RFQ decision',
-        description: 'A useful quote connects application outcome to process route, finishing, inspection, documentation, and lead time.',
+        description:
+          'A useful quote connects application outcome to process route, finishing, inspection, documentation, and lead time.',
+        callToAction: {
+          text: 'No-go screening guide',
+          href: '/posts/when-not-to-use-titanium-additive-manufacturing/',
+        },
       },
     ],
   },
@@ -88,7 +101,8 @@ const metadata = {
       },
       {
         name: 'Motorsport and robotics',
-        description: 'Lightweight arms, end effectors, powertrain parts, and dynamic structures where mass reduction matters.',
+        description:
+          'Lightweight arms, end effectors, powertrain parts, and dynamic structures where mass reduction matters.',
         url: '/applications/#motorsport-robotics',
       },
       {
@@ -98,7 +112,8 @@ const metadata = {
       },
       {
         name: 'Energy and flow hardware',
-        description: 'Internal channels, compact housings, thermal/flow structures, and high-strength titanium assemblies.',
+        description:
+          'Internal channels, compact housings, thermal/flow structures, and high-strength titanium assemblies.',
         url: '/applications/#energy-flow',
       },
     ]),
@@ -175,6 +190,55 @@ const metadata = {
     subtitle="Use the actual system benefit to decide whether titanium AM is worth quoting."
     tagline="Where AM can help"
     items={applicationShowcases}
+    classes={{ container: sectionContainerClass }}
+  />
+
+  <Features3
+    title="Application deep dives"
+    subtitle="Use these guides to connect an application idea to the manufacturing route, evidence burden, and purchasing path."
+    columns={3}
+    items={[
+      {
+        title: 'Aerospace and defense supply chains',
+        description:
+          'Evaluate titanium AM as an alternate supply route for lightweight structures, near-net blanks, bridge production, and qualified sourcing.',
+        icon: 'tabler:plane-tilt',
+        callToAction: {
+          text: 'Read supply-chain guide',
+          href: '/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/',
+        },
+      },
+      {
+        title: 'Application fit map',
+        description:
+          'Compare aerospace, motorsport, medical-adjacent, energy, flow, and consolidation cases before committing to AM.',
+        icon: 'tabler:layout-grid',
+        callToAction: {
+          text: 'Read application guide',
+          href: '/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/',
+        },
+      },
+      {
+        title: 'Internal channels and manifolds',
+        description:
+          'Plan powder removal, CT inspection, pressure testing, cleaning access, and acceptance criteria for enclosed flow paths.',
+        icon: 'tabler:route',
+        callToAction: {
+          text: 'Read channel guide',
+          href: '/posts/titanium-3d-printed-internal-channels-powder-removal-ct/',
+        },
+      },
+      {
+        title: 'Fatigue-sensitive lightweight parts',
+        description:
+          'Connect weight reduction to surface finish, support scars, HIP decisions, coupons, CT, and route-specific acceptance evidence.',
+        icon: 'tabler:activity-heartbeat',
+        callToAction: {
+          text: 'Read fatigue guide',
+          href: '/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/',
+        },
+      },
+    ]}
     classes={{ container: sectionContainerClass }}
   />
 

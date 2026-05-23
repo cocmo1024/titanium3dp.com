@@ -44,12 +44,28 @@ export const footerData = {
           href: getPermalink('/posts/titanium-dfam-rules-lpbf-ebm-supports-overhangs-thin-walls'),
         },
         {
+          text: 'Cost drivers',
+          href: getPermalink('/posts/titanium-3d-printing-cost-drivers-rfq-price-reduction'),
+        },
+        {
+          text: 'Tolerance planning',
+          href: getPermalink('/posts/titanium-3d-printing-tolerances-datum-planning-cmm'),
+        },
+        {
           text: 'Qualification evidence',
           href: getPermalink('/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons'),
         },
         {
+          text: 'Fatigue design',
+          href: getPermalink('/posts/titanium-3d-printing-fatigue-design-surface-finish-hip'),
+        },
+        {
           text: 'RFQ and procurement',
           href: getPermalink('/posts/titanium-am-rfq-procurement-cost-traceability-deliverables'),
+        },
+        {
+          text: 'Aerospace supply chain',
+          href: getPermalink('/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience'),
         },
       ],
     },

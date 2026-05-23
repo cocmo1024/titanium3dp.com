@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing Cost Drivers: How to Reduce RFQ Price'
 publishDate: 2026-05-12
-updateDate: 2026-05-12
+updateDate: 2026-05-24
 excerpt: 'Practical cost drivers for titanium 3D printing RFQs, including build time, support removal, HIP, machining, inspection evidence, traceability, and quote normalization.'
 category: 'Case Studies'
 tags: ['cost-drivers', 'rfq', 'procurement', 'lpbf', 'ebm', 'hip', 'machining', 'inspection']
@@ -142,6 +142,8 @@ A stronger RFQ separates three surface classes:
 
 This helps the supplier quote the delivered part instead of over-finishing everything or under-quoting functional surfaces.
 
+For more detail on datums, stock, and CMM scope, use [Titanium 3D Printing Tolerances: Datum Planning and CMM](/posts/titanium-3d-printing-tolerances-datum-planning-cmm/).
+
 ## Inspection Evidence and Traceability
 
 Inspection is not a single line item. A low-risk prototype may need dimensional checks on a few features and basic material certification. A fatigue-sensitive, leak-critical, or regulated component may need CMM, CT, tensile coupons, density evidence, post-process records, and lot traceability.
@@ -188,6 +190,8 @@ Some cost reductions create hidden risk. Be careful when removing:
 - Traceability when the purchasing file requires lot evidence.
 
 If a supplier recommends cutting one of these items, ask what design change, risk basis, or inspection alternative supports the change. A cheaper route is useful only when the acceptance risk is still controlled.
+
+For aerospace and defense supply-chain work, the same rule applies to alternate sourcing: use [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/) to compare lead-time benefit against qualification, traceability, and supplier-readiness risk.
 
 ## RFQ Inputs That Usually Lower Price
 

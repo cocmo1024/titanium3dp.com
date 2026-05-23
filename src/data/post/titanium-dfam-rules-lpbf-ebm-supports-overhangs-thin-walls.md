@@ -1,7 +1,7 @@
 ---
 title: 'Titanium DfAM Rules for LPBF and EBM'
 publishDate: 2026-01-04
-updateDate: 2026-05-04
+updateDate: 2026-05-24
 excerpt: 'Titanium DfAM rules for supports, overhangs, thin walls, trapped powder, distortion, fatigue-sensitive surfaces, and machining access.'
 category: 'Case Studies'
 tags: ['dfam', 'lpbf', 'ebm', 'supports', 'overhangs', 'thin-walls', 'fatigue']
@@ -39,6 +39,8 @@ Internal cavities, lattices, and channels must be designed for depowdering. Dead
 
 If the internal feature is functional, define acceptance criteria: minimum passage, allowable blockage, CT detection threshold, flow rate, pressure drop, or cleaning method.
 
+For enclosed flow paths and manifolds, use the [Titanium 3D Printed Internal Channels](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/) guide to connect CAD choices to depowdering, CT, pressure testing, and acceptance criteria.
+
 ## Orientation Controls the Trade-Off
 
 Orientation affects support volume, surface roughness, build height, thermal distortion, and critical-face quality. Production work should treat orientation as a controlled variable. A change in orientation can change surface condition, mechanical behavior, and inspection basis.
@@ -49,6 +51,10 @@ Titanium AM fatigue is sensitive to defects, surface roughness, support marks, a
 
 Designers should avoid sharp transitions, add generous radii, reserve finishing stock on fatigue-sensitive surfaces, and define whether HIP, polishing, machining, or shot peening is part of the route.
 
+The detailed fatigue route is covered in [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/), especially for support scars, notches, HIP decisions, and coupon evidence.
+
 ## RFQ Output
 
 A useful DfAM response should identify feasible orientation, support risk, surfaces to protect, machining allowances, powder-removal concerns, likely post-processing, and inspection implications. If these are not discussed before quoting, the project often reopens after the first build review.
+
+For quote impact, pair DfAM review with [Titanium 3D Printing Cost Drivers](/posts/titanium-3d-printing-cost-drivers-rfq-price-reduction/) and [Titanium 3D Printing Tolerances](/posts/titanium-3d-printing-tolerances-datum-planning-cmm/) so support strategy, machining stock, and inspection are priced as one route.
