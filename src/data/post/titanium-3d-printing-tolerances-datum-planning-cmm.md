@@ -6,7 +6,7 @@ excerpt: 'How to specify titanium 3D printing tolerances with datum planning, ma
 category: 'Case Studies'
 tags: ['tolerances', 'datum-planning', 'cmm', 'machining', 'dfam', 'rfq', 'inspection', 'lpbf']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/5.webp
+image: ~/assets/images/titanium/titanium-3d-printing-tolerances-datum-planning-cmm.webp
 metadata:
   title: 'Titanium 3D Printing Tolerances and Datum Planning'
   description: 'Practical guide to titanium 3D printing tolerances, datum planning, machining stock, GD&T intent, CMM inspection, and RFQ wording for accepted AM parts.'

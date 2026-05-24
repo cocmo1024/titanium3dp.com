@@ -6,7 +6,7 @@ excerpt: 'Engineering guide for titanium 3D printed internal channels, powder re
 category: 'Case Studies'
 tags: ['internal-channels', 'powder-removal', 'ct', 'dfam', 'lpbf', 'ebm', 'rfq', 'inspection']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/5.webp
+image: ~/assets/images/titanium/titanium-3d-printed-internal-channels-powder-removal-ct.webp
 metadata:
   title: 'Titanium 3D Printed Internal Channels: Powder Removal and CT'
   description: 'Design and RFQ guide for titanium 3D printed internal channels, trapped powder, depowdering access, CT inspection, surface finish, pressure testing, and acceptance criteria.'

@@ -6,7 +6,7 @@ excerpt: 'How aerospace and defense buyers can use titanium 3D printing for supp
 category: 'Case Studies'
 tags: ['aerospace', 'defense', 'supply-chain', 'lpbf', 'ded', 'qualification', 'traceability', 'rfq']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/6.webp
+image: ~/assets/images/titanium/titanium-3d-printing-aerospace-defense-supply-chain-resilience.webp
 metadata:
   title: 'Titanium 3D Printing for Aerospace and Defense Supply Chains'
   description: 'Engineering RFQ guide for titanium 3D printing in aerospace and defense supply chains: LPBF, DED, qualification, traceability, inspection evidence, and production readiness.'

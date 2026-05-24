@@ -6,7 +6,7 @@ excerpt: 'How to specify CT, CMM, tensile coupons, density, surface roughness, C
 category: 'Case Studies'
 tags: ['qualification', 'inspection', 'ct', 'cmm', 'coupons', 'traceability', 'density']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/5.webp
+image: ~/assets/images/titanium/titanium-am-qualification-inspection-ct-cmm-tensile-coupons.webp
 metadata:
   title: 'Titanium AM Inspection Evidence'
   description: 'Titanium AM qualification guide covering CT, CMM, tensile coupons, density, surface roughness, COA, COC, build records, and traceability.'

@@ -6,7 +6,7 @@ excerpt: 'RFQ and procurement guide for titanium AM cost drivers, support remova
 category: 'Case Studies'
 tags: ['rfq', 'procurement', 'cost-drivers', 'traceability', 'deliverables', 'hip']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/6.webp
+image: ~/assets/images/titanium/titanium-am-rfq-procurement-cost-traceability-deliverables.webp
 metadata:
   title: 'Titanium AM RFQ Guide'
   description: 'Titanium AM procurement guide for RFQ inputs, cost drivers, traceability level, acceptance evidence, post-processing, machining, CT, CMM, and deliverables.'

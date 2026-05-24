@@ -6,7 +6,7 @@ excerpt: 'Practical cost drivers for titanium 3D printing RFQs, including build 
 category: 'Case Studies'
 tags: ['cost-drivers', 'rfq', 'procurement', 'lpbf', 'ebm', 'hip', 'machining', 'inspection']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/6.webp
+image: ~/assets/images/titanium/titanium-3d-printing-cost-drivers-rfq-price-reduction.webp
 metadata:
   title: 'Titanium 3D Printing Cost Drivers and RFQ Price Reduction'
   description: 'Guide to titanium 3D printing cost drivers: build time, supports, HIP, machining, inspection, traceability, and how to reduce RFQ price without cutting evidence.'

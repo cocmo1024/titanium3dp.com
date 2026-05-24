@@ -6,7 +6,7 @@ excerpt: 'Engineering screening guide for titanium AM weight reduction: topology
 category: 'Case Studies'
 tags: ['titanium-am', 'lightweighting', 'ti6al4v', 'dfam', 'fatigue', 'case-studies']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/4.webp
+image: ~/assets/images/titanium/titanium-additive-manufacturing-components-2026.webp
 metadata:
   title: 'Titanium AM Lightweighting'
   description: 'A titanium additive manufacturing screening guide for real weight reduction in aerospace, robotics, medical, energy, and structural applications.'

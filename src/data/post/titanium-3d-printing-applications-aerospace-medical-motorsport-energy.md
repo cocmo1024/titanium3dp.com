@@ -6,7 +6,7 @@ excerpt: 'Where titanium LPBF and EBM deliver measurable value: aerospace lightw
 category: 'Case Studies'
 tags: ['applications', 'aerospace', 'medical', 'motorsport', 'energy', 'lightweighting']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/4.webp
+image: ~/assets/images/titanium/titanium-3d-printing-applications-aerospace-medical-motorsport-energy.webp
 metadata:
   title: 'Titanium AM Application Fit'
   description: 'Titanium 3D printing application guide for aerospace lightweighting, motorsport parts, medical-adjacent structures, energy hardware, internal channels, and part consolidation.'

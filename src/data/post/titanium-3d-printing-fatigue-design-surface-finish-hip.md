@@ -1,12 +1,12 @@
 ---
 title: 'Titanium 3D Printing Fatigue Design: Surface Finish, HIP, and Inspection'
 publishDate: 2026-05-20
-updateDate: 2026-05-20
+updateDate: 2026-05-24
 excerpt: 'Engineering guide for titanium 3D printing fatigue design, covering surface finish, HIP, support scars, notches, build orientation, CT, coupons, and RFQ acceptance evidence.'
 category: 'Case Studies'
 tags: ['fatigue', 'surface-finish', 'hip', 'lpbf', 'ebm', 'dfam', 'inspection', 'rfq']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/3.webp
+image: ~/assets/images/titanium/titanium-3d-printing-fatigue-design-surface-finish-hip.webp
 metadata:
   title: 'Titanium 3D Printing Fatigue Design: Surface Finish, HIP, and Inspection'
   description: 'Titanium AM fatigue design guide for LPBF and EBM parts, including surface finish, HIP, support scars, notches, build orientation, CT, coupons, and RFQ evidence.'

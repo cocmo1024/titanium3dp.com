@@ -6,7 +6,7 @@ excerpt: 'Stress relief, anneal, HIP, support removal, machining datums, surface
 category: 'Case Studies'
 tags: ['post-processing', 'hip', 'stress-relief', 'machining', 'surface-finish', 'inspection']
 author: 'TITANIUM 3DP Engineering'
-image: ~/assets/images/titanium/3.webp
+image: ~/assets/images/titanium/titanium-3d-printing-post-processing-hip-machining-surface-finish.webp
 metadata:
   title: 'Titanium 3D Printing Post-Processing'
   description: 'Post-processing guide for titanium 3D printing covering stress relief, anneal, HIP, support removal, machining datums, surface finish, cleaning, and inspection sequence.'
