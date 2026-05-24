@@ -61,6 +61,8 @@ Flight hardware can justify titanium AM when the mass saving is valuable enough 
 
 For aerospace and defense programs using AM as a second source or bridge route, see [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/).
 
+For drone and UAV hardware, payload mounts, sensor brackets, motor junctions, and compact thermal-adjacent parts need their own vibration and RFQ screen; see [Titanium 3D Printing for Drone and UAV Parts](/posts/titanium-3d-printing-drone-uav-parts/).
+
 The RFQ should define alloy standard, build lot, process route, stress relief/HIP expectations, machined datums, inspection scope, and document package. Without that, the quote may look cheap but fail acceptance later.
 
 ## Robotic Arms and End Effectors

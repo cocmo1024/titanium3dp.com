@@ -67,6 +67,10 @@ export const footerData = {
           text: 'Aerospace supply chain',
           href: getPermalink('/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience'),
         },
+        {
+          text: 'Drone/UAV parts',
+          href: getPermalink('/posts/titanium-3d-printing-drone-uav-parts'),
+        },
       ],
     },
     {

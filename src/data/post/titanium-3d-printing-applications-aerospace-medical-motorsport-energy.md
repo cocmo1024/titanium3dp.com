@@ -23,6 +23,8 @@ The boundary is evidence. Fatigue, surface condition, build orientation, coupons
 
 For supply-chain-driven aerospace and defense sourcing, use the [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/) guide to separate a fast printed shape from a qualified alternate production route.
 
+For unmanned aircraft, payload brackets, sensor mounts, motor junctions, and thermal-adjacent hardware need a more specific vibration and RFQ review. Use the [Titanium 3D Printing for Drone and UAV Parts](/posts/titanium-3d-printing-drone-uav-parts/) guide when the project is tied to drone or UAV hardware.
+
 ## Motorsport and Robotics
 
 Motorsport and robotics parts can benefit when lower mass improves acceleration, response, vibration behavior, or energy use. End effectors, arms, mounts, and performance structures are good candidates when load path, stiffness, and dynamics drive the design.
