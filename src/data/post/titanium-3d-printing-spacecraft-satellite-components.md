@@ -153,7 +153,7 @@ Risk areas include:
 - Leak paths around as-built surfaces, plugs, or post-machined ports.
 - CT resolution that cannot see the smallest critical feature.
 
-NASA's Perseverance coverage of 3D-printed metal parts describes X-ray inspection used to check for defects and powder-free internal channels on MOXIE hardware. The spacecraft RFQ lesson is the same for titanium manifolds: internal geometry needs a removal, cleaning, inspection, and acceptance plan.
+NASA/JPL's [Perseverance rover coverage of 3D-printed metal parts](https://www.jpl.nasa.gov/news/nasas-perseverance-rover-bringing-3d-printed-metal-parts-to-mars/) describes X-ray inspection used to check for defects and powder-free internal channels on MOXIE hardware. The spacecraft RFQ lesson is the same for titanium manifolds: internal geometry needs a removal, cleaning, inspection, and acceptance plan.
 
 For deeper channel-specific sourcing logic, use [Titanium 3D Printed Internal Channels: Powder Removal and CT](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/). For pressure and thermal hardware, pair this with [Titanium 3D Printed Heat Exchangers: Thermal Management RFQ Guide](/posts/titanium-3d-printed-heat-exchangers-thermal-management/).
 
