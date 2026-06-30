@@ -31,6 +31,8 @@ Motorsport and robotics parts can benefit when lower mass improves acceleration,
 
 The hidden risk is over-optimization. Removing too much material can reduce stiffness or introduce fatigue-sensitive features.
 
+For race-specific hardware, use [Titanium 3D Printing for Motorsport and Racing Parts](/posts/titanium-3d-printing-motorsport-racing-parts/) to check rulebook risk, heat-zone hardware, suspension-adjacent parts, CMM, fatigue evidence, and RFQ wording.
+
 When cyclic load, vibration, or thin load-path transitions matter, review the [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/) guide before comparing print-only quotes.
 
 ## Medical and Patient-Specific Structures
