@@ -19,6 +19,8 @@ In automation, every gram at the wrist can affect payload margin, acceleration, 
 
 For a broader application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for robotics-specific RFQ decisions.
 
+For humanoid robots and embodied-AI hardware, use [Titanium 3D Printing for Humanoid Robots and AI Robotics Hardware](/posts/titanium-3d-printing-humanoid-robots-ai-robotics-hardware/) to review joints, actuator housings, wrist and ankle brackets, fatigue, bearing bores, and RFQ evidence.
+
 ## Quick Answer
 
 Titanium additive manufacturing is worth reviewing for robotics and automation parts when the component is compact, high-value, interface-heavy, motion-sensitive, or exposed to repeated loads, washdown, heat, corrosion, or space constraints.
