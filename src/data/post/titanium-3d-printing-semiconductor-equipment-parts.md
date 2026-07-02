@@ -17,7 +17,7 @@ Titanium 3D printing for semiconductor equipment parts is valuable when a compon
 
 Semiconductor equipment hardware is unforgiving. A printed titanium gas manifold, vacuum adapter, wafer handling bracket, sensor mount, cooling body, or process fixture must control particles, trapped powder, sealing surfaces, datum geometry, cleaning route, and documentation. If those details are left out of the RFQ, the quote may price a printed shape instead of a part that can be accepted into an equipment build.
 
-For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for semiconductor-equipment-specific RFQ decisions.
+For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for semiconductor-equipment-specific RFQ decisions. For quantum computing, dilution refrigerator, and cryogenic vacuum support hardware, use [Titanium 3D Printing for Quantum Computing and Cryogenic Hardware](/posts/titanium-3d-printing-quantum-computing-cryogenic-hardware/) instead.
 
 ## Quick Answer
 

@@ -29,7 +29,7 @@ Titanium 3D printing for fusion energy and nuclear research hardware is worth re
 
 The strongest RFQs treat a printed titanium vacuum diagnostic mount, cryogenic sensor bracket, compact cooling manifold, feedthrough adapter, test fixture, remote-handling tool component, or coupon holder as delivered research hardware. That means the quote must cover material selection, build route, vacuum or helium leak testing when needed, machined seal faces, CT where hidden channels matter, CMM, cleaning, heat treatment, material records, and traceability.
 
-For vacuum-adjacent manufacturing details, start with [Titanium 3D Printing for Semiconductor Equipment Parts](/posts/titanium-3d-printing-semiconductor-equipment-parts/). For thermal and flow hardware, pair this guide with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/) and [Titanium 3D Printed Internal Channels](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/).
+For vacuum-adjacent manufacturing details, start with [Titanium 3D Printing for Semiconductor Equipment Parts](/posts/titanium-3d-printing-semiconductor-equipment-parts/). For dilution refrigerator, qubit test, and quantum-sensor support hardware, use [Titanium 3D Printing for Quantum Computing and Cryogenic Hardware](/posts/titanium-3d-printing-quantum-computing-cryogenic-hardware/). For thermal and flow hardware, pair this guide with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/) and [Titanium 3D Printed Internal Channels](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/).
 
 ## Quick Answer
 
