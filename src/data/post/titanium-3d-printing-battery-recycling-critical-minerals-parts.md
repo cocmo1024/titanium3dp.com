@@ -28,7 +28,7 @@ Titanium 3D printing for battery recycling and critical minerals processing part
 
 The strongest RFQs treat a printed titanium manifold, leach-loop adapter, dosing nozzle, static mixer, pump adapter, sample block, corrosion coupon rack, or lithium brine test fixture as delivered process hardware. That means the quote must cover exposure mapping, alloy choice, seal faces, cleaning, pressure or leak testing, CT when hidden channels matter, CMM, material records, and traceability.
 
-For the broader process-equipment context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/) and use this guide for battery recycling and critical-minerals-specific decisions.
+For the broader process-equipment context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/) and use this guide for battery recycling and critical-minerals-specific decisions. For DLE brine manifolds, sorbent-column hardware, and lithium brine pilot skids, use [Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware](/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/).
 
 ## Quick Answer
 

@@ -29,7 +29,7 @@ Titanium 3D printing for geothermal and downhole energy parts is worth reviewing
 
 The best RFQs treat a printed titanium downhole sensor housing, brine manifold, flow adapter, coupon rack, direct lithium extraction test body, instrument block, pump adapter, or geothermal test fixture as delivered energy hardware. That means the quote must cover exposure mapping, titanium grade, pressure and leak testing, machined seal faces, powder removal, CT where hidden channels matter, CMM, material records, and traceability.
 
-For the broader process-fluid context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For lithium brine and critical-minerals pilot loops, pair this with [Titanium 3D Printing for Battery Recycling and Critical Minerals Processing Parts](/posts/titanium-3d-printing-battery-recycling-critical-minerals-parts/). Use this guide for geothermal and downhole-specific sourcing decisions.
+For the broader process-fluid context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For DLE brine manifolds, sorbent skid adapters, and lithium brine pilot hardware, use [Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware](/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/). For adjacent critical-minerals pilot loops, pair this with [Titanium 3D Printing for Battery Recycling and Critical Minerals Processing Parts](/posts/titanium-3d-printing-battery-recycling-critical-minerals-parts/). Use this guide for geothermal and downhole-specific sourcing decisions.
 
 ## Quick Answer
 
