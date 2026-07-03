@@ -17,7 +17,7 @@ Titanium 3D printing for marine, subsea, and offshore parts is useful when seawa
 
 Marine hardware is a rough acceptance environment. A printed titanium seawater manifold, ROV bracket, AUV sensor mount, offshore inspection fixture, pump adapter, clamp, or corrosion-resistant test component must handle seals, galvanic isolation, crevice risk, pressure testing, cleaning, CMM, CT if hidden passages matter, and documentation. If those assumptions are left out of the RFQ, the quote may cover a printed shape rather than a deployable marine part.
 
-For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for seawater and offshore-specific decisions.
+For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for seawater and offshore-specific decisions. For seawater RO manifolds, brine concentration hardware, and MLD/ZLD pilot skids, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/).
 
 ## Quick Answer
 
