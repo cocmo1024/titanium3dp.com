@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Robotics and Automation Parts'
 publishDate: 2026-05-27
-updateDate: 2026-05-27
+updateDate: 2026-07-03
 excerpt: 'Engineering RFQ guide for titanium 3D printed robotics parts, including EOAT, grippers, lightweight wrist adapters, automation fixtures, fatigue, CMM, and cost control.'
 category: 'Case Studies'
 tags: ['robotics', 'automation', 'eoat', 'grippers', 'lightweighting', 'dfam', 'fatigue', 'cmm', 'rfq']
@@ -179,6 +179,8 @@ Define:
 - Whether the passage exits near machined sealing faces or fittings.
 
 Internal passages should simplify the cell, not hide cost. A tube clipped outside a bracket may be cheaper and more maintainable than an internal passage that cannot be cleaned or inspected.
+
+For valve blocks, pneumatic manifolds, actuator manifolds, and pressure-tested robot fluid-power hardware, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/) to define ports, cleaning, leak testing, CT, and CMM evidence.
 
 ## Safety and Integration Evidence
 

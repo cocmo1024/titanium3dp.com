@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for eVTOL and Advanced Air Mobility Hardware'
 publishDate: 2026-06-27
-updateDate: 2026-06-27
+updateDate: 2026-07-03
 excerpt: 'Engineering RFQ guide for titanium 3D printed eVTOL and advanced air mobility hardware, covering lightweight brackets, propulsion mounts, battery structures, cooling parts, fatigue, CMM, CT, and traceability.'
 category: 'Case Studies'
 tags:
@@ -60,6 +60,8 @@ Titanium 3D printing is most useful for eVTOL and AAM hardware when the part has
 - The program needs traceable delivered parts, not print-only prototypes.
 
 Good candidates include propulsion pylon brackets, rotor or motor-adjacent mounts, battery tray corner nodes, avionics and sensor brackets, thermal-management manifolds, actuator links, test-stand hardware, compact hinge components, and ground-test fixtures.
+
+When the candidate part is a hydraulic actuator block, compact valve manifold, or pressure-tested flow body, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/) alongside the AAM-specific screening below.
 
 Weak candidates include large skins, low-load covers, simple flat brackets, cosmetic fairings, very large monolithic structures, and parts where certification evidence is missing from the budget.
 

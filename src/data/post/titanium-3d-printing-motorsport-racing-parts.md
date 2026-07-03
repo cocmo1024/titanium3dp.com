@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Motorsport and Racing Parts'
 publishDate: 2026-06-30
-updateDate: 2026-06-30
+updateDate: 2026-07-03
 excerpt: 'Engineering RFQ guide for titanium 3D printed motorsport and racing parts, covering lightweight brackets, suspension links, cooling manifolds, exhaust-adjacent hardware, fatigue, CMM, CT, and rulebook risk.'
 category: 'Case Studies'
 tags:
@@ -136,6 +136,8 @@ Good heat-zone candidates include:
 The RFQ should define temperature range, cycle count if known, nearby fluids, cleaning requirements, surface condition, and whether oxidation, coating, or passivation is part of the route. A heat-colored titanium part can look right and still be weak if the notch, support scar, or fit condition is wrong.
 
 For thermal and internal-passage parts, use [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/) and [Titanium 3D Printed Internal Channels](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/) to define flow, pressure, cleaning, and CT assumptions.
+
+For compact oil, coolant, pneumatic, and actuator valve manifolds that need machined ports and leak evidence, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/).
 
 ## Material Choice: Ti-6Al-4V Is Common, but Not Automatic
 

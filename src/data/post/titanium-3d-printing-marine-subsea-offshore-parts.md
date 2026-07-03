@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Marine, Subsea, and Offshore Parts'
 publishDate: 2026-05-30
-updateDate: 2026-05-30
+updateDate: 2026-07-03
 excerpt: 'Engineering RFQ guide for titanium 3D printed marine and subsea parts, covering seawater corrosion, ROV and AUV brackets, offshore manifolds, galvanic isolation, pressure testing, CMM, CT, and cost control.'
 category: 'Case Studies'
 tags: ['marine', 'subsea', 'offshore', 'seawater-corrosion', 'rov', 'auv', 'leak-testing', 'rfq']
@@ -140,6 +140,8 @@ High-risk features include:
 - Drain paths that trap seawater after recovery.
 
 If the channel is functional, define powder removal, accepted internal roughness, flow test, pressure drop, and CT assumptions early. For hidden flow paths, use [Titanium 3D Printed Internal Channels: Powder Removal and CT](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/) before freezing the geometry.
+
+For marine hydraulic blocks, valve adapters, pressure-tested manifolds, and compact fluid-power bodies, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/) to connect sealing, cleaning, CT, CMM, and leak-test requirements.
 
 ## ROV and AUV Hardware: Weight, Stiffness, and Access
 

@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Aerospace and Defense Supply Chains'
 publishDate: 2026-05-23
-updateDate: 2026-05-24
+updateDate: 2026-07-03
 excerpt: 'How aerospace and defense buyers can use titanium 3D printing for supply-chain resilience without confusing speed, qualification, traceability, and production acceptance.'
 category: 'Case Studies'
 tags: ['aerospace', 'defense', 'supply-chain', 'lpbf', 'ded', 'qualification', 'traceability', 'rfq']
@@ -79,6 +79,8 @@ For process choice details, see [Titanium AM Process Selection: LPBF vs EBM vs D
 ### Compact High-Value LPBF Parts
 
 LPBF can be valuable for compact titanium aerospace and defense parts where geometry matters: brackets, mounts, ducts, small manifolds, sensor housings, thermal-management parts, lightweight structures, and low-volume replacement hardware.
+
+For hydraulic manifolds, actuator valve blocks, servo-valve adapters, and pressure-tested fluid-power components, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/) to define cleaning, CT, CMM, pressure testing, and traceability.
 
 For unmanned aircraft programs, the same compact-part logic often appears in payload brackets, sensor mounts, motor junctions, and thermal-adjacent hardware. The drone-specific screening path is covered in [Titanium 3D Printing for Drone and UAV Parts](/posts/titanium-3d-printing-drone-uav-parts/).
 

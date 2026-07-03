@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Humanoid Robots and AI Robotics Hardware'
 publishDate: 2026-06-30
-updateDate: 2026-06-30
+updateDate: 2026-07-03
 excerpt: 'Engineering RFQ guide for titanium 3D printed humanoid robot and AI robotics hardware, covering lightweight joints, wrist and ankle brackets, actuator housings, sensor mounts, fatigue, CMM, CT, and traceability.'
 category: 'Case Studies'
 tags:
@@ -122,6 +122,8 @@ Humanoid robot actuator housings can look like strong AM candidates because pack
 However, an actuator housing can become expensive quickly. Bearing seats and gearbox interfaces usually need finish machining. Thermal distortion can shift bores. Threads may need inserts. Sealing faces may need flatness, surface finish, and leak-test criteria. If the part includes internal channels, the RFQ must define powder removal and inspection assumptions.
 
 Use [Titanium 3D Printed Internal Channels](/posts/titanium-3d-printed-internal-channels-powder-removal-ct/) when an actuator housing includes enclosed cooling passages, oil routes, pneumatic paths, or cable channels that cannot be visually inspected.
+
+For actuator valve blocks, pneumatic manifolds, hydraulic manifolds, and pressure-tested fluid-power hardware around robot joints, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/).
 
 ## Fatigue, Impact, and Fall-Recovery Loads
 

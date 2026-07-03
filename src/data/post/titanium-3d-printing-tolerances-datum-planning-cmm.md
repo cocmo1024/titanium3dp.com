@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing Tolerances: Datum Planning and CMM'
 publishDate: 2026-05-23
-updateDate: 2026-05-24
+updateDate: 2026-07-03
 excerpt: 'How to specify titanium 3D printing tolerances with datum planning, machining stock, GD&T intent, CMM inspection, and RFQ wording for accepted parts.'
 category: 'Case Studies'
 tags: ['tolerances', 'datum-planning', 'cmm', 'machining', 'dfam', 'rfq', 'inspection', 'lpbf']
@@ -179,6 +179,8 @@ CMM cannot inspect most internal flow paths. Internal channels require design fo
 ## A Practical RFQ Scenario
 
 Consider a Ti-6Al-4V hydraulic manifold with internal passages, four threaded ports, a gasket face, two mounting bosses, and organic weight-reduction geometry.
+
+For a deeper fluid-power RFQ route covering valve ports, leak testing, pressure testing, CT, and cleaning, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/).
 
 A weak drawing says:
 
