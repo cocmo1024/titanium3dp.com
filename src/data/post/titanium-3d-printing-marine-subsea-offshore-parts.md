@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Marine, Subsea, and Offshore Parts'
 publishDate: 2026-05-30
-updateDate: 2026-07-03
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed marine and subsea parts, covering seawater corrosion, ROV and AUV brackets, offshore manifolds, galvanic isolation, pressure testing, CMM, CT, and cost control.'
 category: 'Case Studies'
 tags: ['marine', 'subsea', 'offshore', 'seawater-corrosion', 'rov', 'auv', 'leak-testing', 'rfq']
@@ -17,7 +17,7 @@ Titanium 3D printing for marine, subsea, and offshore parts is useful when seawa
 
 Marine hardware is a rough acceptance environment. A printed titanium seawater manifold, ROV bracket, AUV sensor mount, offshore inspection fixture, pump adapter, clamp, or corrosion-resistant test component must handle seals, galvanic isolation, crevice risk, pressure testing, cleaning, CMM, CT if hidden passages matter, and documentation. If those assumptions are left out of the RFQ, the quote may cover a printed shape rather than a deployable marine part.
 
-For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for seawater and offshore-specific decisions. For seawater RO manifolds, brine concentration hardware, and MLD/ZLD pilot skids, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/).
+For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for seawater and offshore-specific decisions. For seawater RO manifolds, brine concentration hardware, and MLD/ZLD pilot skids, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/). For industrial pump adapters, valve bodies, compact flow blocks, and test-loop components that overlap with marine process systems, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/).
 
 ## Quick Answer
 

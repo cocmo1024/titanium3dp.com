@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Hydrogen Electrolyzer and Fuel Cell Parts'
 publishDate: 2026-05-29
-updateDate: 2026-05-29
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed hydrogen hardware, covering PEM electrolyzer parts, fuel cell manifolds, corrosion, seals, leak testing, CMM, CT, and cost control.'
 category: 'Case Studies'
 tags: ['hydrogen', 'electrolyzer', 'fuel-cell', 'pem', 'gas-manifolds', 'leak-testing', 'corrosion', 'rfq']
@@ -17,7 +17,7 @@ Titanium 3D printing for hydrogen electrolyzer and fuel cell parts is useful whe
 
 Hydrogen hardware has a narrow tolerance for vague RFQs. A printed titanium manifold, PEM electrolyzer test plate, coolant body, fuel cell fixture, sensor mount, or balance-of-plant adapter may need machined seal faces, coating review, leak testing, cleaning, CMM, CT, material traceability, and a clear statement of whether the part touches hydrogen, oxygen, water, coolant, electrolyte, or only the outside of the system.
 
-For a broad material and application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for hydrogen-specific RFQ decisions.
+For a broad material and application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for hydrogen-specific RFQ decisions. For pump adapters, valve bodies, purge blocks, and other industrial flow-control hardware that is not unique to hydrogen stacks, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/).
 
 ## Quick Answer
 

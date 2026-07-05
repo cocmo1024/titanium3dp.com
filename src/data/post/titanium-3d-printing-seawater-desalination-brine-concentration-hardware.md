@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware'
 publishDate: 2026-07-03
-updateDate: 2026-07-03
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed seawater desalination and brine concentration hardware, covering RO sample blocks, brine manifolds, MLD/ZLD pilot skids, CP titanium, leak testing, CT, CMM, and traceability.'
 category: 'Case Studies'
 tags:
@@ -29,7 +29,7 @@ Titanium 3D printing for seawater desalination and brine concentration hardware 
 
 Desalination hardware sits between water treatment, marine service, chemical processing, thermal management, and industrial water reuse. A printed titanium seawater manifold, RO sample block, pump adapter, valve body, brine concentrator adapter, MLD/ZLD pilot fixture, corrosion coupon rack, sensor housing, or compact heat-transfer coupon can be useful, but only when feed chemistry, brine concentration, antiscalants, cleaning chemicals, seal faces, leak testing, CT, CMM, and material records are defined before quote comparison.
 
-For broader water-treatment hardware, use [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For seawater deployment and galvanic risk, use [Titanium 3D Printing for Marine, Subsea, and Offshore Parts](/posts/titanium-3d-printing-marine-subsea-offshore-parts/). This guide focuses specifically on desalination, reverse-osmosis concentrate, brine concentration, and MLD/ZLD pilot hardware.
+For broader water-treatment hardware, use [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For pump adapters, valve bodies, static mixers, nozzles, and compact flow-control hardware that also appears outside desalination, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For seawater deployment and galvanic risk, use [Titanium 3D Printing for Marine, Subsea, and Offshore Parts](/posts/titanium-3d-printing-marine-subsea-offshore-parts/). This guide focuses specifically on desalination, reverse-osmosis concentrate, brine concentration, and MLD/ZLD pilot hardware.
 
 ## Quick Answer
 

@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Carbon Capture and Direct Air Capture Hardware'
 publishDate: 2026-06-24
-updateDate: 2026-06-24
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed carbon capture and direct air capture hardware, covering solvent and sorbent loops, CO2 manifolds, vacuum regeneration, heat-transfer test bodies, leak testing, CT, CMM, and traceability.'
 category: 'Case Studies'
 tags:
@@ -29,7 +29,7 @@ Titanium 3D printing for carbon capture and direct air capture hardware is worth
 
 The strongest RFQs treat a printed titanium solvent manifold, sorbent cartridge adapter, CO2 sample block, vacuum regeneration test body, heat-exchanger coupon, pump adapter, valve body, or corrosion coupon fixture as delivered process hardware. That means the quote must cover media exposure, titanium grade, seal faces, cleaning, pressure or leak testing, CT when hidden channels matter, CMM, material records, and traceability.
 
-For the broader corrosion and process-fluid framework, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For thermal components, pair this guide with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/). Use this page for carbon-capture- and direct-air-capture-specific RFQ decisions.
+For the broader corrosion and process-fluid framework, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For pump adapters, valve bodies, static mixers, nozzles, and flow-control hardware shared across process industries, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For thermal components, pair this guide with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/). Use this page for carbon-capture- and direct-air-capture-specific RFQ decisions.
 
 ## Quick Answer
 

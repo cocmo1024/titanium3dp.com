@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components'
 publishDate: 2026-07-03
-updateDate: 2026-07-03
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed hydraulic manifolds and fluid power components, covering valve blocks, actuator manifolds, internal channels, pressure drop, leak testing, CT, CMM, machining, and traceability.'
 category: 'Case Studies'
 tags:
@@ -30,6 +30,8 @@ Titanium 3D printing for hydraulic manifolds and fluid power components is worth
 The useful question is not "Can a hydraulic manifold be printed?" The useful question is "Can this titanium AM route deliver a clean, leak-tested, machined, inspected, traceable fluid-power component that is better than the drilled, plugged, brazed, or assembled alternative?"
 
 This guide is written for engineering and procurement teams comparing titanium additive manufacturing for valve blocks, actuator manifolds, compact hydraulic manifolds, pneumatic manifolds, servo-valve adapters, pump interfaces, test-rig blocks, and fluid-power hardware used in aerospace, robotics, marine, motorsport, energy, and industrial equipment.
+
+For industrial process valve bodies, pump adapters, static mixers, nozzles, and corrosion-exposed flow-control hardware beyond hydraulic circuits, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/).
 
 ## Quick Answer
 

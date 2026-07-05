@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for AI Data Center Liquid Cooling Hardware'
 publishDate: 2026-06-06
-updateDate: 2026-06-06
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed AI data center liquid cooling hardware, covering cold plates, manifolds, coolant compatibility, leak testing, CT, CMM, surface finish, and cost control.'
 category: 'Case Studies'
 tags:
@@ -28,7 +28,7 @@ Titanium 3D printing for AI data center liquid cooling hardware is useful when c
 
 The right question is not "Can a titanium cold plate be printed?" The better RFQ question is whether the complete route can deliver thermal duty, coolant compatibility, leak integrity, seal faces, clean internal passages, CMM evidence, CT evidence when needed, and traceability at a cost that makes sense for the data center hardware program.
 
-For the broader thermal framework, start with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/) and use this guide for AI data center liquid-cooling-specific decisions.
+For the broader thermal framework, start with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/) and use this guide for AI data center liquid-cooling-specific decisions. For pump adapters, coolant distribution blocks, quick-disconnect test hardware, and other flow-control parts that overlap with industrial process equipment, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/).
 
 ## Quick Answer
 
