@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printed Heat Exchangers: Thermal Management RFQ Guide'
 publishDate: 2026-05-25
-updateDate: 2026-05-25
+updateDate: 2026-07-05
 excerpt: 'Engineering RFQ guide for titanium 3D printed heat exchangers, covering thermal management, internal channels, powder removal, CT, leak testing, machining, and cost risk.'
 category: 'Case Studies'
 tags:
@@ -19,6 +19,8 @@ Titanium 3D printed heat exchangers are attractive when thermal performance, cor
 The correct question is not whether a compact heat exchanger can be printed. The better question is whether the complete route can deliver the required heat transfer, pressure integrity, cleanliness, inspection evidence, surface condition, and documentation at an acceptable cost.
 
 For a broader application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this article for thermal-management-specific decisions. For chloride-rich desalination, RO concentrate, and MLD/ZLD brine thermal hardware, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/).
+
+For LNG, refinery, petrochemical, produced-water, or oil and gas thermal hardware where pressure, leak, sour-service, or operator documentation requirements shape the RFQ, pair this guide with [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
 
 ## Quick Answer
 

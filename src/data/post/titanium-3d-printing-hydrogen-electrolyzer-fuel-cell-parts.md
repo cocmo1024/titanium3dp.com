@@ -19,6 +19,8 @@ Hydrogen hardware has a narrow tolerance for vague RFQs. A printed titanium mani
 
 For a broad material and application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for hydrogen-specific RFQ decisions. For pump adapters, valve bodies, purge blocks, and other industrial flow-control hardware that is not unique to hydrogen stacks, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/).
 
+For hydrogen hardware tied to LNG, refinery, gas-processing, or petrochemical sites, use [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/) to separate general energy-site pressure, leak, and operator acceptance questions from stack-specific requirements.
+
 ## Quick Answer
 
 Titanium additive manufacturing is worth reviewing for hydrogen hardware when the part is compact, high-value, low-volume, corrosion-exposed, interface-heavy, or constrained by flow routing that conventional machining cannot deliver efficiently.

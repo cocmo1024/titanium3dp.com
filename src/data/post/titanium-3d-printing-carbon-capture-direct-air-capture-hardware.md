@@ -31,6 +31,8 @@ The strongest RFQs treat a printed titanium solvent manifold, sorbent cartridge 
 
 For the broader corrosion and process-fluid framework, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For pump adapters, valve bodies, static mixers, nozzles, and flow-control hardware shared across process industries, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For thermal components, pair this guide with [Titanium 3D Printed Heat Exchangers](/posts/titanium-3d-printed-heat-exchangers-thermal-management/). Use this page for carbon-capture- and direct-air-capture-specific RFQ decisions.
 
+For carbon capture hardware attached to refinery, LNG, gas-processing, or petrochemical systems, also review [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/) before defining pressure, leak, sour-service, and operator documentation requirements.
+
 ## Quick Answer
 
 Titanium additive manufacturing is a practical candidate for carbon capture and DAC hardware when the part is compact, corrosion-exposed, interface-heavy, prototype-intensive, or improved by cleanable internal routing that conventional machining cannot deliver efficiently.

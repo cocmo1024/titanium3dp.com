@@ -19,6 +19,8 @@ Marine hardware is a rough acceptance environment. A printed titanium seawater m
 
 For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for seawater and offshore-specific decisions. For seawater RO manifolds, brine concentration hardware, and MLD/ZLD pilot skids, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/). For industrial pump adapters, valve bodies, compact flow blocks, and test-loop components that overlap with marine process systems, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/).
 
+For offshore oil and gas, produced-water, LNG, and petrochemical-adjacent hardware where pressure testing, sour-service screening, API 20S, or operator documentation enters the sourcing route, use [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
+
 ## Quick Answer
 
 Titanium additive manufacturing is worth reviewing for marine and subsea equipment when the part is compact, corrosion-exposed, interface-heavy, low-volume, lead-time-sensitive, or difficult to machine from billet.

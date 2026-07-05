@@ -31,6 +31,8 @@ The practical question is not "Can a valve body or pump adapter be printed?" The
 
 This page is a cross-industry RFQ guide for process engineers, equipment builders, pilot-plant teams, and procurement teams comparing titanium additive manufacturing for valve bodies, valve trim trials, pump adapters, pump impeller development, nozzles, static mixer coupons, sample blocks, sensor bodies, dosing blocks, and compact flow-control hardware.
 
+For oil and gas, LNG, refinery, petrochemical, produced-water, and offshore process hardware where API 20S, sour-service review, pressure testing, and operator acceptance may apply, pair this page with [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
+
 ## Quick Answer
 
 Titanium additive manufacturing is a strong candidate for industrial valves, pump parts, and flow-control hardware when the part is compact, high-value, corrosion-exposed, interface-heavy, low-volume, or functionally improved by internal geometry.
