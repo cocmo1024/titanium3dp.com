@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Chemical Processing and Water Treatment Parts'
 publishDate: 2026-06-01
-updateDate: 2026-07-05
+updateDate: 2026-07-08
 excerpt: 'Engineering RFQ guide for titanium 3D printed chemical processing and water treatment parts, covering corrosion exposure, CP titanium vs Ti-6Al-4V, pump and valve bodies, manifolds, static mixers, leak testing, CT, CMM, and traceability.'
 category: 'Case Studies'
 tags:
@@ -30,7 +30,7 @@ The best RFQs treat a printed titanium valve body, process manifold, pump adapte
 
 For a broad application map, start with [Titanium 3D Printing Applications](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/) and use this guide for chemical-processing and water-treatment-specific decisions. For the cross-industry valve, pump, static mixer, nozzle, and flow-control sourcing route, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For seawater RO, brine concentration, and MLD/ZLD pilot hardware, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/). For lithium brine, DLE pilot skids, and critical-minerals brine hardware, use [Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware](/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/).
 
-For refinery, LNG, produced-water, petrochemical, and oilfield process hardware where API 20S, sour-service review, pressure testing, and operator acceptance may enter the RFQ, use [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
+For refinery, LNG, produced-water, petrochemical, and oilfield process hardware where API 20S, sour-service review, pressure testing, and operator acceptance may enter the RFQ, use [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/). For mining, mineral processing, acid leach, slurry, flotation, tailings-water, and hydrometallurgy pilot hardware, use [Titanium 3D Printing for Mining, Mineral Processing, and Hydrometallurgy Hardware](/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/).
 
 ## Quick Answer
 

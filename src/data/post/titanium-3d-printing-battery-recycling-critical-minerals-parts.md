@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Battery Recycling and Critical Minerals Processing Parts'
 publishDate: 2026-06-06
-updateDate: 2026-07-05
+updateDate: 2026-07-08
 excerpt: 'Engineering RFQ guide for titanium 3D printed battery recycling and critical minerals processing parts, covering black mass leach loops, manifolds, CP titanium, corrosion exposure, leak testing, CT, CMM, and traceability.'
 category: 'Case Studies'
 tags:
@@ -28,7 +28,7 @@ Titanium 3D printing for battery recycling and critical minerals processing part
 
 The strongest RFQs treat a printed titanium manifold, leach-loop adapter, dosing nozzle, static mixer, pump adapter, sample block, corrosion coupon rack, or lithium brine test fixture as delivered process hardware. That means the quote must cover exposure mapping, alloy choice, seal faces, cleaning, pressure or leak testing, CT when hidden channels matter, CMM, material records, and traceability.
 
-For the broader process-equipment context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/) and use this guide for battery recycling and critical-minerals-specific decisions. For pump adapters, valve bodies, static mixers, nozzles, and cross-industry flow-control hardware, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For DLE brine manifolds, sorbent-column hardware, and lithium brine pilot skids, use [Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware](/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/).
+For the broader process-equipment context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/) and use this guide for battery recycling and critical-minerals-specific decisions. For pump adapters, valve bodies, static mixers, nozzles, and cross-industry flow-control hardware, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For DLE brine manifolds, sorbent-column hardware, and lithium brine pilot skids, use [Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware](/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/). For primary mining, mineral processing, acid leach, slurry, flotation, and broader hydrometallurgy pilot hardware outside battery recycling, use [Titanium 3D Printing for Mining, Mineral Processing, and Hydrometallurgy Hardware](/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/).
 
 ## Quick Answer
 

@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware'
 publishDate: 2026-07-05
-updateDate: 2026-07-05
+updateDate: 2026-07-08
 excerpt: 'Engineering RFQ guide for titanium 3D printed industrial valves, pump parts, static mixers, nozzles, and flow control hardware, covering corrosion exposure, seal faces, pressure testing, CT, CMM, machining, and traceability.'
 category: 'Case Studies'
 tags:
@@ -31,7 +31,7 @@ The practical question is not "Can a valve body or pump adapter be printed?" The
 
 This page is a cross-industry RFQ guide for process engineers, equipment builders, pilot-plant teams, and procurement teams comparing titanium additive manufacturing for valve bodies, valve trim trials, pump adapters, pump impeller development, nozzles, static mixer coupons, sample blocks, sensor bodies, dosing blocks, and compact flow-control hardware.
 
-For oil and gas, LNG, refinery, petrochemical, produced-water, and offshore process hardware where API 20S, sour-service review, pressure testing, and operator acceptance may apply, pair this page with [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
+For oil and gas, LNG, refinery, petrochemical, produced-water, and offshore process hardware where API 20S, sour-service review, pressure testing, and operator acceptance may apply, pair this page with [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/). For acid leach sample blocks, slurry nozzles, flotation dosing bodies, static mixer coupons, and mineral-processing flow-control hardware, use [Titanium 3D Printing for Mining, Mineral Processing, and Hydrometallurgy Hardware](/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/).
 
 ## Quick Answer
 

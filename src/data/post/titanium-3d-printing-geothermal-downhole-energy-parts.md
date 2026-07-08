@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Geothermal and Downhole Energy Parts'
 publishDate: 2026-06-17
-updateDate: 2026-07-05
+updateDate: 2026-07-08
 excerpt: 'Engineering RFQ guide for titanium 3D printed geothermal and downhole energy parts, covering brine exposure, sensor housings, manifolds, DLE test hardware, leak testing, CT, CMM, and traceability.'
 category: 'Case Studies'
 tags:
@@ -31,7 +31,7 @@ The best RFQs treat a printed titanium downhole sensor housing, brine manifold, 
 
 For the broader process-fluid context, start with [Titanium 3D Printing for Chemical Processing and Water Treatment Parts](/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/). For DLE brine manifolds, sorbent skid adapters, and lithium brine pilot hardware, use [Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware](/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/). For adjacent critical-minerals pilot loops, pair this with [Titanium 3D Printing for Battery Recycling and Critical Minerals Processing Parts](/posts/titanium-3d-printing-battery-recycling-critical-minerals-parts/). Use this guide for geothermal and downhole-specific sourcing decisions.
 
-For produced-water, oilfield brine, LNG, refinery, and petrochemical process hardware where API 20S, sour-service screening, and operator acceptance may apply, use [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
+For produced-water, oilfield brine, LNG, refinery, and petrochemical process hardware where API 20S, sour-service screening, and operator acceptance may apply, use [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/). For mining and hydrometallurgy streams beyond geothermal brines, including acid leach loops, slurry erosion fixtures, and rare-earth process hardware, use [Titanium 3D Printing for Mining, Mineral Processing, and Hydrometallurgy Hardware](/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/).
 
 ## Quick Answer
 

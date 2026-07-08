@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing for Direct Lithium Extraction and Brine Processing Hardware'
 publishDate: 2026-07-02
-updateDate: 2026-07-05
+updateDate: 2026-07-08
 excerpt: 'Engineering RFQ guide for titanium 3D printed direct lithium extraction and brine processing hardware, covering brine manifolds, sorbent skids, pump and valve adapters, sensor housings, corrosion coupons, leak testing, CT, CMM, and traceability.'
 category: 'Case Studies'
 tags:
@@ -29,7 +29,7 @@ Titanium 3D printing for direct lithium extraction and brine processing hardware
 
 Direct lithium extraction hardware sits between geothermal energy, critical-minerals processing, hydrometallurgy, water treatment, and pilot-line chemical equipment. A printed titanium brine manifold, sorbent-column end cap, sample block, pump adapter, valve body, sensor housing, static mixer coupon, corrosion coupon rack, or pressure-test fixture can be useful, but only when brine chemistry, solids, scale, cleaning access, seal faces, leak testing, CT, CMM, and material documentation are defined before quote comparison.
 
-For geothermal and downhole service, use [Titanium 3D Printing for Geothermal and Downhole Energy Parts](/posts/titanium-3d-printing-geothermal-downhole-energy-parts/). For non-lithium seawater RO, brine concentration, and MLD/ZLD pilot hardware, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/). For cross-industry pump adapters, valve bodies, static mixers, nozzles, and compact flow-control bodies, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For black mass and battery-material processing, use [Titanium 3D Printing for Battery Recycling and Critical Minerals Processing Parts](/posts/titanium-3d-printing-battery-recycling-critical-minerals-parts/). This guide focuses specifically on lithium brine and DLE pilot hardware.
+For geothermal and downhole service, use [Titanium 3D Printing for Geothermal and Downhole Energy Parts](/posts/titanium-3d-printing-geothermal-downhole-energy-parts/). For non-lithium seawater RO, brine concentration, and MLD/ZLD pilot hardware, use [Titanium 3D Printing for Seawater Desalination and Brine Concentration Hardware](/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/). For cross-industry pump adapters, valve bodies, static mixers, nozzles, and compact flow-control bodies, use [Titanium 3D Printing for Industrial Valves, Pump Parts, and Flow Control Hardware](/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/). For black mass and battery-material processing, use [Titanium 3D Printing for Battery Recycling and Critical Minerals Processing Parts](/posts/titanium-3d-printing-battery-recycling-critical-minerals-parts/). For non-lithium mining, mineral processing, acid leach, slurry, flotation, and hydrometallurgy pilot hardware, use [Titanium 3D Printing for Mining, Mineral Processing, and Hydrometallurgy Hardware](/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/). This guide focuses specifically on lithium brine and DLE pilot hardware.
 
 ## Quick Answer
 

@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printed Internal Channels: Powder Removal and CT'
 publishDate: 2026-05-18
-updateDate: 2026-07-03
+updateDate: 2026-07-08
 excerpt: 'Engineering guide for titanium 3D printed internal channels, powder removal, trapped-powder risk, CT inspection, cleaning access, surface finish, and RFQ acceptance criteria.'
 category: 'Case Studies'
 tags: ['internal-channels', 'powder-removal', 'ct', 'dfam', 'lpbf', 'ebm', 'rfq', 'inspection']
@@ -51,6 +51,8 @@ The same geometry can become a liability if the channel is treated as a hidden C
 For aerospace and defense programs using manifolds, ducts, or compact flow bodies as alternate supply-chain candidates, see [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/).
 
 For dedicated valve blocks, actuator manifolds, hydraulic manifolds, and pressure-tested fluid-power hardware, use [Titanium 3D Printing for Hydraulic Manifolds and Fluid Power Components](/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/).
+
+For hydrometallurgy sample blocks, slurry nozzles, static mixer coupons, and acid-leach flow bodies, pair this channel guidance with [Titanium 3D Printing for Mining, Mineral Processing, and Hydrometallurgy Hardware](/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/).
 
 For broader application screening, see [Titanium 3D Printing Applications: Aerospace, Medical, Motorsport, and Energy](/posts/titanium-3d-printing-applications-aerospace-medical-motorsport-energy/).
 
