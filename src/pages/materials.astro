@@ -39,9 +39,9 @@ const materialShowcases = [
 ];
 
 const metadata = {
-  title: 'Titanium AM Materials | Ti-6Al-4V, ELI & CP Ti',
+  title: 'Titanium AM Materials | TC4, Ti-6Al-4V, ELI & CP Ti',
   description:
-    'Titanium additive manufacturing material selection for Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and CP Ti Grades 1-4 in LPBF and EBM parts.',
+    'Titanium additive manufacturing material selection for TC4, Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, TA1, TA2, and CP Ti Grades 1-4 in LPBF and EBM parts.',
   openGraph: {
     images: [
       {
@@ -60,18 +60,20 @@ const metadata = {
     ]),
     createItemListSchema('Titanium AM material paths', [
       {
-        name: 'Ti-6Al-4V Grade 5',
+        name: 'TC4 / Ti-6Al-4V Grade 5',
         description: 'General high strength-to-weight titanium alloy route for structural LPBF and EBM parts.',
         url: '/materials/#ti6al4v-grade-5',
       },
       {
         name: 'Ti-6Al-4V ELI Grade 23',
-        description: 'Extra-low interstitial material path for fatigue-sensitive, medical-adjacent, and high-reliability parts.',
+        description:
+          'Extra-low interstitial material path for fatigue-sensitive, medical-adjacent, and high-reliability parts.',
         url: '/materials/#ti6al4v-eli-grade-23',
       },
       {
-        name: 'CP Ti Grades 1-4',
-        description: 'Commercially pure titanium path for ductility, corrosion behavior, or non-structural titanium requirements.',
+        name: 'TA1 / TA2 / CP Ti Grades 1-4',
+        description:
+          'Commercially pure titanium path for ductility, corrosion behavior, or non-structural titanium requirements.',
         url: '/materials/#cp-ti-grades-1-4',
       },
     ]),
@@ -83,7 +85,7 @@ const metadata = {
   <Hero
     tagline="Materials"
     title="Titanium materials for additive manufacturing"
-    subtitle="Start with the required function, risk class, and evidence level. Then choose Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, CP Ti, or a special material route as needed."
+    subtitle="Start with the required function, risk class, and evidence level. Then choose TC4 / Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, TA1 / TA2 / CP Ti, or a special material route as needed."
     actions={[
       {
         variant: 'primary',
@@ -94,20 +96,20 @@ const metadata = {
     ]}
     image={{
       src: '~/assets/images/titanium/1.webp',
-      alt: 'Ti-6Al-4V and CP titanium additive manufacturing material review',
+      alt: 'TC4, Ti-6Al-4V, TA1, TA2, and CP titanium additive manufacturing material review',
       class: 'mx-auto w-full',
     }}
   />
 
   <Features2
     title="Common titanium AM material paths"
-    subtitle="The right grade is selected against fatigue risk, ductility, oxygen control, corrosion exposure, and documentation expectations."
+    subtitle="The right grade is selected against fatigue risk, ductility, oxygen control, corrosion exposure, documentation expectations, and the actual material name used in the RFQ."
     columns={3}
     items={[
       {
-        title: 'Ti-6Al-4V Grade 5',
+        title: 'TC4 / Ti-6Al-4V Grade 5',
         description:
-          'Common for strength-to-weight structural parts, brackets, housings, mounts, and performance hardware where repeatable post-processing and inspection can be planned.',
+          'Common for strength-to-weight structural parts, brackets, housings, mounts, and performance hardware. TC4, Ti-6Al-4V, Grade 5, and Ti64 should be normalized before quote comparison.',
         icon: 'tabler:hexagon-letter-t',
         callToAction: {
           text: 'Read guide',
@@ -121,9 +123,9 @@ const metadata = {
         icon: 'tabler:atom',
       },
       {
-        title: 'CP Ti Grades 1-4',
+        title: 'TA1 / TA2 / CP Ti Grades 1-4',
         description:
-          'Reviewed where ductility, corrosion resistance, or a commercially pure titanium requirement is more important than maximum strength.',
+          'Reviewed where ductility, corrosion resistance, or a commercially pure titanium requirement is more important than maximum strength. Confirm the exact standard before treating TA1 or TA2 as equivalent.',
         icon: 'tabler:shield-check',
       },
     ]}

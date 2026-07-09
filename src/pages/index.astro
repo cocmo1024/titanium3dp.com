@@ -24,10 +24,10 @@ const leftHeadlineClasses = {
 };
 
 const metadata = {
-  title: 'Titanium 3D Printing Services | Ti-6Al-4V LPBF & EBM Parts',
+  title: 'TC4 Titanium 3D Printing Services | Ti-6Al-4V LPBF & EBM Parts',
   ignoreTitleTemplate: true,
   description:
-    'Titanium 3D printing services for Ti-6Al-4V, Ti-6Al-4V ELI, and CP Ti parts. Send CAD for DfAM review, HIP, machining, CT/CMM inspection, and RFQ-ready evidence.',
+    'TC4 titanium 3D printing services for Ti-6Al-4V, Grade 5, Ti64, Ti-6Al-4V ELI, TA1, TA2, and CP Ti parts. Send CAD for DfAM review, machining, CT/CMM inspection, and RFQ-ready evidence.',
   openGraph: {
     images: [
       {
@@ -44,7 +44,8 @@ const metadata = {
     createItemListSchema('Typical titanium additive manufacturing engineering cases', [
       {
         name: 'Titanium AM material selection',
-        description: 'Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and CP Ti selection for LPBF and EBM.',
+        description:
+          'TC4, Ti-6Al-4V Grade 5, Ti64, Ti-6Al-4V ELI Grade 23, TA1, TA2, and CP Ti selection for LPBF and EBM.',
         url: '/materials/',
       },
       {
@@ -72,16 +73,16 @@ const applicationShowcases = [
     eyebrow: 'Material gate',
     image: {
       src: '~/assets/images/titanium/1.webp',
-      alt: 'Titanium AM material selection - Ti-6Al-4V, Ti-6Al-4V ELI, and CP titanium',
+      alt: 'Titanium AM material selection - TC4, Ti-6Al-4V, Ti-6Al-4V ELI, TA1, TA2, and CP titanium',
     },
-    title: 'Material selection: Ti-6Al-4V, ELI, and CP Ti',
+    title: 'Material selection: TC4, Ti-6Al-4V, ELI, and CP Ti',
     description:
-      'Worth reviewing when alloy grade, fatigue risk, corrosion behavior, oxygen limits, temperature window, or approval pathway drives the part.',
+      'Worth reviewing when TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, CP Ti, fatigue risk, corrosion behavior, oxygen limits, or approval pathway drives the part.',
     points: [
       {
         title: 'Alloy route',
         description:
-          'Use Grade 5 for strength-to-weight, Grade 23 ELI for fracture or fatigue sensitivity, and CP Ti when corrosion or ductility matters.',
+          'Normalize TC4, Ti-6Al-4V, Grade 5, and Ti64 before quote comparison. Use Grade 23 ELI for selected fracture or fatigue needs and TA1/TA2/CP Ti when corrosion or ductility matters.',
       },
       {
         title: 'Evidence intent',
@@ -90,7 +91,8 @@ const applicationShowcases = [
       },
       {
         title: 'When to send it',
-        description: 'Send CAD, alloy target, operating environment, load case, quantity, and any acceptance evidence required.',
+        description:
+          'Send CAD, alloy target, operating environment, load case, quantity, and any acceptance evidence required.',
         callToAction: {
           text: 'Material selection guide',
           href: '/materials/',
@@ -111,11 +113,13 @@ const applicationShowcases = [
     points: [
       {
         title: 'Protected faces',
-        description: 'Keep supports away from sealing faces, datums, threads, bores, fatigue surfaces, and cosmetic zones.',
+        description:
+          'Keep supports away from sealing faces, datums, threads, bores, fatigue surfaces, and cosmetic zones.',
       },
       {
         title: 'Manufacturing limits',
-        description: 'Review thin walls, spans, trapped powder, recoater exposure, downskin quality, and residual-stress risk.',
+        description:
+          'Review thin walls, spans, trapped powder, recoater exposure, downskin quality, and residual-stress risk.',
       },
       {
         title: 'Build strategy',
@@ -140,11 +144,13 @@ const applicationShowcases = [
     points: [
       {
         title: 'Thermal route',
-        description: 'Use stress relief, anneal, or HIP according to distortion, density, fatigue, leak, and fracture risk.',
+        description:
+          'Use stress relief, anneal, or HIP according to distortion, density, fatigue, leak, and fracture risk.',
       },
       {
         title: 'Machining access',
-        description: 'Reserve stock and reachable datums for bores, threads, sealing lands, mating surfaces, and functional interfaces.',
+        description:
+          'Reserve stock and reachable datums for bores, threads, sealing lands, mating surfaces, and functional interfaces.',
       },
       {
         title: 'Release order',
@@ -169,7 +175,8 @@ const applicationShowcases = [
     points: [
       {
         title: 'AM value',
-        description: 'Lightweight brackets, mounts, housings, ducts, porous structures, and compact flow or thermal hardware.',
+        description:
+          'Lightweight brackets, mounts, housings, ducts, porous structures, and compact flow or thermal hardware.',
       },
       {
         title: 'Route logic',
@@ -198,11 +205,13 @@ const applicationShowcases = [
     points: [
       {
         title: 'Inspection plan',
-        description: 'Use CT for internal features and defect questions; use CMM for datum schemes and functional interfaces.',
+        description:
+          'Use CT for internal features and defect questions; use CMM for datum schemes and functional interfaces.',
       },
       {
         title: 'Evidence scope',
-        description: 'Scale coupons, density checks, certs, build records, and traceability from prototype to critical release.',
+        description:
+          'Scale coupons, density checks, certs, build records, and traceability from prototype to critical release.',
       },
       {
         title: 'Acceptance rule',
@@ -256,11 +265,13 @@ const applicationShowcases = [
     points: [
       {
         title: 'Better routes',
-        description: 'Plain plates, blocks, shafts, simple brackets, and easy tool-access parts usually favor CNC or forging.',
+        description:
+          'Plain plates, blocks, shafts, simple brackets, and easy tool-access parts usually favor CNC or forging.',
       },
       {
         title: 'Early stop',
-        description: 'Avoid AM when support removal, inspection, datum strategy, or acceptance evidence cannot be defined.',
+        description:
+          'Avoid AM when support removal, inspection, datum strategy, or acceptance evidence cannot be defined.',
       },
       {
         title: 'Route switch',
@@ -325,9 +336,7 @@ const faqItems = [
 
         <div class="flex flex-wrap items-center gap-3">
           <a class="btn-primary" href={rfqEmailHref}>Email RFQ</a>
-          <a class="btn-secondary" href="/rfq/">
-            Prepare RFQ inputs
-          </a>
+          <a class="btn-secondary" href="/rfq/"> Prepare RFQ inputs </a>
         </div>
       </div>
     </div>
@@ -347,9 +356,15 @@ const faqItems = [
             Titanium AM is worth quoting when geometry drives value.
           </h2>
           <ul class="mt-4 space-y-2 text-muted">
-            <li>Lightweight structures, topology-optimized brackets, mounts, housings, ducts, and compact assemblies.</li>
-            <li>Porous, lattice, internal-flow, patient-specific, or high-strength parts where machining is limiting.</li>
-            <li>Projects where reduced mass, integrated geometry, fewer joints, or fast iteration reduces system risk.</li>
+            <li>
+              Lightweight structures, topology-optimized brackets, mounts, housings, ducts, and compact assemblies.
+            </li>
+            <li>
+              Porous, lattice, internal-flow, patient-specific, or high-strength parts where machining is limiting.
+            </li>
+            <li>
+              Projects where reduced mass, integrated geometry, fewer joints, or fast iteration reduces system risk.
+            </li>
           </ul>
         </div>
         <div class="rounded-md border border-page-border bg-surface p-6">
@@ -388,7 +403,8 @@ const faqItems = [
       },
       {
         title: 'Quantity and timing',
-        description: 'Prototype quantity, batch size, target delivery date, approval timing, and any purchasing constraints.',
+        description:
+          'Prototype quantity, batch size, target delivery date, approval timing, and any purchasing constraints.',
         icon: 'tabler:file-description',
       },
       {
@@ -417,7 +433,8 @@ const faqItems = [
     items={[
       {
         title: 'DfAM manufacturability',
-        description: 'Wall thickness, supports, overhangs, trapped powder, orientation, support access, and distortion risk.',
+        description:
+          'Wall thickness, supports, overhangs, trapped powder, orientation, support access, and distortion risk.',
         icon: 'tabler:tools',
       },
       {
@@ -428,7 +445,8 @@ const faqItems = [
       },
       {
         title: 'Post-processing plan',
-        description: 'Stress relief, anneal, HIP, support removal, machining stock, datum strategy, surface finish, and cleaning.',
+        description:
+          'Stress relief, anneal, HIP, support removal, machining stock, datum strategy, surface finish, and cleaning.',
         icon: 'tabler:settings',
       },
       {
@@ -495,9 +513,9 @@ const faqItems = [
     <Fragment slot="title">Send drawings, quantity, and titanium requirements.</Fragment>
 
     <Fragment slot="subtitle">
-      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with the drawing,
-      alloy target, quantity, lead time, critical dimensions, datum scheme, load, temperature, environment constraints,
-      and required inspection evidence.
+      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with the drawing, alloy
+      target, quantity, lead time, critical dimensions, datum scheme, load, temperature, environment constraints, and required
+      inspection evidence.
     </Fragment>
   </CallToAction>
 </Layout>

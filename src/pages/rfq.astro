@@ -17,7 +17,7 @@ Hello TITANIUM 3DP,
 Please review the attached CAD/drawings for quotation.
 
 Part/application:
-Target alloy or standard:
+Target alloy or standard (TC4 / Ti-6Al-4V / Grade 5 / Ti64 / ELI / TA1 / TA2 / CP Ti):
 Process preference, if any:
 Attached files:
 Quantity and build lot definition:
@@ -89,9 +89,9 @@ const rfqShowcases = [
 ];
 
 const metadata = {
-  title: 'Titanium AM RFQ Checklist',
+  title: 'TC4 Titanium AM RFQ Checklist',
   description:
-    'Titanium AM RFQ checklist for alloy grade, LPBF/EBM process, STEP files, drawings, datums, tolerances, HIP, machining, CT, CMM, COA, COC, and traceability.',
+    'Titanium AM RFQ checklist for TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, CP Ti, LPBF/EBM process, STEP files, drawings, tolerances, machining, CT, CMM, COA, COC, and traceability.',
   openGraph: {
     images: [
       {
@@ -111,7 +111,8 @@ const metadata = {
     createItemListSchema('Titanium AM RFQ checklist', [
       {
         name: 'Alloy and process',
-        description: 'Ti-6Al-4V, Ti-6Al-4V ELI, CP Ti, standard, LPBF, EBM, or DED preference.',
+        description:
+          'TC4, Ti-6Al-4V, Grade 5, Ti64, Ti-6Al-4V ELI, TA1, TA2, CP Ti, standard, LPBF, EBM, or DED preference.',
         url: '/rfq/',
       },
       {
@@ -133,8 +134,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="RFQ inputs"
-    title="Send enough information for an engineering-valid titanium AM quote"
-    subtitle="A simple prototype may only need CAD, alloy, quantity, and timing. Production-intent or high-risk parts need process, post-processing, inspection, and documentation requirements stated early."
+    title="Send enough information for an engineering-valid TC4 titanium AM quote"
+    subtitle="A simple prototype may only need CAD, alloy, quantity, and timing. State whether the material target is TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, CP Ti, or supplier recommendation. Production-intent or high-risk parts need process, post-processing, inspection, and documentation requirements stated early."
   />
 
   <section class="relative not-prose py-10 md:py-14">

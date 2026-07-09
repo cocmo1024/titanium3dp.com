@@ -14,11 +14,11 @@ const applicationShowcases = [
     imagePosition: 'left' as const,
     image: {
       src: '~/assets/images/titanium/4.webp',
-      alt: 'Titanium 3D printed aerospace, motorsport, medical, and energy applications',
+      alt: 'TC4 and Ti-6Al-4V titanium 3D printed aerospace, motorsport, medical, and energy applications',
     },
-    title: 'Weight reduction that changes system behavior',
+    title: 'TC4 and Ti-6Al-4V weight reduction that changes system behavior',
     description:
-      'Titanium AM is strongest when mass reduction improves flight, vehicle, robot, or rotating-system behavior and the fatigue/evidence burden is planned from the start.',
+      'TC4, Ti-6Al-4V, Grade 5, and Ti64 AM are strongest when mass reduction improves flight, vehicle, robot, or rotating-system behavior and the fatigue/evidence burden is planned from the start.',
     points: [
       {
         title: 'Topology-optimized structures',
@@ -44,7 +44,7 @@ const applicationShowcases = [
     imagePosition: 'right' as const,
     image: {
       src: '~/assets/images/titanium/7.webp',
-      alt: 'Titanium additive manufacturing application screening rules',
+      alt: 'TC4 titanium additive manufacturing application screening and RFQ rules',
     },
     title: 'Application screening before quotation',
     description:
@@ -74,16 +74,16 @@ const applicationShowcases = [
 ];
 
 const metadata = {
-  title: 'Titanium 3D Printing Applications',
+  title: 'TC4 Titanium 3D Printing Applications | Ti-6Al-4V Parts',
   description:
-    'Titanium 3D printing applications for aerospace lightweighting, motorsport performance parts, medical structures, energy hardware, internal channels, and part consolidation.',
+    'TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, and CP titanium 3D printing applications for aerospace lightweighting, motorsport, robotics, energy, flow hardware, internal channels, and RFQ-ready part consolidation.',
   openGraph: {
     images: [
       {
         url: '~/assets/images/titanium/4.webp',
         width: 1200,
         height: 628,
-        alt: 'Titanium 3D printing applications',
+        alt: 'TC4 and Ti-6Al-4V titanium 3D printing applications',
       },
     ],
     type: 'website',
@@ -96,30 +96,32 @@ const metadata = {
     createItemListSchema('Titanium AM applications', [
       {
         name: 'Aerospace lightweight structures',
-        description: 'Topology-optimized brackets, mounts, housings, ducts, and secondary structures.',
+        description:
+          'TC4 / Ti-6Al-4V brackets, mounts, housings, ducts, and secondary structures where stiffness-to-weight value is clear.',
         url: '/applications/#aerospace',
       },
       {
         name: 'Drone and UAV parts',
         description:
-          'Payload mounts, sensor brackets, motor junctions, and compact titanium UAV hardware where stiffness, vibration, heat, or lead time justify AM.',
+          'Payload mounts, sensor brackets, motor junctions, and compact TC4 / Grade 5 titanium UAV hardware where stiffness, vibration, heat, or lead time justify AM.',
         url: '/posts/titanium-3d-printing-drone-uav-parts/',
       },
       {
         name: 'Motorsport and robotics',
         description:
-          'Lightweight arms, end effectors, powertrain parts, and dynamic structures where mass reduction matters.',
+          'Lightweight TC4 arms, end effectors, powertrain parts, and dynamic structures where mass reduction matters.',
         url: '/applications/#motorsport-robotics',
       },
       {
         name: 'Medical and patient-specific structures',
-        description: 'Ti-6Al-4V ELI routes, porous structures, patient-specific geometry, and documentation planning.',
+        description:
+          'Ti-6Al-4V ELI, Grade 23, and porous-structure routes where patient-specific geometry and documentation planning matter.',
         url: '/applications/#medical',
       },
       {
         name: 'Energy and flow hardware',
         description:
-          'Internal channels, compact housings, thermal/flow structures, and high-strength titanium assemblies.',
+          'TC4, Ti-6Al-4V, TA1, TA2, or CP Ti internal channels, compact housings, thermal/flow structures, and high-strength assemblies.',
         url: '/applications/#energy-flow',
       },
     ]),
@@ -130,8 +132,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="Applications"
-    title="Use titanium AM where geometry changes the outcome"
-    subtitle="Titanium additive manufacturing earns its cost when weight reduction, part consolidation, internal geometry, or patient-specific form changes system performance enough to justify qualification and evidence."
+    title="Use TC4 titanium AM where geometry changes the outcome"
+    subtitle="Titanium additive manufacturing earns its cost when TC4 / Ti-6Al-4V lightweighting, TA1 / TA2 corrosion-oriented hardware, part consolidation, internal geometry, or patient-specific form changes system performance enough to justify qualification and evidence."
     actions={[
       {
         variant: 'primary',
@@ -142,20 +144,20 @@ const metadata = {
     ]}
     image={{
       src: '~/assets/images/titanium/4.webp',
-      alt: 'Titanium 3D printing application parts',
+      alt: 'TC4 and Ti-6Al-4V titanium 3D printing application parts',
       class: 'mx-auto w-full',
     }}
   />
 
   <Features2
     title="Application families"
-    subtitle="Start from the part function and failure mode before choosing LPBF, EBM, machining, casting, or forging."
+    subtitle="Start from the part function, failure mode, and material name before choosing TC4 / Ti-6Al-4V LPBF, EBM, machining, casting, or forging."
     columns={3}
     items={[
       {
         title: 'Aerospace lightweighting',
         description:
-          'Brackets, mounts, ducts, housings, and secondary structures where load-path geometry and evidence packages can justify AM.',
+          'TC4 / Ti-6Al-4V brackets, mounts, ducts, housings, and secondary structures where load-path geometry and evidence packages can justify AM.',
         icon: 'tabler:plane',
       },
       {
@@ -173,7 +175,7 @@ const metadata = {
       {
         title: 'Energy and flow components',
         description:
-          'High-strength housings, internal channels, thermal/flow structures, and compact titanium assemblies.',
+          'High-strength TC4 housings, TA1 / TA2 corrosion-oriented hardware, internal channels, thermal/flow structures, and compact titanium assemblies.',
         icon: 'tabler:flame',
       },
       {
@@ -207,7 +209,7 @@ const metadata = {
       {
         title: 'Drone and UAV parts',
         description:
-          'Review titanium AM for payload mounts, sensor brackets, motor junctions, thermal-adjacent hardware, vibration risk, and RFQ evidence.',
+          'Review TC4 / Ti-6Al-4V AM for payload mounts, sensor brackets, motor junctions, thermal-adjacent hardware, vibration risk, and RFQ evidence.',
         icon: 'tabler:drone',
         callToAction: {
           text: 'Read UAV parts guide',
@@ -227,7 +229,7 @@ const metadata = {
       {
         title: 'Application fit map',
         description:
-          'Compare aerospace, motorsport, medical-adjacent, energy, flow, and consolidation cases before committing to AM.',
+          'Compare aerospace, motorsport, medical-adjacent, energy, flow, and consolidation cases before committing to TC4, ELI, TA1, TA2, or CP titanium AM.',
         icon: 'tabler:layout-grid',
         callToAction: {
           text: 'Read application guide',
@@ -267,7 +269,7 @@ const metadata = {
         href: 'mailto:info@szcomo.com',
       },
     ]}
-    title="Need a titanium AM application review?"
-    subtitle="Send CAD, target alloy, quantity, lead time, load case, operating environment, critical dimensions, post-processing needs, and inspection requirements."
+    title="Need a TC4 titanium AM application review?"
+    subtitle="Send CAD, target alloy name such as TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, or CP Ti, plus quantity, lead time, load case, operating environment, critical dimensions, post-processing needs, and inspection requirements."
   />
 </Layout>

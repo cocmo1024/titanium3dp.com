@@ -39,8 +39,9 @@ export const createBreadcrumbSchema = (items: Array<{ name: string; item?: strin
 export const createTitaniumServiceSchema = (): JsonLdNode => ({
   '@type': 'Service',
   '@id': `${siteUrl}/#titanium-additive-manufacturing-service`,
-  name: 'Titanium 3D Printing Services',
-  serviceType: 'Titanium additive manufacturing, LPBF titanium 3D printing, EBM titanium parts, and RFQ review',
+  name: 'TC4 Titanium 3D Printing Services',
+  serviceType:
+    'TC4 titanium 3D printing, Ti-6Al-4V additive manufacturing, LPBF titanium parts, EBM titanium parts, and RFQ review',
   provider: { '@id': organizationId },
   areaServed: {
     '@type': 'Place',
@@ -51,7 +52,7 @@ export const createTitaniumServiceSchema = (): JsonLdNode => ({
     audienceType: 'Engineering, purchasing, aerospace, medical device, motorsport, energy, and industrial teams',
   },
   description:
-    'Industrial titanium additive manufacturing support for Ti-6Al-4V, Ti-6Al-4V ELI, and CP Ti parts, including DfAM review, HIP, machining, inspection planning, and traceability documentation.',
+    'Industrial titanium additive manufacturing support for TC4, Ti-6Al-4V, Grade 5, Ti64, Ti-6Al-4V ELI, TA1, TA2, and CP Ti parts, including DfAM review, machining, inspection planning, and traceability documentation.',
   url: toAbsoluteUrl('/'),
 });
 

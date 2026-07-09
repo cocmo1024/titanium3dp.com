@@ -37,9 +37,9 @@ const faqItems = [
       'It is usually not a fit for simple geometry, high-volume cost sensitivity, tight all-over tolerances with no finishing access, inaccessible trapped powder, or high fatigue/leak demands without an evidence budget.',
   },
   {
-    title: 'What titanium alloys are most common in AM?',
+    title: 'What titanium alloys and material names are most common in AM?',
     description:
-      'Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI Grade 23 are the most common. CP Ti Grades 1-4 are reviewed when ductility, corrosion behavior, or a commercially pure titanium requirement matters.',
+      'Ti-6Al-4V Grade 5 is also searched as TC4, Grade 5 titanium, or Ti64. Ti-6Al-4V ELI Grade 23 is used where lower interstitials matter. TA1, TA2, and CP Ti Grades 1-4 are reviewed when ductility, corrosion behavior, or a commercially pure titanium requirement matters.',
   },
   {
     title: 'What is the difference between Grade 5 and Grade 23 ELI?',
@@ -131,7 +131,7 @@ const faqItems = [
 const metadata = {
   title: 'Titanium AM FAQ',
   description:
-    'FAQ for titanium additive manufacturing RFQs: Ti-6Al-4V materials, LPBF/EBM process selection, tolerances, HIP, CT, CMM, coupons, traceability, and procurement evidence.',
+    'FAQ for titanium additive manufacturing RFQs: TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, CP Ti materials, LPBF/EBM process selection, tolerances, CT, CMM, coupons, traceability, and procurement evidence.',
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
@@ -145,8 +145,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="FAQ"
-    title="Titanium AM FAQ: RFQ, tolerances, HIP, CT, and traceability"
-    subtitle="Practical answers for engineers and procurement teams preparing titanium LPBF or EBM RFQs."
+    title="Titanium AM FAQ: TC4, RFQ, tolerances, CT, and traceability"
+    subtitle="Practical answers for engineers and procurement teams preparing TC4, Ti-6Al-4V, TA1, TA2, CP titanium, LPBF, or EBM RFQs."
   />
 
   <FAQs title="Frequently asked questions" columns={1} items={faqItems} />

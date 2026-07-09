@@ -8,9 +8,9 @@ site:
 
 metadata:
   title:
-    default: TITANIUM 3DP | Titanium 3D Printing Services
+    default: TITANIUM 3DP | TC4 Titanium 3D Printing Services
     template: '%s | TITANIUM 3DP'
-  description: 'Industrial titanium 3D printing services for Ti-6Al-4V, Ti-6Al-4V ELI, and CP Ti parts, with DfAM review, HIP, machining, inspection, and RFQ-ready documentation.'
+  description: 'Industrial TC4 titanium 3D printing services for Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, and CP Ti parts, with DfAM review, machining, inspection, and RFQ-ready documentation.'
   robots:
     index: true
     follow: true

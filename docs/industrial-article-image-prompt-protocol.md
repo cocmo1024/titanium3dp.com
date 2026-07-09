@@ -30,16 +30,19 @@ Use these signals to decide visual role, figure count, placement, and prompt lan
 Choose visuals only where they add engineering value.
 
 Evidence visuals:
+
 - Use when the article discusses physical failure, inspection evidence, qualification, repair, accepted production, or a hard pass/fail condition.
 - Place immediately after the paragraph that describes the failure, proof, or acceptance outcome.
 - Show real-world evidence: CT cutaway, CMM datum check, fractured region, support damage, powder trap, coupon set, inspection report.
 
 Explanation visuals:
+
 - Use when the article explains a process route, physics mechanism, geometry constraint, or process chain.
 - Place after the paragraph introducing the complex concept.
 - Show cause and effect: build orientation, support contact, heat path, stress relief, HIP, machining datum, powder evacuation.
 
 Data visuals:
+
 - Use when the article includes a comparison table, cost breakdown, process matrix, or decision ladder.
 - Place after the table or quantitative comparison.
 - Show controlled comparison, not decorative charts: side-by-side process cells, risk matrix, decision gate, route map.
@@ -63,6 +66,7 @@ When writing an article draft, insert anchors only where the visual is useful:
 ```
 
 Rules:
+
 - Number sequentially: `[Figure 1]`, `[Figure 2]`, `[Figure 3]`.
 - Do not invent figures after the article is complete unless the section genuinely needs visual evidence.
 - If the article has no visual need, omit anchors and omit the manifest.
@@ -92,17 +96,20 @@ Every figure prompt must include these fields:
 ## 6. Camera, Composition, and Aspect Ratio
 
 Camera/lens:
+
 - 100mm Macro: defect close-ups, surface finish, support scar, fracture, coupon detail, CT defect area.
 - 24mm Tilt-Shift: equipment view, process chain, machine cell, inspection station, clean industrial overview.
 - Isometric: exploded view, route comparison, decision matrix, internal channel diagram, process map.
 
 Composition:
+
 - Rule of Thirds: standard professional scene with one primary part or process.
 - Knolling: organized component sets, coupons, inspection documents, process deliverables.
 - Symmetry: comparison visuals, process alternatives, balanced route choices.
 - Cross-Section: internal channels, powder trap, porosity, CT slice, hidden geometry.
 
 Aspect ratio:
+
 - `--ar 16:9`: default for article hero-style, process overview, comparison panels.
 - `--ar 3:2`: use when the subject benefits from more vertical detail or inspection-document framing.
 
@@ -111,12 +118,14 @@ Aspect ratio:
 Generated images may include short technical labels, but labels must be simple and legible.
 
 Use labels for:
+
 - Process names: `LPBF`, `EBM`, `DED`.
 - Risk markers: `Support risk`, `Powder removal`, `Machining stock`.
 - Evidence markers: `CMM datum`, `CT threshold`, `Coupon lot`.
 - Decision labels: `Best fit`, `Conditional`, `Avoid`.
 
 Avoid:
+
 - Long paragraphs inside images.
 - Dense tables inside the image.
 - Tiny annotations that will fail at mobile size.
@@ -152,12 +161,14 @@ Add topic-specific negatives when needed, such as:
 ## 9. Alt Text and Caption Rules
 
 Alt text:
+
 - Describe what the image shows.
 - Include the article topic naturally when useful.
 - Do not keyword stuff.
 - Keep it readable as standalone accessibility text.
 
 Caption:
+
 - Explain the engineering point of the image.
 - State the trade-off, risk, or decision logic.
 - Avoid repeating the heading.
@@ -190,6 +201,7 @@ Before generating or handing off prompts, check:
 Article: `Titanium AM Process Selection: LPBF vs EBM vs DED`
 
 Topic signals:
+
 - Primary constraint: process route selection and acceptance risk.
 - Audience role: engineering plus procurement.
 - Evidence level: medium.
@@ -197,6 +209,7 @@ Topic signals:
 - Narrative skeleton: comparison-ladder with a small cost-ledger component.
 
 Recommended visual plan:
+
 - Figure 1: data/explanation visual after the quick LPBF/EBM/DED comparison table.
 - Figure 2: explanation visual after the LPBF and EBM route discussion.
 - Figure 3: evidence/process visual after the DED section or cost section, showing DED as machining-stock/repair route rather than fine-detail powder-bed geometry.

@@ -20,8 +20,16 @@
     { "source": "/blog", "destination": "/category/Case-Studies/", "permanent": true },
     { "source": "/category/EngineeringGuide/", "destination": "/category/Case-Studies/", "permanent": true },
     { "source": "/category/EngineeringGuide", "destination": "/category/Case-Studies/", "permanent": true },
-    { "source": "/posts/EngineeringGuide/titanium-additive-manufacturing-components-2026/", "destination": "/posts/titanium-additive-manufacturing-components-2026/", "permanent": true },
-    { "source": "/posts/EngineeringGuide/titanium-additive-manufacturing-components-2026", "destination": "/posts/titanium-additive-manufacturing-components-2026/", "permanent": true },
+    {
+      "source": "/posts/EngineeringGuide/titanium-additive-manufacturing-components-2026/",
+      "destination": "/posts/titanium-additive-manufacturing-components-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/posts/EngineeringGuide/titanium-additive-manufacturing-components-2026",
+      "destination": "/posts/titanium-additive-manufacturing-components-2026/",
+      "permanent": true
+    },
     { "source": "/copper-cold-plates/", "destination": "/applications/", "permanent": true },
     { "source": "/copper-cold-plates", "destination": "/applications/", "permanent": true },
     { "source": "/copper-heat-sinks/", "destination": "/applications/", "permanent": true },

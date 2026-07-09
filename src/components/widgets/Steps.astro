@@ -26,7 +26,9 @@ const hasHeader = title || subtitle || tagline;
     hasHeader && (
       <div class="mb-8 grid gap-3 border-y border-page-border py-6 md:grid-cols-[0.36fr_0.64fr] md:items-end md:gap-10">
         <div>
-          {tagline && <p class="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary" set:html={tagline} />}
+          {tagline && (
+            <p class="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary" set:html={tagline} />
+          )}
           {title && <h2 class="text-2xl font-bold tracking-tight text-heading md:text-3xl" set:html={title} />}
         </div>
         {subtitle && <p class="max-w-2xl text-sm leading-6 text-muted" set:html={subtitle} />}

@@ -333,7 +333,21 @@ const ignoredRelatedTokens = new Set(['and', 'are', 'for', 'from', 'guide', 'int
 
 const topicFamilies = [
   ['process', 'route', 'routes', 'lpbf', 'ebm', 'ded', 'deposition', 'powder', 'bed'],
-  ['material', 'materials', 'titanium', 'ti6al4v', 'eli', 'grade', 'powder', 'oxygen', 'chemistry'],
+  [
+    'material',
+    'materials',
+    'titanium',
+    'tc4',
+    'ti6al4v',
+    'ti64',
+    'eli',
+    'grade',
+    'ta1',
+    'ta2',
+    'powder',
+    'oxygen',
+    'chemistry',
+  ],
   ['dfam', 'support', 'supports', 'overhang', 'wall', 'walls', 'distortion', 'orientation', 'powder'],
   ['rfq', 'specification', 'checklist', 'quote', 'acceptance', 'criteria'],
   ['application', 'applications', 'aerospace', 'medical', 'motorsport', 'energy', 'lightweight'],

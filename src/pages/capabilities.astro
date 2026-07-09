@@ -15,16 +15,16 @@ const capabilityShowcases = [
     imagePosition: 'left' as const,
     image: {
       src: '~/assets/images/titanium/2.webp',
-      alt: 'Titanium LPBF and EBM DfAM manufacturability review',
+      alt: 'TC4 and Ti-6Al-4V LPBF and EBM DfAM manufacturability review',
     },
     title: 'Process fit before quotation',
     description:
-      'The practical route depends on geometry, alloy, process physics, support access, post-processing, and the function the part must prove.',
+      'The practical route depends on geometry, alloy name, process physics, support access, post-processing, and the function the part must prove.',
     points: [
       {
         title: 'LPBF titanium',
         description:
-          'Reviewed for fine features, tight geometric control, lightweight structures, lattices, and compact functional parts.',
+          'Reviewed for TC4 / Ti-6Al-4V fine features, tight geometric control, lightweight structures, lattices, and compact functional parts.',
       },
       {
         title: 'EBM titanium',
@@ -42,7 +42,7 @@ const capabilityShowcases = [
     imagePosition: 'right' as const,
     image: {
       src: '~/assets/images/titanium/5.webp',
-      alt: 'Titanium AM inspection requirements for CMM, CT, coupons, and traceability',
+      alt: 'TC4 titanium AM inspection requirements for CMM, CT, coupons, and traceability',
     },
     title: 'Inspection requirements',
     description:
@@ -54,11 +54,13 @@ const capabilityShowcases = [
       },
       {
         title: 'Internal evidence',
-        description: 'CT can check internal geometry and defects above the effective resolution; acceptance thresholds must be explicit.',
+        description:
+          'CT can check internal geometry and defects above the effective resolution; acceptance thresholds must be explicit.',
       },
       {
         title: 'Mechanical evidence',
-        description: 'Coupons, density checks, and post-processing records should match the risk class and build-lot definition.',
+        description:
+          'Coupons, density checks, and post-processing records should match the risk class and build-lot definition.',
       },
     ],
   },
@@ -66,7 +68,7 @@ const capabilityShowcases = [
     imagePosition: 'left' as const,
     image: {
       src: '~/assets/images/titanium/6.webp',
-      alt: 'Titanium AM RFQ review workspace with cost and traceability planning',
+      alt: 'TC4 and Ti-6Al-4V titanium AM RFQ review workspace with cost and traceability planning',
     },
     title: 'What helps us quote',
     description:
@@ -78,11 +80,13 @@ const capabilityShowcases = [
       },
       {
         title: 'Service load defined',
-        description: 'Provide load spectrum, temperature, corrosion, biocompatibility, fatigue, leak, or flow requirements.',
+        description:
+          'Provide load spectrum, temperature, corrosion, biocompatibility, fatigue, leak, or flow requirements.',
       },
       {
         title: 'Testing requested',
-        description: 'Specify CMM, CT, coupons, density, surface roughness, COA, COC, build record, or traceability requirements.',
+        description:
+          'Specify CMM, CT, coupons, density, surface roughness, COA, COC, build record, or traceability requirements.',
         callToAction: {
           text: 'Send RFQ inputs',
           href: 'mailto:info@szcomo.com',
@@ -93,16 +97,16 @@ const capabilityShowcases = [
 ];
 
 const metadata = {
-  title: 'Titanium AM Capabilities',
+  title: 'TC4 Titanium AM Capabilities | LPBF, EBM, CNC, CT',
   description:
-    'Titanium additive manufacturing capabilities for LPBF and EBM DfAM review, Ti-6Al-4V material selection, HIP, machining, CMM, CT, coupons, and traceability documentation.',
+    'TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, and CP titanium additive manufacturing capabilities for LPBF/EBM DfAM review, machining, CMM, CT, coupons, and traceability documentation.',
   openGraph: {
     images: [
       {
         url: '~/assets/images/titanium/5.webp',
         width: 1200,
         height: 675,
-        alt: 'Titanium AM capabilities and inspection evidence',
+        alt: 'TC4 titanium AM capabilities and inspection evidence',
       },
     ],
     type: 'website',
@@ -115,12 +119,14 @@ const metadata = {
     createItemListSchema('Titanium AM capability areas', [
       {
         name: 'Material and process fit',
-        description: 'Ti-6Al-4V, Ti-6Al-4V ELI, CP Ti, LPBF, EBM, DED screening, and conventional alternatives.',
+        description:
+          'TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, CP Ti, LPBF, EBM, DED screening, and conventional alternatives.',
         url: '/capabilities/#materials-process',
       },
       {
         name: 'Post-processing and finishing',
-        description: 'Stress relief, anneal, HIP, support removal, machining, polishing, cleaning, and surface strategy.',
+        description:
+          'Stress relief, anneal, HIP, support removal, machining, polishing, cleaning, and surface strategy.',
         url: '/capabilities/#post-processing',
       },
       {
@@ -153,19 +159,19 @@ const metadata = {
   >
     <Fragment slot="title">
       Engineering support for <br />
-      <span class="text-accent">inspection-ready titanium AM parts</span>
+      <span class="text-accent">inspection-ready TC4 titanium AM parts</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      TITANIUM 3DP supports titanium additive manufacturing RFQs by reviewing alloy choice, manufacturability,
-      post-processing, machining access, inspection evidence, and traceability requirements.
+      TITANIUM 3DP supports TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, and CP titanium RFQs by reviewing alloy
+      choice, manufacturability, post-processing, machining access, inspection evidence, and traceability requirements.
     </Fragment>
   </Hero>
 
   <Stats
     title="Review areas"
     stats={[
-      { title: 'Titanium material paths', amount: 'G5 / G23 / CP' },
+      { title: 'Titanium material paths', amount: 'TC4 / G23 / CP' },
       { title: 'Process routes', amount: 'LPBF / EBM' },
       { title: 'Post-processing', amount: 'SR / HIP / CNC' },
       { title: 'Evidence methods', amount: 'CMM / CT / COA' },
@@ -175,13 +181,14 @@ const metadata = {
   <Features3
     id="materials-process"
     title="Materials and process fit"
-    subtitle="The first decision is whether the alloy and process route can support the operating target, geometry, post-processing, and evidence requirement."
+    subtitle="The first decision is whether the exact material name and process route can support the operating target, geometry, post-processing, and evidence requirement."
     columns={3}
     isBeforeContent={true}
     items={[
       {
         title: 'Alloy path',
-        description: 'Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, CP Ti, or special titanium routes reviewed against risk.',
+        description:
+          'TC4 / Ti-6Al-4V Grade 5, Ti64, Ti-6Al-4V ELI Grade 23, TA1, TA2, CP Ti, or special titanium routes reviewed against risk.',
         icon: 'tabler:atom',
       },
       {
@@ -191,7 +198,8 @@ const metadata = {
       },
       {
         title: 'Process-chain route',
-        description: 'Print route, stress relief, HIP, support removal, machining, finishing, cleaning, and inspection sequence.',
+        description:
+          'Print route, stress relief, HIP, support removal, machining, finishing, cleaning, and inspection sequence.',
         icon: 'tabler:route',
       },
     ]}
@@ -229,7 +237,7 @@ const metadata = {
   <CallToAction
     classes={{ container: sectionContainerClass }}
     title="Send CAD for titanium AM review"
-    subtitle="Include alloy target, quantity, lead time, critical surfaces, post-processing, inspection, and documentation requirements."
+    subtitle="Include the alloy target name, such as TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, or CP Ti, plus quantity, lead time, critical surfaces, post-processing, inspection, and documentation requirements."
     actions={[
       {
         variant: 'primary',
