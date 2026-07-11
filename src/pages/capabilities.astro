@@ -6,7 +6,11 @@ import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+import {
+  createBreadcrumbSchema,
+  createItemListSchema,
+  createTitaniumApplicationServiceSchema,
+} from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
 
@@ -97,9 +101,9 @@ const capabilityShowcases = [
 ];
 
 const metadata = {
-  title: 'TC4 Titanium AM Capabilities | LPBF, EBM, CNC, CT',
+  title: 'Titanium 3D Printing Services | Ti-6Al-4V LPBF',
   description:
-    'TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, and CP titanium additive manufacturing capabilities for LPBF/EBM DfAM review, machining, CMM, CT, coupons, and traceability documentation.',
+    'Titanium 3D printing services for TC4, Ti-6Al-4V Grade 5, Grade 23 ELI, and CP titanium parts: LPBF/EBM review, CNC machining, HIP, CMM, CT, testing, and traceability.',
   openGraph: {
     images: [
       {
@@ -116,6 +120,16 @@ const metadata = {
       { name: 'Home', item: '/' },
       { name: 'Capabilities', item: '/capabilities/' },
     ]),
+    createTitaniumApplicationServiceSchema({
+      id: '/capabilities/',
+      name: 'Titanium 3D Printing Services',
+      serviceType:
+        'Ti-6Al-4V and TC4 LPBF and EBM manufacturability review, printing, post-processing, CNC machining, inspection, and production RFQ support',
+      description:
+        'Engineering and manufacturing support for titanium additive manufacturing parts from CAD review through heat treatment, machining, CMM, CT, documentation, and delivery.',
+      url: '/capabilities/',
+      audienceType: 'Engineers and procurement teams sourcing prototype or production titanium 3D printed parts',
+    }),
     createItemListSchema('Titanium AM capability areas', [
       {
         name: 'Material and process fit',
@@ -158,13 +172,14 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      Engineering support for <br />
-      <span class="text-accent">inspection-ready TC4 titanium AM parts</span>
+      Titanium 3D printing services for <br />
+      <span class="text-accent">inspection-ready Ti-6Al-4V parts</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      TITANIUM 3DP supports TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, and CP titanium RFQs by reviewing alloy
-      choice, manufacturability, post-processing, machining access, inspection evidence, and traceability requirements.
+      From CAD and drawing review through LPBF or EBM, thermal processing, CNC machining, surface finishing, CMM, CT,
+      testing, and release documents, the service scope is built around the delivered functional part rather than the
+      print step alone.
     </Fragment>
   </Hero>
 
@@ -180,7 +195,7 @@ const metadata = {
 
   <Features3
     id="materials-process"
-    title="Materials and process fit"
+    title="Titanium 3D printing service scope"
     subtitle="The first decision is whether the exact material name and process route can support the operating target, geometry, post-processing, and evidence requirement."
     columns={3}
     isBeforeContent={true}
@@ -188,7 +203,7 @@ const metadata = {
       {
         title: 'Alloy path',
         description:
-          'TC4 / Ti-6Al-4V Grade 5, Ti64, Ti-6Al-4V ELI Grade 23, TA1, TA2, CP Ti, or special titanium routes reviewed against risk.',
+          'TC4 / Ti-6Al-4V Grade 5, Ti64, ASTM F3001 Ti-6Al-4V ELI Grade 23, TA1, TA2, CP Ti, or special titanium routes reviewed against risk.',
         icon: 'tabler:atom',
       },
       {

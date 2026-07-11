@@ -69,10 +69,14 @@ npm run preview
 - Added project writing/image-prompt protocol documentation in `docs/industrial-article-image-prompt-protocol.md`.
 - Rebuilt the cost, AM-vs-CNC, and application-fit articles around distinct buyer decisions instead of generic industry summaries.
 - Added a no-hero-image lead-time article for prototype-to-production Ti-6Al-4V schedule intent.
+- Imported the 2026-07-11 Search Console export and recorded the baseline in `docs/gsc-baseline-2026-07-11.md`.
+- Added an ASTM F3001 / Ti-6Al-4V ELI Grade 23 material path, aligned `/capabilities/` with service intent, improved `/rfq/` quote intent, and added apex-domain host consolidation.
 
 ## SEO Content Baseline and Direction
 
 - A July 2026 public-index audit found a weak visible Google footprint despite 38 existing posts. Treat Search Console page/query data as the authority when it becomes available; public `site:` checks are only a directional signal.
+- The first Search Console baseline covers 2026-04-10 through 2026-07-09: 96 impressions, 3 clicks, 3.13% CTR, and only five exported pages. Queries were heavily privacy-filtered, so the visible four-query list represents only 5 of 96 impressions.
+- The export showed `www` and apex-domain page rows separately, `/rfq/` at 5 impressions and average position 4.2 without a click, and visible demand for `astm f3001` and `titanium 3d printing service`. See `docs/gsc-baseline-2026-07-11.md` before setting priorities.
 - The inventory contained 26 application-template titles and substantial repeated RFQ/post-processing/inspection language. More pages and longer copy are not the default solution.
 - Do not resume daily `Titanium 3D Printing for X` production. Each page needs a distinct search intent, buyer task, technical evidence, and reason to exist.
 - Prioritize intent-led work in this order: transactional material/service pages, process and cost decisions, engineering failure modes, then application pages with genuinely different operating constraints.
@@ -84,8 +88,8 @@ npm run preview
 
 ## Current Unfinished Tasks
 
-- Obtain Google Search Console exports for the last 12-16 months by page and query before making deletion, redirect, or consolidation decisions across the 26 application-template posts.
-- Triage those application pages into keep/rewrite/consolidate/noindex based on impressions, query overlap, backlinks, content distinctness, and commercial fit.
+- Repeat the Search Console export monthly with a fixed comparison window. The first export is too small and too privacy-filtered for deletion decisions across the 26 application-template posts.
+- Triage those application pages into keep/rewrite/consolidate/noindex only after enough page/query evidence exists, using impressions, query overlap, backlinks, content distinctness, and commercial fit.
 - Recommended next commercial landing-page gaps: TA1/TA2/CP titanium, Ti-6Al-4V ELI Grade 23, and LPBF titanium 3D printing services.
 - The cost, AM-vs-CNC, application-fit, lead-time, internal-channel, fatigue, and tolerance topics now exist. Do not recreate close variants.
 - Before pushing future work, run `npm run check`, `npm run build`, and the Workers dry run.
@@ -126,8 +130,8 @@ npm run preview
 
 ## Next Step Suggestions
 
-1. Import Search Console page/query data and classify the 26 application-template articles.
-2. Build the next non-overlapping commercial landing page, starting with TA1/TA2/CP titanium, Ti-6Al-4V ELI Grade 23, or LPBF titanium 3D printing services.
+1. Re-export Search Console page/query data monthly and compare it with `docs/gsc-baseline-2026-07-11.md`.
+2. Build the next non-overlapping commercial landing page only after the Grade 23 and service-intent changes have been crawled; TA1/TA2/CP titanium remains a possible material gap.
 3. Keep the shared article-end material/capabilities/RFQ path and add contextual body links only when a direct technical relationship exists.
 4. Add an image prompt and generated image only when the visual explains geometry, evidence, or process better than text and a table.
 5. Run `npm run check`, `npm run build`, and `npx wrangler@latest deploy --dry-run` before pushing.

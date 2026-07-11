@@ -45,6 +45,8 @@ Grade 23 ELI has tighter interstitial limits, especially oxygen and often nitrog
 
 Use ELI when the evidence requirement justifies it. If the only reason is "higher quality," the RFQ is underspecified. State the mechanical requirement, standard, surface condition, post-processing, and documentation expectation.
 
+For production purchasing, use the dedicated [ASTM F3001 / Ti-6Al-4V ELI Grade 23 guide](/materials/ti6al4v-eli-grade-23-astm-f3001/) to separate the material specification from application approval, post-processing, inspection, and release requirements.
+
 For cyclic loading or high-reliability structures, use the [Titanium 3D Printing Fatigue Design](/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/) guide before assuming that material grade alone solves fatigue risk.
 
 ## CP Titanium Grades 1-4

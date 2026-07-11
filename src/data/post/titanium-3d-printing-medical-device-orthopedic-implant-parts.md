@@ -103,7 +103,7 @@ Define:
 - Mechanical properties, density, chemistry, microstructure, and surface requirements.
 - Whether the part is prototype, verification, validation, or production-intent.
 
-Use [Titanium AM Material Selection: Ti-6Al-4V, ELI, and CP Titanium](/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/) before locking the material line. A vague "medical grade titanium" note is not enough for an RFQ.
+Use [Titanium AM Material Selection: Ti-6Al-4V, ELI, and CP Titanium](/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/) before locking the material line. If ASTM F3001 is the intended purchasing basis, review the dedicated [Ti-6Al-4V ELI Grade 23 / F3001 material path](/materials/ti6al4v-eli-grade-23-astm-f3001/). A vague "medical grade titanium" note is not enough for an RFQ.
 
 ## Porous Titanium Needs Geometry Evidence
 

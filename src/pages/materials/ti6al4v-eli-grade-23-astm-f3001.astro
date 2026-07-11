@@ -1,0 +1,391 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import {
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createItemListSchema,
+  createTitaniumApplicationServiceSchema,
+} from '~/utils/structured-data';
+
+const pageContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
+const sectionClass = `${pageContainerClass} py-10 md:py-12 lg:py-14`;
+const rfqEmailHref = `mailto:info@szcomo.com?subject=${encodeURIComponent(
+  'Ti-6Al-4V ELI Grade 23 / ASTM F3001 RFQ'
+)}&body=${encodeURIComponent(`Target material and specification revision:
+Part function:
+CAD and controlled drawing:
+Prototype and production quantities:
+Operating environment and load case:
+Critical dimensions and surfaces:
+Thermal processing, HIP, machining, and finish:
+Inspection, testing, and documentation:
+Required delivery date:`)}`;
+
+const comparisonRows = [
+  {
+    decision: 'Material name',
+    grade23: 'Ti-6Al-4V ELI, Grade 23, or Ti64 ELI',
+    grade5: 'Ti-6Al-4V, Grade 5, Ti64, or TC4 family wording',
+  },
+  {
+    decision: 'AM specification commonly reviewed',
+    grade23: 'ASTM F3001 for full-melt powder bed fusion Ti-6Al-4V ELI components',
+    grade5: 'ASTM F2924 for full-melt powder bed fusion Ti-6Al-4V components',
+  },
+  {
+    decision: 'Selection basis',
+    grade23: 'Tighter interstitial chemistry is required by the drawing, application, or qualification basis',
+    grade5: 'Grade 5 chemistry and the project acceptance basis satisfy the structural requirement',
+  },
+  {
+    decision: 'What the name does not decide',
+    grade23: 'Device approval, fatigue allowables, surface state, HIP, inspection, cleaning, or release evidence',
+    grade5: 'Process equivalence to wrought material, fatigue allowables, surface state, HIP, or release evidence',
+  },
+];
+
+const faqItems = [
+  {
+    title: 'What is ASTM F3001?',
+    description:
+      'ASTM F3001 is the standard specification for additively manufactured Ti-6Al-4V ELI components produced by full-melt powder bed fusion. It provides a purchasing and production framework that includes ordering information, feedstock, manufacturing, chemistry, microstructure, mechanical properties, thermal processing, inspection, certification, and quality requirements.',
+  },
+  {
+    title: 'Is Ti-6Al-4V ELI the same as Grade 23?',
+    description:
+      'Grade 23 is the commonly used grade name for the extra-low-interstitial Ti-6Al-4V alloy route. The name alone is not a complete AM purchase requirement; the RFQ should state the governing specification revision, process, delivered condition, tests, and records.',
+  },
+  {
+    title: 'Is ASTM F3001 only for medical implants?',
+    description:
+      'No. ASTM F3001 is a material specification for powder bed fusion Ti-6Al-4V ELI components. Medical-device use introduces additional design controls, validation, biocompatibility, cleaning, sterilization, regulatory, and device-specific requirements that the material specification does not replace.',
+  },
+  {
+    title: 'Can Grade 23 replace Grade 5 automatically?',
+    description:
+      'No. The two routes have different chemistry requirements and may be tied to different design data, approved sources, thermal conditions, and qualification records. Substitution needs engineering and quality approval against the actual drawing and application basis.',
+  },
+  {
+    title: 'What should an ASTM F3001 RFQ include?',
+    description:
+      'Send CAD, a controlled drawing, the required F3001 revision, component classification or supplementary requirements where applicable, quantity, service conditions, critical features, thermal and HIP requirements, machining and finish, inspection, testing, traceability, and delivery needs.',
+  },
+];
+
+const metadata = {
+  title: 'ASTM F3001 Ti-6Al-4V ELI 3D Printing',
+  description:
+    'Ti-6Al-4V ELI Grade 23 titanium 3D printing under ASTM F3001: material selection, LPBF/EBM route, chemistry, heat treatment, HIP, machining, inspection, documentation, and RFQ inputs.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials/' },
+      { name: 'Ti-6Al-4V ELI Grade 23 / ASTM F3001' },
+    ]),
+    createTitaniumApplicationServiceSchema({
+      id: '/materials/ti6al4v-eli-grade-23-astm-f3001/',
+      name: 'Ti-6Al-4V ELI Grade 23 Titanium 3D Printing',
+      serviceType:
+        'ASTM F3001 Ti-6Al-4V ELI powder bed fusion review, post-processing, machining, inspection, and production RFQ support',
+      description:
+        'Engineering review and manufacturing support for Grade 23 Ti-6Al-4V ELI powder bed fusion components, including specification alignment, post-processing, machining, inspection, and documentation planning.',
+      url: '/materials/ti6al4v-eli-grade-23-astm-f3001/',
+      audienceType:
+        'Engineering, quality, and procurement teams sourcing high-reliability or medical-adjacent titanium AM parts',
+    }),
+    createItemListSchema('ASTM F3001 Ti-6Al-4V ELI purchasing path', [
+      {
+        name: 'Confirm Grade 23 is required',
+        description: 'Tie the ELI chemistry requirement to the drawing, application, or qualification basis.',
+        url: '/materials/ti6al4v-eli-grade-23-astm-f3001/#grade-23-vs-grade-5',
+      },
+      {
+        name: 'Define the F3001 production scope',
+        description: 'Align feedstock, process, thermal condition, machining, inspection, and records.',
+        url: '/materials/ti6al4v-eli-grade-23-astm-f3001/#f3001-scope',
+      },
+      {
+        name: 'Issue a comparable RFQ',
+        description: 'State the controlled files, quantities, service conditions, acceptance, and delivery needs.',
+        url: '/materials/ti6al4v-eli-grade-23-astm-f3001/#rfq-inputs',
+      },
+    ]),
+    createFAQSchema(faqItems),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Ti-6Al-4V ELI / Grade 23"
+    title="ASTM F3001 titanium 3D printing for Ti-6Al-4V ELI parts"
+    subtitle="ASTM F3001 defines a powder bed fusion material and purchasing framework for Ti-6Al-4V ELI components. A quote still needs the specification revision, part function, delivered condition, critical features, inspection, testing, documentation, quantity, and delivery scope."
+    callToAction={{ text: 'Email Grade 23 RFQ', href: rfqEmailHref, icon: 'tabler:mail' }}
+    callToAction2={{ text: 'Open RFQ checklist', href: '/rfq/' }}
+  />
+
+  <Features2
+    title="Quick Grade 23 sourcing screen"
+    subtitle="Select ELI because the controlled requirement calls for it, then define the complete process and evidence route."
+    columns={3}
+    items={[
+      {
+        title: 'Use F3001 when',
+        description:
+          'The purchase requirement is for full-melt powder bed fusion Ti-6Al-4V ELI and the applicable F3001 revision supports the project basis.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: 'Do not assume',
+        description:
+          'Grade 23 is not automatically a drop-in replacement for Grade 5, wrought material, an approved implant material, or an application qualification.',
+        icon: 'tabler:alert-triangle',
+      },
+      {
+        title: 'Quote the route',
+        description:
+          'Control powder, build, thermal processing, HIP where required, machining, surface condition, cleaning, inspection, tests, and records.',
+        icon: 'tabler:route',
+      },
+    ]}
+    classes={{ container: 'py-10 md:py-12 lg:py-14' }}
+  />
+
+  <section id="grade-23-vs-grade-5" class={`${sectionClass} border-y border-page-border`}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Material decision</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Ti-6Al-4V ELI Grade 23 vs Grade 5</h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        Grade 23 and Grade 5 belong to the Ti-6Al-4V family, but the material callout, chemistry limits, design basis,
+        and qualification records are not interchangeable. Choose from the controlled requirement rather than the grade
+        number alone.
+      </p>
+    </div>
+
+    <div class="mt-8 overflow-x-auto border-y border-page-border">
+      <table class="w-full min-w-[820px] text-left text-sm">
+        <caption class="sr-only"
+          >Comparison of Ti-6Al-4V ELI Grade 23 and Ti-6Al-4V Grade 5 for additive manufacturing</caption
+        >
+        <thead class="bg-surface-raised text-heading">
+          <tr>
+            <th scope="col" class="w-48 px-4 py-3 font-semibold">Decision</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Grade 23 / ELI route</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Grade 5 route</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-page-border">
+          {
+            comparisonRows.map((row) => (
+              <tr class="align-top">
+                <th scope="row" class="px-4 py-4 font-semibold text-heading">
+                  {row.decision}
+                </th>
+                <td class="px-4 py-4 leading-6 text-muted">{row.grade23}</td>
+                <td class="px-4 py-4 leading-6 text-muted">{row.grade5}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-6 leading-7 text-muted">
+      For the Grade 5 path, use the <a
+        class="font-semibold text-link underline underline-offset-4"
+        href="/materials/tc4-ti6al4v-grade-5/">TC4 / Ti-6Al-4V Grade 5 guide</a
+      >.
+    </p>
+  </section>
+
+  <section id="f3001-scope" class={sectionClass}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Specification scope</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">What ASTM F3001 controls</h2>
+        <p class="mt-4 leading-7 text-muted">
+          The current project must name the applicable revision. Do not rely on a supplier statement that simply says
+          "meets ASTM" without mapping the purchase requirements and any supplementary requirements.
+        </p>
+      </div>
+
+      <dl class="border-t border-page-border">
+        <div class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[11rem_1fr] md:gap-8">
+          <dt class="font-semibold text-heading">Ordering basis</dt>
+          <dd class="leading-7 text-muted">
+            Component classification, manufacturing plan, order information, supplementary requirements, and
+            purchaser-producer responsibilities.
+          </dd>
+        </div>
+        <div class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[11rem_1fr] md:gap-8">
+          <dt class="font-semibold text-heading">Feedstock and process</dt>
+          <dd class="leading-7 text-muted">
+            Powder feedstock, full-melt powder bed fusion route, process controls, and quality-program expectations.
+          </dd>
+        </div>
+        <div class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[11rem_1fr] md:gap-8">
+          <dt class="font-semibold text-heading">Material condition</dt>
+          <dd class="leading-7 text-muted">
+            Chemical composition, microstructure, mechanical properties, thermal processing, and HIP provisions where
+            applicable.
+          </dd>
+        </div>
+        <div class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[11rem_1fr] md:gap-8">
+          <dt class="font-semibold text-heading">Acceptance and release</dt>
+          <dd class="leading-7 text-muted">
+            Dimensions, permissible variation, retests, inspection, rejection, certification, product marking,
+            packaging, and records.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class={`${sectionClass} border-y border-page-border`}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Important boundary</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">What F3001 does not prove by itself</h2>
+      </div>
+      <div class="space-y-5 text-base leading-7 text-muted">
+        <p>
+          Compliance with a material specification does not by itself establish part-specific fatigue life, fracture
+          performance, pressure integrity, dimensional capability, internal cleanliness, biocompatibility, sterilization
+          validation, or regulatory approval.
+        </p>
+        <p>
+          The acceptance plan must follow the actual failure modes and application. Surface condition, support contact,
+          orientation, internal defects, machining, thermal route, and representative testing can matter as much as the
+          alloy name.
+        </p>
+        <p>
+          For medical devices, the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices"
+            >FDA technical considerations for additive manufactured medical devices</a
+          >
+          describe broader design, manufacturing, and testing considerations. The device manufacturer and responsible regulatory
+          organization retain those obligations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rfq-inputs" class={sectionClass}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">RFQ inputs</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Ask suppliers to quote the same Grade 23 part</h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        Comparable quotes require the same delivered condition, evidence, and release scope. Otherwise one supplier may
+        price a printed shape while another prices an accepted component.
+      </p>
+    </div>
+
+    <ol class="mt-8 border-t border-page-border">
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">1</span><strong class="text-heading">Controlled definition</strong
+        ><span class="leading-7 text-muted"
+          >STEP or native CAD, controlled drawing, revision, part number, and design authority.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">2</span><strong class="text-heading">Material requirement</strong><span
+          class="leading-7 text-muted"
+          >Ti-6Al-4V ELI / Grade 23, ASTM F3001 revision, component class, and supplementary requirements where
+          applicable.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">3</span><strong class="text-heading">Service conditions</strong><span
+          class="leading-7 text-muted"
+          >Loads, fatigue spectrum, temperature, pressure, media, vibration, cleanliness, and consequence of failure.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">4</span><strong class="text-heading">Delivered route</strong><span
+          class="leading-7 text-muted"
+          >Stress relief or other thermal processing, HIP, support removal, CNC machining, surface finish, cleaning, and
+          packaging.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">5</span><strong class="text-heading">Acceptance evidence</strong><span
+          class="leading-7 text-muted"
+          >Chemistry and mechanical testing, coupons, CMM, CT where technically suitable, roughness, leak tests,
+          certificates, build records, traceability, and report format.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">6</span><strong class="text-heading">Commercial scope</strong><span
+          class="leading-7 text-muted"
+          >Prototype and production quantities, lot definition, annual demand, delivery date, destination, and approval
+          hold points.</span
+        >
+      </li>
+    </ol>
+  </section>
+
+  <section class={`${sectionClass} border-y border-page-border`}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Primary references</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Standards and regulatory context</h2>
+      </div>
+      <div class="space-y-5 leading-7 text-muted">
+        <p>
+          <a class="font-semibold text-link underline underline-offset-4" href="https://store.astm.org/standards/f3001"
+            >ASTM F3001-14(2021)</a
+          >
+          is the active ASTM specification currently listed for powder bed fusion Ti-6Al-4V ELI components. Confirm the revision
+          required by the contract when requesting a quote.
+        </p>
+        <p>
+          The <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="https://www.nist.gov/additive-manufacturing/products-resources-0/standards-benchmarks"
+            >NIST additive manufacturing standards and benchmarks collection</a
+          >
+          lists F3001 within the wider metal additive manufacturing standards landscape.
+        </p>
+        <p>
+          Use the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/"
+            >qualification and inspection guide</a
+          >
+          to connect the material specification to CMM, CT, coupons, density, surface, and traceability decisions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class={sectionClass}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Grade 23 FAQ</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Questions before an ASTM F3001 purchase order</h2>
+    </div>
+    <dl class="mt-8 border-t border-page-border">
+      {
+        faqItems.map((item) => (
+          <div class="grid gap-3 border-b border-page-border py-6 md:grid-cols-[0.4fr_0.6fr] md:gap-10">
+            <dt class="font-semibold text-heading">{item.title}</dt>
+            <dd class="leading-7 text-muted">{item.description}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <CallToAction
+    classes={{ container: 'py-10 md:py-12 lg:py-14' }}
+    title="Send a Ti-6Al-4V ELI or ASTM F3001 RFQ"
+    subtitle="Include the controlled files, specification revision, quantity, service conditions, delivered route, acceptance evidence, and delivery target."
+    actions={[
+      { variant: 'primary', text: 'Email Grade 23 RFQ', href: rfqEmailHref, icon: 'tabler:mail' },
+      { text: 'Compare all material paths', href: '/materials/' },
+    ]}
+  />
+</Layout>
