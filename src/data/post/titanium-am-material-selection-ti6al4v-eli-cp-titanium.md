@@ -17,6 +17,8 @@ Titanium is not one material choice. In additive manufacturing, the alloy grade 
 
 Search wording matters. "Titanium" is useful as a category term, but buyers often search with material names: TC4 3D printing, Ti-6Al-4V LPBF, Grade 5 titanium parts, Ti64 additive manufacturing, TA1 titanium, TA2 titanium, CP titanium, or Grade 2 titanium corrosion parts. Use those aliases for discovery, then lock the actual material requirement with a recognized standard and supplier evidence.
 
+For a production-intent Grade 5 project, use the dedicated [TC4 / Ti-6Al-4V Grade 5 titanium 3D printing guide](/materials/tc4-ti6al4v-grade-5/) to connect the material name to process condition, DfAM, heat treatment, machining, inspection, and a comparable RFQ.
+
 ## Material Name Map for RFQs
 
 | Search or drawing term | Practical interpretation | What to specify before quote |

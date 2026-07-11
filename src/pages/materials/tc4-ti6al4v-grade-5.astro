@@ -1,0 +1,473 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import {
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createItemListSchema,
+  createTitaniumApplicationServiceSchema,
+} from '~/utils/structured-data';
+
+const pageContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
+const sectionClass = `${pageContainerClass} py-10 md:py-12 lg:py-14`;
+const rfqEmailHref = `mailto:info@szcomo.com?subject=${encodeURIComponent(
+  'TC4 / Ti-6Al-4V Grade 5 additive manufacturing RFQ'
+)}&body=${encodeURIComponent(`Target material or standard: TC4 / Ti-6Al-4V / Grade 5 / Ti64
+Part function:
+CAD and drawing:
+Quantity:
+Operating environment and load case:
+Critical dimensions and surfaces:
+Heat treatment, machining, inspection, and documentation:
+Required delivery date:`)}`;
+
+const materialNames = [
+  {
+    term: 'TC4',
+    meaning: 'Chinese engineering and sourcing designation commonly associated with the Ti-6Al-4V alloy family.',
+    quoteControl:
+      'State the governing material or customer specification, AM process, chemistry limits, condition, and acceptance evidence.',
+  },
+  {
+    term: 'Ti-6Al-4V',
+    meaning: 'International composition-based alloy name used across aerospace, industrial, and AM supply chains.',
+    quoteControl:
+      'Identify whether the requirement applies to powder, the printed component, a wrought comparison, or a customer-controlled material definition.',
+  },
+  {
+    term: 'Grade 5 titanium',
+    meaning: 'Common ASTM-oriented grade wording used by global engineering and purchasing teams.',
+    quoteControl:
+      'Do not use a wrought Grade 5 callout alone to control an AM part; add the applicable AM and application requirements.',
+  },
+  {
+    term: 'Ti64 / Ti 6-4',
+    meaning: 'Short sourcing and engineering shorthand for Ti-6Al-4V.',
+    quoteControl: 'Replace shorthand with a controlled material line before purchase order release.',
+  },
+  {
+    term: 'Grade 23 / Ti-6Al-4V ELI',
+    meaning:
+      'Extra-low-interstitial variant used where tighter chemistry and selected fracture, fatigue, or medical requirements matter.',
+    quoteControl:
+      'Do not substitute it automatically for Grade 5; define interstitial limits, application standard, and evidence expectations.',
+  },
+];
+
+const rfqRows = [
+  {
+    input: 'CAD and drawing',
+    why: 'The STEP model supports build review; the drawing controls datums, tolerances, surface finish, threads, sealing faces, and acceptance notes.',
+  },
+  {
+    input: 'Material basis',
+    why: 'State TC4, Ti-6Al-4V, Grade 5, Ti64, or a governing specification, then identify whether supplier recommendation is allowed.',
+  },
+  {
+    input: 'Part function and service',
+    why: 'Load direction, fatigue spectrum, temperature, corrosion, pressure, leak, vibration, and consequence of failure shape the route.',
+  },
+  {
+    input: 'Delivered condition',
+    why: 'Clarify stress relief, anneal, HIP, support removal, machining, surface treatment, cleaning, and any special handling.',
+  },
+  {
+    input: 'Acceptance evidence',
+    why: 'Define COA/COC, powder and build-lot traceability, coupons, CMM, CT, density, surface roughness, leak testing, and reports.',
+  },
+  {
+    input: 'Commercial scope',
+    why: 'Quantity, prototype or production intent, repeat demand, delivery date, packaging, and destination prevent incomplete quote comparisons.',
+  },
+];
+
+const faqItems = [
+  {
+    title: 'Is TC4 the same as Ti-6Al-4V Grade 5?',
+    description:
+      'TC4, Ti-6Al-4V, Grade 5, and Ti64 are commonly used for the same broad alloy family in different markets. They are not a complete purchase specification. For an AM part, the RFQ should still control the governing standard, powder and component chemistry, process route, heat treatment, mechanical basis, inspection, and documentation.',
+  },
+  {
+    title: 'Can TC4 titanium parts be produced by LPBF?',
+    description:
+      'Yes, Ti-6Al-4V is widely processed by laser powder bed fusion. Feasibility still depends on geometry, wall and channel access, orientation, support removal, distortion, machining allowance, surface requirements, and the qualified parameter and evidence route.',
+  },
+  {
+    title: 'What is the difference between Grade 5 and Grade 23 ELI?',
+    description:
+      'Grade 23 is the extra-low-interstitial Ti-6Al-4V route. It is selected when its chemistry and resulting performance basis are required, not simply because it sounds like a higher grade. The drawing or RFQ should state the applicable standard and acceptance requirements.',
+  },
+  {
+    title: 'Does every TC4 LPBF part need HIP?',
+    description:
+      'No. HIP is a risk-based process decision. Fatigue sensitivity, internal-defect acceptance, section thickness, surface condition, application requirements, and qualification strategy should determine whether HIP belongs in the route.',
+  },
+  {
+    title: 'What should I send for a TC4 titanium 3D printing quote?',
+    description:
+      'Send a STEP file, controlled drawing, material or standard target, quantity, operating environment, load and failure concerns, critical surfaces, tolerances, delivered condition, inspection and documentation requirements, and required delivery date.',
+  },
+];
+
+const metadata = {
+  title: 'TC4 Titanium 3D Printing | Ti-6Al-4V Grade 5 LPBF',
+  description:
+    'TC4, Ti-6Al-4V Grade 5 and Ti64 titanium 3D printing service guide for LPBF parts: standards, DfAM, heat treatment, machining, CT/CMM, traceability, and RFQ inputs.',
+  openGraph: {
+    images: [
+      {
+        url: '~/assets/images/titanium/1.webp',
+        width: 1200,
+        height: 628,
+        alt: 'TC4 and Ti-6Al-4V Grade 5 titanium 3D printing material and RFQ review',
+      },
+    ],
+    type: 'website',
+  },
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials/' },
+      { name: 'TC4 / Ti-6Al-4V Grade 5' },
+    ]),
+    createTitaniumApplicationServiceSchema({
+      id: '/materials/tc4-ti6al4v-grade-5/',
+      name: 'TC4 and Ti-6Al-4V Grade 5 Titanium 3D Printing',
+      serviceType: 'TC4 titanium LPBF, Ti-6Al-4V Grade 5 additive manufacturing, and production RFQ review',
+      description:
+        'Engineering review and manufacturing support for TC4, Ti-6Al-4V Grade 5, and Ti64 powder bed fusion parts, including DfAM, thermal processing, machining, inspection, and traceability planning.',
+      url: '/materials/tc4-ti6al4v-grade-5/',
+      audienceType:
+        'Design engineers, manufacturing engineers, procurement teams, and quality teams sourcing titanium AM parts',
+    }),
+    createItemListSchema('TC4 titanium additive manufacturing decision path', [
+      {
+        name: 'Normalize the material callout',
+        description: 'Translate TC4, Ti-6Al-4V, Grade 5, and Ti64 into a controlled project material requirement.',
+        url: '/materials/tc4-ti6al4v-grade-5/#material-name-map',
+      },
+      {
+        name: 'Define the manufacturing route',
+        description: 'Connect LPBF or EBM to heat treatment, support removal, machining, finishing, and cleaning.',
+        url: '/materials/tc4-ti6al4v-grade-5/#production-route',
+      },
+      {
+        name: 'Prepare the RFQ and acceptance plan',
+        description: 'State CAD, drawing, service conditions, delivered condition, evidence, quantity, and timing.',
+        url: '/materials/tc4-ti6al4v-grade-5/#rfq-checklist',
+      },
+    ]),
+    createFAQSchema(faqItems),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="TC4 / Grade 5 material route"
+    title="TC4 titanium 3D printing for Ti-6Al-4V Grade 5 parts"
+    subtitle="TC4, Ti-6Al-4V, Grade 5, and Ti64 may describe the same broad alloy family in different sourcing contexts. A reliable quote goes further: it controls the AM process, material condition, critical features, inspection evidence, and delivered scope."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email TC4 part RFQ',
+        href: rfqEmailHref,
+        icon: 'tabler:mail',
+      },
+      { text: 'Prepare RFQ inputs', href: '/rfq/' },
+    ]}
+    image={{
+      src: '~/assets/images/titanium/1.webp',
+      alt: 'TC4 and Ti-6Al-4V Grade 5 titanium additive manufacturing parts under material review',
+      class: 'mx-auto w-full',
+    }}
+  />
+
+  <Features2
+    title="Quick TC4 additive manufacturing screen"
+    subtitle="The alloy name opens the discussion. Geometry value, process control, finishing access, and acceptance evidence decide whether the part is quote-ready."
+    columns={3}
+    items={[
+      {
+        title: 'Strong AM fit',
+        description:
+          'High-value low-to-medium volume parts with lightweight load paths, consolidated interfaces, internal flow geometry, lattices, or machining reduction.',
+        icon: 'tabler:circle-check',
+      },
+      {
+        title: 'Define before quote',
+        description:
+          'Governing material basis, LPBF or EBM route, build orientation, heat treatment, machining stock, surface condition, inspection, and traceability.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Compare another route',
+        description:
+          'Simple prismatic geometry, high annual volume, all-over tight tolerances, inaccessible supports, or no budget for required qualification evidence.',
+        icon: 'tabler:arrows-exchange',
+      },
+    ]}
+    classes={{ container: 'py-10 md:py-12 lg:py-14' }}
+  />
+
+  <section id="material-name-map" class={`${sectionClass} border-y border-page-border`}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Material name map</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">TC4, Ti-6Al-4V, Grade 5, and Ti64 in an RFQ</h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        Search terms are useful for discovery. Purchase requirements need a controlled definition. This distinction
+        prevents suppliers from quoting different material, post-processing, and evidence assumptions under one part
+        number.
+      </p>
+    </div>
+
+    <div class="mt-8 overflow-x-auto border-y border-page-border">
+      <table class="w-full min-w-[760px] text-left text-sm">
+        <caption class="sr-only">TC4 and Ti-6Al-4V material name map for additive manufacturing RFQs</caption>
+        <thead class="bg-surface-raised text-heading">
+          <tr>
+            <th scope="col" class="w-40 px-4 py-3 font-semibold">Search or drawing term</th>
+            <th scope="col" class="px-4 py-3 font-semibold">How it is commonly used</th>
+            <th scope="col" class="px-4 py-3 font-semibold">What the quote must control</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-page-border">
+          {
+            materialNames.map((item) => (
+              <tr class="align-top">
+                <th scope="row" class="px-4 py-4 font-semibold text-heading">
+                  {item.term}
+                </th>
+                <td class="px-4 py-4 leading-6 text-muted">{item.meaning}</td>
+                <td class="px-4 py-4 leading-6 text-page">{item.quoteControl}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="production-route" class={sectionClass}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Production route</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+          The printed alloy is only one part of the delivered condition
+        </h2>
+        <p class="mt-4 text-base leading-7 text-muted">
+          Two quotes can both say “TC4” and still describe different parts. Compare the complete route, not only the
+          powder name or machine hours.
+        </p>
+      </div>
+
+      <ol class="border-t border-page-border">
+        <li class="grid gap-2 border-b border-page-border py-5 sm:grid-cols-[9rem_1fr]">
+          <strong class="text-heading">1. Process basis</strong>
+          <span class="leading-7 text-muted"
+            >LPBF/PBF-LB/M or EBM/PBF-EB/M, qualified machine and parameter route, build orientation, and lot
+            definition.</span
+          >
+        </li>
+        <li class="grid gap-2 border-b border-page-border py-5 sm:grid-cols-[9rem_1fr]">
+          <strong class="text-heading">2. Feedstock</strong>
+          <span class="leading-7 text-muted"
+            >Powder specification, chemistry, particle-size basis, supplier lot, handling, storage, and reuse controls
+            where required.</span
+          >
+        </li>
+        <li class="grid gap-2 border-b border-page-border py-5 sm:grid-cols-[9rem_1fr]">
+          <strong class="text-heading">3. Build strategy</strong>
+          <span class="leading-7 text-muted"
+            >Orientation, support contacts, distortion control, powder evacuation, witness features, coupons, and
+            protected functional surfaces.</span
+          >
+        </li>
+        <li class="grid gap-2 border-b border-page-border py-5 sm:grid-cols-[9rem_1fr]">
+          <strong class="text-heading">4. Thermal route</strong>
+          <span class="leading-7 text-muted"
+            >Stress relief, anneal, or HIP selected against material condition, microstructure, fatigue risk, defect
+            acceptance, and application rules.</span
+          >
+        </li>
+        <li class="grid gap-2 border-b border-page-border py-5 sm:grid-cols-[9rem_1fr]">
+          <strong class="text-heading">5. Finishing</strong>
+          <span class="leading-7 text-muted"
+            >Support removal, CNC machining, threads, sealing faces, surface treatment, cleaning, and preservation of
+            datums and wall thickness.</span
+          >
+        </li>
+        <li class="grid gap-2 border-b border-page-border py-5 sm:grid-cols-[9rem_1fr]">
+          <strong class="text-heading">6. Acceptance</strong>
+          <span class="leading-7 text-muted"
+            >CMM, CT, density, roughness, leak or pressure testing, coupons, certificates, nonconformance handling, and
+            traceability package.</span
+          >
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="rfq-checklist" class={`${sectionClass} border-y border-page-border`}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">RFQ checklist</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+        Inputs that turn TC4 search intent into a comparable quote
+      </h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        A supplier can price a printed shape with only CAD. A production-intent quote needs enough context to price the
+        delivered, inspected, documented part.
+      </p>
+    </div>
+
+    <dl class="mt-8 border-t border-page-border">
+      {
+        rfqRows.map((row) => (
+          <div class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+            <dt class="font-semibold text-heading">{row.input}</dt>
+            <dd class="leading-7 text-muted">{row.why}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+      <a class="text-link underline underline-offset-4" href="/rfq/">Open the full titanium AM RFQ checklist</a>
+      <a class="text-link underline underline-offset-4" href="/capabilities/"
+        >Review manufacturing and inspection capabilities</a
+      >
+      <a
+        class="text-link underline underline-offset-4"
+        href="/posts/titanium-3d-printing-cost-drivers-rfq-price-reduction/">Understand TC4 AM cost drivers</a
+      >
+    </div>
+  </section>
+
+  <section class={sectionClass}>
+    <div class="grid gap-8 lg:grid-cols-2 lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Application routes</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+          Where Ti-6Al-4V Grade 5 AM is commonly screened
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The right question is not “Can TC4 be printed?” It is whether geometry value and the acceptance route justify
+          AM for this part.
+        </p>
+      </div>
+
+      <ul class="border-t border-page-border">
+        <li class="border-b border-page-border py-4">
+          <a
+            class="font-semibold text-link underline-offset-4 hover:underline"
+            href="/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/"
+            >Aerospace and defense brackets, mounts, housings, and alternate supply routes</a
+          >
+        </li>
+        <li class="border-b border-page-border py-4">
+          <a
+            class="font-semibold text-link underline-offset-4 hover:underline"
+            href="/posts/titanium-3d-printing-drone-uav-parts/"
+            >Drone and UAV payload, sensor, motor, and lightweight structural hardware</a
+          >
+        </li>
+        <li class="border-b border-page-border py-4">
+          <a
+            class="font-semibold text-link underline-offset-4 hover:underline"
+            href="/posts/titanium-3d-printing-motorsport-racing-parts/"
+            >Motorsport and racing parts with high value per kilogram removed</a
+          >
+        </li>
+        <li class="border-b border-page-border py-4">
+          <a
+            class="font-semibold text-link underline-offset-4 hover:underline"
+            href="/posts/titanium-3d-printing-robotics-automation-parts/"
+            >Robotics arms, grippers, joints, end effectors, and compact housings</a
+          >
+        </li>
+        <li class="border-b border-page-border py-4">
+          <a
+            class="font-semibold text-link underline-offset-4 hover:underline"
+            href="/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/"
+            >Valve, pump, manifold, nozzle, and flow-control hardware</a
+          >
+        </li>
+        <li class="border-b border-page-border py-4">
+          <a
+            class="font-semibold text-link underline-offset-4 hover:underline"
+            href="/posts/titanium-3d-printed-heat-exchangers-thermal-management/"
+            >Heat exchangers, cold plates, internal channels, and thermal hardware</a
+          >
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class={`${sectionClass} border-y border-page-border`}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Standards framework</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+          Use standards as the baseline, then add project-specific acceptance
+        </h2>
+      </div>
+      <div class="space-y-5 text-base leading-7 text-muted">
+        <p>
+          <a class="font-semibold text-link underline underline-offset-4" href="https://store.astm.org/standards/f2924"
+            >ASTM F2924</a
+          >
+          covers Ti-6Al-4V components made by full-melt powder bed fusion and provides a purchasing and producer framework
+          for feedstock, component classification, chemistry, microstructure, mechanical properties, and supplementary requirements.
+        </p>
+        <p>
+          <a class="font-semibold text-link underline underline-offset-4" href="https://www.iso.org/standard/82919.html"
+            >ISO/ASTM 52904:2024</a
+          >
+          addresses metal powder bed fusion process operation and production control for critical applications using laser-
+          or electron-beam systems.
+        </p>
+        <p>
+          <a class="font-semibold text-link underline underline-offset-4" href="https://www.iso.org/standard/72951.html"
+            >ISO/ASTM 52911-1:2019</a
+          >
+          provides design recommendations for laser-based metal powder bed fusion. The applicable contract, industry rules,
+          customer specifications, and drawing requirements still control the final acceptance path.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class={sectionClass}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">TC4 titanium AM FAQ</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Questions to resolve before supplier comparison</h2>
+    </div>
+    <dl class="mt-8 border-t border-page-border">
+      {
+        faqItems.map((item) => (
+          <div class="grid gap-3 border-b border-page-border py-6 md:grid-cols-[0.4fr_0.6fr] md:gap-10">
+            <dt class="font-semibold text-heading">{item.title}</dt>
+            <dd class="leading-7 text-muted">{item.description}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <CallToAction
+    classes={{ container: 'py-10 md:py-12 lg:py-14' }}
+    title="Send a TC4 or Ti-6Al-4V part for engineering review"
+    subtitle="Include CAD, drawing, material or standard target, quantity, service conditions, critical features, delivered condition, inspection evidence, and timing."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email TC4 part RFQ',
+        href: rfqEmailHref,
+        icon: 'tabler:mail',
+      },
+      { text: 'Review all material paths', href: '/materials/' },
+    ]}
+  />
+</Layout>

@@ -64,12 +64,16 @@ npm run preview
 - Added RFQ-focused copy so visitors can understand what to send and start an inquiry quickly.
 - Added SEO-focused metadata, Open Graph image setup, structured data, sitemap, RSS, robots, and route metadata.
 - Added/maintained engineering articles covering material selection, DfAM, applications, post-processing, qualification evidence, RFQ/procurement, process selection, and no-go screening.
+- Added a dedicated commercial material landing page at `/materials/tc4-ti6al4v-grade-5/` for TC4, Ti-6Al-4V Grade 5, and Ti64 search and RFQ intent.
+- Added a shared article-end decision path so every engineering article links to the material hub, TC4 material page, capabilities, and RFQ checklist before tags and related posts.
 - Added project writing/image-prompt protocol documentation in `docs/industrial-article-image-prompt-protocol.md`.
 
 ## Current Unfinished Tasks
 
 - The user requested more high-value blog updates; only continue after choosing non-overlapping topics with real buyer intent.
-- Recommended next article gaps: titanium AM cost drivers, internal channels and powder removal, fatigue design with surface finish/HIP, and tolerance/datum planning.
+- The cost-driver, internal-channel/powder-removal, fatigue/surface/HIP, and tolerance/datum topics are already published. Do not recreate them.
+- Recommended next commercial landing-page gaps: TA1/TA2/CP titanium, Ti-6Al-4V ELI Grade 23, and LPBF titanium 3D printing services.
+- Recommended next content gaps should be selected from material-plus-application or material-plus-acceptance intent, with clear differentiation from the existing 38 engineering articles.
 - Any new article should follow `docs/industrial-article-image-prompt-protocol.md` for image prompt logic.
 - Before pushing future work, run `npm run check:astro` and `npm run build`.
 - After visual changes, verify desktop and mobile in the browser, especially hero width, mobile image margins, light/dark mode, and contact actions.
@@ -109,8 +113,8 @@ npm run preview
 
 ## Next Step Suggestions
 
-1. Add three to four high-value blog posts around cost drivers, internal channels, fatigue, and tolerance planning.
+1. Build the next non-overlapping material or process landing page, starting with TA1/TA2/CP titanium or Ti-6Al-4V ELI Grade 23.
 2. Add image-generation prompt manifests for each new article according to the protocol doc, but keep published Markdown concise.
-3. Review internal linking from homepage, footer, and related posts so each article supports RFQ conversion.
-4. Run `npm run check:astro` and `npm run build`.
+3. Keep the shared article-end material/capabilities/RFQ path and add contextual body links when a new page has a direct technical relationship.
+4. Run `npm run check`, `npm run build`, and `npx wrangler@latest deploy --dry-run`.
 5. Verify desktop and mobile pages in light and dark mode before pushing.

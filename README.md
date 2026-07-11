@@ -19,6 +19,7 @@ The site is a B2B lead-generation and engineering reference site for titanium ad
 
 - `/`
 - `/materials/`
+- `/materials/tc4-ti6al4v-grade-5/`
 - `/applications/`
 - `/capabilities/`
 - `/rfq/`
