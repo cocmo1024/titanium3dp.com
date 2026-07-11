@@ -64,4 +64,6 @@ If the drawing includes tight interfaces, add the datum and CMM plan from [Titan
 
 The fastest quote path is a spec-first request. Ask for a compliance response that maps each requirement to supported, conditional, or not supported. This prevents vague claims and helps engineering, QA, and procurement approve the same scope.
 
+When delivery date is the main constraint, use the [Ti-6Al-4V 3D printing lead-time guide](/posts/ti6al4v-3d-printing-lead-time-prototype-production/) to expose the critical path, customer hold points, external processing, and work that can run in parallel. An urgent date should still refer to a finished, inspected, documented part rather than an as-built shape.
+
 For aerospace and defense buyers using AM as a bridge route, second source, or qualified alternate path, the [Titanium 3D Printing for Aerospace and Defense Supply Chains](/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/) guide adds the supplier-readiness and traceability questions that belong before technical data transfer.

@@ -67,15 +67,28 @@ npm run preview
 - Added a dedicated commercial material landing page at `/materials/tc4-ti6al4v-grade-5/` for TC4, Ti-6Al-4V Grade 5, and Ti64 search and RFQ intent.
 - Added a shared article-end decision path so every engineering article links to the material hub, TC4 material page, capabilities, and RFQ checklist before tags and related posts.
 - Added project writing/image-prompt protocol documentation in `docs/industrial-article-image-prompt-protocol.md`.
+- Rebuilt the cost, AM-vs-CNC, and application-fit articles around distinct buyer decisions instead of generic industry summaries.
+- Added a no-hero-image lead-time article for prototype-to-production Ti-6Al-4V schedule intent.
+
+## SEO Content Baseline and Direction
+
+- A July 2026 public-index audit found a weak visible Google footprint despite 38 existing posts. Treat Search Console page/query data as the authority when it becomes available; public `site:` checks are only a directional signal.
+- The inventory contained 26 application-template titles and substantial repeated RFQ/post-processing/inspection language. More pages and longer copy are not the default solution.
+- Do not resume daily `Titanium 3D Printing for X` production. Each page needs a distinct search intent, buyer task, technical evidence, and reason to exist.
+- Prioritize intent-led work in this order: transactional material/service pages, process and cost decisions, engineering failure modes, then application pages with genuinely different operating constraints.
+- Rewrite or consolidate weak inventory before creating close query variants. Retain useful URLs and canonicals when rewriting an established page.
+- Use contextual internal links where they advance the reader's next decision. Do not add mechanical link blocks or force every article to link to every other article.
+- Image count is not a quality target. Keep one useful hero at most; publish without an image when a visual adds no engineering evidence or explanation. Do not add decorative image volume for SEO.
+- Do not assert universal cost, tolerance, wall-thickness, lead-time, or mechanical-property numbers without a defined process, condition, source, and scope.
+- Prefer primary sources such as standards bodies, NIST, NASA, regulators, and peer-reviewed research. Explain what the source supports rather than adding a decorative bibliography.
 
 ## Current Unfinished Tasks
 
-- The user requested more high-value blog updates; only continue after choosing non-overlapping topics with real buyer intent.
-- The cost-driver, internal-channel/powder-removal, fatigue/surface/HIP, and tolerance/datum topics are already published. Do not recreate them.
+- Obtain Google Search Console exports for the last 12-16 months by page and query before making deletion, redirect, or consolidation decisions across the 26 application-template posts.
+- Triage those application pages into keep/rewrite/consolidate/noindex based on impressions, query overlap, backlinks, content distinctness, and commercial fit.
 - Recommended next commercial landing-page gaps: TA1/TA2/CP titanium, Ti-6Al-4V ELI Grade 23, and LPBF titanium 3D printing services.
-- Recommended next content gaps should be selected from material-plus-application or material-plus-acceptance intent, with clear differentiation from the existing 38 engineering articles.
-- Any new article should follow `docs/industrial-article-image-prompt-protocol.md` for image prompt logic.
-- Before pushing future work, run `npm run check:astro` and `npm run build`.
+- The cost, AM-vs-CNC, application-fit, lead-time, internal-channel, fatigue, and tolerance topics now exist. Do not recreate close variants.
+- Before pushing future work, run `npm run check`, `npm run build`, and the Workers dry run.
 - After visual changes, verify desktop and mobile in the browser, especially hero width, mobile image margins, light/dark mode, and contact actions.
 
 ## Design Style
@@ -113,8 +126,8 @@ npm run preview
 
 ## Next Step Suggestions
 
-1. Build the next non-overlapping material or process landing page, starting with TA1/TA2/CP titanium or Ti-6Al-4V ELI Grade 23.
-2. Add image-generation prompt manifests for each new article according to the protocol doc, but keep published Markdown concise.
-3. Keep the shared article-end material/capabilities/RFQ path and add contextual body links when a new page has a direct technical relationship.
-4. Run `npm run check`, `npm run build`, and `npx wrangler@latest deploy --dry-run`.
-5. Verify desktop and mobile pages in light and dark mode before pushing.
+1. Import Search Console page/query data and classify the 26 application-template articles.
+2. Build the next non-overlapping commercial landing page, starting with TA1/TA2/CP titanium, Ti-6Al-4V ELI Grade 23, or LPBF titanium 3D printing services.
+3. Keep the shared article-end material/capabilities/RFQ path and add contextual body links only when a direct technical relationship exists.
+4. Add an image prompt and generated image only when the visual explains geometry, evidence, or process better than text and a table.
+5. Run `npm run check`, `npm run build`, and `npx wrangler@latest deploy --dry-run` before pushing.

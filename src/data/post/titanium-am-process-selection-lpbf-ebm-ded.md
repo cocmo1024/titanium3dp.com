@@ -25,7 +25,7 @@ Use **EBM** when the application can benefit from a hot powder-bed route, the ge
 
 Use **DED** when the project is closer to large near-net-shape deposition, repair, adding features to an existing component, or building stock that will be heavily machined after deposition.
 
-Use machining, casting, forging, or a hybrid route when the part is simple, tolerance-driven, high volume, or does not gain value from additive geometry. The no-go cases are discussed in [When Not to Use Titanium Additive Manufacturing](/posts/when-not-to-use-titanium-additive-manufacturing/).
+Use machining, casting, forging, or a hybrid route when the part is simple, tolerance-driven, high volume, or does not gain value from additive geometry. The decision boundary is covered in [Titanium 3D Printing vs CNC Machining](/posts/when-not-to-use-titanium-additive-manufacturing/).
 
 ## Start With the Part Function
 
@@ -149,3 +149,5 @@ This gives the supplier permission to select the best route while still protecti
 LPBF, EBM, and DED are not interchangeable shortcuts to the same result. LPBF usually wins when fine additive geometry matters. EBM is worth reviewing when its hot powder-bed route matches the part and acceptance path. DED is stronger for large near-net deposition, repair, or machining-stock scenarios.
 
 The best process choice is the one that can produce the geometry, survive post-processing, meet inspection evidence, and deliver the part at the risk level the project actually requires.
+
+After choosing a route, use the [Ti-6Al-4V 3D printing lead-time guide](/posts/ti6al4v-3d-printing-lead-time-prototype-production/) to identify the actual schedule drivers from build preparation through release.

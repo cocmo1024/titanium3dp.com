@@ -70,3 +70,5 @@ High-risk applications should define chemistry limits, PSD reporting, powder lot
 The fastest material decision starts from acceptance criteria, not from a material name alone.
 
 Once the alloy is selected, define the supporting evidence with [Titanium AM Qualification and Inspection Evidence](/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/) and normalize purchasing scope with the [Titanium AM RFQ and Procurement Guide](/posts/titanium-am-rfq-procurement-cost-traceability-deliverables/).
+
+For projects already standardized on Grade 5, the [Ti-6Al-4V 3D printing lead-time guide](/posts/ti6al4v-3d-printing-lead-time-prototype-production/) maps the material decision into build preparation, thermal processing, machining, inspection, and repeat-production scheduling.
