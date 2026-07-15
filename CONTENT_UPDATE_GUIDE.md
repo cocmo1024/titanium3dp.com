@@ -158,7 +158,7 @@ rg -ni "目标主题|主要同义词|拟用 slug" src/data/post src/pages
 ```powershell
 npm run check
 npm run build
-npx wrangler@4.111.0 deploy --dry-run
+npm exec -- wrangler deploy --dry-run
 git diff --check
 git status --short
 ```
@@ -210,7 +210,7 @@ rg -n "example-slug|旧 slug" src
 git add <本次明确修改的文件>
 git commit -m "Update <titanium topic> content"
 git push origin main
-npx wrangler@4.111.0 deploy
+npm exec -- wrangler deploy
 ```
 
 `4.111.0` 是本指南当前验证过的 Wrangler 版本；升级部署工具应作为单独改动完成 dry-run 和生产验收。如果 Cloudflare Git 集成是当前唯一部署链路，`git push` 即为部署触发器，不要再手动部署。
