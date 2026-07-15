@@ -55,6 +55,8 @@ Commercially pure titanium is reviewed when ductility, corrosion behavior, or a 
 
 The RFQ should state which grade is required and why. CP Ti Grade 1 and Grade 4 do not represent the same design space.
 
+For a production-intent CP titanium project, use the dedicated [Grade 2 / TA2 / TA2G commercially pure titanium AM guide](/materials/grade-2-cp-titanium-ta2-3d-printing/) to compare naming systems, supplier-route feasibility, wrought-standard limits, conventional manufacturing, inspection, and RFQ evidence.
+
 ## Powder and Chemistry Controls
 
 For titanium powder, interstitial elements matter. Oxygen, nitrogen, and hydrogen influence strength, ductility, and fatigue. Powder particle size distribution, morphology, apparent density, tap density, reuse state, and storage controls can affect recoating and build stability.

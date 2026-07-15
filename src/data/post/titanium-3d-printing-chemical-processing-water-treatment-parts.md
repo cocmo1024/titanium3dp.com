@@ -106,6 +106,8 @@ Ti-6Al-4V is often the first AM quote route because it is widely available in LP
 
 Commercially pure titanium is a different discussion. CP titanium may be more relevant when corrosion behavior, ductility, or chemical compatibility matters more than high strength. It may also be harder to source through a given AM supplier route, so it should be reviewed early rather than added after pricing.
 
+If the drawing or search brief uses Grade 2, TA2, TA2G, or generic CP titanium language, use the [commercially pure titanium AM sourcing guide](/materials/grade-2-cp-titanium-ta2-3d-printing/) before accepting a supplier's proposed equivalence or Ti-6Al-4V substitution.
+
 Choose the material based on:
 
 - Chemical service, concentration, temperature, and cleaning chemistry.

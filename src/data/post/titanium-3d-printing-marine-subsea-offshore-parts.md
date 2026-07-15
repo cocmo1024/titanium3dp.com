@@ -167,6 +167,8 @@ For repeated acceleration, vibration, handling impact, or launch-and-recovery lo
 
 Ti-6Al-4V is often the first titanium AM review route because it is widely available, strong, and familiar to many LPBF suppliers. Ti-6Al-4V ELI may be considered when ductility, fracture behavior, or a specific acceptance basis matters. CP titanium may be relevant when corrosion behavior, ductility, or chemical compatibility matters more than high strength.
 
+When CP titanium is the target, review [Grade 2, TA2, and TA2G commercially pure titanium AM requirements](/materials/grade-2-cp-titanium-ta2-3d-printing/) before design freeze. The page explains why a material alias, wrought certificate, or mature Ti-6Al-4V parameter set is not enough to control the printed component.
+
 Material choice should follow:
 
 - Seawater exposure: immersion, splash, stagnant crevice, or lab test.

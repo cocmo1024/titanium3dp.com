@@ -39,9 +39,9 @@ const materialShowcases = [
 ];
 
 const metadata = {
-  title: 'Titanium AM Materials | TC4, Ti-6Al-4V, ELI & CP Ti',
+  title: 'Titanium AM Materials | TC4, Grade 5, Grade 23 & Grade 2',
   description:
-    'Titanium additive manufacturing material selection for TC4, Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, TA1, TA2, and CP Ti Grades 1-4 in LPBF and EBM parts.',
+    'Titanium additive manufacturing material selection for TC4, Ti-6Al-4V Grade 5, Grade 23 ELI, Grade 2, TA2, TA2G, and CP titanium LPBF or EBM parts.',
   openGraph: {
     images: [
       {
@@ -71,10 +71,10 @@ const metadata = {
         url: '/materials/ti6al4v-eli-grade-23-astm-f3001/',
       },
       {
-        name: 'TA1 / TA2 / CP Ti Grades 1-4',
+        name: 'Grade 2 / TA2 / TA2G / CP Titanium',
         description:
-          'Commercially pure titanium path for ductility, corrosion behavior, or non-structural titanium requirements.',
-        url: '/materials/#cp-ti-grades-1-4',
+          'Commercially pure titanium AM feasibility and RFQ path for corrosion-driven or controlled unalloyed titanium requirements.',
+        url: '/materials/grade-2-cp-titanium-ta2-3d-printing/',
       },
     ]),
   ],
@@ -85,7 +85,7 @@ const metadata = {
   <Hero
     tagline="Materials"
     title="Titanium materials for additive manufacturing"
-    subtitle="Start with the required function, risk class, and evidence level. Then choose TC4 / Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, TA1 / TA2 / CP Ti, or a special material route as needed."
+    subtitle="Start with the required function, risk class, and evidence level. Then choose TC4 / Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, Grade 2 / TA2 / TA2G commercially pure titanium, or a special material route as needed."
     actions={[
       {
         variant: 'primary',
@@ -127,10 +127,14 @@ const metadata = {
         },
       },
       {
-        title: 'TA1 / TA2 / CP Ti Grades 1-4',
+        title: 'Grade 2 / TA2 / TA2G / CP Titanium',
         description:
-          'Reviewed where ductility, corrosion resistance, or a commercially pure titanium requirement is more important than maximum strength. Confirm the exact standard before treating TA1 or TA2 as equivalent.',
+          'Reviewed where corrosion behavior, ductility, or a controlled commercially pure titanium requirement matters more than maximum strength. Confirm the exact standard and supplier AM route.',
         icon: 'tabler:shield-check',
+        callToAction: {
+          text: 'Review Grade 2 / TA2 route',
+          href: '/materials/grade-2-cp-titanium-ta2-3d-printing/',
+        },
       },
     ]}
   />

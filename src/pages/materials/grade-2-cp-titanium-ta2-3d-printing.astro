@@ -1,0 +1,507 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import {
+  createBreadcrumbSchema,
+  createFAQSchema,
+  createItemListSchema,
+  createTitaniumApplicationServiceSchema,
+} from '~/utils/structured-data';
+
+const pageContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
+const sectionClass = [pageContainerClass, 'py-10 md:py-12 lg:py-14'].join(' ');
+const rfqEmailHref =
+  'mailto:info@szcomo.com?subject=' +
+  encodeURIComponent('Grade 2 / TA2 commercially pure titanium AM RFQ') +
+  '&body=' +
+  encodeURIComponent(
+    [
+      'Controlled material designation and standard:',
+      'Reason CP titanium is required:',
+      'Part function and service media:',
+      'Temperature, pressure, loads, and failure concerns:',
+      'CAD, drawing, part number, and revision:',
+      'Prototype and production quantities:',
+      'Critical dimensions, sealing faces, channels, and surfaces:',
+      'Thermal processing, machining, cleaning, and finish:',
+      'Inspection, testing, traceability, and documentation:',
+      'Required delivery date and destination:',
+    ].join('\n')
+  );
+
+const materialNameRows = [
+  {
+    term: 'CP titanium',
+    meaning: 'A family description for commercially pure titanium rather than one controlled grade.',
+    quoteControl: 'State the exact grade, chemistry basis, product specification, AM route, and delivered condition.',
+  },
+  {
+    term: 'Grade 2 / UNS R50400',
+    meaning: 'ASTM and UNS-oriented wording used for one commercially pure titanium grade.',
+    quoteControl:
+      'Identify the applicable specification and product form; a wrought Grade 2 callout does not by itself control a powder bed fusion component.',
+  },
+  {
+    term: 'TA2 / TA2G',
+    meaning: 'Chinese-market sourcing language associated with commercially pure titanium definitions.',
+    quoteControl:
+      'Cite the exact GB/T designation and revision required by the contract, then compare its chemistry and test basis with any proposed Grade 2 route.',
+  },
+  {
+    term: 'Ti-6Al-4V / TC4 / Grade 5',
+    meaning: 'An aluminum- and vanadium-alloyed titanium family with a different chemistry and qualification basis.',
+    quoteControl:
+      'Do not substitute it for CP titanium only because the supplier has a mature Ti-6Al-4V parameter set.',
+  },
+];
+
+const routeRows = [
+  {
+    question: 'Geometry value',
+    amRoute: 'Consolidated ports, compact manifolds, internal flow paths, or features that remove joints and setups.',
+    conventionalRoute:
+      'Simple plate, bar, tube, turned, milled, or welded geometry with established supply and inspection.',
+  },
+  {
+    question: 'Material availability',
+    amRoute:
+      'A supplier has a controlled CP titanium powder, parameter, thermal, and test route for the required grade.',
+    conventionalRoute: 'The AM supplier only offers Ti-6Al-4V or cannot document the proposed CP titanium condition.',
+  },
+  {
+    question: 'Internal access',
+    amRoute: 'Powder escape, cleaning, inspection, flow, and leak testing are designed into the channels.',
+    conventionalRoute:
+      'Sealed cavities, trapped powder, inaccessible supports, or uninspectable contamination risks remain.',
+  },
+  {
+    question: 'Acceptance basis',
+    amRoute: 'Chemistry, witness testing, dimensions, surface, leak or pressure tests, and traceability are defined.',
+    conventionalRoute:
+      'The drawing cites a wrought specification but provides no AM process or acceptance requirements.',
+  },
+  {
+    question: 'Commercial case',
+    amRoute: 'Low-to-medium quantities justify DfAM, process development, post-processing, and evidence costs.',
+    conventionalRoute:
+      'Commodity geometry or volume economics favor standard mill product, machining, forming, or fabrication.',
+  },
+];
+
+const faqItems = [
+  {
+    title: 'Is TA2 the same as Grade 2 titanium?',
+    description:
+      'They are often discussed as comparable commercially pure titanium sourcing routes, but the names are not a certificate-level equivalence statement. Compare the cited GB/T and ASTM or customer specifications, chemistry limits, product form, test methods, heat history, and AM acceptance basis before approving a substitution.',
+  },
+  {
+    title: 'Can Grade 2 commercially pure titanium be 3D printed?',
+    description:
+      'Peer-reviewed work has demonstrated laser powder bed fusion of commercially pure Grade 2 titanium. That establishes technical feasibility, not universal supplier capability or part qualification. The RFQ must confirm powder, parameter, build, thermal processing, test, and traceability controls.',
+  },
+  {
+    title: 'Is Grade 2 always more corrosion resistant than Ti-6Al-4V?',
+    description:
+      'No universal ranking applies to every chemical, concentration, temperature, pressure, crevice, galvanic couple, or surface condition. Select the material from application-specific compatibility evidence and define the delivered surface and cleaning condition.',
+  },
+  {
+    title: 'Which ASTM standard controls a Grade 2 AM part?',
+    description:
+      'No wrought Grade 2 callout automatically controls an AM component. ASTM B348/B348M covers bars and billets, while ASTM B265 covers sheet and plate. An AM purchase needs a project-specific component, process, testing, and acceptance basis in addition to the chemistry target.',
+  },
+  {
+    title: 'Does ASTM F67 make a printed Grade 2 part an approved implant?',
+    description:
+      'No. ASTM F67 covers unalloyed titanium mill-product forms for surgical implant manufacture. It does not qualify a powder bed fusion process, validate a finished device, establish biocompatibility or sterilization, or provide regulatory approval.',
+  },
+];
+
+const metadata = {
+  title: 'Grade 2 CP Titanium 3D Printing | TA2 & TA2G',
+  description:
+    'Grade 2, TA2 and TA2G commercially pure titanium 3D printing guide: naming, LPBF feasibility, wrought-standard limits, corrosion-service screening, inspection, and RFQ inputs.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Materials', item: '/materials/' },
+      { name: 'Grade 2 / TA2 commercially pure titanium' },
+    ]),
+    createTitaniumApplicationServiceSchema({
+      id: '/materials/grade-2-cp-titanium-ta2-3d-printing/',
+      name: 'Grade 2 and TA2 Commercially Pure Titanium AM Review',
+      serviceType:
+        'Grade 2, TA2, and TA2G commercially pure titanium additive manufacturing feasibility and RFQ review',
+      description:
+        'Engineering and procurement review for commercially pure titanium AM candidates, including material-definition alignment, supplier-route feasibility, post-processing, inspection, and documentation planning.',
+      url: '/materials/grade-2-cp-titanium-ta2-3d-printing/',
+      audienceType:
+        'Engineering, procurement, and quality teams evaluating corrosion-driven or commercially pure titanium AM parts',
+    }),
+    createItemListSchema('Grade 2 and TA2 commercially pure titanium AM decision path', [
+      {
+        name: 'Normalize the material name',
+        description: 'Separate CP titanium family language from Grade 2, TA2, TA2G, and Ti-6Al-4V requirements.',
+        url: '/materials/grade-2-cp-titanium-ta2-3d-printing/#material-names',
+      },
+      {
+        name: 'Screen AM against conventional manufacturing',
+        description:
+          'Use geometry, supplier capability, inspection access, acceptance, and quantity to select the route.',
+        url: '/materials/grade-2-cp-titanium-ta2-3d-printing/#route-screen',
+      },
+      {
+        name: 'Issue a controlled CP titanium RFQ',
+        description: 'Define material, service environment, process, delivered state, inspection, and records.',
+        url: '/materials/grade-2-cp-titanium-ta2-3d-printing/#rfq-inputs',
+      },
+    ]),
+    createFAQSchema(faqItems),
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Grade 2 / TA2 / TA2G"
+    title="Commercially pure titanium 3D printing for Grade 2 and TA2 parts"
+    subtitle="Grade 2, TA2, TA2G, and CP titanium are useful search and sourcing terms, but they are not a complete additive manufacturing specification. A quote must align the exact material definition with supplier capability, service media, delivered condition, inspection, and traceability."
+    callToAction={{ text: 'Email CP titanium RFQ', href: rfqEmailHref, icon: 'tabler:mail' }}
+    callToAction2={{ text: 'Compare titanium materials', href: '/materials/' }}
+  />
+
+  <Features2
+    title="Quick CP titanium additive manufacturing screen"
+    subtitle="The strongest candidate has a real geometry advantage, a documented material route, and an acceptance plan tied to the operating environment."
+    columns={3}
+    items={[
+      {
+        title: 'Review CP titanium when',
+        description:
+          'Corrosion behavior, ductility, chemistry limits, or a controlled unalloyed titanium requirement matters more than maximum structural strength.',
+        icon: 'tabler:flask-2',
+      },
+      {
+        title: 'Confirm before design freeze',
+        description:
+          'The supplier supports the exact CP grade, powder route, parameter set, thermal condition, testing, machining, cleaning, and records required.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Use another route when',
+        description:
+          'Standard plate, bar, tube, machining, or fabrication meets the geometry and evidence needs with less qualification and commercial risk.',
+        icon: 'tabler:arrows-exchange',
+      },
+    ]}
+    classes={{ container: 'py-10 md:py-12 lg:py-14' }}
+  />
+
+  <section id="material-names" class:list={[sectionClass, 'border-y border-page-border']}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Material definition</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+        Grade 2, TA2, TA2G, and CP titanium are not interchangeable labels
+      </h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        A search term can start supplier discovery. A purchase order needs the exact designation, governing document,
+        revision, chemistry, product form, manufacturing route, delivered condition, and acceptance evidence. This is
+        especially important when a Chinese TA2 or TA2G callout is compared with an ASTM Grade 2 proposal.
+      </p>
+    </div>
+
+    <div class="mt-8 overflow-x-auto border-y border-page-border">
+      <table class="w-full min-w-[820px] text-left text-sm">
+        <caption class="sr-only">Commercially pure titanium material-name controls for AM RFQs</caption>
+        <thead class="bg-surface-raised text-heading">
+          <tr>
+            <th scope="col" class="w-44 px-4 py-3 font-semibold">Term</th>
+            <th scope="col" class="px-4 py-3 font-semibold">What it communicates</th>
+            <th scope="col" class="px-4 py-3 font-semibold">What the RFQ must control</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-page-border">
+          {
+            materialNameRows.map((row) => (
+              <tr>
+                <th scope="row" class="px-4 py-4 font-semibold text-heading">
+                  {row.term}
+                </th>
+                <td class="px-4 py-4 leading-6 text-muted">{row.meaning}</td>
+                <td class="px-4 py-4 leading-6 text-muted">{row.quoteControl}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-6 max-w-3xl leading-7 text-muted">
+      The current <a
+        class="font-semibold text-link underline underline-offset-4"
+        href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=39C20E84B11D5788545EA6CAC2F9E459">GB/T 3620.1-2016</a
+      > defines Chinese titanium designations and compositions. ASTM uses Grade 2 / UNS R50400 in product-form standards such
+      as <a
+        class="font-semibold text-link underline underline-offset-4"
+        href="https://store.astm.org/b0348_b0348m-25.html">ASTM B348/B348M-25</a
+      > for bars and billets. These sources support material-definition work; they do not establish automatic certificate
+      equivalence or qualify an AM component.
+    </p>
+  </section>
+
+  <section class={sectionClass}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Technical feasibility</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Can Grade 2 titanium be made by LPBF?</h2>
+      </div>
+      <div class="space-y-5 text-base leading-7 text-muted">
+        <p>
+          Yes. Peer-reviewed studies have produced commercially pure Grade 2 titanium by laser powder bed fusion and
+          examined how process parameters and heat treatment affect the resulting material. That establishes technical
+          feasibility, not universal supplier capability or part qualification.
+        </p>
+        <p>
+          Procurement must ask for the supplier's controlled powder and parameter route, chemistry evidence, thermal
+          condition, representative testing, surface state, and part-specific acceptance plan. Results from one machine,
+          geometry, orientation, or research build are not universal design allowables.
+        </p>
+        <p>
+          Review the alloy family first with the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/"
+            >titanium AM material selection guide</a
+          >. If the supplier proposes TC4 or Ti-6Al-4V instead, treat that as a material change requiring engineering
+          and quality approval.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="route-screen" class:list={[sectionClass, 'border-y border-page-border']}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Make-or-buy decision</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+        Grade 2 AM vs conventional titanium manufacturing
+      </h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        CP titanium does not make additive manufacturing the default. Use AM when the geometry and consolidated function
+        justify a less common material route; use mill product, machining, forming, or fabrication when they satisfy the
+        requirement more directly.
+      </p>
+    </div>
+
+    <div class="mt-8 overflow-x-auto border-y border-page-border">
+      <table class="w-full min-w-[900px] text-left text-sm">
+        <caption class="sr-only">Decision table for Grade 2 additive and conventional manufacturing</caption>
+        <thead class="bg-surface-raised text-heading">
+          <tr>
+            <th scope="col" class="w-44 px-4 py-3 font-semibold">Decision</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Evidence favoring AM</th>
+            <th scope="col" class="px-4 py-3 font-semibold">Evidence favoring a conventional route</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-page-border">
+          {
+            routeRows.map((row) => (
+              <tr>
+                <th scope="row" class="px-4 py-4 font-semibold text-heading">
+                  {row.question}
+                </th>
+                <td class="px-4 py-4 leading-6 text-muted">{row.amRoute}</td>
+                <td class="px-4 py-4 leading-6 text-muted">{row.conventionalRoute}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class={sectionClass}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Application fit</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Where a CP titanium AM review can be useful</h2>
+      </div>
+      <div class="space-y-5 text-base leading-7 text-muted">
+        <p>
+          Candidate parts include compact process-development manifolds, sensor housings, sample blocks, corrosion test
+          fixtures, and low-volume flow hardware where CP titanium is already justified by the service environment and
+          AM can remove joints or integrate otherwise difficult passages.
+        </p>
+        <p>
+          For chloride-bearing water and brine, use the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/"
+            >seawater and desalination engineering guide</a
+          >. For acids, oxidizers, cleaning solutions, and pilot manifolds, use the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/"
+            >chemical processing and water treatment guide</a
+          >. Neither page replaces application-specific corrosion review.
+        </p>
+        <p>
+          Internal channels need powder escape, support avoidance, cleaning access, CT or flow-test planning, and leak
+          or pressure acceptance. Review the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-3d-printed-internal-channels-powder-removal-ct/"
+            >internal-channel and powder-removal guide</a
+          > before releasing a sealed CP titanium geometry for quote.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class:list={[sectionClass, 'border-y border-page-border']}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Specification boundary</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+          Wrought Grade 2 standards do not automatically control AM parts
+        </h2>
+      </div>
+      <div class="space-y-5 text-base leading-7 text-muted">
+        <p>
+          <a class="font-semibold text-link underline underline-offset-4" href="https://store.astm.org/b0265-25.html"
+            >ASTM B265-25</a
+          > applies to titanium strip, sheet, and plate. ASTM B348/B348M-25 applies to bars and billets. Their mill-product
+          requirements can inform a project, but neither one alone defines powder, recoating, build parameters, orientation,
+          thermal processing, support removal, surface state, or AM component testing.
+        </p>
+        <p>
+          <a class="font-semibold text-link underline underline-offset-4" href="https://store.astm.org/standards/f67"
+            >ASTM F67-24</a
+          > covers four grades of unalloyed titanium mill products used for surgical implant manufacture. It is not an AM
+          process specification and does not establish finished-device approval.
+        </p>
+        <p>
+          When no directly applicable AM component standard exists, purchaser and supplier need a controlled project
+          specification covering feedstock, process controls, test locations and orientation, thermal condition,
+          machining and surface state, inspection, records, nonconformance handling, and release authority.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rfq-inputs" class={sectionClass}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">RFQ checklist</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+        What to send for a Grade 2 or TA2 titanium 3D printing quote
+      </h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        Comparable quotes require the same material definition, delivered state, acceptance evidence, and commercial
+        scope. A material name and STEP file are not enough.
+      </p>
+    </div>
+
+    <ol class="mt-8 border-t border-page-border">
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">1</span><strong class="text-heading">Controlled definition</strong
+        ><span class="leading-7 text-muted"
+          >STEP or native CAD, controlled drawing, part number, revision, units, datums, and design authority.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">2</span><strong class="text-heading">Material requirement</strong><span
+          class="leading-7 text-muted"
+          >Exact Grade 2, TA2, TA2G, or customer designation; specification revision; chemistry; and whether
+          alternatives may be proposed.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">3</span><strong class="text-heading">Service environment</strong><span
+          class="leading-7 text-muted"
+          >Media, concentrations, temperature, pressure, loads, cleaning chemistry, galvanic contacts, contamination
+          limits, and failure consequence.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">4</span><strong class="text-heading">Delivered route</strong><span
+          class="leading-7 text-muted"
+          >Build process, thermal condition, support removal, machining, surface treatment, cleaning, finishing, and
+          packaging.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">5</span><strong class="text-heading">Acceptance evidence</strong><span
+          class="leading-7 text-muted"
+          >Powder and build-lot traceability, chemistry, representative tests, CMM, CT where suitable, surface,
+          cleanliness, leak or pressure tests, and certificates.</span
+        >
+      </li>
+      <li class="grid gap-2 border-b border-page-border py-5 md:grid-cols-[2rem_13rem_1fr] md:gap-6">
+        <span class="font-semibold text-primary">6</span><strong class="text-heading">Commercial scope</strong><span
+          class="leading-7 text-muted"
+          >Prototype and production quantities, lot definition, annual demand, target date, destination, approval hold
+          points, and repeat-order expectations.</span
+        >
+      </li>
+    </ol>
+
+    <p class="mt-6 max-w-3xl leading-7 text-muted">
+      Use the <a
+        class="font-semibold text-link underline underline-offset-4"
+        href="/posts/titanium-am-rfq-procurement-cost-traceability-deliverables/">titanium AM RFQ data-package guide</a
+      > to choose between STEP, STL, native CAD, drawings, and AM interchange files, then send the controlled package through
+      the <a class="font-semibold text-link underline underline-offset-4" href="/rfq/">RFQ page</a>.
+    </p>
+  </section>
+
+  <section class:list={[sectionClass, 'border-y border-page-border']}>
+    <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
+      <div>
+        <p class="text-xs font-semibold uppercase text-primary">Primary references</p>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">What the sources establish</h2>
+      </div>
+      <div class="space-y-5 leading-7 text-muted">
+        <p>
+          GB/T 3620.1-2016 establishes Chinese titanium designation and composition terminology. ASTM B348/B348M-25,
+          ASTM B265-25, and ASTM F67-24 establish requirements for defined mill-product forms and uses. They help
+          control material identity but do not qualify a powder bed fusion process or finished AM part.
+        </p>
+        <p>
+          The open-access study <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="https://doi.org/10.3390/met14121357"
+            >Laser Powder Bed Fusion of Pure Titanium: Optimization of Processing Parameters</a
+          > and the 2024 study <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="https://doi.org/10.1016/j.msea.2024.146088"
+            >A roadmap for tailoring additively manufactured commercially pure titanium</a
+          > support CP Grade 2 LPBF feasibility and the importance of process and heat treatment. They do not provide universal
+          design allowables or supplier qualification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class={sectionClass}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Grade 2 and TA2 FAQ</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">Questions before a CP titanium AM purchase order</h2>
+    </div>
+    <dl class="mt-8 border-t border-page-border">
+      {
+        faqItems.map((item) => (
+          <div class="grid gap-3 border-b border-page-border py-6 md:grid-cols-[0.4fr_0.6fr] md:gap-10">
+            <dt class="font-semibold text-heading">{item.title}</dt>
+            <dd class="leading-7 text-muted">{item.description}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <CallToAction
+    classes={{ container: 'py-10 md:py-12 lg:py-14' }}
+    title="Send a Grade 2, TA2, or CP titanium AM RFQ"
+    subtitle="Include the exact material definition, reason CP titanium is required, operating environment, controlled files, delivered route, acceptance evidence, quantities, and delivery target."
+    actions={[
+      { variant: 'primary', text: 'Email CP titanium RFQ', href: rfqEmailHref, icon: 'tabler:mail' },
+      { text: 'Compare all material paths', href: '/materials/' },
+    ]}
+  />
+</Layout>
