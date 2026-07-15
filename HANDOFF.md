@@ -134,4 +134,4 @@ npm run preview
 2. Build the next non-overlapping commercial landing page only after the Grade 23 and service-intent changes have been crawled; TA1/TA2/CP titanium remains a possible material gap.
 3. Keep the shared article-end material/capabilities/RFQ path and add contextual body links only when a direct technical relationship exists.
 4. Add an image prompt and generated image only when the visual explains geometry, evidence, or process better than text and a table.
-5. Run `npm run check`, `npm run build`, and `npx wrangler@latest deploy --dry-run` before pushing.
+5. Run `npm run check`, `npm run build`, and `npx wrangler@4.111.0 deploy --dry-run` before pushing. Upgrade Wrangler only as a separate verified change.

@@ -4,6 +4,8 @@ Astro static site for `titanium3dp.com`.
 
 The site is a B2B lead-generation and engineering reference site for titanium additive manufacturing RFQs. It focuses on Ti-6Al-4V, Ti-6Al-4V ELI, CP titanium, LPBF/EBM process fit, DfAM review, post-processing, inspection evidence, traceability, and procurement-ready RFQ inputs.
 
+> **Updating content?** Read [`CONTENT_UPDATE_GUIDE.md`](CONTENT_UPDATE_GUIDE.md) first. It defines the engineering-claim boundaries, URL/SEO rules and required release checks.
+
 ## Local Commands
 
 - `npm install`
