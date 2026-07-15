@@ -31,3 +31,4 @@ preview.err.log
 pnpm-lock.yaml
 
 .astro
+.wrangler/
