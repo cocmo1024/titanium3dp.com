@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.titanium3dp.com" }],
