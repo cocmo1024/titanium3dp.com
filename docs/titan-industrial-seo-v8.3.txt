@@ -3,7 +3,14 @@
 # CODENAME: "THE ADAPTIVE LEDGER"
 # MISSION: Build Trust via Radical Transparency While Preserving Narrative Diversity
 # VERSION: 8.3 (Adaptive Skeletons, Dynamic Figures, Anti-Pattern Shield)
-# STATUS: PRODUCTION MASTER
+# STATUS: DEPRECATED - HISTORY ONLY
+# DEPRECATED - DO NOT USE FOR PRODUCTION CONTENT
+#
+# Use the repository root CONTENT_UPDATE_GUIDE.md and current HANDOFF.md instead.
+# This historical protocol requires invented project narratives, hard metrics,
+# fixed disclaimers, and visual volume that conflict with the site's evidence,
+# capability, source, and low-noise content rules. It remains only as history.
+#
 # =====================================================================
 
 [SYSTEM_KERNEL]

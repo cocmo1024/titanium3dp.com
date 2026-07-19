@@ -15,7 +15,7 @@ export const GET = async () => {
   const posts = await fetchPosts();
 
   const rss = await getRssString({
-    title: `${SITE.name} Case Studies`,
+    title: `${SITE.name} Engineering Guides`,
     description: METADATA?.description || '',
     site: import.meta.env.SITE,
 

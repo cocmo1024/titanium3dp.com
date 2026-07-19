@@ -26,9 +26,9 @@ const currentPage = page.currentPage ?? 1;
 // const allTags = await findTags();
 
 const metadata = {
-  title: `Case Studies${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
+  title: `Titanium AM Engineering Guides${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
   description:
-    'Titanium additive manufacturing case studies and engineering guides for process selection, material selection, DfAM, HIP, machining, inspection, qualification, and RFQ preparation.',
+    'Evidence-led titanium additive manufacturing guides for material and process selection, DfAM, post-processing, inspection, qualification, applications, and RFQ preparation.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -39,10 +39,10 @@ const metadata = {
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
-      { name: 'Case Studies', item: getBlogPermalink() },
+      { name: 'Engineering Guides', item: getBlogPermalink() },
     ]),
     createItemListSchema(
-      `Titanium AM case studies${currentPage > 1 ? ` page ${currentPage}` : ''}`,
+      `Titanium AM engineering guides${currentPage > 1 ? ` page ${currentPage}` : ''}`,
       page.data.map((post) => ({
         name: post.title,
         description: post.excerpt,
@@ -56,9 +56,9 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-5xl">
     <Headline
-      subtitle="Engineering notes for titanium process selection, material selection, DfAM risk, post-processing, inspection evidence, application fit, and RFQ preparation."
+      subtitle="Decision-focused guidance for titanium material and process selection, DfAM risk, post-processing, inspection evidence, application fit, and procurement-ready RFQs."
     >
-      Case Studies
+      Titanium AM Engineering Guides
     </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />

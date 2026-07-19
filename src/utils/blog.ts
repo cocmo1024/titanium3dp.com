@@ -97,7 +97,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const category = rawCategory
     ? {
         slug: cleanSlug(rawCategory),
-        title: rawCategory,
+        title: rawCategory === 'Case Studies' ? 'Engineering Guides' : rawCategory,
       }
     : undefined;
 

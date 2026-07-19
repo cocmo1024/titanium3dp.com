@@ -22,7 +22,7 @@ const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
         container: 'pt-0 lg:pt-0 md:pt-0 intersect-once intersect-quarter',
       }}
       title="Related Titanium AM Resources"
-      linkText="View All Case Studies"
+      linkText="View All Engineering Guides"
       linkUrl={getBlogPermalink()}
       postIds={relatedPosts.map((post) => post.id)}
     />

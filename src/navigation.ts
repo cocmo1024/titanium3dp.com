@@ -30,7 +30,7 @@ export const footerData = {
         { text: 'TC4 / Ti-6Al-4V Grade 5', href: getPermalink('/materials/tc4-ti6al4v-grade-5') },
         { text: 'Applications', href: getPermalink('/applications') },
         { text: 'RFQ inputs', href: getPermalink('/rfq') },
-        { text: 'Case studies', href: getBlogPermalink() },
+        { text: 'Engineering guides', href: getBlogPermalink() },
       ],
     },
     {

@@ -73,10 +73,194 @@ const applicationShowcases = [
   },
 ];
 
+const applicationClusters = [
+  {
+    id: 'flight-mobility',
+    title: 'Flight, space, and lightweight mobility',
+    summary:
+      'Start with mass value, load path, fatigue exposure, interfaces, and the evidence required by the design authority.',
+    items: [
+      {
+        title: 'Aerospace and defense supply chains',
+        description: 'Alternate sourcing, near-net blanks, bridge production, and controlled qualification boundaries.',
+        href: '/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/',
+      },
+      {
+        title: 'Spacecraft and satellite components',
+        description: 'Mass, stiffness, thermal, contamination, launch-load, and mission-documentation decisions.',
+        href: '/posts/titanium-3d-printing-spacecraft-satellite-components/',
+      },
+      {
+        title: 'eVTOL and advanced air mobility hardware',
+        description: 'Structural efficiency, route maturity, fatigue, interfaces, and certification ownership.',
+        href: '/posts/titanium-3d-printing-evtol-advanced-air-mobility-hardware/',
+      },
+      {
+        title: 'Drone and UAV parts',
+        description:
+          'Payload mounts, sensor hardware, motor junctions, vibration, thermal exposure, and repairability.',
+        href: '/posts/titanium-3d-printing-drone-uav-parts/',
+      },
+      {
+        title: 'Motorsport and racing parts',
+        description: 'Unsprung or rotating mass, rule boundaries, duty cycle, inspection, and event lead time.',
+        href: '/posts/titanium-3d-printing-motorsport-racing-parts/',
+      },
+    ],
+  },
+  {
+    id: 'medical',
+    title: 'Medical and patient-specific structures',
+    summary:
+      'Separate geometry feasibility from device regulation, validated material condition, cleaning, packaging, and release authority.',
+    items: [
+      {
+        title: 'Medical device and orthopedic implant parts',
+        description:
+          'ELI material routes, porous geometry, patient-specific forms, validation, and regulatory boundaries.',
+        href: '/posts/titanium-3d-printing-medical-device-orthopedic-implant-parts/',
+      },
+    ],
+  },
+  {
+    id: 'robotics-high-tech',
+    title: 'Robotics and high-technology equipment',
+    summary:
+      'Translate equipment-level goals into stiffness, moving mass, heat, cleanliness, vacuum, and maintainability requirements.',
+    items: [
+      {
+        title: 'Robotics and automation parts',
+        description: 'End effectors, arms, tool-center-point behavior, payload, cycle life, and service interfaces.',
+        href: '/posts/titanium-3d-printing-robotics-automation-parts/',
+      },
+      {
+        title: 'Humanoid robot hardware',
+        description: 'Actuator housings, wrists, sensor mounts, lightweight limbs, repeated loads, and cost limits.',
+        href: '/posts/titanium-3d-printing-humanoid-robots-ai-robotics-hardware/',
+      },
+      {
+        title: 'Semiconductor equipment parts',
+        description: 'Cleanliness, process exposure, vacuum, thermal stability, finishing, and contamination control.',
+        href: '/posts/titanium-3d-printing-semiconductor-equipment-parts/',
+      },
+      {
+        title: 'Quantum and cryogenic hardware',
+        description: 'Temperature stages, vacuum, thermal conduction, cable routing, cleaning, and leak testing.',
+        href: '/posts/titanium-3d-printing-quantum-computing-cryogenic-hardware/',
+      },
+      {
+        title: 'AI data-center liquid cooling',
+        description: 'Thermal duty, coolant compatibility, pressure, leak acceptance, channels, and serviceability.',
+        href: '/posts/titanium-3d-printing-ai-data-center-liquid-cooling-hardware/',
+      },
+    ],
+  },
+  {
+    id: 'energy-infrastructure',
+    title: 'Energy and critical infrastructure',
+    summary:
+      'Define the actual fluid, atmosphere, temperature, pressure, lifetime, code boundary, and inspection owner before selecting titanium AM.',
+    items: [
+      {
+        title: 'Fusion and nuclear research hardware',
+        description:
+          'Vacuum, cooling, activation context, research-stage controls, joining, inspection, and release authority.',
+        href: '/posts/titanium-3d-printing-fusion-nuclear-research-hardware/',
+      },
+      {
+        title: 'Hydrogen, electrolyzer, and fuel-cell parts',
+        description:
+          'Media exposure, porous or flow geometry, cleanliness, leak control, and validated material state.',
+        href: '/posts/titanium-3d-printing-hydrogen-electrolyzer-fuel-cell-parts/',
+      },
+      {
+        title: 'Geothermal and downhole parts',
+        description: 'Brine chemistry, temperature, pressure, erosion, scale, sealing, and retrieval constraints.',
+        href: '/posts/titanium-3d-printing-geothermal-downhole-energy-parts/',
+      },
+      {
+        title: 'Oil, gas, LNG, and petrochemical hardware',
+        description:
+          'Service environment, operator specifications, pressure boundary, NDT, traceability, and route approval.',
+        href: '/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/',
+      },
+      {
+        title: 'Carbon capture and direct-air-capture hardware',
+        description: 'Media maps, pressure or vacuum, thermal cycling, corrosion, leak limits, and cleaning access.',
+        href: '/posts/titanium-3d-printing-carbon-capture-direct-air-capture-hardware/',
+      },
+    ],
+  },
+  {
+    id: 'corrosion-flow',
+    title: 'Corrosion, water, thermal, and flow hardware',
+    summary:
+      'Do not select titanium from an industry label alone: specify the chemistry, pressure, temperature, erosion, galvanic interfaces, and acceptance test.',
+    items: [
+      {
+        title: 'Chemical processing and water treatment',
+        description: 'Exposure maps, alloy choice, crevices, joining, pressure, cleaning, and inspection scope.',
+        href: '/posts/titanium-3d-printing-chemical-processing-water-treatment-parts/',
+      },
+      {
+        title: 'Seawater desalination and brine concentration',
+        description:
+          'Chlorides, concentration, temperature, deposits, galvanic interfaces, pressure, and leak testing.',
+        href: '/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/',
+      },
+      {
+        title: 'Marine, subsea, and offshore parts',
+        description:
+          'Seawater exposure, hydrostatic pressure, galvanic design, sealing, retrieval, and subsea acceptance.',
+        href: '/posts/titanium-3d-printing-marine-subsea-offshore-parts/',
+      },
+      {
+        title: 'Hydraulic manifolds and fluid power',
+        description:
+          'Pressure circuits, cross-drill replacement, support and powder removal, CT, machining, and proof tests.',
+        href: '/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/',
+      },
+      {
+        title: 'Valves, pumps, and flow-control hardware',
+        description: 'Media, pressure, erosion, sealing faces, machining, NDT, leak testing, and supplier comparison.',
+        href: '/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/',
+      },
+      {
+        title: 'Heat exchangers and thermal management',
+        description: 'Thermal duty, pressure drop, wall integrity, powder removal, CT, leak testing, and cleanability.',
+        href: '/posts/titanium-3d-printed-heat-exchangers-thermal-management/',
+      },
+    ],
+  },
+  {
+    id: 'critical-minerals',
+    title: 'Critical-minerals and process-development hardware',
+    summary:
+      'Use titanium only after the process stream and failure mode are defined; experimental fixtures and production pressure hardware require different evidence.',
+    items: [
+      {
+        title: 'Battery recycling and critical minerals',
+        description: 'Leach chemistry, sampling, test fixtures, valves, manifolds, erosion, and scale-up boundaries.',
+        href: '/posts/titanium-3d-printing-battery-recycling-critical-minerals-parts/',
+      },
+      {
+        title: 'Direct lithium extraction and brine processing',
+        description: 'Brine chemistry, sorbent interfaces, sampling, sensor hardware, corrosion, and pressure scope.',
+        href: '/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/',
+      },
+      {
+        title: 'Mining, mineral processing, and hydrometallurgy',
+        description: 'Acid leach, slurry, erosion, dosing, sensing, corrosion fixtures, and acceptance evidence.',
+        href: '/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/',
+      },
+    ],
+  },
+];
+
 const metadata = {
-  title: 'TC4 Titanium 3D Printing Applications | Ti-6Al-4V Parts',
+  title: 'Titanium 3D Printing Applications | Engineering Guides',
   description:
-    'TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, and CP titanium 3D printing applications for aerospace lightweighting, motorsport, robotics, energy, flow hardware, internal channels, and RFQ-ready part consolidation.',
+    'Evaluate titanium 3D printing applications across aerospace, medical, robotics, energy, corrosion, flow, thermal, and critical-minerals hardware before RFQ.',
   openGraph: {
     images: [
       {
@@ -93,38 +277,16 @@ const metadata = {
       { name: 'Home', item: '/' },
       { name: 'Applications', item: '/applications/' },
     ]),
-    createItemListSchema('Titanium AM applications', [
-      {
-        name: 'Aerospace lightweight structures',
-        description:
-          'TC4 / Ti-6Al-4V brackets, mounts, housings, ducts, and secondary structures where stiffness-to-weight value is clear.',
-        url: '/applications/#aerospace',
-      },
-      {
-        name: 'Drone and UAV parts',
-        description:
-          'Payload mounts, sensor brackets, motor junctions, and compact TC4 / Grade 5 titanium UAV hardware where stiffness, vibration, heat, or lead time justify AM.',
-        url: '/posts/titanium-3d-printing-drone-uav-parts/',
-      },
-      {
-        name: 'Motorsport and robotics',
-        description:
-          'Lightweight TC4 arms, end effectors, powertrain parts, and dynamic structures where mass reduction matters.',
-        url: '/applications/#motorsport-robotics',
-      },
-      {
-        name: 'Medical and patient-specific structures',
-        description:
-          'Ti-6Al-4V ELI, Grade 23, and porous-structure routes where patient-specific geometry and documentation planning matter.',
-        url: '/applications/#medical',
-      },
-      {
-        name: 'Energy and flow hardware',
-        description:
-          'TC4, Ti-6Al-4V, TA1, TA2, or CP Ti internal channels, compact housings, thermal/flow structures, and high-strength assemblies.',
-        url: '/applications/#energy-flow',
-      },
-    ]),
+    createItemListSchema(
+      'Titanium AM application engineering guides',
+      applicationClusters.flatMap((cluster) =>
+        cluster.items.map((item) => ({
+          name: item.title,
+          description: item.description,
+          url: item.href,
+        }))
+      )
+    ),
   ],
 };
 ---
@@ -259,6 +421,42 @@ const metadata = {
     ]}
     classes={{ container: sectionContainerClass }}
   />
+
+  <section class="px-4 md:px-6 py-10 md:py-12 lg:py-14 mx-auto max-w-5xl" aria-labelledby="application-library-title">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-primary">Application library</p>
+      <h2 id="application-library-title" class="mt-2 text-3xl font-bold tracking-tight text-heading md:text-4xl">
+        Find the engineering decision, not another application slogan
+      </h2>
+      <p class="mt-4 text-lg leading-8 text-muted">
+        These existing guides are grouped by the requirement that drives the quote. Use them to define the operating
+        environment, failure mode, evidence burden, and RFQ inputs before deciding whether titanium AM is justified.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-5 md:grid-cols-2">
+      {
+        applicationClusters.map((cluster) => (
+          <article id={cluster.id} class="rounded-lg border border-page-border bg-surface-raised p-5 sm:p-6">
+            <h3 class="text-xl font-bold text-heading">{cluster.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{cluster.summary}</p>
+            <ul class="mt-5 space-y-4">
+              {cluster.items.map((item) => (
+                <li>
+                  <a class="group block" href={item.href}>
+                    <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline">
+                      {item.title}
+                    </strong>
+                    <span class="mt-1 block text-sm leading-6 text-muted">{item.description}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
   <CallToAction
     classes={{ container: sectionContainerClass }}

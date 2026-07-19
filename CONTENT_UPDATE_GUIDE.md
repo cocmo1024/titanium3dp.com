@@ -175,7 +175,7 @@ npm run preview -- --host 127.0.0.1 --port 4326
 
 ## 12. 构建与 SEO 验收
 
-当前基线是 39 篇 Markdown 文章、sitemap 中 52 个 URL。新增一篇可索引文章通常会让 sitemap 增加一个 URL；重写不应改变 URL 数量。标签和分页页面被有意过滤，不能用 `dist/index.html` 数量与 sitemap 做一一比较。
+2026-07-19 验证基线是 41 篇 Markdown 文章、sitemap 中 55 个 URL。新增一篇可索引文章通常会让 sitemap 增加一个 URL；重写不应改变 URL 数量。标签和分页页面被有意过滤，不能用 `dist/index.html` 数量与 sitemap 做一一比较。
 
 ```powershell
 $postCount = (Get-ChildItem .\src\data\post -File | Where-Object { $_.Extension -in '.md','.mdx' }).Count

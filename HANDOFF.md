@@ -71,13 +71,18 @@ npm run preview
 - Added a no-hero-image lead-time article for prototype-to-production Ti-6Al-4V schedule intent.
 - Imported the 2026-07-11 Search Console export and recorded the baseline in `docs/gsc-baseline-2026-07-11.md`.
 - Added an ASTM F3001 / Ti-6Al-4V ELI Grade 23 material path, aligned `/capabilities/` with service intent, improved `/rfq/` quote intent, and added apex-domain host consolidation.
+- Added the Grade 2 / TA2 / CP titanium commercial procurement page and rebuilt the RFQ guide around STEP/STL/3MF, controlled drawings, GD&T, acceptance evidence, and comparable delivered-scope quotations.
+- Reframed the historical `/case-studies/` library as `Engineering Guides` in visible titles and breadcrumbs while preserving the established route and canonicals.
+- Rebuilt six high-link foundation guides for material selection, process selection, DfAM, post-processing, qualification, and current titanium AM decisions; added distinct guides for powder reuse/oxygen/traceability and in-situ monitoring/qualification boundaries.
+- Expanded `/applications/` into a decision-cluster hub that links the existing flight, medical, robotics, high-tech, energy, corrosion, flow, thermal, and critical-minerals guides.
+- Added `docs/seo-content-roadmap-2026-2027.md` as the operating plan for inventory-first updates, new-URL gates, internal linking, measurement, and consolidation.
 
 ## SEO Content Baseline and Direction
 
-- A July 2026 public-index audit found a weak visible Google footprint despite 38 existing posts. Treat Search Console page/query data as the authority when it becomes available; public `site:` checks are only a directional signal.
-- The first Search Console baseline covers 2026-04-10 through 2026-07-09: 96 impressions, 3 clicks, 3.13% CTR, and only five exported pages. Queries were heavily privacy-filtered, so the visible four-query list represents only 5 of 96 impressions.
+- Before the 2026-07-19 content wave, the repository contained 39 posts. The current wave produces 41 posts by rewriting six established URLs and adding only two non-overlapping evidence topics.
+- The first Search Console baseline covers 2026-04-10 through 2026-07-09: 96 impressions, 3 clicks, 3.13% CTR, and only five exported pages. It is a historical baseline, not current performance. Queries were heavily privacy-filtered, so the visible four-query list represents only 5 of 96 impressions.
 - The export showed `www` and apex-domain page rows separately, `/rfq/` at 5 impressions and average position 4.2 without a click, and visible demand for `astm f3001` and `titanium 3d printing service`. See `docs/gsc-baseline-2026-07-11.md` before setting priorities.
-- The inventory contained 26 application-template titles and substantial repeated RFQ/post-processing/inspection language. More pages and longer copy are not the default solution.
+- The 2026-07-19 inventory found 24 repeated `Titanium 3D Printing for X` title patterns plus substantial language overlap in corrosion/process-flow, flight/lightweight, robotics, and thermal/flow clusters. More pages and longer copy are not the default solution.
 - Do not resume daily `Titanium 3D Printing for X` production. Each page needs a distinct search intent, buyer task, technical evidence, and reason to exist.
 - Prioritize intent-led work in this order: transactional material/service pages, process and cost decisions, engineering failure modes, then application pages with genuinely different operating constraints.
 - Rewrite or consolidate weak inventory before creating close query variants. Retain useful URLs and canonicals when rewriting an established page.
@@ -88,10 +93,11 @@ npm run preview
 
 ## Current Unfinished Tasks
 
-- Repeat the Search Console export monthly with a fixed comparison window. The first export is too small and too privacy-filtered for deletion decisions across the 26 application-template posts.
+- Repeat the Search Console export monthly with a fixed comparison window. The 2026-07-09 snapshot is too old, too small, and too privacy-filtered for deletion decisions across the application-template inventory.
 - Triage those application pages into keep/rewrite/consolidate/noindex only after enough page/query evidence exists, using impressions, query overlap, backlinks, content distinctness, and commercial fit.
-- Recommended next commercial landing-page gaps: TA1/TA2/CP titanium, Ti-6Al-4V ELI Grade 23, and LPBF titanium 3D printing services.
+- Grade 2 / TA2 / CP titanium and Ti-6Al-4V ELI / Grade 23 commercial pages already exist. Do not recreate them. A separate LPBF service page requires current query evidence and a distinct scope from the homepage and `/capabilities/`.
 - The cost, AM-vs-CNC, application-fit, lead-time, internal-channel, fatigue, and tolerance topics now exist. Do not recreate close variants.
+- Follow the conditional priority queue in `docs/seo-content-roadmap-2026-2027.md`: pressure-boundary/NDT, hydrogen rewrite, aerospace control-plan guidance, evidence-led corrosion-cluster consolidation, and large-format wire deposition only after capability verification.
 - Before pushing future work, run `npm run check`, `npm run build`, and the Workers dry run.
 - After visual changes, verify desktop and mobile in the browser, especially hero width, mobile image margins, light/dark mode, and contact actions.
 
@@ -131,7 +137,7 @@ npm run preview
 ## Next Step Suggestions
 
 1. Re-export Search Console page/query data monthly and compare it with `docs/gsc-baseline-2026-07-11.md`.
-2. Build the next non-overlapping commercial landing page only after the Grade 23 and service-intent changes have been crawled; TA1/TA2/CP titanium remains a possible material gap.
-3. Keep the shared article-end material/capabilities/RFQ path and add contextual body links only when a direct technical relationship exists.
+2. Refresh and consolidate established URLs before approving another commercial landing page; Grade 23 and Grade 2 / TA2 / CP titanium are no longer content gaps.
+3. Use the application hub and shared article-end decision path for discovery, then add contextual body links only when a direct technical relationship exists.
 4. Add an image prompt and generated image only when the visual explains geometry, evidence, or process better than text and a table.
 5. Run `npm run check`, `npm run build`, and `npm exec -- wrangler deploy --dry-run` before pushing. Wrangler is pinned in `package.json`; upgrade it only as a separate verified change.
