@@ -1,0 +1,133 @@
+---
+import { findContentClusterBySlug } from '~/data/content-clusters';
+import type { Post } from '~/types';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const cluster = findContentClusterBySlug(post.slug);
+
+const commonLinks = [
+  {
+    title: 'Titanium AM knowledge center',
+    description: 'Move from part function to material, process, evidence, and RFQ scope.',
+    href: '/knowledge/',
+  },
+  {
+    title: 'Manufacturing and inspection scope',
+    description: 'Review LPBF/EBM fit, post-processing, machining, CT, CMM, and release documents.',
+    href: '/capabilities/',
+  },
+  {
+    title: 'Submit a project RFQ',
+    description: 'Send CAD, drawings, quantity, target material, critical features, and acceptance needs.',
+    href: '/rfq/#rfq-form',
+  },
+];
+
+const applicationLinkByCluster: Record<string, { title: string; description: string; href: string }> = {
+  'flight-mobility': {
+    title: 'Flight and mobility application map',
+    description: 'Compare aerospace, space, UAV, eVTOL, and motorsport decision paths.',
+    href: '/applications/#flight-mobility',
+  },
+  medical: {
+    title: 'Medical application boundary',
+    description: 'Separate AM feasibility from material validation, cleaning, regulatory, and release ownership.',
+    href: '/applications/#medical',
+  },
+  'robotics-high-tech': {
+    title: 'Robotics and high-tech application map',
+    description: 'Connect moving mass, thermal duty, vacuum, cleanliness, and precision interfaces.',
+    href: '/applications/#robotics-high-tech',
+  },
+  'energy-pressure': {
+    title: 'Energy and pressure application map',
+    description: 'Define media, pressure, temperature, leak risk, channels, and inspection ownership.',
+    href: '/applications/#energy-infrastructure',
+  },
+  'corrosion-process': {
+    title: 'Corrosion and process application map',
+    description: 'Specify chemistry, temperature, erosion, deposits, galvanic interfaces, and acceptance tests.',
+    href: '/applications/#corrosion-flow',
+  },
+};
+
+const applicationLinkBySlug: Record<string, { title: string; description: string; href: string }> = {
+  'titanium-3d-printing-hydraulic-manifolds-fluid-power-components': {
+    title: 'Corrosion and flow application map',
+    description: 'Define fluid chemistry, pressure, temperature, channels, cleanliness, and acceptance tests.',
+    href: '/applications/#corrosion-flow',
+  },
+  'titanium-3d-printing-industrial-valves-pump-flow-control-hardware': {
+    title: 'Corrosion and flow application map',
+    description: 'Define fluid chemistry, pressure, temperature, channels, cleanliness, and acceptance tests.',
+    href: '/applications/#corrosion-flow',
+  },
+  'titanium-3d-printed-heat-exchangers-thermal-management': {
+    title: 'Corrosion and flow application map',
+    description: 'Define fluid chemistry, pressure, temperature, channels, cleanliness, and acceptance tests.',
+    href: '/applications/#corrosion-flow',
+  },
+  'titanium-3d-printing-battery-recycling-critical-minerals-parts': {
+    title: 'Critical-minerals application map',
+    description: 'Specify process chemistry, temperature, erosion, deposits, interfaces, and release evidence.',
+    href: '/applications/#critical-minerals',
+  },
+  'titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware': {
+    title: 'Critical-minerals application map',
+    description: 'Specify process chemistry, temperature, erosion, deposits, interfaces, and release evidence.',
+    href: '/applications/#critical-minerals',
+  },
+  'titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware': {
+    title: 'Critical-minerals application map',
+    description: 'Specify process chemistry, temperature, erosion, deposits, interfaces, and release evidence.',
+    href: '/applications/#critical-minerals',
+  },
+};
+
+const links = cluster
+  ? [
+      commonLinks[0],
+      applicationLinkBySlug[post.slug] ||
+        applicationLinkByCluster[cluster.id] || {
+          title: 'Materials and specification paths',
+          description: 'Normalize TC4, Grade 5, Grade 23 ELI, Grade 2, TA2, and CP titanium before quoting.',
+          href: '/materials/',
+        },
+      commonLinks[2],
+    ]
+  : commonLinks;
+---
+
+<aside class="mx-auto mt-10 max-w-5xl px-4 sm:px-6" aria-labelledby="knowledge-pathways-title">
+  <div class="border-y border-page-border py-7">
+    <p class="text-sm font-semibold text-primary">Continue the engineering decision</p>
+    <h2 id="knowledge-pathways-title" class="mt-2 font-heading text-2xl font-bold text-heading">
+      Related knowledge pathways
+    </h2>
+    {
+      cluster && (
+        <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">
+          This guide belongs to the{' '}
+          <a class="font-semibold text-link hover:underline" href={cluster.href}>
+            {cluster.shortTitle}
+          </a>{' '}
+          decision path. {cluster.decision}
+        </p>
+      )
+    }
+    <div class="mt-5 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-3">
+      {
+        links.map((item) => (
+          <a class="group bg-page p-5" href={item.href}>
+            <h3 class="font-heading text-base font-semibold text-heading group-hover:text-link">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</aside>

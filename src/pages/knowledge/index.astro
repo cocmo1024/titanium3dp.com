@@ -1,0 +1,269 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { contentClusters } from '~/data/content-clusters';
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
+import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
+import type { Post } from '~/types';
+
+const posts = await fetchPosts();
+const postBySlug = new Map(posts.map((post) => [post.slug, post]));
+const featuredSlugsByCluster: Record<string, string[]> = {
+  'engineering-foundations': [
+    'titanium-am-standards-specifications-f2924-f3001-52948',
+    'titanium-am-material-selection-ti6al4v-eli-cp-titanium',
+    'titanium-am-process-selection-lpbf-ebm-ded',
+    'titanium-am-rfq-procurement-cost-traceability-deliverables',
+  ],
+  'flight-mobility': [
+    'titanium-3d-printing-aerospace-defense-supply-chain-resilience',
+    'titanium-3d-printing-spacecraft-satellite-components',
+    'titanium-3d-printing-evtol-advanced-air-mobility-hardware',
+  ],
+  medical: ['titanium-3d-printing-medical-device-orthopedic-implant-parts'],
+  'robotics-high-tech': [
+    'titanium-3d-printing-robotics-automation-parts',
+    'titanium-3d-printing-semiconductor-equipment-parts',
+    'titanium-3d-printing-ai-data-center-liquid-cooling-hardware',
+  ],
+  'energy-pressure': [
+    'titanium-3d-printing-hydrogen-electrolyzer-fuel-cell-parts',
+    'titanium-3d-printing-geothermal-downhole-energy-parts',
+    'titanium-3d-printed-heat-exchangers-thermal-management',
+  ],
+  'corrosion-process': [
+    'titanium-3d-printing-chemical-processing-water-treatment-parts',
+    'titanium-3d-printing-seawater-desalination-brine-concentration-hardware',
+    'titanium-3d-printing-battery-recycling-critical-minerals-parts',
+  ],
+};
+const clusters = contentClusters.map((cluster) => ({
+  ...cluster,
+  totalPosts: cluster.slugs.length,
+  posts: (featuredSlugsByCluster[cluster.id] || cluster.slugs)
+    .map((slug) => postBySlug.get(slug))
+    .filter((post): post is Post => Boolean(post)),
+}));
+const mappedCount = new Set(contentClusters.flatMap((cluster) => cluster.slugs)).size;
+const sourcedCount = posts.filter((post) => post.excerpt && post.excerpt.length > 0).length;
+
+const metadata = {
+  title: 'Titanium Additive Manufacturing Knowledge Center',
+  description:
+    'A decision-led titanium additive manufacturing knowledge map for TC4, Ti-6Al-4V, Grade 23, Grade 2, LPBF, EBM, DfAM, inspection, applications, and RFQs.',
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: 'Home', item: '/' },
+      { name: 'Knowledge Center', item: '/knowledge/' },
+    ]),
+    createItemListSchema(
+      'Titanium additive manufacturing engineering decision paths',
+      clusters.map((cluster) => ({
+        name: cluster.title,
+        description: cluster.description,
+        url: cluster.href,
+      }))
+    ),
+  ],
+};
+
+const decisionSequence = [
+  ['01', 'Function', 'What must the delivered part do, and which failure mode has the highest consequence?'],
+  ['02', 'Material', 'Which named titanium grade, chemistry, condition, and governing specification are required?'],
+  [
+    '03',
+    'Route',
+    'Which geometry creates additive value, and can supports, powder, heat, and distortion be controlled?',
+  ],
+  [
+    '04',
+    'Evidence',
+    'Which dimensional, internal, mechanical, surface, leak, and traceability records release the part?',
+  ],
+  [
+    '05',
+    'Commercial scope',
+    'What quantity, schedule, post-processing, documents, and approval gates make the quote comparable?',
+  ],
+];
+---
+
+<Layout metadata={metadata}>
+  <article class="text-default">
+    <header class="mx-auto max-w-5xl px-4 pb-10 pt-12 sm:px-6 sm:pb-12 sm:pt-16 lg:pt-20">
+      <div class="max-w-4xl">
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">Titanium AM knowledge center</p>
+        <h1 class="mt-3 max-w-4xl font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">
+          Start with the engineering decision, not a keyword variant
+        </h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-muted">
+          This map organizes the existing engineering library around material, manufacturing, application, acceptance,
+          and purchasing decisions. It is designed to prevent duplicate pages while keeping every useful guide within
+          three clicks of the homepage.
+        </p>
+        <p class="mt-4 max-w-3xl text-sm leading-6 text-muted">
+          Public sources and standards support general engineering context. They do not prove a supplier-specific
+          machine capability, certified part result, or customer approval for a new project.
+        </p>
+      </div>
+
+      <dl class="mt-9 grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-3">
+        <div class="bg-page px-4 py-5 sm:px-5">
+          <dt class="text-xs font-semibold uppercase text-muted">Published guides</dt>
+          <dd class="mt-1 font-heading text-2xl font-bold text-heading">{posts.length}</dd>
+        </div>
+        <div class="bg-page px-4 py-5 sm:px-5">
+          <dt class="text-xs font-semibold uppercase text-muted">Mapped to a decision path</dt>
+          <dd class="mt-1 font-heading text-2xl font-bold text-heading">{mappedCount}</dd>
+        </div>
+        <div class="bg-page px-4 py-5 sm:px-5">
+          <dt class="text-xs font-semibold uppercase text-muted">With decision summaries</dt>
+          <dd class="mt-1 font-heading text-2xl font-bold text-heading">{sourcedCount}</dd>
+        </div>
+      </dl>
+    </header>
+
+    <nav class="border-y border-page-border bg-surface" aria-label="Knowledge decision paths">
+      <div class="mx-auto flex max-w-5xl gap-x-5 gap-y-2 overflow-x-auto px-4 py-4 sm:flex-wrap sm:px-6">
+        {
+          clusters.map((cluster) => (
+            <a class="shrink-0 text-sm font-semibold text-muted transition hover:text-link" href={`#${cluster.id}`}>
+              {cluster.shortTitle}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+
+    <section class="py-12 sm:py-14" aria-labelledby="decision-sequence">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6">
+        <p class="text-sm font-semibold text-primary">Engineering sequence</p>
+        <h2 id="decision-sequence" class="mt-2 font-heading text-3xl font-bold text-heading">
+          Five gates before a titanium AM quotation
+        </h2>
+        <ol class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-5">
+          {
+            decisionSequence.map(([number, title, description]) => (
+              <li class="bg-page p-5">
+                <span class="text-sm font-semibold text-primary">{number}</span>
+                <h3 class="mt-3 font-heading text-lg font-semibold text-heading">{title}</h3>
+                <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="border-y border-page-border bg-surface py-12 sm:py-14" aria-labelledby="knowledge-map">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold text-primary">Decision map</p>
+          <h2 id="knowledge-map" class="mt-2 font-heading text-3xl font-bold text-heading">
+            Selected entry guides across six durable paths
+          </h2>
+          <p class="mt-4 leading-7 text-muted">
+            A new page is justified only when it resolves a distinct buyer decision, failure mode, evidence requirement,
+            or material/process boundary that these paths do not already answer. These selected guides are starting
+            points; the searchable engineering library retains the complete inventory.
+          </p>
+        </div>
+
+        <div class="mt-10 space-y-12">
+          {
+            clusters.map((cluster) => (
+              <section id={cluster.id} class="scroll-mt-24 border-t border-page-border pt-7">
+                <div class="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12">
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-primary">
+                      {cluster.totalPosts} engineering guide{cluster.totalPosts === 1 ? '' : 's'} in this path
+                    </p>
+                    <h3 class="mt-2 font-heading text-2xl font-bold text-heading">{cluster.title}</h3>
+                    <p class="mt-3 leading-7 text-muted">{cluster.description}</p>
+                    <p class="mt-3 text-sm leading-6 text-muted">{cluster.decision}</p>
+                  </div>
+                  <ul class="border-t border-page-border">
+                    {cluster.posts.map((post) => (
+                      <li class="border-b border-page-border py-4">
+                        <a
+                          class="font-heading font-semibold text-heading underline-offset-4 hover:text-link hover:underline"
+                          href={getPermalink(post.permalink, 'post')}
+                        >
+                          {post.title}
+                        </a>
+                        {post.excerpt && <p class="mt-1 text-sm leading-6 text-muted">{post.excerpt}</p>}
+                      </li>
+                    ))}
+                    <li class="border-b border-page-border py-4">
+                      <a
+                        class="text-sm font-semibold text-link underline-offset-4 hover:underline"
+                        href="/case-studies/"
+                      >
+                        Search the complete engineering library
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 sm:py-14" aria-labelledby="publishing-policy">
+      <div class="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
+        <div>
+          <p class="text-sm font-semibold text-primary">Evidence boundary</p>
+          <h2 id="publishing-policy" class="mt-2 font-heading text-3xl font-bold text-heading">
+            What qualifies as a useful new page
+          </h2>
+          <ul class="mt-6 space-y-4 text-sm leading-6 text-muted">
+            <li>
+              <strong class="text-heading">Distinct decision:</strong> it answers a search task not already resolved by an
+              existing URL.
+            </li>
+            <li>
+              <strong class="text-heading">Named boundary:</strong> material, process, environment, standard, or acceptance
+              scope is explicit.
+            </li>
+            <li>
+              <strong class="text-heading">Traceable claims:</strong> quantitative and high-risk statements point to primary
+              or authoritative sources.
+            </li>
+            <li>
+              <strong class="text-heading">Purchasing output:</strong> the reader leaves with RFQ inputs, comparison criteria,
+              or a no-go decision.
+            </li>
+          </ul>
+        </div>
+        <div class="border-l border-page-border pl-0 lg:pl-10">
+          <p class="text-sm font-semibold text-primary">Editorial controls</p>
+          <h2 class="mt-2 font-heading text-3xl font-bold text-heading">Freshness without fake freshness</h2>
+          <p class="mt-4 leading-7 text-muted">
+            Substantive corrections receive an updated date. Dates are not changed merely to look current. Overlapping
+            URLs are rewritten, consolidated, or redirected only after query and page evidence is reviewed.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="btn-primary" href="/editorial-policy/">Read editorial policy</a>
+            <a class="btn-secondary" href="/case-studies/">Search all guides</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-page-border py-12 sm:py-14">
+      <div class="mx-auto flex max-w-5xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold text-primary">Apply the evidence to a real part</p>
+          <h2 class="mt-2 font-heading text-3xl font-bold text-heading">Send the geometry and acceptance needs</h2>
+          <p class="mt-3 leading-7 text-muted">
+            A useful quotation still depends on CAD, drawings, quantity, target material, operating duty, finishing,
+            inspection, documentation, and schedule.
+          </p>
+        </div>
+        <a class="btn-primary shrink-0" href="/rfq/#rfq-form">Submit project RFQ</a>
+      </div>
+    </section>
+  </article>
+</Layout>

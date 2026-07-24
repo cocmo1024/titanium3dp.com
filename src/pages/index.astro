@@ -1,522 +1,430 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Image from '~/components/common/Image.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import { createTitaniumServiceSchema, createItemListSchema } from '~/utils/structured-data';
+import RfqForm from '~/components/forms/RfqForm.astro';
+import { contentClusters } from '~/data/content-clusters';
+import { fetchPosts } from '~/utils/blog';
+import { createFAQSchema, createItemListSchema, createTitaniumServiceSchema } from '~/utils/structured-data';
 
-const rfqEmail = 'info@szcomo.com';
-const rfqEmailHref = 'mailto:info@szcomo.com';
-const heroContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
-const pageContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
-const sectionContainerClass = 'max-w-5xl mx-auto py-10 md:py-12 lg:py-14';
-const leftHeadlineClasses = {
-  container: 'max-w-3xl text-left md:mx-0',
-  title: 'text-3xl md:text-4xl font-bold tracking-tight font-heading',
-  subtitle: 'text-base leading-7 text-muted md:text-lg',
-};
+const posts = await fetchPosts();
+const postCount = posts.length;
+const sectionClass = 'mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-14 lg:py-16';
+
+const materialRoutes = [
+  {
+    title: 'TC4 / Ti-6Al-4V / Grade 5',
+    description:
+      'The primary structural route for high strength-to-weight parts. Normalize the alloy name, condition, process class, and acceptance evidence before comparing quotations.',
+    href: '/materials/tc4-ti6al4v-grade-5/',
+  },
+  {
+    title: 'Ti-6Al-4V ELI / Grade 23',
+    description:
+      'An extra-low-interstitial path for selected fatigue-sensitive, medical-adjacent, or high-reliability work. The material specification does not certify the complete device or part.',
+    href: '/materials/ti6al4v-eli-grade-23-astm-f3001/',
+  },
+  {
+    title: 'Grade 2 / TA2 / CP titanium',
+    description:
+      'A corrosion- and ductility-led route where the exact standard and a qualified supplier AM path must be confirmed rather than inferred from a wrought designation.',
+    href: '/materials/grade-2-cp-titanium-ta2-3d-printing/',
+  },
+];
+
+const applicationRoutes = [
+  {
+    title: 'Aerospace, space, UAV, and eVTOL',
+    description: 'Mass value, fatigue, load path, interfaces, traceability, and design-authority approval.',
+    href: '/applications/#flight-mobility',
+  },
+  {
+    title: 'Medical and orthopedic structures',
+    description: 'ELI material, porous geometry, cleaning, validation, regulatory, and release boundaries.',
+    href: '/applications/#medical',
+  },
+  {
+    title: 'Robotics and high-tech equipment',
+    description: 'Moving mass, stiffness, thermal duty, cleanliness, vacuum, and precision interfaces.',
+    href: '/applications/#robotics-high-tech',
+  },
+  {
+    title: 'Energy, hydrogen, and pressure parts',
+    description: 'Media, temperature, pressure, channels, leak risk, inspection, and code ownership.',
+    href: '/applications/#energy-infrastructure',
+  },
+  {
+    title: 'Marine, water, and process equipment',
+    description: 'Chemistry, chlorides, erosion, deposits, galvanic design, cleaning, and functional testing.',
+    href: '/applications/#corrosion-flow',
+  },
+  {
+    title: 'Motorsport and lightweight mobility',
+    description: 'Unsprung or rotating mass, duty cycle, surface condition, event timing, and inspection.',
+    href: '/posts/titanium-3d-printing-motorsport-racing-parts/',
+  },
+];
+
+const processSteps = [
+  [
+    '01',
+    'Screen the business case',
+    'Confirm that geometry, mass, consolidation, internal flow, or patient fit creates enough value to justify AM.',
+  ],
+  [
+    '02',
+    'Lock the material intent',
+    'Name the grade, chemistry, governing specification, delivered condition, and any customer controls.',
+  ],
+  [
+    '03',
+    'Review DfAM risk',
+    'Plan orientation, supports, thin walls, trapped powder, distortion, machining access, and protected surfaces.',
+  ],
+  [
+    '04',
+    'Define the process chain',
+    'Sequence printing, stress relief, HIP if justified, support removal, machining, finishing, cleaning, and handling.',
+  ],
+  [
+    '05',
+    'Build the evidence plan',
+    'Match CMM, CT, NDT, coupons, surface, leak, pressure, and traceability evidence to the actual failure modes.',
+  ],
+  [
+    '06',
+    'Issue a comparable RFQ',
+    'Send every supplier the same CAD, drawing, quantity, delivery state, acceptance rules, records, and schedule.',
+  ],
+];
+
+const faqItems = [
+  {
+    title: 'Which titanium grades can be reviewed?',
+    description:
+      'Most projects begin with Ti-6Al-4V / TC4 / Grade 5, Ti-6Al-4V ELI / Grade 23, or a controlled commercially pure titanium route such as Grade 1 or Grade 2. Other alloys depend on an available and qualified supplier process.',
+  },
+  {
+    title: 'Is LPBF or EBM the better process?',
+    description:
+      'The answer depends on geometry, feature scale, thermal behavior, support and powder-removal access, surface and machining requirements, material route, evidence burden, quantity, and supplier qualification. A process name alone is not enough.',
+  },
+  {
+    title: 'Does a titanium material standard certify the finished part?',
+    description:
+      'No. A material specification supports one layer of the requirement. The drawing, process route, post-processing, inspection technique, acceptance criteria, records, and any regulatory or design-authority approval remain project-specific.',
+  },
+  {
+    title: 'What files produce the fastest useful quote?',
+    description:
+      'Send STEP or native CAD, a controlled 2D drawing, quantity and lot definition, target material, delivery date, critical datums and surfaces, operating conditions, post-processing, inspection, documentation, and ship-to country.',
+  },
+  {
+    title: 'When should titanium additive manufacturing be rejected?',
+    description:
+      'Reject or re-route the project when geometry is simple, conventional machining or forging has a clear cost and risk advantage, supports or powder cannot be removed, critical surfaces cannot be finished, or the evidence budget cannot support the required consequence of failure.',
+  },
+];
 
 const metadata = {
-  title: 'TC4 Titanium 3D Printing Services | Ti-6Al-4V LPBF & EBM Parts',
+  title: 'Titanium 3D Printing Services for Engineering-Ready Parts',
   ignoreTitleTemplate: true,
   description:
-    'TC4 titanium 3D printing services for Ti-6Al-4V, Grade 5, Ti64, Ti-6Al-4V ELI, TA1, TA2, and CP Ti parts. Send CAD for DfAM review, machining, CT/CMM inspection, and RFQ-ready evidence.',
+    'Titanium 3D printing services and engineering review for TC4, Ti-6Al-4V, Grade 23 ELI, and CP titanium LPBF or EBM parts, from CAD and DfAM through inspection and RFQ.',
   openGraph: {
     images: [
       {
         url: '~/assets/images/titanium/titanium-hero.webp',
         width: 1200,
         height: 675,
-        alt: 'Titanium 3D printing services for LPBF and EBM parts',
+        alt: 'Titanium additive manufacturing parts and lattice structures',
       },
     ],
     type: 'website',
   },
   structuredData: [
     createTitaniumServiceSchema(),
-    createItemListSchema('Titanium additive manufacturing engineering decision guides', [
-      {
-        name: 'Titanium AM material selection',
-        description:
-          'TC4, Ti-6Al-4V Grade 5, Ti64, Ti-6Al-4V ELI Grade 23, TA1, TA2, and CP Ti selection for LPBF and EBM.',
-        url: '/materials/tc4-ti6al4v-grade-5/',
-      },
-      {
-        name: 'Titanium DfAM rules',
-        description: 'Support strategy, overhang limits, thin-wall feasibility, distortion risk, and fatigue control.',
-        url: '/posts/titanium-dfam-rules-lpbf-ebm-supports-overhangs-thin-walls/',
-      },
-      {
-        name: 'Titanium AM post-processing',
-        description: 'Stress relief, anneal, HIP, machining datums, surface finish, and acceptance planning.',
-        url: '/posts/titanium-3d-printing-post-processing-hip-machining-surface-finish/',
-      },
-      {
-        name: 'Titanium AM qualification evidence',
-        description: 'CT, CMM, mechanical coupons, density, traceability, and documentation scope.',
-        url: '/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/',
-      },
-    ]),
+    createItemListSchema(
+      'Titanium additive manufacturing engineering decision paths',
+      contentClusters.map((cluster) => ({
+        name: cluster.title,
+        description: cluster.description,
+        url: cluster.href,
+      }))
+    ),
+    createFAQSchema(faqItems),
   ],
 };
-
-const applicationShowcases = [
-  {
-    imagePosition: 'left' as const,
-    eyebrow: 'Material gate',
-    image: {
-      src: '~/assets/images/titanium/1.webp',
-      alt: 'Titanium AM material selection - TC4, Ti-6Al-4V, Ti-6Al-4V ELI, TA1, TA2, and CP titanium',
-    },
-    title: 'Material selection: TC4, Ti-6Al-4V, ELI, and CP Ti',
-    description:
-      'Worth reviewing when TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, CP Ti, fatigue risk, corrosion behavior, oxygen limits, or approval pathway drives the part.',
-    points: [
-      {
-        title: 'Alloy route',
-        description:
-          'Normalize TC4, Ti-6Al-4V, Grade 5, and Ti64 before quote comparison. Use Grade 23 ELI for selected fracture or fatigue needs and TA1/TA2/CP Ti when corrosion or ductility matters.',
-      },
-      {
-        title: 'Evidence intent',
-        description:
-          'Define certificates, traceability, defect class, coupons, and inspection depth before locking process assumptions.',
-      },
-      {
-        title: 'When to send it',
-        description:
-          'Send CAD, alloy target, operating environment, load case, quantity, and any acceptance evidence required.',
-        callToAction: {
-          text: 'TC4 / Grade 5 material route',
-          href: '/materials/tc4-ti6al4v-grade-5/',
-        },
-      },
-    ],
-  },
-  {
-    imagePosition: 'right' as const,
-    eyebrow: 'DfAM screen',
-    image: {
-      src: '~/assets/images/titanium/2.webp',
-      alt: 'Titanium DfAM rules for supports, overhangs, thin walls, and distortion control',
-    },
-    title: 'DfAM rules for supports, overhangs, and distortion',
-    description:
-      'Best handled before quotation, because support strategy, thermal history, and post-processing access determine whether the part is realistic.',
-    points: [
-      {
-        title: 'Protected faces',
-        description:
-          'Keep supports away from sealing faces, datums, threads, bores, fatigue surfaces, and cosmetic zones.',
-      },
-      {
-        title: 'Manufacturing limits',
-        description:
-          'Review thin walls, spans, trapped powder, recoater exposure, downskin quality, and residual-stress risk.',
-      },
-      {
-        title: 'Build strategy',
-        description: 'Plan orientation, stress relief, powder removal, supports, and machining access together.',
-        callToAction: {
-          text: 'Read DfAM guide',
-          href: '/posts/titanium-dfam-rules-lpbf-ebm-supports-overhangs-thin-walls/',
-        },
-      },
-    ],
-  },
-  {
-    imagePosition: 'left' as const,
-    eyebrow: 'Process chain',
-    image: {
-      src: '~/assets/images/titanium/3.webp',
-      alt: 'Titanium AM post-processing with stress relief, HIP, machining, and surface finishing',
-    },
-    title: 'Post-processing: stress relief, HIP, machining, finish',
-    description:
-      'Printing is only one step. The quote should include the thermal route, support removal, datum machining, cleaning, inspection, and release sequence.',
-    points: [
-      {
-        title: 'Thermal route',
-        description:
-          'Use stress relief, anneal, or HIP according to distortion, density, fatigue, leak, and fracture risk.',
-      },
-      {
-        title: 'Machining access',
-        description:
-          'Reserve stock and reachable datums for bores, threads, sealing lands, mating surfaces, and functional interfaces.',
-      },
-      {
-        title: 'Release order',
-        description: 'Place CT, CMM, cleaning, and coupon checks after operations that can change acceptance risk.',
-        callToAction: {
-          text: 'Post-processing guide',
-          href: '/posts/titanium-3d-printing-post-processing-hip-machining-surface-finish/',
-        },
-      },
-    ],
-  },
-  {
-    imagePosition: 'right' as const,
-    eyebrow: 'Application fit',
-    image: {
-      src: '~/assets/images/titanium/4.webp',
-      alt: 'Titanium 3D printing applications for aerospace, motorsport, medical, and energy parts',
-    },
-    title: 'Applications where LPBF/EBM earn their cost',
-    description:
-      'Strong candidates usually consolidate parts, reduce mass, add lattices, route internal flow, or create patient-specific and high-strength structures.',
-    points: [
-      {
-        title: 'AM value',
-        description:
-          'Lightweight brackets, mounts, housings, ducts, porous structures, and compact flow or thermal hardware.',
-      },
-      {
-        title: 'Route logic',
-        description: 'Choose LPBF or EBM by wall thickness, support access, surface need, and acceptance evidence.',
-      },
-      {
-        title: 'Weak fit',
-        description: 'Simple geometry, flat stock, or cost-only parts often favor CNC, casting, or forging.',
-        callToAction: {
-          text: 'Application notes',
-          href: '/applications/',
-        },
-      },
-    ],
-  },
-  {
-    imagePosition: 'left' as const,
-    eyebrow: 'Qualification',
-    image: {
-      src: '~/assets/images/titanium/5.webp',
-      alt: 'Titanium AM qualification evidence with CT, CMM, tensile coupons, density, and documentation',
-    },
-    title: 'Inspection evidence: CT, CMM, coupons, density',
-    description:
-      'Approval depends on evidence, not generic process claims. Inspection and documentation should match the actual part risk.',
-    points: [
-      {
-        title: 'Inspection plan',
-        description:
-          'Use CT for internal features and defect questions; use CMM for datum schemes and functional interfaces.',
-      },
-      {
-        title: 'Evidence scope',
-        description:
-          'Scale coupons, density checks, certs, build records, and traceability from prototype to critical release.',
-      },
-      {
-        title: 'Acceptance rule',
-        description: 'Tie each report to drawing zones, defect class, and the release decision it supports.',
-        callToAction: {
-          text: 'Qualification guide',
-          href: '/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/',
-        },
-      },
-    ],
-  },
-  {
-    imagePosition: 'right' as const,
-    eyebrow: 'RFQ package',
-    image: {
-      src: '~/assets/images/titanium/6.webp',
-      alt: 'Titanium AM RFQ and procurement planning for cost, traceability, and deliverables',
-    },
-    title: 'Procurement: cost drivers, traceability, deliverables',
-    description:
-      'Quote quality improves when support removal, machining, HIP, inspection, surface condition, lead time, and documents are stated upfront.',
-    points: [
-      {
-        title: 'Cost drivers',
-        description: 'Build height, support access, machining stock, HIP, inspection, finish, and documentation depth.',
-      },
-      {
-        title: 'Deliverables',
-        description: 'Define powder/build traceability, acceptance criteria, inspection mapping, and report format.',
-      },
-      {
-        title: 'Quote inputs',
-        description: 'Send STEP, drawings, quantity, lead time, material intent, finish, and evidence scope.',
-        callToAction: {
-          text: 'RFQ guide',
-          href: '/rfq/',
-        },
-      },
-    ],
-  },
-  {
-    imagePosition: 'left' as const,
-    eyebrow: 'No-go screen',
-    image: {
-      src: '~/assets/images/titanium/7.webp',
-      alt: 'When titanium additive manufacturing is not a fit and machining, casting, or forging may be better',
-    },
-    title: 'When machining, casting, or forging is better',
-    description:
-      'Simple geometry, blanket tight tolerances, high-volume economics, inaccessible supports, or no evidence budget often point away from AM.',
-    points: [
-      {
-        title: 'Better routes',
-        description:
-          'Plain plates, blocks, shafts, simple brackets, and easy tool-access parts usually favor CNC or forging.',
-      },
-      {
-        title: 'Early stop',
-        description:
-          'Avoid AM when support removal, inspection, datum strategy, or acceptance evidence cannot be defined.',
-      },
-      {
-        title: 'Route switch',
-        description: 'Move to CNC, casting, or forging when risk cannot be removed or measured cleanly.',
-        callToAction: {
-          text: 'No-go screening guide',
-          href: '/posts/when-not-to-use-titanium-additive-manufacturing/',
-        },
-      },
-    ],
-  },
-];
-
-const faqItems = [
-  {
-    title: 'What titanium materials can be reviewed?',
-    description:
-      'Most RFQs start with Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, or CP Ti Grades 1-4. Other grades depend on process route, parameter availability, and evidence needs.',
-  },
-  {
-    title: 'Do I need HIP?',
-    description:
-      'HIP is usually considered for fatigue, fracture-critical, leak-critical, or density-sensitive parts. It should be tied to risk and acceptance evidence, not used as a generic checkbox.',
-  },
-  {
-    title: 'What files should I send?',
-    description:
-      'Send STEP or native CAD, drawings with datums and critical features, target alloy, quantity, lead time, surface condition, post-processing, and inspection requirements.',
-  },
-  {
-    title: 'Can titanium AM parts be inspected internally?',
-    description:
-      'CT inspection can be considered for internal channels, lattices, inaccessible cavities, or defect questions when the requirement is stated before quotation.',
-  },
-  {
-    title: 'When is titanium AM not a good fit?',
-    description:
-      'Simple geometry, tight all-over tolerances without machining access, inaccessible internal cavities, low evidence budget, or high-volume cost sensitivity may favor machining, casting, or forging.',
-  },
-];
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative isolate overflow-hidden bg-page not-prose">
-    <div class={heroContainerClass}>
-      <div class="flex flex-col gap-4 py-4 sm:py-5 lg:py-6">
-        <h1 class="sr-only">Titanium 3D printing services for LPBF and EBM parts</h1>
-        <div class="relative -mx-4 overflow-hidden border border-page-border bg-surface sm:mx-0 sm:rounded-lg">
+  <section class="relative overflow-hidden border-b border-page-border bg-page not-prose">
+    <div class="pointer-events-none absolute inset-0 opacity-50" aria-hidden="true">
+      <div class="absolute -right-32 -top-48 h-[34rem] w-[34rem] rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-accent/10 blur-3xl"></div>
+    </div>
+    <div
+      class="relative mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-center lg:py-20"
+    >
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+          Titanium additive manufacturing · Engineering review · Global RFQ
+        </p>
+        <h1
+          class="mt-4 max-w-3xl font-heading text-4xl font-bold leading-[1.08] tracking-tight text-heading sm:text-5xl lg:text-6xl"
+        >
+          Titanium 3D printing for engineering-ready parts
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">
+          Evaluate TC4 / Ti-6Al-4V, Grade 23 ELI, and commercially pure titanium parts from CAD and DfAM through LPBF or
+          EBM, thermal processing, machining, inspection, documentation, and delivered-part quotation.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-muted">
+          Operated by Suzhou Como Precision Materials Co., Ltd. Supplier-specific equipment, build envelope,
+          certification, and final process route are confirmed against the actual RFQ.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn-primary" href="/rfq/#rfq-form">Submit project RFQ</a>
+          <a class="btn-secondary" href="/knowledge/">Explore the knowledge center</a>
+        </div>
+        <dl class="mt-9 grid max-w-2xl grid-cols-3 gap-px overflow-hidden border-y border-page-border bg-page-border">
+          <div class="bg-page px-3 py-4 sm:px-4">
+            <dt class="text-xs font-semibold uppercase text-muted">Engineering guides</dt>
+            <dd class="mt-1 text-xl font-bold text-heading">{postCount}</dd>
+          </div>
+          <div class="bg-page px-3 py-4 sm:px-4">
+            <dt class="text-xs font-semibold uppercase text-muted">Decision paths</dt>
+            <dd class="mt-1 text-xl font-bold text-heading">{contentClusters.length}</dd>
+          </div>
+          <div class="bg-page px-3 py-4 sm:px-4">
+            <dt class="text-xs font-semibold uppercase text-muted">Core PBF routes</dt>
+            <dd class="mt-1 text-xl font-bold text-heading">LPBF / EBM</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="relative">
+        <div class="overflow-hidden border border-page-border bg-surface sm:rounded-lg">
           <Image
             src="~/assets/images/titanium/titanium-hero.webp"
             width={1672}
             height={941}
-            widths={[640, 1024, 1672]}
-            sizes="(max-width: 639px) 100vw, (max-width: 1055px) calc(100vw - 48px), 1024px"
+            widths={[640, 960, 1280, 1672]}
+            sizes="(max-width: 1023px) calc(100vw - 32px), 470px"
             layout="responsive"
-            objectFit="contain"
-            alt="Titanium 3D printed structures and lattice components for industrial additive manufacturing"
-            class="block w-full sm:rounded-lg"
+            objectFit="cover"
+            alt="Illustrative titanium additive manufacturing parts and lattice structures"
+            class="block aspect-[4/3] w-full object-cover"
             loading="eager"
             fetchpriority="high"
           />
         </div>
-
-        <div class="flex flex-wrap items-center gap-3">
-          <a class="btn-primary" href={rfqEmailHref}>Email RFQ</a>
-          <a class="btn-secondary" href="/rfq/"> Prepare RFQ inputs </a>
+        <div
+          class="border-x border-b border-page-border bg-surface px-4 py-3 text-xs leading-5 text-muted sm:rounded-b-lg"
+        >
+          Representative titanium AM geometry. Final manufacturability and acceptance depend on the controlled part
+          definition and supplier route.
         </div>
       </div>
     </div>
   </section>
 
-  <Note
-    title="For a faster quote:"
-    description="Send CAD or drawings, quantity, material target, lead time, critical surfaces, operating conditions, post-processing, and inspection requirements such as CMM, CT, tensile coupons, COA/COC, or traceability."
-  />
-
-  <section class:list={['relative not-prose', sectionContainerClass]}>
-    <div class={pageContainerClass}>
-      <div class="grid gap-6 md:grid-cols-2">
-        <div class="rounded-md border border-page-border bg-surface p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-primary">Good fit</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">
-            Titanium AM is worth quoting when geometry drives value.
-          </h2>
-          <ul class="mt-4 space-y-2 text-muted">
-            <li>
-              Lightweight structures, topology-optimized brackets, mounts, housings, ducts, and compact assemblies.
-            </li>
-            <li>
-              Porous, lattice, internal-flow, patient-specific, or high-strength parts where machining is limiting.
-            </li>
-            <li>
-              Projects where reduced mass, integrated geometry, fewer joints, or fast iteration reduces system risk.
-            </li>
+  <section class={sectionClass} aria-labelledby="project-fit-title">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
+      <div>
+        <p class="text-sm font-semibold text-primary">Project fit</p>
+        <h2 id="project-fit-title" class="mt-2 font-heading text-3xl font-bold text-heading sm:text-4xl">
+          AM must change the part economics or performance
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Titanium is expensive to print and qualify. The route earns its cost when geometry creates system-level value
+          and the finished-part evidence can be defined before quotation.
+        </p>
+      </div>
+      <div class="grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-2">
+        <div class="bg-page p-6">
+          <p class="text-xs font-semibold uppercase text-primary">Strong fit</p>
+          <h3 class="mt-2 font-heading text-xl font-semibold text-heading">Geometry carries the value</h3>
+          <ul class="mt-4 space-y-2 text-sm leading-6 text-muted">
+            <li>Topology-optimized load paths and meaningful mass reduction.</li>
+            <li>Internal channels, compact manifolds, lattices, porous or patient-specific structures.</li>
+            <li>Part consolidation that removes joints, fasteners, alignment, or failure interfaces.</li>
+            <li>Low-to-medium volumes where tooling or conventional access is the constraint.</li>
           </ul>
         </div>
-        <div class="rounded-md border border-page-border bg-surface p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-muted">Usually not a fit</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-heading">
-            Simple titanium stock is often better made another way.
-          </h2>
-          <ul class="mt-4 space-y-2 text-muted">
-            <li>Plain plates, blocks, shafts, simple brackets, large billets, or parts with easy CNC access.</li>
-            <li>Cost-only requests where AM adds no mass, assembly, thermal, or performance advantage.</li>
-            <li>Projects where support removal, datum strategy, or acceptance evidence cannot be defined.</li>
+        <div class="bg-page p-6">
+          <p class="text-xs font-semibold uppercase text-muted">Weak fit</p>
+          <h3 class="mt-2 font-heading text-xl font-semibold text-heading">AM adds cost without removing risk</h3>
+          <ul class="mt-4 space-y-2 text-sm leading-6 text-muted">
+            <li>Simple plates, blocks, shafts, and open geometry with easy tool access.</li>
+            <li>Blanket tight tolerances without machining stock, datums, or inspection access.</li>
+            <li>Enclosed powder or supports that cannot be removed and verified.</li>
+            <li>High consequence of failure without a qualification and evidence budget.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <Features3
-    title="What to send for review"
-    subtitle="A simple drawing may be enough for a basic quote. Critical titanium parts need clearer operating and inspection requirements."
-    columns={3}
-    classes={{
-      container: sectionContainerClass,
-      headline: leftHeadlineClasses,
-      items: {
-        container: 'gap-x-12',
-        panel: 'max-w-none',
-      },
-    }}
-    items={[
-      {
-        title: 'Drawing package',
-        description:
-          'STEP, X_T, native CAD, or drawings with key dimensions, datum faces, bores, threads, critical surfaces, and GD&T intent.',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Quantity and timing',
-        description:
-          'Prototype quantity, batch size, target delivery date, approval timing, and any purchasing constraints.',
-        icon: 'tabler:file-description',
-      },
-      {
-        title: 'Special requirements',
-        description:
-          'Material, fatigue, load, temperature, corrosion, HIP, machining, surface finish, CT, CMM, coupons, and traceability when they matter.',
-        icon: 'tabler:clipboard-check',
-      },
-    ]}
-  />
+  <section class="border-y border-page-border bg-surface" aria-labelledby="materials-title">
+    <div class={sectionClass}>
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary">Material routes</p>
+        <h2 id="materials-title" class="mt-2 font-heading text-3xl font-bold text-heading sm:text-4xl">
+          Specify the delivered material state, not only the alloy nickname
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          Material identity, AM process, thermal condition, HIP, surface, machining, orientation, sampling, and
+          acceptance evidence determine what the quoted part actually represents.
+        </p>
+      </div>
+      <div class="mt-8 grid gap-px overflow-hidden border-y border-page-border bg-page-border lg:grid-cols-3">
+        {
+          materialRoutes.map((item) => (
+            <a class="group bg-page p-6" href={item.href}>
+              <h3 class="font-heading text-xl font-semibold text-heading group-hover:text-link">{item.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-muted">{item.description}</p>
+              <span class="mt-5 inline-flex text-sm font-semibold text-link group-hover:underline">
+                Review material path →
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-  <SplitShowcase
-    id="engineering-guide"
-    tagline="Engineering guide"
-    title="Typical titanium AM cases worth reviewing"
-    subtitle="The strongest projects use additive manufacturing to solve lightweighting, internal geometry, lattice, process-chain, qualification, or procurement-risk problems."
-    items={applicationShowcases}
-    classes={{ container: sectionContainerClass, headline: leftHeadlineClasses }}
-  />
+  <section class={sectionClass} aria-labelledby="process-chain-title">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold text-primary">Delivered-part workflow</p>
+      <h2 id="process-chain-title" class="mt-2 font-heading text-3xl font-bold text-heading sm:text-4xl">
+        Printing is one controlled step in a longer evidence chain
+      </h2>
+      <p class="mt-4 leading-7 text-muted">
+        The quote must connect geometry to the material route, post-processing, finished interfaces, inspection,
+        records, and commercial scope. Skipping one gate moves risk downstream.
+      </p>
+    </div>
+    <ol
+      class="mt-9 grid gap-px overflow-hidden border-y border-page-border bg-page-border md:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        processSteps.map(([number, title, description]) => (
+          <li class="bg-page p-6">
+            <span class="text-sm font-semibold text-primary">{number}</span>
+            <h3 class="mt-3 font-heading text-xl font-semibold text-heading">{title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a class="btn-primary" href="/capabilities/">Review manufacturing scope</a>
+      <a class="btn-secondary" href="/posts/titanium-am-standards-specifications-f2924-f3001-52948/">
+        Map standards to the purchase order
+      </a>
+    </div>
+  </section>
 
-  <Features2
-    title="What we review before quoting"
-    subtitle="The review depth depends on part complexity, drawing quality, and the evidence package required for acceptance."
-    tagline="Engineering review"
-    classes={{ container: sectionContainerClass, headline: leftHeadlineClasses }}
-    items={[
-      {
-        title: 'DfAM manufacturability',
-        description:
-          'Wall thickness, supports, overhangs, trapped powder, orientation, support access, and distortion risk.',
-        icon: 'tabler:tools',
-      },
-      {
-        title: 'Material and fatigue risk',
-        description:
-          'Alloy grade, oxygen limits, fracture sensitivity, corrosion, operating temperature, load path, and notch-sensitive surfaces.',
-        icon: 'tabler:activity-heartbeat',
-      },
-      {
-        title: 'Post-processing plan',
-        description:
-          'Stress relief, anneal, HIP, support removal, machining stock, datum strategy, surface finish, and cleaning.',
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Inspection package',
-        description:
-          'CMM, CT, tensile coupons, density checks, surface roughness, material certs, build records, and traceability when required.',
-        icon: 'tabler:clipboard-check',
-      },
-    ]}
-  />
+  <section class="border-y border-page-border bg-surface" aria-labelledby="applications-title">
+    <div class={sectionClass}>
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
+        <div>
+          <p class="text-sm font-semibold text-primary">Application decisions</p>
+          <h2 id="applications-title" class="mt-2 font-heading text-3xl font-bold text-heading sm:text-4xl">
+            Industry names do not decide whether a part belongs in AM
+          </h2>
+          <p class="mt-4 leading-7 text-muted">
+            Each path starts with the operating environment and failure mode, then defines the material, geometry,
+            evidence, and purchasing output. This avoids generic “Titanium 3D Printing for X” pages.
+          </p>
+          <div class="mt-6">
+            <Image
+              src="~/assets/images/titanium/4.webp"
+              width={1200}
+              height={675}
+              widths={[480, 720, 960]}
+              sizes="(max-width: 1023px) calc(100vw - 32px), 360px"
+              alt="Illustrative titanium additive manufacturing application parts"
+              class="w-full border border-page-border bg-page sm:rounded-md"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="grid border-t border-page-border sm:grid-cols-2">
+          {
+            applicationRoutes.map((item, index) => (
+              <a
+                class:list={[
+                  'group border-b border-page-border py-5',
+                  index % 2 === 0 ? 'sm:pr-6' : 'sm:border-l sm:pl-6',
+                ]}
+                href={item.href}
+              >
+                <h3 class="font-heading text-lg font-semibold text-heading group-hover:text-link">{item.title}</h3>
+                <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <a class="mt-8 inline-flex text-sm font-semibold text-link hover:underline" href="/applications/">
+        Explore the complete application map →
+      </a>
+    </div>
+  </section>
+
+  <section id="engineering-guide" class={sectionClass} aria-labelledby="knowledge-title">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
+      <div>
+        <p class="text-sm font-semibold text-primary">Evidence-led SEO architecture</p>
+        <h2 id="knowledge-title" class="mt-2 font-heading text-3xl font-bold text-heading sm:text-4xl">
+          One library, six decision paths, no thin tag maze
+        </h2>
+        <p class="mt-4 leading-7 text-muted">
+          The engineering library is inventoried before expansion. A new page must resolve a distinct material, process,
+          application, failure, acceptance, or purchasing decision and must connect to a real RFQ path.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="btn-primary" href="/knowledge/">Open knowledge center</a>
+          <a class="btn-secondary" href="/case-studies/">Search all guides</a>
+        </div>
+      </div>
+      <div class="grid gap-px overflow-hidden border-y border-page-border bg-page-border sm:grid-cols-2">
+        {
+          contentClusters.map((cluster) => (
+            <a class="group bg-page p-5" href={cluster.href}>
+              <p class="text-xs font-semibold uppercase text-primary">
+                {cluster.slugs.length} guide{cluster.slugs.length === 1 ? '' : 's'}
+              </p>
+              <h3 class="mt-2 font-heading text-lg font-semibold text-heading group-hover:text-link">
+                {cluster.shortTitle}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{cluster.decision}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <BlogLatestPosts
-    title="Engineering resources"
-    information="Use these notes to prepare RFQs for process selection, alloy selection, DfAM, post-processing, inspection evidence, procurement deliverables, and no-go screening."
-    classes={{ container: sectionContainerClass }}
+    title="Latest engineering decisions"
+    information="New and updated guides are published for a distinct buyer task, source boundary, and RFQ output—not to inflate page count."
+    classes={{ container: 'mx-auto max-w-5xl py-12 sm:py-14 lg:py-16' }}
   />
 
   <FAQs
-    title="Frequently asked questions"
-    subtitle="Common questions before quoting titanium LPBF or EBM parts."
-    tagline="FAQs"
-    classes={{ container: sectionContainerClass, headline: leftHeadlineClasses }}
+    title="Titanium AM quotation questions"
+    subtitle="The answers establish a screening boundary. The controlled CAD, drawing, specification, and acceptance plan remain authoritative for a real project."
+    tagline="Frequently asked questions"
+    classes={{
+      container: 'mx-auto max-w-5xl py-12 sm:py-14 lg:py-16',
+      headline: { container: 'max-w-3xl text-left md:mx-0' },
+    }}
     items={faqItems}
   />
 
-  <Stats
-    classes={{
-      container: sectionContainerClass,
-      stats: {
-        container: 'grid grid-cols-1 gap-4 text-left md:grid-cols-4',
-        item: 'min-w-0 rounded-md border border-page-border bg-surface p-5 text-left md:w-auto md:border-r',
-        amount: 'text-3xl lg:text-4xl xl:text-5xl',
-        title: 'mt-2 text-xs',
-      },
-    }}
-    stats={[
-      { title: 'Engineering cases', amount: '7' },
-      { title: 'Core titanium routes', amount: '3' },
-      { title: 'Quote inputs reviewed', amount: '8+' },
-      { title: 'Evidence routes', amount: '4+' },
-    ]}
-  />
-
-  <CallToAction
-    classes={{
-      container: sectionContainerClass,
-      panel: 'max-w-none mx-0 p-7 text-left sm:p-8 md:p-10 lg:p-12',
-      headline: {
-        container: 'mb-0 max-w-4xl text-left md:mx-0 md:mb-0',
-        title: 'text-3xl font-bold tracking-tight font-heading md:text-4xl',
-        subtitle: 'mt-5 max-w-4xl text-base leading-7 text-muted md:text-lg md:leading-8',
-      },
-      actions: 'mx-0 mt-6 sm:justify-start',
-    }}
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Email info@szcomo.com',
-        href: rfqEmailHref,
-        icon: 'tabler:mail',
-      },
-    ]}
-  >
-    <Fragment slot="title">Send drawings, quantity, and titanium requirements.</Fragment>
-
-    <Fragment slot="subtitle">
-      Email <a class="font-semibold underline underline-offset-4" href={rfqEmailHref}>{rfqEmail}</a> with the drawing, alloy
-      target, quantity, lead time, critical dimensions, datum scheme, load, temperature, environment constraints, and required
-      inspection evidence.
-    </Fragment>
-  </CallToAction>
+  <RfqForm />
 </Layout>

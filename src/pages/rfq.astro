@@ -5,6 +5,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import SplitShowcase from '~/components/widgets/SplitShowcase.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import RfqForm from '~/components/forms/RfqForm.astro';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
 const rfqEmail = 'info@szcomo.com';
@@ -137,6 +138,8 @@ const metadata = {
     title="Request a production-ready Ti-6Al-4V or TC4 quote"
     subtitle="Send the CAD model, controlled drawing, material target, quantity, delivery need, critical features, finishing, inspection, and documentation scope. We review whether LPBF, EBM, CNC, or a hybrid route best fits the delivered part instead of quoting an incomplete print-only shape."
   />
+
+  <RfqForm />
 
   <section class="relative not-prose py-10 md:py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">

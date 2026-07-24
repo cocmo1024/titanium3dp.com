@@ -3,11 +3,12 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
+import IntentLibrary from '~/components/blog/IntentLibrary.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { blogListRobots, fetchPosts, getStaticPathsBlogList } from '~/utils/blog';
 import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 import { createBreadcrumbSchema, createItemListSchema } from '~/utils/structured-data';
 
@@ -21,6 +22,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
+const allPosts = currentPage === 1 ? await fetchPosts() : [];
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
@@ -34,7 +36,7 @@ const metadata = {
     follow: blogListRobots?.follow,
   },
   openGraph: {
-    type: 'blog',
+    type: 'website',
   },
   structuredData: [
     createBreadcrumbSchema([
@@ -43,7 +45,7 @@ const metadata = {
     ]),
     createItemListSchema(
       `Titanium AM engineering guides${currentPage > 1 ? ` page ${currentPage}` : ''}`,
-      page.data.map((post) => ({
+      (currentPage === 1 ? allPosts : page.data).map((post) => ({
         name: post.title,
         description: post.excerpt,
         url: getPermalink(post.permalink, 'post'),
@@ -56,12 +58,20 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-5xl">
     <Headline
-      subtitle="Decision-focused guidance for titanium material and process selection, DfAM risk, post-processing, inspection evidence, application fit, and procurement-ready RFQs."
+      subtitle="Browse the complete evidence-led library by engineering decision. Search material and process selection, DfAM, inspection, application fit, and procurement-ready RFQs without relying on thin tag pages."
     >
       Titanium AM Engineering Guides
     </Headline>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    {
+      currentPage === 1 ? (
+        <IntentLibrary posts={allPosts} />
+      ) : (
+        <>
+          <BlogList posts={page.data} />
+          <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+        </>
+      )
+    }
     <!--
       <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
       <PostTags tags={allTags}  title="Search by Tags:" />

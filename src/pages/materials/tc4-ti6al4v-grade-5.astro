@@ -172,11 +172,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email TC4 part RFQ',
-        href: rfqEmailHref,
-        icon: 'tabler:mail',
+        text: 'Submit TC4 part RFQ',
+        href: '/rfq/?project=TC4%20Grade%205#rfq-form',
+        icon: 'tabler:file-upload',
       },
-      { text: 'Prepare RFQ inputs', href: '/rfq/' },
+      { text: 'Email fallback', href: rfqEmailHref },
     ]}
     image={{
       src: '~/assets/images/titanium/1.webp',
@@ -463,10 +463,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email TC4 part RFQ',
-        href: rfqEmailHref,
-        icon: 'tabler:mail',
+        text: 'Submit TC4 part RFQ',
+        href: '/rfq/?project=TC4%20Grade%205#rfq-form',
+        icon: 'tabler:file-upload',
       },
+      { text: 'Email fallback', href: rfqEmailHref },
       { text: 'Review all material paths', href: '/materials/' },
     ]}
   />

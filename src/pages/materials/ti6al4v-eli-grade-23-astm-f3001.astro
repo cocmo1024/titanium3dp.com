@@ -123,8 +123,12 @@ const metadata = {
     tagline="Ti-6Al-4V ELI / Grade 23"
     title="ASTM F3001 titanium 3D printing for Ti-6Al-4V ELI parts"
     subtitle="ASTM F3001 defines a powder bed fusion material and purchasing framework for Ti-6Al-4V ELI components. A quote still needs the specification revision, part function, delivered condition, critical features, inspection, testing, documentation, quantity, and delivery scope."
-    callToAction={{ text: 'Email Grade 23 RFQ', href: rfqEmailHref, icon: 'tabler:mail' }}
-    callToAction2={{ text: 'Open RFQ checklist', href: '/rfq/' }}
+    callToAction={{
+      text: 'Submit Grade 23 RFQ',
+      href: '/rfq/?project=Grade%2023%20ELI#rfq-form',
+      icon: 'tabler:file-upload',
+    }}
+    callToAction2={{ text: 'Email fallback', href: rfqEmailHref }}
   />
 
   <Features2
@@ -384,7 +388,13 @@ const metadata = {
     title="Send a Ti-6Al-4V ELI or ASTM F3001 RFQ"
     subtitle="Include the controlled files, specification revision, quantity, service conditions, delivered route, acceptance evidence, and delivery target."
     actions={[
-      { variant: 'primary', text: 'Email Grade 23 RFQ', href: rfqEmailHref, icon: 'tabler:mail' },
+      {
+        variant: 'primary',
+        text: 'Submit Grade 23 RFQ',
+        href: '/rfq/?project=Grade%2023%20ELI#rfq-form',
+        icon: 'tabler:file-upload',
+      },
+      { text: 'Email fallback', href: rfqEmailHref },
       { text: 'Compare all material paths', href: '/materials/' },
     ]}
   />

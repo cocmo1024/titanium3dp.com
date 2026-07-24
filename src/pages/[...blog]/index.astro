@@ -27,10 +27,6 @@ const { post } = Astro.props as Props;
 const url = getCanonical(getPermalink(post.permalink, 'post'));
 const canonicalUrl = post.metadata?.canonical || String(url);
 const image = (await findImage(post.image)) as ImageMetadata | string | undefined;
-const categoryBreadcrumb =
-  post.category && post.category.slug !== 'case-studies'
-    ? [{ name: post.category.title, item: getPermalink(post.category.slug, 'category') }]
-    : [];
 
 const metadata = merge(
   {
@@ -66,7 +62,6 @@ const metadata = merge(
       createBreadcrumbSchema([
         { name: 'Home', item: '/' },
         { name: 'Engineering Guides', item: getBlogPermalink() },
-        ...categoryBreadcrumb,
         { name: post.title },
       ]),
       createArticleSchema({ post, url: canonicalUrl, image }),

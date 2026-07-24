@@ -1,0 +1,128 @@
+---
+import ListItem from '~/components/blog/ListItem.astro';
+import { contentClusters } from '~/data/content-clusters';
+import type { Post } from '~/types';
+
+export interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+const postBySlug = new Map(posts.map((post) => [post.slug, post]));
+const groups = contentClusters
+  .map((cluster) => ({
+    ...cluster,
+    posts: cluster.slugs.map((slug) => postBySlug.get(slug)).filter((post): post is Post => Boolean(post)),
+  }))
+  .filter((cluster) => cluster.posts.length > 0);
+
+const mappedSlugs = new Set(contentClusters.flatMap((cluster) => cluster.slugs));
+const unmappedPosts = posts.filter((post) => !mappedSlugs.has(post.slug));
+---
+
+<nav class="mt-10 border-y border-page-border py-5" aria-label="Titanium engineering topic groups">
+  <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+    {
+      groups.map((group) => (
+        <li>
+          <a class="font-semibold text-link hover:underline" href={`#${group.id}`}>
+            {group.shortTitle}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+  <label class="relative block w-full max-w-md" for="article-search">
+    <span class="sr-only">Search titanium engineering guides</span>
+    <input
+      id="article-search"
+      type="search"
+      placeholder="Search applications, materials, or requirements"
+      class="w-full rounded-md border border-page-border bg-surface px-4 py-3 text-sm text-default outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+      autocomplete="off"
+    />
+  </label>
+  <p id="article-count" class="text-sm text-muted">{posts.length} engineering guides</p>
+</div>
+
+<div class="mt-12 space-y-14">
+  {
+    groups.map((group) => (
+      <section id={group.id} class="scroll-mt-24" data-intent-group>
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary">{group.posts.length} guides</p>
+          <h2 class="mt-2 font-heading text-2xl font-bold text-heading sm:text-3xl">{group.title}</h2>
+          <p class="mt-2 leading-7 text-muted">{group.description}</p>
+        </div>
+        <ul class="mt-5 border-t border-page-border">
+          {group.posts.map((post) => (
+            <li>
+              <ListItem post={post} compact />
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  {
+    unmappedPosts.length > 0 && (
+      <section id="new-research" class="scroll-mt-24" data-intent-group>
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary">{unmappedPosts.length} guides</p>
+          <h2 class="mt-2 font-heading text-2xl font-bold text-heading sm:text-3xl">
+            New research awaiting classification
+          </h2>
+          <p class="mt-2 leading-7 text-muted">
+            Newly published guides remain visible here until they are assigned to a durable engineering decision path.
+          </p>
+        </div>
+        <ul class="mt-5 border-t border-page-border">
+          {unmappedPosts.map((post) => (
+            <li>
+              <ListItem post={post} compact />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</div>
+
+<script is:inline>
+  (() => {
+    const input = document.getElementById('article-search');
+    const count = document.getElementById('article-count');
+    const entries = Array.from(document.querySelectorAll('[data-article-entry]'));
+    const groups = Array.from(document.querySelectorAll('[data-intent-group]'));
+
+    if (!(input instanceof HTMLInputElement) || !count) return;
+
+    const update = () => {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+
+      entries.forEach((entry) => {
+        const match = !query || (entry.getAttribute('data-article-search') || '').includes(query);
+        const listItem = entry.closest('li');
+        if (listItem instanceof HTMLElement) listItem.hidden = !match;
+        if (match) visible += 1;
+      });
+
+      groups.forEach((group) => {
+        const hasVisibleEntry = Array.from(group.querySelectorAll('[data-article-entry]')).some((entry) => {
+          const listItem = entry.closest('li');
+          return !(listItem instanceof HTMLElement) || !listItem.hidden;
+        });
+        if (group instanceof HTMLElement) group.hidden = !hasVisibleEntry;
+      });
+
+      count.textContent = `${visible} engineering guide${visible === 1 ? '' : 's'}`;
+    };
+
+    input.addEventListener('input', update);
+  })();
+</script>

@@ -17,6 +17,9 @@
     "check:astro": "astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
+    "check:seo": "node scripts/check-site-seo.mjs",
+    "check:links": "node scripts/check-local-links.mjs",
+    "check:full": "npm run check && npm run build && npm run check:seo && npm run check:links",
     "fix": "npm run fix:eslint && npm run fix:prettier",
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w ."

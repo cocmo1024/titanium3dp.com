@@ -167,8 +167,12 @@ const metadata = {
     tagline="Grade 2 / TA2 / TA2G"
     title="Commercially pure titanium 3D printing for Grade 2 and TA2 parts"
     subtitle="Grade 2, TA2, TA2G, and CP titanium are useful search and sourcing terms, but they are not a complete additive manufacturing specification. A quote must align the exact material definition with supplier capability, service media, delivered condition, inspection, and traceability."
-    callToAction={{ text: 'Email CP titanium RFQ', href: rfqEmailHref, icon: 'tabler:mail' }}
-    callToAction2={{ text: 'Compare titanium materials', href: '/materials/' }}
+    callToAction={{
+      text: 'Submit CP titanium RFQ',
+      href: '/rfq/?project=CP%20titanium%20Grade%202%20TA2#rfq-form',
+      icon: 'tabler:file-upload',
+    }}
+    callToAction2={{ text: 'Email fallback', href: rfqEmailHref }}
   />
 
   <Features2
@@ -500,7 +504,13 @@ const metadata = {
     title="Send a Grade 2, TA2, or CP titanium AM RFQ"
     subtitle="Include the exact material definition, reason CP titanium is required, operating environment, controlled files, delivered route, acceptance evidence, quantities, and delivery target."
     actions={[
-      { variant: 'primary', text: 'Email CP titanium RFQ', href: rfqEmailHref, icon: 'tabler:mail' },
+      {
+        variant: 'primary',
+        text: 'Submit CP titanium RFQ',
+        href: '/rfq/?project=CP%20titanium%20Grade%202%20TA2#rfq-form',
+        icon: 'tabler:file-upload',
+      },
+      { text: 'Email fallback', href: rfqEmailHref },
       { text: 'Compare all material paths', href: '/materials/' },
     ]}
   />

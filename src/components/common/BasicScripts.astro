@@ -69,48 +69,85 @@ import { UI } from 'astrowind:config';
       }
     }
 
-    function readStoredAttribution() {
+    const attributionStorageKey = 'TITANIUM3DP_attribution';
+    const attributionTtlMs = 90 * 24 * 60 * 60 * 1000;
+
+    function getAvailableAttributionStorage() {
+      const storageCandidates = [];
       try {
-        return JSON.parse(sessionStorage.getItem('TITANIUM3DP_attribution') || '{}');
+        storageCandidates.push(localStorage);
       } catch {
-        return {};
+        // Browser privacy settings may block local storage.
       }
+      try {
+        storageCandidates.push(sessionStorage);
+      } catch {
+        // Browser privacy settings may block session storage.
+      }
+      return storageCandidates;
+    }
+
+    function readStoredAttribution() {
+      for (const storage of getAvailableAttributionStorage()) {
+        try {
+          const attribution = JSON.parse(storage.getItem(attributionStorageKey) || '{}');
+          if (attribution.expires_at && Number(attribution.expires_at) < Date.now()) {
+            storage.removeItem(attributionStorageKey);
+            continue;
+          }
+          if (Object.keys(attribution).length) return attribution;
+        } catch {
+          // Try the next storage option when one storage mechanism is unavailable.
+        }
+      }
+      return {};
+    }
+
+    function persistAttribution(attribution) {
+      getAvailableAttributionStorage().forEach((storage) => {
+        try {
+          storage.setItem(attributionStorageKey, JSON.stringify(attribution));
+        } catch {
+          // Attribution must never block page use or RFQ submission.
+        }
+      });
     }
 
     function captureAttribution() {
       const params = new URLSearchParams(window.location.search);
       const keys = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
       const attribution = readStoredAttribution();
-      let changed = false;
 
       keys.forEach((key) => {
         const value = params.get(key);
-        if (value && attribution[key] !== value) {
-          attribution[key] = value;
-          changed = true;
-        }
+        if (value && attribution[key] !== value) attribution[key] = value;
       });
 
-      if (changed || !attribution.landing_page) {
-        attribution.landing_page = attribution.landing_page || window.location.href;
-        attribution.updated_at = new Date().toISOString();
-        try {
-          sessionStorage.setItem('TITANIUM3DP_attribution', JSON.stringify(attribution));
-        } catch {
-          // Attribution improves reporting but should never block the page.
-        }
-      }
-
+      attribution.first_landing_page = attribution.first_landing_page || window.location.href;
+      attribution.last_landing_page = window.location.href;
+      attribution.first_referrer = attribution.first_referrer || document.referrer || '';
+      attribution.captured_at = attribution.captured_at || new Date().toISOString();
+      attribution.updated_at = new Date().toISOString();
+      attribution.expires_at = Date.now() + attributionTtlMs;
+      persistAttribution(attribution);
       return attribution;
     }
 
     function getAttributionFields() {
-      const attribution = readStoredAttribution();
+      const attribution = captureAttribution();
       return Object.fromEntries(Object.entries(attribution).filter(([, value]) => Boolean(value)));
     }
 
-    function getTrackingPayload(elem, extra = {}) {
+    function getAnalyticsAttributionFields() {
       const attribution = getAttributionFields();
+      const analyticsKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+      return Object.fromEntries(
+        analyticsKeys.map((key) => [key, attribution[key]]).filter(([, value]) => Boolean(value))
+      );
+    }
+
+    function getTrackingPayload(elem, extra = {}) {
+      const attribution = getAnalyticsAttributionFields();
       return {
         page_location: window.location.href,
         page_path: window.location.pathname,
@@ -121,20 +158,38 @@ import { UI } from 'astrowind:config';
       };
     }
 
-    function isDuplicateConversion(key) {
+    const pendingConversionKeys = new Set();
+
+    function reserveConversion(key) {
       if (!key) return false;
-
       try {
-        const storageKey = `TITANIUM3DP_conversion_${key}`;
-        if (sessionStorage.getItem(storageKey) === 'true') {
-          return true;
-        }
-        sessionStorage.setItem(storageKey, 'true');
+        if (sessionStorage.getItem(`TITANIUM3DP_conversion_${key}`) === 'true') return true;
       } catch {
-        return false;
+        // In-memory deduplication still works when session storage is unavailable.
       }
-
+      if (pendingConversionKeys.has(key)) return true;
+      pendingConversionKeys.add(key);
       return false;
+    }
+
+    function completeConversion(key) {
+      if (!key) return;
+      pendingConversionKeys.delete(key);
+      try {
+        sessionStorage.setItem(`TITANIUM3DP_conversion_${key}`, 'true');
+      } catch {
+        // A dispatched conversion must not block the user.
+      }
+    }
+
+    function releaseConversion(key) {
+      if (key) pendingConversionKeys.delete(key);
+    }
+
+    function getEnhancedConversionUserData(userData) {
+      const email = typeof userData?.email === 'string' ? userData.email.trim().toLowerCase() : '';
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
+      return { email };
     }
 
     function sendGoogleAdsConversionPixel(sendTo) {
@@ -143,8 +198,6 @@ import { UI } from 'astrowind:config';
 
       const url = new URL(`https://www.googleadservices.com/pagead/conversion/${match[1]}/`);
       url.searchParams.set('label', match[2]);
-      url.searchParams.set('value', '1.0');
-      url.searchParams.set('currency_code', 'CNY');
       url.searchParams.set('guid', 'ON');
       url.searchParams.set('script', '0');
       url.searchParams.set('random', String(Date.now()));
@@ -163,8 +216,6 @@ import { UI } from 'astrowind:config';
 
       window.google_conversion_id = Number(match[1]);
       window.google_conversion_label = match[2];
-      window.google_conversion_value = 1.0;
-      window.google_conversion_currency = 'CNY';
       window.google_remarketing_only = false;
 
       const script = document.createElement('script');
@@ -176,47 +227,98 @@ import { UI } from 'astrowind:config';
       document.body.appendChild(script);
     }
 
+    function dispatchGoogleAdsConversion(sendTo, conversionPayload, enhancedConversionUserData, onDispatched) {
+      let settled = false;
+      const stateWait = { timeoutId: 0 };
+
+      const markDispatched = () => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(stateWait.timeoutId);
+        window.removeEventListener('titanium3dp:google-tag-state', settleFromCurrentState);
+        onDispatched();
+      };
+
+      const sendWithGoogleTag = () => {
+        if (typeof window.gtag !== 'function') return false;
+        if (enhancedConversionUserData) window.gtag('set', 'user_data', enhancedConversionUserData);
+        window.gtag('event', 'conversion', conversionPayload);
+        markDispatched();
+        return true;
+      };
+
+      const sendWithFallback = () => {
+        sendGoogleAdsConversionScript(sendTo);
+        markDispatched();
+      };
+
+      function settleFromCurrentState() {
+        const state = window.TITANIUM3DP_TRACKING?.googleTagState || 'unknown';
+        if (state === 'loaded' && sendWithGoogleTag()) return;
+        sendWithFallback();
+      }
+
+      const state = window.TITANIUM3DP_TRACKING?.googleTagState || 'unknown';
+      if (state === 'loaded' && sendWithGoogleTag()) return;
+      if (state === 'failed' || state === 'disabled') {
+        sendWithFallback();
+        return;
+      }
+
+      window.addEventListener('titanium3dp:google-tag-state', settleFromCurrentState, { once: true });
+      stateWait.timeoutId = window.setTimeout(settleFromCurrentState, 1500);
+    }
+
     function trackTitaniumEvent(eventName, payload = {}, options = {}) {
-      const isDuplicate = isDuplicateConversion(options.conversionKey);
-      const sendTo = window.TITANIUM3DP_TRACKING?.googleAdsRfqSendTo;
+      const sendTo =
+        options.adsConversion === 'rfq_submit'
+          ? window.TITANIUM3DP_TRACKING?.googleAdsRfqSubmitSendTo
+          : window.TITANIUM3DP_TRACKING?.googleAdsRfqSendTo;
+      const shouldDeduplicate = Boolean(options.generateLead || (options.adsConversion && sendTo));
+      const isDuplicate = shouldDeduplicate ? reserveConversion(options.conversionKey) : false;
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: eventName, ...payload });
-
-      if (options.generateLead && !isDuplicate) {
-        window.dataLayer.push({ event: 'generate_lead', ...payload });
-      }
+      if (options.generateLead && !isDuplicate) window.dataLayer.push({ event: 'generate_lead', ...payload });
 
       if (typeof window.gtag === 'function') {
         window.gtag('event', eventName, { transport_type: 'beacon', ...payload });
-
         if (options.generateLead && !isDuplicate) {
-          window.gtag('event', 'generate_lead', { method: 'email', transport_type: 'beacon', ...payload });
-        }
-
-        if (options.adsConversion && sendTo && !isDuplicate) {
-          const conversionPayload = {
-            send_to: sendTo,
-            value: 1.0,
-            currency: 'CNY',
+          window.gtag('event', 'generate_lead', {
+            method: payload.method || 'rfq',
             transport_type: 'beacon',
-            event_category: 'lead',
-            event_label: payload.link_text || 'RFQ email',
-          };
-
-          if (typeof options.eventCallback === 'function') {
-            conversionPayload.event_callback = options.eventCallback;
-            conversionPayload.event_timeout = options.eventTimeout || 1000;
-          }
-
-          window.gtag('event', 'conversion', conversionPayload);
+            ...payload,
+          });
         }
       }
 
       if (options.adsConversion && sendTo && !isDuplicate) {
-        sendGoogleAdsConversionScript(sendTo);
+        const conversionPayload = {
+          send_to: sendTo,
+          transport_type: 'beacon',
+          event_category: 'lead',
+          event_label: payload.application || payload.link_text || 'RFQ submission',
+        };
+        if (payload.submission_id) conversionPayload.transaction_id = payload.submission_id;
+        if (typeof options.eventCallback === 'function') {
+          conversionPayload.event_callback = options.eventCallback;
+          conversionPayload.event_timeout = options.eventTimeout || 1000;
+        }
+        const enhancedConversionUserData =
+          options.adsConversion === 'rfq_submit' ? getEnhancedConversionUserData(options.userData) : null;
+        dispatchGoogleAdsConversion(sendTo, conversionPayload, enhancedConversionUserData, () =>
+          completeConversion(options.conversionKey)
+        );
+      } else if (!isDuplicate && options.generateLead) {
+        completeConversion(options.conversionKey);
+      } else if (!isDuplicate && shouldDeduplicate) {
+        releaseConversion(options.conversionKey);
       }
     }
+
+    window.TITANIUM3DP_TRACK_EVENT = trackTitaniumEvent;
+    window.TITANIUM3DP_GET_ATTRIBUTION = getAttributionFields;
+    captureAttribution();
 
     function showEmailToast(message) {
       let toast = document.getElementById('email-copy-toast');
@@ -244,7 +346,7 @@ import { UI } from 'astrowind:config';
 
       if (!email) return { href: originalHref, email: '' };
 
-      const href = `mailto:${email}`;
+      const href = originalHref;
       elem.setAttribute('href', href);
 
       return { href, email };
@@ -256,8 +358,33 @@ import { UI } from 'astrowind:config';
       let lastKnownScrollPosition = window.scrollY;
       let ticking = true;
 
+      document.querySelectorAll('.dropdown').forEach((dropdown) => {
+        const button = dropdown.querySelector('button[aria-controls]');
+        if (!button || button.dataset.awAriaBound === 'true') return;
+
+        button.dataset.awAriaBound = 'true';
+        const desktopMenu = window.matchMedia('(min-width: 768px)');
+        const setExpanded = (expanded) => button.setAttribute('aria-expanded', String(expanded));
+        const syncExpanded = () => {
+          setExpanded(!desktopMenu.matches || dropdown.matches(':hover') || dropdown.contains(document.activeElement));
+        };
+
+        dropdown.addEventListener('mouseenter', syncExpanded);
+        dropdown.addEventListener('mouseleave', syncExpanded);
+        dropdown.addEventListener('focusin', syncExpanded);
+        dropdown.addEventListener('focusout', (event) => {
+          if (!dropdown.contains(event.relatedTarget) && !dropdown.matches(':hover')) {
+            setExpanded(!desktopMenu.matches);
+          }
+        });
+        desktopMenu.addEventListener('change', syncExpanded);
+        syncExpanded();
+      });
+
       attachEvent('#header nav', 'click', function () {
-        document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+        const menuToggle = document.querySelector('[data-aw-toggle-menu]');
+        menuToggle?.classList.remove('expanded');
+        menuToggle?.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('overflow-hidden');
         document.getElementById('header')?.classList.remove('h-screen');
         document.getElementById('header')?.classList.remove('expanded');
@@ -267,7 +394,8 @@ import { UI } from 'astrowind:config';
       });
 
       attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
-        elem.classList.toggle('expanded');
+        const expanded = elem.classList.toggle('expanded');
+        elem.setAttribute('aria-expanded', String(expanded));
         document.body.classList.toggle('overflow-hidden');
         document.getElementById('header')?.classList.toggle('h-screen');
         document.getElementById('header')?.classList.toggle('expanded');
@@ -346,12 +474,9 @@ import { UI } from 'astrowind:config';
               getTrackingPayload(elem, {
                 email,
                 method: 'email',
-                event_category: 'lead',
+                event_category: 'contact_intent',
               }),
               {
-                generateLead: true,
-                adsConversion: true,
-                conversionKey: 'rfq_email',
                 eventCallback: function () {
                   window.clearTimeout(mailtoTimer);
                   openMailto();
@@ -369,7 +494,7 @@ import { UI } from 'astrowind:config';
                     getTrackingPayload(elem, {
                       email,
                       method: 'email_copy',
-                      event_category: 'lead',
+                      event_category: 'contact_intent',
                     })
                   );
                   showEmailToast(`Email copied: ${email}`);
@@ -394,11 +519,9 @@ import { UI } from 'astrowind:config';
               'instant_contact_click',
               getTrackingPayload(elem, {
                 method: channel,
-                event_category: 'lead',
+                event_category: 'contact_intent',
               }),
               {
-                generateLead: true,
-                adsConversion: true,
                 conversionKey: `instant_contact_${channel}`,
               }
             );
@@ -438,7 +561,7 @@ import { UI } from 'astrowind:config';
         );
       });
 
-      document.querySelectorAll('a[href="/rfq"], a[href="/rfq/"]').forEach((elem) => {
+      document.querySelectorAll('a[href^="/rfq"]').forEach((elem) => {
         if (elem.dataset.awRfqTrack === 'true') return;
         elem.dataset.awRfqTrack = 'true';
         elem.addEventListener(
@@ -452,7 +575,9 @@ import { UI } from 'astrowind:config';
 
       const screenSize = window.matchMedia('(max-width: 767px)');
       screenSize.addEventListener('change', function () {
-        document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+        const menuToggle = document.querySelector('[data-aw-toggle-menu]');
+        menuToggle?.classList.remove('expanded');
+        menuToggle?.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('overflow-hidden');
         document.getElementById('header')?.classList.remove('h-screen');
         document.getElementById('header')?.classList.remove('expanded');
@@ -489,6 +614,7 @@ import { UI } from 'astrowind:config';
       const elem = document.querySelector('[data-aw-toggle-menu]');
       if (elem) {
         elem.classList.remove('expanded');
+        elem.setAttribute('aria-expanded', 'false');
       }
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
@@ -496,8 +622,8 @@ import { UI } from 'astrowind:config';
       document.querySelector('#header nav')?.classList.add('hidden');
     };
 
-    window.onload = onLoad;
-    window.onpageshow = onPageShow;
+    window.addEventListener('load', onLoad);
+    window.addEventListener('pageshow', onPageShow);
 
     document.addEventListener('astro:after-swap', () => {
       initTheme();

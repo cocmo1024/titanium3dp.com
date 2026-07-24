@@ -5,20 +5,19 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import { createBreadcrumbSchema } from '~/utils/structured-data';
 
 const sectionContainerClass = 'py-10 md:py-12 lg:py-14';
-const rfqEmailHref =
-  'mailto:info@szcomo.com?subject=TC4%20Titanium%20AM%20RFQ&body=Target%20material%3A%20TC4%20%2F%20Ti-6Al-4V%20%2F%20Grade%205%20%2F%20Ti64%20%2F%20ELI%20%2F%20TA1%20%2F%20TA2%20%2F%20CP%20Ti%0ACAD%20files%3A%0AQuantity%3A%0ALead%20time%3A%0AOperating%20environment%3A%0AInspection%20or%20documentation%3A';
+const rfqEmailHref = 'mailto:info@szcomo.com?subject=TITANIUM%203DP%20general%20inquiry';
 
 const metadata = {
-  title: 'TC4 Titanium AM RFQ Contact | Send CAD for Quote',
+  title: 'Contact TITANIUM 3DP | Project and Content Questions',
   description:
-    'Contact TITANIUM 3DP for TC4, Ti-6Al-4V, Grade 5, Ti64, TA1, TA2, and CP titanium additive manufacturing RFQs, DfAM questions, machining, CMM, CT, and traceability requirements.',
+    'Contact TITANIUM 3DP for company, engineering-content, privacy, or general questions. Submit titanium additive manufacturing projects through the secure RFQ form.',
   openGraph: {
     images: [
       {
         url: '~/assets/images/titanium/titanium-hero.webp',
         width: 1200,
         height: 675,
-        alt: 'Contact TITANIUM 3DP for TC4 titanium AM RFQ',
+        alt: 'Contact TITANIUM 3DP',
       },
     ],
     type: 'website',
@@ -32,26 +31,27 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <HeroText
-    tagline="Project RFQ"
+    tagline="Contact"
     title="Contact TITANIUM 3DP"
-    subtitle="Email CAD, drawings, quantity, material target such as TC4, Ti-6Al-4V, Grade 5, Ti64, ELI, TA1, TA2, or CP Ti, lead time, and required post-processing or inspection evidence."
+    subtitle="Use the secure RFQ form for CAD, drawings, and quotation requests. Use email for company, content correction, privacy, partnership, or other general questions."
   />
 
   <CallToAction
     id="form"
     classes={{ container: sectionContainerClass }}
-    title="Send the RFQ by email"
-    subtitle="For complex parts, include the exact material name, critical surfaces, operating conditions, post-processing, CMM/CT, coupons, COA/COC, or traceability needs."
+    title="Choose the channel that matches the request"
+    subtitle="The secure form creates a submission reference and keeps project requirements structured. General email is the fallback for non-project questions or when online submission is unavailable."
     actions={[
       {
         variant: 'primary',
-        text: 'Email info@szcomo.com',
-        href: rfqEmailHref,
-        icon: 'tabler:mail',
+        text: 'Submit secure RFQ',
+        href: '/rfq/#rfq-form',
+        icon: 'tabler:file-upload',
       },
       {
-        text: 'Review RFQ inputs',
-        href: '/rfq/',
+        text: 'Email general inquiry',
+        href: rfqEmailHref,
+        icon: 'tabler:mail',
       },
     ]}
   />

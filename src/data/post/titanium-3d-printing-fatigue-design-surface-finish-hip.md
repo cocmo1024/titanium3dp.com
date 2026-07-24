@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printing Fatigue Design: Surface Finish, HIP, and Inspection'
 publishDate: 2026-05-20
-updateDate: 2026-05-24
+updateDate: 2026-07-24
 excerpt: 'Engineering guide for titanium 3D printing fatigue design, covering surface finish, HIP, support scars, notches, build orientation, CT, coupons, and RFQ acceptance evidence.'
 category: 'Case Studies'
 tags: ['fatigue', 'surface-finish', 'hip', 'lpbf', 'ebm', 'dfam', 'inspection', 'rfq']
@@ -13,9 +13,11 @@ metadata:
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-fatigue-design-surface-finish-hip/
 ---
 
-Fatigue is one of the hardest acceptance questions in titanium 3D printing because the part can look strong in a static review and still be weak under repeated loading. In LPBF and EBM titanium parts, fatigue performance depends on geometry, surface condition, support marks, defect population, build orientation, residual stress, HIP, finishing, and how the supplier proves the route.
+Fatigue is one of the hardest acceptance questions in titanium 3D printing because the part can look strong in a static review and still be weak under repeated loading. In LPBF and EBM titanium parts, fatigue performance depends on geometry, surface condition, support marks, defect population, build orientation, residual stress, HIP, finishing, and how the supplier proves the route. [NASA-HDBK-5026, active Baseline dated August 12, 2024](https://standards.nasa.gov/standard/NASA/NASA-HDBK-5026), treats process variability, porosity, surface finish, post-processing, orientation, and representative fatigue data as coupled controls for NASA spaceflight hardware; it is a useful conservative evidence model, not a universal commercial requirement.
 
-This article is not a substitute for a formal allowables program. It is a practical RFQ and design guide for engineers and procurement teams who need to decide whether a titanium AM part has a credible fatigue route before price comparison begins.
+This article is not a substitute for a formal allowables program. It does not provide a universal fatigue strength, life, roughness limit, HIP cycle, or inspection threshold. [ASTM F2924-14(2021)](https://store.astm.org/standards/f2924) is an active specification for PBF Ti-6Al-4V components and includes minimum tensile-property requirements, but conformance to that material specification does not by itself establish a component-specific fatigue allowable, damage-tolerance case, or product approval. For US medical devices, the [FDA's additive-manufacturing guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices) is device-specific and nonbinding; neither material conformance nor a successful coupon establishes clearance, approval, biocompatibility, sterilization validation, or patient suitability.
+
+Within those boundaries, this is a practical RFQ and design guide for engineers and procurement teams who need to decide whether a titanium AM part has a credible fatigue route before price comparison begins.
 
 ## Quick Answer
 
@@ -33,7 +35,7 @@ The cheapest fatigue-critical quote is often the one that has not priced the evi
 
 ## Why Fatigue Is Different From Static Strength
 
-Static strength asks whether a part can carry a load once. Fatigue asks whether it can survive repeated cycles without crack initiation and growth. Titanium AM can produce strong material, but fatigue is usually controlled by local features and process history rather than by headline tensile strength alone.
+Static strength asks whether a part can carry a load once. Fatigue asks whether it can survive repeated cycles without crack initiation and growth. Titanium AM can produce strong material, but fatigue is usually controlled by local features and process history rather than by headline tensile strength alone. [ASTM E466-21](https://store.astm.org/e0466-21.html) identifies material, geometry, surface condition, directionality, residual stress, and surface finish among the variables that must be controlled or reported in axial fatigue testing, and limits design use of specimen results to conditions that realistically simulate service or are addressed by a defined transfer method.
 
 Fatigue risk often starts at:
 
@@ -70,7 +72,7 @@ If these questions are not answered, the RFQ may compare prices for a shape rath
 
 ## Surface Finish Controls Crack Initiation
 
-Surface condition is one of the main fatigue drivers in titanium 3D printing. As-built LPBF and EBM surfaces can include adhered powder, stair-stepping, partially melted features, support marks, and rough down-facing regions. These features can act as local stress concentrators where cracks start.
+Surface condition is one of the main fatigue drivers in titanium 3D printing. As-built LPBF and EBM surfaces can include adhered powder, stair-stepping, partially melted features, support marks, and rough down-facing regions. These features can act as local stress concentrators where cracks start. In a [NIST study of PBF-EB Ti-6Al-4V](https://www.nist.gov/publications/surface-globularization-generated-standard-pbf-eb-ti-6al-4v-processing-achieves), an observed fatigue benefit on smooth specimens did not carry over to as-built rough specimens because dominant crack initiation remained at deep surface-crevice roots. That bounded experiment supports controlling the actual critical surface; it is not a transferable design allowable.
 
 Surface finish does not need to be improved everywhere. It needs to be controlled where fatigue depends on it.
 
@@ -87,7 +89,7 @@ For downstream route planning, pair this with [Post-Processing for Titanium 3D P
 
 ## Support Scars Are Fatigue Features
 
-Support scars are not only cosmetic defects. They can be notch-like surface features, especially when they remain on loaded edges, thin ribs, underside faces, or transition regions. Removing supports can also introduce local gouges or hand-finished variability if the part geometry blocks access.
+Support scars are not only cosmetic defects. They can be notch-like surface features, especially when they remain on loaded edges, thin ribs, underside faces, or transition regions. Removing supports can also introduce local gouges or hand-finished variability if the part geometry blocks access. Within its medical-device scope, the [FDA additive-manufacturing guidance](https://www.fda.gov/media/97633/download) states that support location, type, and number can affect finished geometry and mechanical properties, and that removal can leave surface marks or residues; this supports documenting support geometry and removal, but it is not a fatigue-life value.
 
 Support planning should be treated as fatigue planning when:
 
@@ -102,7 +104,9 @@ Good RFQ language identifies protected surfaces and asks the supplier to propose
 
 ## HIP Helps Internal Defects, Not Every Fatigue Risk
 
-HIP can be valuable for titanium AM because it can reduce internal porosity and improve consistency when the defect population is part of the fatigue risk. But HIP is not a universal fatigue solution. It does not remove sharp geometry, polish rough surfaces, erase support scars, create better datums, or prove that a part is safe.
+HIP can be valuable for titanium AM because it can reduce internal porosity when the defect population is part of the fatigue risk. But HIP is not a universal fatigue solution. It does not remove sharp geometry, polish rough surfaces, erase support scars, create better datums, or prove that a part is safe.
+
+A [2024 NIST PBF-L Ti-6Al-4V study](https://www.nist.gov/publications/microstructural-effects-rotating-bending-fatigue-behavior-ti-6al-4v-produced-laser) compared 800 °C, 920 °C, and 1050 °C HIP conditions using machined cylinders from one build, 30 tests per condition, and fully reversed rotating-bending loading (`R = -1`). The different HIP temperatures produced different microstructures and fatigue responses. Those are study conditions, not recommended production setpoints; the result supports treating the HIP cycle and resulting microstructure as controlled variables rather than applying a universal fatigue-improvement factor.
 
 HIP is strongest when it is part of a controlled route:
 
@@ -113,7 +117,7 @@ HIP is strongest when it is part of a controlled route:
 - Inspect features and defects that matter to acceptance.
 - Document the post-processing batch and part condition.
 
-HIP should be specified because the fatigue route requires it, not because it sounds like a quality upgrade. If HIP is quoted, ask whether inspection happens before HIP, after HIP, or both, and how the supplier treats surface-connected defects.
+HIP should be specified because the fatigue route requires it, not because it sounds like a quality upgrade. If HIP is quoted, cite the governing material or post-processing specification and exact accepted revision, define the validated cycle and final material condition, and ask whether inspection happens before HIP, after HIP, or both. [ISO/ASTM 52908:2023](https://www.iso.org/standard/81779.html) provides current PBF requirements for finished-part qualification, quality assurance, post-processing, inspection, and testing, but the purchaser still has to define the required quality level and acceptance basis.
 
 ## Geometry: Notches, Radii, and Lattice Transitions
 
@@ -136,7 +140,7 @@ For application screening, see [Titanium Additive Manufacturing Applications Tha
 
 ## Build Orientation and Anisotropy
 
-Build orientation affects surface quality, support placement, thermal history, distortion, and mechanical response. A fatigue-sensitive part should not treat orientation as a supplier-only detail. If orientation changes, the support scars, down-facing surfaces, coupon relevance, and inspection basis may change with it.
+Build orientation affects surface quality, support placement, thermal history, distortion, and mechanical response. A fatigue-sensitive part should not treat orientation as a supplier-only detail. If orientation changes, the support scars, down-facing surfaces, coupon relevance, and inspection basis may change with it. For NASA spaceflight hardware, [NASA-HDBK-5026](https://standards.nasa.gov/standard/NASA/NASA-HDBK-5026) recommends fatigue data and coupons that represent or conservatively envelope orientation, surface condition, anisotropic stress state, residual stress, feedstock, machine family, and post-processing; other programs need their own approved transfer basis.
 
 The RFQ should ask the supplier to state:
 
@@ -151,9 +155,9 @@ This does not mean the buyer must lock orientation before supplier review. It me
 
 ## CT, Coupons, and Evidence Limits
 
-Inspection evidence is useful only when it answers the right question. CT can help evaluate internal defects, wall thickness, hidden geometry, trapped powder, and some porosity conditions. It cannot prove every possible fatigue problem is absent, and its practical value depends on scan resolution, material thickness, feature size, and acceptance thresholds.
+Inspection evidence is useful only when it answers the right question. CT can help evaluate internal defects, wall thickness, hidden geometry, trapped powder, and some porosity conditions. It cannot prove every possible fatigue problem is absent. A [NIST study of XCT acquisition parameters and probability of detection](https://www.nist.gov/publications/influence-x-ray-computed-tomography-acquisition-parameters-image-quality-and) found that acquisition settings affected image noise and defect-detection performance. A fatigue-critical CT requirement therefore needs a defined part region and orientation, scan and reconstruction procedure, target flaw type and size, analysis threshold, probability-of-detection or other qualification basis, and acceptance rule; a nominal voxel size or a statement that the part “passed CT” is not enough. [ISO/ASTM TR 52905:2023](https://www.iso.org/standard/82539.html) surveys NDT methods applicable to AM defect classes, but it does not supply a universal part acceptance threshold.
 
-Tensile coupons can confirm material response for a build or post-processing condition. Fatigue coupons can be more relevant when fatigue behavior is the main acceptance concern, but they must be tied to the build orientation, surface condition, and post-processing condition being evaluated. A polished coupon does not prove an as-built support-scarred surface will survive.
+Tensile coupons can confirm material response for a build or post-processing condition. Fatigue coupons can be more relevant when fatigue behavior is the main acceptance concern, but they must be tied to the build orientation, surface condition, and post-processing condition being evaluated. [ASTM F2971-13(2021)](https://store.astm.org/f2971-13r21.html) standardizes reporting of AM specimen material and processing history, while ASTM E466-21 covers constant-amplitude, force-controlled axial fatigue testing in air at room temperature and explicitly does not cover full-scale components. A polished coupon does not prove an as-built support-scarred surface will survive, and a coupon tested under one load mode or environment does not automatically qualify another.
 
 Evidence options include:
 
@@ -206,15 +210,17 @@ For broader quote normalization, use [Titanium 3D Printing Cost Drivers: How to 
 Send the supplier:
 
 - STEP file and drawing with datums.
-- Target alloy and standard, such as Ti-6Al-4V or Ti-6Al-4V ELI.
+- Target alloy, applicable material or part specification, exact revision, part class, and any supplementary requirements; do not use “Ti-6Al-4V” alone as the acceptance specification.
 - Quantity, build lot, and target lead time.
 - Description of cyclic load, vibration, pressure cycling, or fatigue concern.
+- Required life or load spectrum, stress ratio, frequency, temperature, environment, failure definition, statistical basis, and program-specific design or scatter factors.
 - Fatigue-critical surfaces, edges, holes, radii, and load interfaces.
 - No-support surfaces and surfaces allowed to remain as-built.
 - Required machining stock for bores, threads, datum pads, and loaded faces.
-- Required post-processing: stress relief, HIP, machining, polishing, shot peening, cleaning.
+- Required post-processing and accepted final condition: stress relief, HIP, machining, polishing, shot peening, cleaning, and the governing procedure or specification.
 - Surface roughness requirement only where function requires it.
-- Inspection scope: CMM, CT, coupons, surface roughness, density, or other evidence.
+- Applicable fatigue test method, specimen geometry, orientation, surface state, post-processing state, loading mode, environment, and transfer basis to the part.
+- Inspection scope and acceptance rules: CMM, qualified CT, coupons, surface roughness, density, or other evidence.
 - Documentation package: COA, COC, build record, powder lot, post-processing batch, inspection reports.
 - Permission for the supplier to recommend DfAM changes before final quotation.
 
@@ -241,6 +247,7 @@ Titanium AM may be the wrong route when:
 - The project cannot budget the evidence required for acceptance.
 - The design includes inaccessible support scars in high-stress areas.
 - Internal defects or surface roughness cannot be inspected or controlled.
+- Available fatigue data do not represent or conservatively envelope the accepted machine, feedstock, orientation, surface condition, post-processing route, load mode, and service environment.
 - The buyer expects a drop-in forging replacement without redesign and qualification.
 - High production volume makes forging, machining, casting, or a hybrid route stronger economically.
 
@@ -251,3 +258,18 @@ The no-go screening guide is here: [When Not to Use Titanium Additive Manufactur
 Fatigue-sensitive titanium 3D printed parts require a route, not just a print. Surface finish, support scars, geometry, HIP, build orientation, machining, CT, coupons, and traceability all influence whether the part can be accepted.
 
 The best RFQ makes the fatigue risk visible before quotation. It identifies where cracks could start, which surfaces need protection, what post-processing is required, and which evidence will be used to approve the delivered part. That is how titanium AM moves from an attractive lightweight CAD model to a credible production component.
+
+## Official Sources and Scope
+
+Standards status was checked on July 24, 2026. The drawing, purchase order, and qualification plan should cite the exact accepted revision because standards and program requirements can change.
+
+- [NASA-HDBK-5026, Guidance on Strength, Fatigue, and Fracture Control Requirements for Additively Manufactured Spaceflight Hardware](https://standards.nasa.gov/standard/NASA/NASA-HDBK-5026), active Baseline dated August 12, 2024. NASA-specific implementation guidance; not a universal commercial acceptance standard.
+- [NASA-STD-6030, Additive Manufacturing Requirements for Spaceflight Systems](https://standards.nasa.gov/standard/nasa/nasa-std-6030), active Baseline dated April 21, 2021. Applies to NASA spaceflight hardware within its stated scope or when contractually invoked.
+- [ASTM F2924-14(2021), Standard Specification for Additive Manufacturing Titanium-6 Aluminum-4 Vanadium with Powder Bed Fusion](https://store.astm.org/standards/f2924). A material/component specification, not a stand-alone fatigue-life or product-approval standard.
+- [ASTM E466-21, Standard Practice for Conducting Force Controlled Constant Amplitude Axial Fatigue Tests of Metallic Materials](https://store.astm.org/e0466-21.html). Its stated scope is specimen testing under defined axial, constant-amplitude, room-temperature-air conditions, not full-scale component qualification.
+- [ASTM F2971-13(2021), Standard Practice for Reporting Data for Test Specimens Prepared by Additive Manufacturing](https://store.astm.org/f2971-13r21.html). Supports traceable reporting of specimen material, processing, and post-processing history.
+- [ISO/ASTM 52904:2024, Metal Powder Bed Fusion Process to Meet Critical Applications](https://www.iso.org/standard/82919.html), and [ISO/ASTM 52908:2023, Post-processing, Inspection and Testing of PBF Parts](https://www.iso.org/standard/81779.html). These govern process-control and finished-part evidence frameworks; application-specific requirements still control.
+- [ISO/ASTM TR 52905:2023, Defect Detection in Metal AM Parts](https://www.iso.org/standard/82539.html). A technical report on applicable NDT methods and defect classes, not a universal defect-size acceptance table.
+- [NIST: Microstructural Effects on Rotating-Bending Fatigue of PBF-L Ti-6Al-4V With Different HIP Treatments](https://www.nist.gov/publications/microstructural-effects-rotating-bending-fatigue-behavior-ti-6al-4v-produced-laser), published April 30, 2024; [NIST: Surface Globularization and PBF-EB Ti-6Al-4V Fatigue](https://www.nist.gov/publications/surface-globularization-generated-standard-pbf-eb-ti-6al-4v-processing-achieves), published February 26, 2022. Both are bounded experiments and should not be reused as design allowables without a qualified transfer basis.
+- [NIST: Influence of XCT Acquisition Parameters on Image Quality and Probability of Detection of AM Defects](https://www.nist.gov/publications/influence-x-ray-computed-tomography-acquisition-parameters-image-quality-and), published November 28, 2019. Supports procedure-specific CT qualification rather than a generic “CT passed” claim.
+- [FDA: Technical Considerations for Additive Manufactured Medical Devices](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices), final guidance issued December 2017. It states FDA's current thinking and does not replace device-specific regulatory requirements.

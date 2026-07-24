@@ -31,12 +31,16 @@ const seoProps: AstroSeoProps = merge(
     canonical: canonical,
     noindex: true,
     nofollow: true,
+    robotsProps: {
+      maxSnippet: -1,
+      maxImagePreview: 'large' as const,
+    },
     description: undefined,
     openGraph: {
       url: canonical,
       site_name: SITE?.name,
       images: [],
-      locale: I18N?.language || 'en',
+      locale: I18N?.language === 'en' ? 'en_US' : I18N?.language || 'en_US',
       type: 'website',
     },
     twitter: {
@@ -59,10 +63,47 @@ const seoProps: AstroSeoProps = merge(
     noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
     nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
     description: description,
-    openGraph: { url: canonical, ...openGraph },
+    openGraph: { ...openGraph, url: canonical },
     twitter: twitter,
   }
 );
+
+const article = seoProps.openGraph?.article;
+const siteOrigin = new URL(String(SITE.site)).origin;
+const defaultArticleAuthor = String(getCanonical('/editorial-policy/'));
+const articleAuthors = article
+  ? Array.from(
+      new Set(
+        (article.authors?.length ? article.authors : [defaultArticleAuthor]).map((author) => {
+          if (!/^(?:https?:\/\/|\/)/i.test(author)) return defaultArticleAuthor;
+
+          try {
+            const authorUrl = new URL(author, SITE.site);
+            return authorUrl.origin === siteOrigin ? String(authorUrl) : defaultArticleAuthor;
+          } catch {
+            return defaultArticleAuthor;
+          }
+        })
+      )
+    )
+  : [];
+const defaultImageAlt = String(seoProps.title || SITE?.name || 'Titanium additive manufacturing');
+const openGraphWithoutArticle = seoProps.openGraph
+  ? {
+      ...seoProps.openGraph,
+      article: undefined,
+      images: seoProps.openGraph.images?.map((image) => ({
+        ...image,
+        alt: image.alt || defaultImageAlt,
+      })),
+    }
+  : undefined;
+const adaptedOpenGraph = await adaptOpenGraphImages(openGraphWithoutArticle, Astro.site);
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<AstroSeo {...{ ...seoProps, openGraph: adaptedOpenGraph }} />
+{article?.publishedTime && <meta property="article:published_time" content={article.publishedTime} />}
+{article?.modifiedTime && <meta property="article:modified_time" content={article.modifiedTime} />}
+{articleAuthors.map((author) => <meta property="article:author" content={author} />)}
+{article?.section && <meta property="article:section" content={article.section} />}
+{article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}

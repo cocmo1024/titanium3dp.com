@@ -87,7 +87,7 @@ const graph: JsonLdNode[] = [
     name: pageTitle,
     ...(pageDescription ? { description: pageDescription } : {}),
     isPartOf: { '@id': websiteId },
-    about: { '@id': organizationId },
+    publisher: { '@id': organizationId },
     inLanguage: I18N?.language || 'en',
   },
   ...pageStructuredData,

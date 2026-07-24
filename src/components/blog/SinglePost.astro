@@ -4,8 +4,9 @@ import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
+import KnowledgePathways from '~/components/blog/KnowledgePathways.astro';
 
-import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
+import { getBlogPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
 
 import type { Post } from '~/types';
@@ -18,11 +19,7 @@ export interface Props {
 const { post, url } = Astro.props;
 const displayedUpdateDate =
   post.updateDate && post.updateDate.valueOf() > post.publishDate.valueOf() ? post.updateDate : undefined;
-const categoryHref = post.category
-  ? post.category.slug === 'case-studies'
-    ? getBlogPermalink()
-    : getPermalink(post.category.slug, 'category')
-  : '';
+const categoryHref = post.category ? getBlogPermalink() : '';
 
 const postContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
 ---
@@ -50,7 +47,7 @@ const postContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
               <>
                 {' '}
                 - <Icon name="tabler:user" class="w-4 h-4 inline-block -mt-0.5 text-muted" />
-                <a class="hover:underline inline-block" href="/about/">
+                <a class="hover:underline inline-block" href="/editorial-policy/">
                   {post.author}
                 </a>
               </>
@@ -119,64 +116,7 @@ const postContainerClass = 'mx-auto max-w-5xl px-4 sm:px-6';
         <slot />
       </div>
     </div>
-    <aside class:list={[postContainerClass, 'mt-12']} aria-labelledby="post-engineering-path-title">
-      <div class="border-y border-page-border py-7">
-        <p class="text-xs font-semibold uppercase text-primary">Continue the engineering review</p>
-        <h2 id="post-engineering-path-title" class="mt-2 text-2xl font-bold text-heading md:text-3xl">
-          Connect the topic to material, manufacturing, and RFQ decisions
-        </h2>
-        <div class="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-          <a class="group" href="/applications/">
-            <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline"
-              >Application engineering map</strong
-            >
-            <span class="mt-1 block text-sm leading-6 text-muted"
-              >Find decision guides for aerospace, robotics, energy, corrosion, thermal, and process hardware.</span
-            >
-          </a>
-          <a class="group" href="/materials/">
-            <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline"
-              >Titanium AM material selection hub</strong
-            >
-            <span class="mt-1 block text-sm leading-6 text-muted"
-              >Compare TC4, Ti-6Al-4V ELI, TA1, TA2, and CP titanium routes.</span
-            >
-          </a>
-          <a class="group" href="/materials/tc4-ti6al4v-grade-5/">
-            <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline"
-              >TC4 / Ti-6Al-4V Grade 5 specification path</strong
-            >
-            <span class="mt-1 block text-sm leading-6 text-muted"
-              >Normalize material names, process condition, standards, and acceptance evidence.</span
-            >
-          </a>
-          <a class="group" href="/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/">
-            <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline"
-              >Qualification and acceptance evidence</strong
-            >
-            <span class="mt-1 block text-sm leading-6 text-muted"
-              >Translate part risk into CMM, CT, coupons, NDT, traceability, and release records.</span
-            >
-          </a>
-          <a class="group" href="/capabilities/">
-            <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline"
-              >Manufacturing and inspection capabilities</strong
-            >
-            <span class="mt-1 block text-sm leading-6 text-muted"
-              >Review LPBF/EBM fit, machining, CMM, CT, coupons, and traceability.</span
-            >
-          </a>
-          <a class="group" href="/rfq/">
-            <strong class="text-heading underline-offset-4 group-hover:text-link group-hover:underline"
-              >Prepare a titanium additive manufacturing RFQ</strong
-            >
-            <span class="mt-1 block text-sm leading-6 text-muted"
-              >Send enough technical and commercial detail for a comparable delivered-part quote.</span
-            >
-          </a>
-        </div>
-      </div>
-    </aside>
+    <KnowledgePathways post={post} />
     <div class:list={[postContainerClass, 'mt-8 flex justify-between flex-col sm:flex-row']}>
       <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-muted" />

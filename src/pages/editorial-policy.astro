@@ -1,0 +1,109 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { createBreadcrumbSchema } from '~/utils/structured-data';
+
+const metadata = {
+  title: 'Engineering Content and Editorial Policy',
+  description:
+    'How TITANIUM 3DP researches, reviews, sources, labels, updates, consolidates, and corrects titanium additive manufacturing content.',
+  structuredData: createBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Engineering content policy', item: '/editorial-policy/' },
+  ]),
+};
+---
+
+<Layout metadata={metadata}>
+  <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <header class="max-w-3xl">
+      <p class="text-sm font-semibold text-primary">Trust and methodology</p>
+      <h1 class="mt-3 font-heading text-4xl font-bold leading-tight text-heading sm:text-5xl">
+        Engineering content and editorial policy
+      </h1>
+      <p class="mt-5 text-lg leading-8 text-muted">
+        TITANIUM 3DP publishes practical guidance for engineers and buyers evaluating titanium additive manufacturing.
+        The purpose is to reduce material, process, qualification, and purchasing mistakes before production files are
+        submitted.
+      </p>
+    </header>
+
+    <div class="prose mt-10 max-w-none dark:prose-invert dark:prose-headings:text-heading prose-a:text-link">
+      <h2>Who prepares the content</h2>
+      <p>
+        Articles are published under <strong>TITANIUM 3DP Engineering</strong>. Content is prepared from manufacturing
+        constraints, supplier-route review, project requirements, standards, regulatory or government guidance,
+        peer-reviewed work, and other public technical sources relevant to titanium LPBF, EBM, post-processing, and
+        finished-part acceptance. Commercial inquiries and production coordination are handled by Suzhou Como Precision
+        Materials Co., Ltd.
+      </p>
+
+      <h2>How technical claims are handled</h2>
+      <ul>
+        <li>Material claims identify the titanium grade, condition, or governing route where practical.</li>
+        <li>
+          Property values are not universal guarantees for every machine, parameter set, build orientation, coupon, or
+          finished part.
+        </li>
+        <li>
+          Process guidance separates printable geometry from heat treatment, support removal, machining, cleaning,
+          inspection, and release.
+        </li>
+        <li>
+          Standards and external sources provide context; project acceptance values still come from the drawing,
+          specification, purchase order, and approved qualification plan.
+        </li>
+      </ul>
+
+      <h2>High-risk applications</h2>
+      <p>
+        Aerospace, defense, pressure, energy, medical, and other regulated or safety-relevant pages define the boundary
+        between general engineering feasibility and program-specific approval. A material standard does not certify the
+        complete part, supplier route, cleaning process, device, or production program.
+      </p>
+
+      <h2>Cases, scenarios, and capability statements</h2>
+      <p>
+        A named customer result is described as a customer case only when publication rights and supporting evidence are
+        available. Otherwise, an article may use an <strong>illustrative engineering review scenario</strong>. Such a
+        scenario must not be read as proof of a specific customer, machine run, measured result, certification, or
+        production approval. Supplier-specific equipment, build envelope, quality-system, or certification claims are
+        published only after they are verified.
+      </p>
+
+      <h2>Images</h2>
+      <p>
+        Images are used when they clarify a part type, geometry, process step, failure mode, or inspection decision.
+        Decorative image count is not a publishing target. Illustrative or generated imagery must not be presented as
+        production evidence.
+      </p>
+
+      <h2>New-page and consolidation rules</h2>
+      <p>
+        A new URL must answer a distinct material, process, application, failure, acceptance, or purchasing decision.
+        Keyword variants alone do not justify a page. Existing URLs are preferred when they can be expanded without
+        changing search intent. Overlapping pages may be rewritten, consolidated, or redirected after page and query
+        evidence is reviewed.
+      </p>
+
+      <h2>Updates and corrections</h2>
+      <p>
+        Substantive revisions receive an updated date. Dates are not changed merely to make content appear fresh.
+        Corrections should preserve the affected claim, source boundary, and commercial implication rather than silently
+        replacing one unsupported statement with another.
+      </p>
+
+      <h2>What this website does not replace</h2>
+      <p>
+        Website guidance is not a manufacturing guarantee, certified material report, simulation, regulatory opinion,
+        safety assessment, or acceptance plan for a specific part. A quotation requires the CAD model, drawing,
+        quantity, operating requirements, material preference if known, and the inspection or documentation scope that
+        matters.
+      </p>
+
+      <p>
+        Corrections and technical questions can be sent to
+        <a href="mailto:info@szcomo.com">info@szcomo.com</a>.
+      </p>
+    </div>
+  </article>
+</Layout>

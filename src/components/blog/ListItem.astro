@@ -13,24 +13,32 @@ import { getFormattedDate } from '~/utils/utils';
 
 export interface Props {
   post: Post;
+  compact?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, compact = false } = Astro.props;
 const image = (await findImage(post.image)) as ImageMetadata | undefined;
 
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
-const categoryHref = post.category
-  ? post.category.slug === 'case-studies'
-    ? getBlogPermalink()
-    : getPermalink(post.category.slug, 'category')
-  : '';
+const categoryHref = post.category ? getBlogPermalink() : '';
 ---
 
 <article
-  class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 intersect-once intersect-quarter ${image ? 'md:grid-cols-2' : ''}`}
+  data-article-entry
+  data-article-search={[post.slug, post.title, post.excerpt, ...(post.tags || []).map((tag) => tag.title)]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()}
+  class:list={[
+    'mx-auto md:max-w-none intersect-once intersect-quarter',
+    compact
+      ? 'grid max-w-none gap-2 border-b border-page-border py-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-8'
+      : `grid max-w-md gap-6 md:gap-8 ${image ? 'md:grid-cols-2' : ''}`,
+  ]}
 >
   {
     image &&
+      !compact &&
       (link ? (
         <a class="relative block group" href={link}>
           <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-surface-raised rounded shadow-lg">
@@ -67,9 +75,9 @@ const categoryHref = post.category
         </div>
       ))
   }
-  <div class="mt-2">
+  <div class:list={[compact ? 'mt-0' : 'mt-2']}>
     <header>
-      <div class="mb-1">
+      <div class:list={[compact ? 'mb-2' : 'mb-1']}>
         <span class="text-sm">
           <Icon name="tabler:clock" class="w-3.5 h-3.5 inline-block -mt-0.5 text-muted" />
           <time datetime={post.publishDate.toISOString()} class="inline-block"
@@ -97,7 +105,12 @@ const categoryHref = post.category
           }
         </span>
       </div>
-      <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading text-heading">
+      <h2
+        class:list={[
+          'font-bold leading-tight mb-2 font-heading text-heading',
+          compact ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl',
+        ]}
+      >
         {
           link ? (
             <a class="inline-block hover:text-link dark:hover:text-accent transition ease-in duration-200" href={link}>
@@ -110,9 +123,13 @@ const categoryHref = post.category
       </h2>
     </header>
 
-    {post.excerpt && <p class="flex-grow text-muted text-lg">{post.excerpt}</p>}
     {
-      post.tags && Array.isArray(post.tags) ? (
+      post.excerpt && (
+        <p class:list={['flex-grow text-muted', compact ? 'text-sm leading-6' : 'text-lg']}>{post.excerpt}</p>
+      )
+    }
+    {
+      !compact && post.tags && Array.isArray(post.tags) ? (
         <footer class="mt-5">
           <PostTags tags={post.tags} />
         </footer>

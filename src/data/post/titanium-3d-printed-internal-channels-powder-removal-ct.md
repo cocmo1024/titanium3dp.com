@@ -1,7 +1,7 @@
 ---
 title: 'Titanium 3D Printed Internal Channels: Powder Removal and CT'
 publishDate: 2026-05-18
-updateDate: 2026-07-08
+updateDate: 2026-07-24
 excerpt: 'Engineering guide for titanium 3D printed internal channels, powder removal, trapped-powder risk, CT inspection, cleaning access, surface finish, and RFQ acceptance criteria.'
 category: 'Case Studies'
 tags: ['internal-channels', 'powder-removal', 'ct', 'dfam', 'lpbf', 'ebm', 'rfq', 'inspection']
@@ -79,6 +79,8 @@ Depowdering is not a shop-floor cleanup step that can fix any internal design. I
 
 A supplier needs to know how powder will leave the part after printing. The answer should be visible in the design: open ends, access ports, drain paths, removable plugs, temporary cleaning openings, or a downstream machining operation that exposes the channel.
 
+In a spaceflight fluid-system context, [NASA Marshall Space Flight Center documented metallic-particle entrapment when internal chambers and channels were designed without powder-removal paths](https://ntrs.nasa.gov/api/citations/20160008863/downloads/20160008863.pdf). The same presentation reports that downstream heating and processing can make later removal more difficult. This is application-specific engineering evidence, not a universal cleaning limit, but it supports treating removal access and process sequence as design inputs.
+
 High-risk channel features include:
 
 - Blind ends.
@@ -90,6 +92,8 @@ High-risk channel features include:
 - Unsupported internal roofs that create rough down-facing surfaces and powder catch points.
 
 The quote should identify the depowdering assumption. If a supplier quotes without discussing powder exit paths, the price may not include the real cleaning and verification effort.
+
+For medical devices only, [FDA's nonbinding additive-manufacturing guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices) explains that tortuous paths and limited-access internal voids increase residue-removal difficulty, recommends validation against worst-case geometry, and notes that destructive testing may be needed for trapped volumes. Separately, the [FDA recognition record for ASTM F3335-20](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=40989) covers qualitative and quantitative residue assessment for powder-bed-fusion medical components but explicitly does not set acceptance criteria or acceptable residue limits. These medical-device sources do not create a universal industrial cleanliness rule; they show why an RFQ must define the residue risk, assessment method, sampling basis, and acceptance limit instead of relying on the word "cleaned."
 
 ## Channel Size Is Not a Universal Number
 
@@ -111,6 +115,8 @@ This lets the supplier recommend realistic design limits for the actual route.
 ## CT Inspection: Useful, but Not Magic
 
 CT inspection is often the right evidence tool for titanium 3D printed internal channels because it can visualize enclosed geometry, local restrictions, wall thickness, trapped powder zones, and some internal defects. But CT is not a magic certificate that proves every possible problem is absent.
+
+[NIST describes CT as a method for nondestructive measurement of hidden AM features](https://www.nist.gov/publications/testing-similarity-conditions-ct-measurement-additively-manufactured-lattice-structures), while also noting that AM surface roughness and form deviations complicate dimensional-uncertainty assessment. For NDT on laser beam powder bed fusion (PBF-LB) parts specifically, [ASTM F3704/F3704M-24](https://store.astm.org/f3704_f3704m-24.html) states that flaw detection depends on flaw characteristics and orientation, requires an individual-part NDT technique with engineering concurrence and applicable NDT Level 3 approval, and warns that post-HIP NDT may not reveal collapsed defects. Therefore, the claimed detection threshold must be demonstrated for the actual part, material, scan setup, defect target, and inspection sequence.
 
 For CT to be useful, the RFQ should define:
 
@@ -168,6 +174,8 @@ Pressure or leak-critical RFQs should define:
 - Whether HIP, CT, proof pressure, or coupon evidence is required.
 
 If pressure testing is mandatory, it should be part of the quote from the beginning. Adding it after the build may expose geometry, surface, or evidence gaps that would have been cheaper to solve in CAD.
+
+[ISO/ASTM 52908:2023](https://www.iso.org/standard/81779.html) covers qualification, quality assurance, post-processing, inspection, and testing for metal powder-bed-fusion parts, including qualification procedures for defined quality levels. Use that framework to document the project-specific evidence plan; do not treat CT, HIP, or coupon results as substitutes for a leak or proof-pressure test required by the drawing.
 
 ## Design Choices That Reduce Risk
 
@@ -246,3 +254,12 @@ Avoid titanium AM when the channel can be drilled, milled, welded, or assembled 
 Titanium 3D printed internal channels are valuable when they solve a real packaging, flow, weight, corrosion, or assembly problem. They are risky when powder removal, cleaning, CT inspection, pressure testing, and acceptance criteria are treated as afterthoughts.
 
 A production-ready RFQ should prove more than printability. It should show how the internal channel will be cleaned, verified, finished where needed, tested, and documented. That is what turns a complex titanium AM design into an acceptable delivered part.
+
+## Official Sources and Scope
+
+- [NASA NTRS: Cleaning and Cleanliness Measurement of Additive Manufactured Parts](https://ntrs.nasa.gov/citations/20160008863) — public 2016 Marshall Space Flight Center presentation on spaceflight fluid-system cleaning experience; not a universal acceptance standard.
+- [FDA: Technical Considerations for Additive Manufactured Medical Devices](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices) — nonbinding medical-device guidance; not a general industrial or aerospace requirement.
+- [FDA recognition record: ASTM F3335-20](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=40989) — residue-assessment guide for powder-bed-fusion medical devices; it does not establish residue acceptance limits.
+- [NIST: Testing the Similarity Conditions in the CT Measurement of Additively Manufactured Lattice Structures](https://www.nist.gov/publications/testing-similarity-conditions-ct-measurement-additively-manufactured-lattice-structures) — CT metrology research on hidden AM features and measurement-uncertainty conditions; not a supplier capability guarantee.
+- [ASTM F3704/F3704M-24](https://store.astm.org/f3704_f3704m-24.html) — NDT practice for PBF-LB parts only; individual-part technique development and engineering/NDT approval remain necessary.
+- [ISO/ASTM 52908:2023](https://www.iso.org/standard/81779.html) — finished-part qualification, quality assurance, post-processing, inspection, and testing framework for metal powder bed fusion.

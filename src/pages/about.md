@@ -46,4 +46,4 @@ Machine size, validated material condition, post-processing source, test method,
 
 ## Contact
 
-RFQ files, source corrections, and project questions can be sent to [info@szcomo.com](mailto:info@szcomo.com). For a quote, include the CAD model, controlled drawing or requirement notes, alloy, quantity, use environment, critical features, finishing, inspection, records, and required date.
+Submit RFQ files through the [secure project form](/rfq/#rfq-form), or use [info@szcomo.com](mailto:info@szcomo.com) when the form is unavailable. Source corrections and general questions can also use email. For a quote, include the CAD model, controlled drawing or requirement notes, alloy, quantity, use environment, critical features, finishing, inspection, records, and required date.

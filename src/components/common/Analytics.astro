@@ -15,8 +15,13 @@ const googleAdsRfqConversionLabel =
   import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_CONVERSION_LABEL ||
   import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_LABEL ||
   defaultGoogleAdsRfqConversionLabel;
+const googleAdsRfqSubmitConversionLabel = import.meta.env.PUBLIC_GOOGLE_ADS_RFQ_SUBMIT_CONVERSION_LABEL || '';
 const googleAdsRfqSendTo =
   googleAdsConversionId && googleAdsRfqConversionLabel ? `${googleAdsConversionId}/${googleAdsRfqConversionLabel}` : '';
+const googleAdsRfqSubmitSendTo =
+  googleAdsConversionId && googleAdsRfqSubmitConversionLabel
+    ? `${googleAdsConversionId}/${googleAdsRfqSubmitConversionLabel}`
+    : '';
 const tagIds = Array.from(new Set([googleTagId, googleAnalyticsId, googleAdsConversionId].filter(Boolean)));
 const primaryTagId = tagIds[0];
 const googleTagSrc = primaryTagId ? `https://www.googletagmanager.com/gtag/js?id=${primaryTagId}` : '';
@@ -28,9 +33,11 @@ const googleTagManagerSrc = googleTagManagerId
 <script
   is:inline
   data-google-ads-rfq-send-to={googleAdsRfqSendTo}
+  data-google-ads-rfq-submit-send-to={googleAdsRfqSubmitSendTo}
   data-google-analytics-id={googleAnalyticsId}
   data-google-ads-conversion-id={googleAdsConversionId}
   data-google-tag-manager-id={googleTagManagerId}
+  data-google-tag-state={primaryTagId ? 'loading' : 'disabled'}
 >
   const trackingConfig = document.currentScript?.dataset || {};
   window.dataLayer = window.dataLayer || [];
@@ -38,7 +45,9 @@ const googleTagManagerSrc = googleTagManagerId
     googleAnalyticsId: trackingConfig.googleAnalyticsId || '',
     googleAdsConversionId: trackingConfig.googleAdsConversionId || '',
     googleAdsRfqSendTo: trackingConfig.googleAdsRfqSendTo || '',
+    googleAdsRfqSubmitSendTo: trackingConfig.googleAdsRfqSubmitSendTo || '',
     googleTagManagerId: trackingConfig.googleTagManagerId || '',
+    googleTagState: trackingConfig.googleTagState || 'disabled',
   };
 </script>
 
@@ -57,7 +66,27 @@ const googleTagManagerSrc = googleTagManagerId
   }
 </script>
 
-{primaryTagId ? <script is:inline async src={googleTagSrc} /> : null}
+<script is:inline data-google-tag-src={googleTagSrc}>
+  const googleTagSrc = document.currentScript?.dataset.googleTagSrc || '';
+
+  function updateGoogleTagState(state) {
+    if (window.TITANIUM3DP_TRACKING) {
+      window.TITANIUM3DP_TRACKING.googleTagState = state;
+    }
+    window.dispatchEvent(new CustomEvent('titanium3dp:google-tag-state', { detail: { state } }));
+  }
+
+  if (googleTagSrc) {
+    const googleTagScript = document.createElement('script');
+    googleTagScript.async = true;
+    googleTagScript.src = googleTagSrc;
+    googleTagScript.addEventListener('load', () => updateGoogleTagState('loaded'), { once: true });
+    googleTagScript.addEventListener('error', () => updateGoogleTagState('failed'), { once: true });
+    document.head.appendChild(googleTagScript);
+  } else {
+    updateGoogleTagState('disabled');
+  }
+</script>
 
 <script is:inline data-tag-ids={tagIds.join(',')} data-primary-tag-id={primaryTagId}>
   const googleTagConfig = document.currentScript?.dataset || {};
