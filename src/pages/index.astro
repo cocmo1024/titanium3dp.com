@@ -165,7 +165,7 @@ const metadata = {
       <div class="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-accent/10 blur-3xl"></div>
     </div>
     <div
-      class="relative mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-center lg:py-20"
+      class="relative mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14 lg:py-20"
     >
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
@@ -204,18 +204,19 @@ const metadata = {
         </dl>
       </div>
 
-      <div class="relative">
+      <div class="relative lg:pt-12">
         <div class="overflow-hidden border border-page-border bg-surface sm:rounded-lg">
           <Image
             src="~/assets/images/titanium/titanium-hero.webp"
             width={1672}
             height={941}
+            aspectRatio="3/2"
             widths={[640, 960, 1280, 1672]}
-            sizes="(max-width: 1023px) calc(100vw - 32px), 470px"
+            sizes="(max-width: 1023px) calc(100vw - 32px), 610px"
             layout="responsive"
             objectFit="cover"
             alt="Illustrative titanium additive manufacturing parts and lattice structures"
-            class="block aspect-[4/3] w-full object-cover"
+            class="block aspect-[3/2] w-full object-cover"
             loading="eager"
             fetchpriority="high"
           />
