@@ -21,7 +21,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-fusion-nuclear-research-hardware.webp
 metadata:
   title: 'Titanium 3D Printing for Fusion Research Hardware'
-  description: 'RFQ guide for titanium 3D printed fusion and nuclear research hardware: vacuum fixtures, cryogenic brackets, cooling manifolds, helium leak testing, CT, CMM, and traceability.'
+  description: 'Plan titanium AM for fusion and nuclear research hardware: vacuum fixtures, cryogenic brackets, cooling manifolds, leak tests, CT, CMM, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-fusion-nuclear-research-hardware/
 ---
 

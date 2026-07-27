@@ -9,7 +9,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-cost-drivers-rfq-price-reduction.webp
 metadata:
   title: 'Titanium 3D Printing Cost: Ti-6Al-4V Quote Guide'
-  description: 'Understand titanium 3D printing cost without unreliable price-per-gram claims. See how geometry, build height, supports, HIP, machining, CT/CMM, quantity, and acceptance scope affect a Ti-6Al-4V quote.'
+  description: 'See how geometry, build height, supports, quantity, HIP, machining, CT/CMM, documentation, and acceptance scope shape a Ti-6Al-4V quote.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-cost-drivers-rfq-price-reduction/
 ---
 

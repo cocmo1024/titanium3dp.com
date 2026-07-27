@@ -147,4 +147,4 @@ Use the [Ti-6Al-4V / TC4 material guide](/materials/tc4-ti6al4v-grade-5/) to ali
 
 This page is an application-selection framework rather than a claim that every listed component is suitable for production. The [NIST powder bed fusion overview](https://www.nist.gov/additive-manufacturing/research-areas/technologies/powder-bed-fusion) explains the process family, while the [NIST additive manufacturing standards and benchmarks collection](https://www.nist.gov/additive-manufacturing/products-resources-0/standards-benchmarks) provides broader standards context.
 
-Part-specific feasibility depends on geometry, loads, environment, material specification, supplier capability, and acceptance evidence. To assess a real part, [request a titanium AM manufacturability review](/contact/#rfq) with the model, drawing, quantity, and operating conditions.
+Part-specific feasibility depends on geometry, loads, environment, material specification, supplier capability, and acceptance evidence. To assess a real part, [request a titanium AM manufacturability review](/rfq/#rfq-form) with the model, drawing, quantity, and operating conditions.

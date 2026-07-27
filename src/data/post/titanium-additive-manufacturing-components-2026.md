@@ -8,7 +8,7 @@ tags: ['titanium-am', 'production', 'ti6al4v', 'process-selection', 'qualificati
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-additive-manufacturing-components-2026.webp
 metadata:
-  title: 'Titanium Additive Manufacturing Production Signals in 2026'
+  title: 'Titanium AM Production Signals for 2026'
   description: 'Buyer guide to verified titanium AM production signals from Apple, Airbus, NIST, and ISO, with process, qualification, evidence, and RFQ decision boundaries.'
   canonical: https://titanium3dp.com/posts/titanium-additive-manufacturing-components-2026/
 ---

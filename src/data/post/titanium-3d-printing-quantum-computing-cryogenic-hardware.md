@@ -20,8 +20,8 @@ tags:
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-quantum-computing-cryogenic-hardware.webp
 metadata:
-  title: 'Titanium 3D Printing for Quantum Computing Hardware'
-  description: 'RFQ guide for titanium 3D printed quantum and cryogenic hardware: dilution refrigerator brackets, vacuum supports, thermal intercepts, RF cable routing, CMM, CT, cleaning, and traceability.'
+  title: 'Titanium AM for Quantum & Cryogenic Hardware'
+  description: 'Plan titanium AM quantum and cryogenic hardware: vacuum supports, thermal intercepts, RF cable routes, cleaning, CMM, CT, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-quantum-computing-cryogenic-hardware/
 ---
 

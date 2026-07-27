@@ -21,7 +21,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware.webp
 metadata:
   title: 'Titanium 3D Printing for Direct Lithium Extraction'
-  description: 'RFQ guide for titanium 3D printed direct lithium extraction and brine processing hardware: manifolds, sorbent skids, pump and valve adapters, sensor housings, leak testing, CT, CMM, and traceability.'
+  description: 'Plan titanium AM for direct lithium extraction and brine hardware: manifolds, adapters, corrosion, leak testing, CT, CMM, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-direct-lithium-extraction-brine-processing-hardware/
 ---
 

@@ -21,7 +21,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-seawater-desalination-brine-concentration-hardware.webp
 metadata:
   title: 'Titanium 3D Printing for Desalination Hardware'
-  description: 'RFQ guide for titanium 3D printed seawater desalination and brine concentration hardware: RO sample blocks, brine manifolds, MLD/ZLD pilot skids, CP titanium, leak testing, CT, CMM, and traceability.'
+  description: 'Plan titanium AM desalination and brine hardware: manifolds, pilot skids, CP titanium, corrosion, leak testing, CT, CMM, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-seawater-desalination-brine-concentration-hardware/
 ---
 

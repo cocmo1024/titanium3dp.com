@@ -21,7 +21,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-industrial-valves-pump-flow-control-hardware.webp
 metadata:
   title: 'Titanium 3D Printing for Valves and Pump Parts'
-  description: 'RFQ guide for titanium 3D printed industrial valves, pump parts, static mixers, nozzles, and flow control hardware: corrosion exposure, seal faces, pressure testing, CT, CMM, machining, and traceability.'
+  description: 'Plan titanium AM valves, pump parts and flow hardware for corrosion, seal faces, pressure testing, CT, CMM, machining, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-industrial-valves-pump-flow-control-hardware/
 ---
 

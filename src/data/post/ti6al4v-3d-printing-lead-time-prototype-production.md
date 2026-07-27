@@ -6,7 +6,7 @@ category: 'Case Studies'
 tags: ['ti6al4v-3d-printing-lead-time', 'tc4', 'prototype', 'production', 'lpbf', 'procurement', 'rfq']
 author: 'TITANIUM 3DP Engineering'
 metadata:
-  title: 'Ti-6Al-4V 3D Printing Lead Time | Prototype to Production'
+  title: 'Ti-6Al-4V 3D Printing Lead Time Guide'
   description: 'Understand Ti-6Al-4V and TC4 3D printing lead time by stage: DfAM review, LPBF scheduling, heat treatment, machining, inspection, documents, and repeat builds.'
   canonical: https://titanium3dp.com/posts/ti6al4v-3d-printing-lead-time-prototype-production/
 ---
@@ -145,4 +145,4 @@ Use the [TC4 / Ti-6Al-4V Grade 5 material guide](/materials/tc4-ti6al4v-grade-5/
 
 The [NIST powder bed fusion overview](https://www.nist.gov/additive-manufacturing/research-areas/technologies/powder-bed-fusion) provides process context. [ASTM F2924](https://store.astm.org/standards/f2924) covers additively manufactured Ti-6Al-4V by powder bed fusion and notes that parts are often post-processed to achieve final surface finish and critical dimensions. [ISO/ASTM 52911-1](https://www.iso.org/standard/72951.html) provides design guidance for laser-based powder bed fusion.
 
-These references do not define a universal commercial lead time. Actual dates depend on the approved process route, supplier capacity, part-specific risk, and release requirements. For a schedule based on real geometry, [request a Ti-6Al-4V manufacturability and lead-time review](/contact/#rfq).
+These references do not define a universal commercial lead time. Actual dates depend on the approved process route, supplier capacity, part-specific risk, and release requirements. For a schedule based on real geometry, [request a Ti-6Al-4V manufacturability and lead-time review](/rfq/#rfq-form).

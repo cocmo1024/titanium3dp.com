@@ -8,7 +8,7 @@ tags: ['post-processing', 'hip', 'stress-relief', 'machining', 'surface-finish',
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-post-processing-hip-machining-surface-finish.webp
 metadata:
-  title: 'Titanium 3D Printing Post-Processing: HIP, CNC, and Finish'
+  title: 'Titanium AM Post-Processing | HIP, CNC & Finish'
   description: 'Decision guide for titanium AM stress relief, heat treatment, HIP, support removal, CNC machining, surface finish, cleaning, inspection, and RFQ scope.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-post-processing-hip-machining-surface-finish/
 ---

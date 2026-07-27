@@ -30,7 +30,7 @@ const allPosts = currentPage === 1 ? await fetchPosts() : [];
 const metadata = {
   title: `Titanium AM Engineering Guides${currentPage > 1 ? ` | Page ${currentPage}` : ''}`,
   description:
-    'Evidence-led titanium additive manufacturing guides for material and process selection, DfAM, post-processing, inspection, qualification, applications, and RFQ preparation.',
+    'Titanium AM engineering guides for material selection, DfAM, post-processing, inspection, qualification, applications, cost, and RFQ preparation.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -58,10 +58,17 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-5xl">
     <Headline
-      subtitle="Browse the complete evidence-led library by engineering decision. Search material and process selection, DfAM, inspection, application fit, and procurement-ready RFQs without relying on thin tag pages."
+      subtitle="Browse the complete evidence-led library by engineering decision. Search material and process selection, DfAM, inspection, application fit, and procurement-ready RFQ guidance."
     >
       Titanium AM Engineering Guides
     </Headline>
+    <p class="mb-8 text-sm leading-6 text-muted">
+      Evaluating a real part?
+      <a class="font-semibold text-link underline-offset-4 hover:underline" href={getPermalink('/rfq/#rfq-form')}>
+        Send CAD and requirements for a manufacturability review
+      </a>
+      .
+    </p>
     {
       currentPage === 1 ? (
         <IntentLibrary posts={allPosts} />

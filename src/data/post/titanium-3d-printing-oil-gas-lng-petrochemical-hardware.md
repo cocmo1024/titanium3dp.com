@@ -21,7 +21,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-oil-gas-lng-petrochemical-hardware.webp
 metadata:
   title: 'Titanium 3D Printing for Oil and Gas Hardware'
-  description: 'RFQ guide for titanium 3D printed oil and gas, LNG, refinery, and petrochemical hardware: corrosion exposure, sour-service review, API 20S, leak testing, CT, CMM, and traceability.'
+  description: 'Plan titanium AM for oil and gas, LNG and petrochemical hardware with corrosion, sour-service, API 20S, leak testing, CT, CMM, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/
 ---
 

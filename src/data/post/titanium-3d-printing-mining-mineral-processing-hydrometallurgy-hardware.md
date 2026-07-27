@@ -24,7 +24,7 @@ tags:
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware.webp
 metadata:
-  title: 'TC4 and Titanium 3D Printing for Mining Hydrometallurgy'
+  title: 'Titanium AM for Mining & Hydrometallurgy'
   description: 'RFQ guide for TC4, Ti-6Al-4V, Grade 5, CP titanium, and titanium 3D printed mining, mineral processing, and hydrometallurgy hardware.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-mining-mineral-processing-hydrometallurgy-hardware/
 ---

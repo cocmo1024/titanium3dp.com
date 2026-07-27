@@ -44,6 +44,7 @@ export const footerData = {
       links: [
         { text: 'Knowledge center', href: getPermalink('/knowledge') },
         { text: 'Engineering guides', href: getBlogPermalink() },
+        { text: 'Frequently asked questions', href: getPermalink('/faq') },
         {
           text: 'Standards map',
           href: getPermalink('/posts/titanium-am-standards-specifications-f2924-f3001-52948'),

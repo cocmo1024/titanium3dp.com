@@ -8,8 +8,8 @@ tags: ['titanium-3d-printing-vs-cnc', 'cnc-machining', 'process-selection', 'ti6
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/7.webp
 metadata:
-  title: 'Titanium 3D Printing vs CNC Machining | Ti-6Al-4V'
-  description: 'Compare titanium 3D printing with CNC machining for Ti-6Al-4V and TC4 parts. Choose by geometry, quantity, tolerance, surface finish, inspection, lead time, and delivered cost.'
+  title: 'Titanium 3D Printing vs CNC | Ti-6Al-4V'
+  description: 'Compare titanium 3D printing and CNC for Ti-6Al-4V parts by geometry, quantity, tolerance, finish, inspection, lead time, and delivered cost.'
   canonical: https://titanium3dp.com/posts/when-not-to-use-titanium-additive-manufacturing/
 ---
 
@@ -142,4 +142,4 @@ Our [Ti-6Al-4V / TC4 material page](/materials/tc4-ti6al4v-grade-5/) aligns the 
 
 This guide is a process-selection framework, not a universal cost or design-allowables table. Useful primary references include the [NIST overview of powder bed fusion](https://www.nist.gov/additive-manufacturing/research-areas/technologies/powder-bed-fusion), ASTM F2924, and ISO/ASTM 52911-1. A U.S. Department of Energy-hosted study comparing machining of additively manufactured and wrought Ti-6Al-4V also illustrates why manufacturing route can affect downstream machining behavior: [Machining Additively Manufactured and Wrought Ti-6Al-4V](https://www.osti.gov/biblio/1992652).
 
-The final route should be selected from part-specific geometry, requirements, supplier capability, and qualification evidence. For a real component, [request a manufacturability review](/contact/#rfq) with both the 3D model and the controlled drawing.
+The final route should be selected from part-specific geometry, requirements, supplier capability, and qualification evidence. For a real component, [request a manufacturability review](/rfq/#rfq-form) with both the 3D model and the controlled drawing.

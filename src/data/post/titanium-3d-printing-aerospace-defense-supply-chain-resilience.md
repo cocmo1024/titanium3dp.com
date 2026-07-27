@@ -8,8 +8,8 @@ tags: ['aerospace', 'defense', 'supply-chain', 'lpbf', 'ded', 'qualification', '
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-aerospace-defense-supply-chain-resilience.webp
 metadata:
-  title: 'Titanium 3D Printing for Aerospace and Defense Supply Chains'
-  description: 'Engineering RFQ guide for titanium 3D printing in aerospace and defense supply chains: LPBF, DED, qualification, traceability, inspection evidence, and production readiness.'
+  title: 'Titanium AM for Aerospace & Defense Supply Chains'
+  description: 'Plan titanium AM for aerospace and defense supply chains with process fit, qualification, traceability, inspection evidence, and production-ready RFQs.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-aerospace-defense-supply-chain-resilience/
 ---
 

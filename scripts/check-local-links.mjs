@@ -17,6 +17,8 @@ const walk = (directory) =>
 const htmlFiles = walk(root).filter((file) => file.endsWith('.html'));
 const broken = [];
 let checked = 0;
+let checkedFragments = 0;
+const fragmentCache = new Map();
 
 const routeFromFile = (file) => {
   const relative = path.relative(root, file).replaceAll('\\', '/');
@@ -25,21 +27,51 @@ const routeFromFile = (file) => {
   return `/${relative.replace(/\/index\.html$/, '/').replace(/\.html$/, '/')}`;
 };
 
-const resolvesToFile = (pathname) => {
+const resolveToFile = (pathname) => {
   let clean;
   try {
     clean = decodeURIComponent(pathname).replace(/^\/+/, '');
   } catch {
+    return null;
+  }
+
+  if (!clean) {
+    const homepage = path.join(root, 'index.html');
+    return fs.existsSync(homepage) ? homepage : null;
+  }
+  if (clean.replace(/\/+$/, '') === '404') {
+    const notFound = path.join(root, '404.html');
+    return fs.existsSync(notFound) ? notFound : null;
+  }
+
+  const direct = path.join(root, clean);
+  if (path.extname(clean)) return fs.existsSync(direct) ? direct : null;
+
+  const indexFile = path.join(direct, 'index.html');
+  if (fs.existsSync(indexFile)) return indexFile;
+
+  const htmlFile = `${direct}.html`;
+  return fs.existsSync(htmlFile) ? htmlFile : null;
+};
+
+const hasFragment = (file, hash) => {
+  if (!file.endsWith('.html')) return true;
+
+  let ids = fragmentCache.get(file);
+  if (!ids) {
+    const html = fs.readFileSync(file, 'utf8');
+    ids = new Set([...html.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]));
+    fragmentCache.set(file, ids);
+  }
+
+  let fragment;
+  try {
+    fragment = decodeURIComponent(hash.replace(/^#/, ''));
+  } catch {
     return false;
   }
 
-  if (!clean) return fs.existsSync(path.join(root, 'index.html'));
-  if (clean.replace(/\/+$/, '') === '404') return fs.existsSync(path.join(root, '404.html'));
-
-  const direct = path.join(root, clean);
-  if (path.extname(clean)) return fs.existsSync(direct);
-
-  return fs.existsSync(path.join(direct, 'index.html')) || fs.existsSync(`${direct}.html`);
+  return !fragment || ids.has(fragment);
 };
 
 for (const file of htmlFiles) {
@@ -59,12 +91,23 @@ for (const file of htmlFiles) {
     if (url.origin !== siteOrigin || !['http:', 'https:'].includes(url.protocol)) continue;
     checked += 1;
 
-    if (!resolvesToFile(url.pathname)) {
+    const targetFile = resolveToFile(url.pathname);
+    if (!targetFile) {
       broken.push({ source: path.relative(root, file).replaceAll('\\', '/'), href, reason: 'missing target' });
+      continue;
+    }
+
+    if (url.hash) {
+      checkedFragments += 1;
+      if (!hasFragment(targetFile, url.hash)) {
+        broken.push({ source: path.relative(root, file).replaceAll('\\', '/'), href, reason: 'missing fragment' });
+      }
     }
   }
 }
 
-console.log(JSON.stringify({ htmlFiles: htmlFiles.length, checkedInternalLinks: checked, broken }, null, 2));
+console.log(
+  JSON.stringify({ htmlFiles: htmlFiles.length, checkedInternalLinks: checked, checkedFragments, broken }, null, 2)
+);
 
 if (broken.length > 0) process.exitCode = 1;

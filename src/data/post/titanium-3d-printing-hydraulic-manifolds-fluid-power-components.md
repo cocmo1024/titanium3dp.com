@@ -21,7 +21,7 @@ author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printing-hydraulic-manifolds-fluid-power-components.webp
 metadata:
   title: 'Titanium 3D Printing for Hydraulic Manifolds'
-  description: 'RFQ guide for titanium 3D printed hydraulic manifolds and fluid power components: valve blocks, actuator manifolds, internal channels, pressure drop, leak testing, CT, CMM, machining, and traceability.'
+  description: 'Plan titanium AM hydraulic manifolds and fluid-power parts for internal channels, pressure drop, leak testing, CT, CMM, machining, and traceability.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printing-hydraulic-manifolds-fluid-power-components/
 ---
 

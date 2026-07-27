@@ -8,7 +8,7 @@ tags: ['materials', 'tc4', 'ti6al4v', 'grade-5-titanium', 'eli', 'cp-titanium', 
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/1.webp
 metadata:
-  title: 'Titanium AM Material Selection: Grade 5, Grade 23, or CP Ti'
+  title: 'Titanium AM Materials | Grade 5 vs 23 vs CP Ti'
   description: 'Decision guide for selecting TC4 or Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and CP titanium for LPBF or EBM parts, specifications, feedstock, and RFQs.'
   canonical: https://titanium3dp.com/posts/titanium-am-material-selection-ti6al4v-eli-cp-titanium/
 ---
