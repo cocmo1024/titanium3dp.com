@@ -31,7 +31,9 @@
 /copper-cold-plates /applications/ 301
 /copper-heat-sinks/ /applications/ 301
 /copper-heat-sinks /applications/ 301
-/case-studies/:page /case-studies/:page/ 301
+/case-studies/2 /case-studies/2/ 301
+/case-studies/3 /case-studies/3/ 301
+/case-studies/4 /case-studies/4/ 301
 /materials/:slug /materials/:slug/ 301
 /posts/:slug /posts/:slug/ 301
 /blog/tag/* /case-studies/ 301
