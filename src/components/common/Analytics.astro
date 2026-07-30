@@ -95,8 +95,9 @@ const googleTagManagerSrc = googleTagManagerId
 
   if (primaryTagId) {
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args) {
-      dataLayer.push(args);
+    function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      dataLayer.push(arguments);
     }
     window.gtag = window.gtag || gtag;
     gtag('js', new Date());
