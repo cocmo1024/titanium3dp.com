@@ -1,20 +1,20 @@
 ---
-title: 'Titanium 3D Printed Heat Exchangers: Thermal Management RFQ Guide'
+title: 'Titanium 3D Printed Heat Exchangers: Design, Inspection, and RFQ'
 publishDate: 2026-05-25
-updateDate: 2026-07-05
-excerpt: 'Engineering RFQ guide for titanium 3D printed heat exchangers, covering thermal management, internal channels, powder removal, CT, leak testing, machining, and cost risk.'
+updateDate: 2026-09-05
+excerpt: 'Decide when titanium additive manufacturing fits a heat exchanger, then define channels, powder removal, machining, CT, leak testing, and RFQ acceptance evidence.'
 category: 'Case Studies'
 tags:
   ['heat-exchangers', 'thermal-management', 'internal-channels', 'lpbf', 'dfam', 'ct', 'pressure-testing', 'rfq']
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/titanium-3d-printed-heat-exchangers-thermal-management.webp
 metadata:
-  title: 'Titanium 3D Printed Heat Exchangers: RFQ Guide'
-  description: 'RFQ guide for titanium 3D printed heat exchangers: thermal design, internal channels, powder removal, CT, leak testing, machining, and cost control.'
+  title: 'Titanium 3D Printed Heat Exchangers | Design & RFQ'
+  description: 'Decide when titanium AM fits a heat exchanger, then define channels, powder removal, machining, CT, leak testing, and RFQ acceptance evidence.'
   canonical: https://titanium3dp.com/posts/titanium-3d-printed-heat-exchangers-thermal-management/
 ---
 
-Titanium 3D printed heat exchangers are attractive when thermal performance, corrosion resistance, weight, packaging, and lead time collide. A printed titanium thermal part can combine channels, manifolds, mounting structure, and sealing features into one component. It can also become expensive or unacceptable if the RFQ treats a heat exchanger as only a complex shape.
+Titanium 3D printed heat exchangers deserve an AM review when integrated flow paths, fewer joints, corrosion resistance, lower mass, or low-volume packaging create measurable system value. A printed thermal part can combine channels, manifolds, mounting structure, and sealing features, but it can become expensive or unacceptable if cleaning and inspection cannot reach the internal geometry.
 
 The correct question is not whether a compact heat exchanger can be printed. The better question is whether the complete route can deliver the required heat transfer, pressure integrity, cleanliness, inspection evidence, surface condition, and documentation at an acceptable cost.
 
@@ -22,9 +22,9 @@ For a broader application map, start with [Titanium 3D Printing Applications](/p
 
 For LNG, refinery, petrochemical, produced-water, or oil and gas thermal hardware where pressure, leak, sour-service, or operator documentation requirements shape the RFQ, pair this guide with [Titanium 3D Printing for Oil & Gas, LNG, and Petrochemical Hardware](/posts/titanium-3d-printing-oil-gas-lng-petrochemical-hardware/).
 
-## Quick Answer
+## Should You 3D Print a Titanium Heat Exchanger?
 
-Titanium additive manufacturing is a strong heat exchanger candidate when the part needs compact flow routing, fewer joints, lightweight thermal hardware, corrosion resistance, or low-volume production that conventional drilling, brazing, welding, or tube assembly cannot deliver efficiently.
+Review titanium additive manufacturing when compact flow routing, fewer joints, lower mass, corrosion resistance, or low-volume packaging improves the complete thermal system. A printed-and-machined hybrid route is usually stronger when the channels benefit from AM but sealing faces, ports, datums, or mounting interfaces need conventional precision. Prefer a conventional plate, tube, drilled, brazed, or welded route when the geometry is simple and it can meet the same thermal, pressure, cleanliness, and evidence requirements with lower delivered risk.
 
 It is usually worth reviewing when the design has:
 

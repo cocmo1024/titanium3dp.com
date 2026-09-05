@@ -1,23 +1,23 @@
 ---
-title: 'Titanium 3D Printing vs CNC Machining: Which Process Fits Your Part?'
+title: 'When Not to Use Titanium 3D Printing: AM vs CNC'
 publishDate: 2025-12-30
-updateDate: 2026-07-11
-excerpt: 'A practical Ti-6Al-4V process-selection guide comparing titanium 3D printing, CNC machining, and hybrid manufacturing by geometry, quantity, tolerance, finish, evidence, and delivered cost.'
+updateDate: 2026-09-05
+excerpt: 'Use this no-go screen to compare titanium 3D printing, CNC machining, and hybrid manufacturing by geometry, tolerance, inspection access, qualification, and delivered cost.'
 category: 'Case Studies'
 tags: ['titanium-3d-printing-vs-cnc', 'cnc-machining', 'process-selection', 'ti6al4v', 'tc4', 'hybrid-manufacturing', 'rfq']
 author: 'TITANIUM 3DP Engineering'
 image: ~/assets/images/titanium/7.webp
 metadata:
-  title: 'Titanium 3D Printing vs CNC | Ti-6Al-4V'
-  description: 'Compare titanium 3D printing and CNC for Ti-6Al-4V parts by geometry, quantity, tolerance, finish, inspection, lead time, and delivered cost.'
+  title: 'When Not to Use Titanium 3D Printing | AM vs CNC'
+  description: 'Avoid titanium AM when geometry is simple, precision covers most surfaces, channels cannot be inspected, or the qualification basis requires wrought material.'
   canonical: https://titanium3dp.com/posts/when-not-to-use-titanium-additive-manufacturing/
 ---
 
-Titanium 3D printing is not automatically better than CNC machining, and CNC is not automatically cheaper. The right process depends on what creates value in the finished part: geometry, quantity, material condition, tolerance, inspection, lead time, and the amount of downstream work.
+Do not default to titanium 3D printing when the geometry is simple, tight tolerances cover most surfaces, internal features cannot be cleaned or inspected, or the qualification basis requires wrought or forged material. In those cases, CNC machining is usually the more defensible first route.
 
 For many Ti-6Al-4V, Grade 5, Ti64, or TC4 components, the most credible answer is hybrid manufacturing: print the near-net geometry, then machine the datums, bores, threads, sealing faces, and interfaces that control function.
 
-## Short Answer
+## When Not to Use Titanium 3D Printing
 
 Choose **CNC machining** first when the part is simple, tool-accessible, tolerance-dense, and available from plate, bar, billet, or forging with acceptable material waste.
 

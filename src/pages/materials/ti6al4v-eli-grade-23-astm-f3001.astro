@@ -76,9 +76,9 @@ const faqItems = [
 ];
 
 const metadata = {
-  title: 'ASTM F3001 Ti-6Al-4V ELI 3D Printing',
+  title: 'ASTM F3001 Explained | Ti-6Al-4V ELI Grade 23',
   description:
-    'Review ASTM F3001 Ti-6Al-4V ELI Grade 23 3D printing: LPBF or EBM route, heat treatment, HIP, machining, inspection, and RFQ evidence.',
+    'Understand what ASTM F3001 controls for Ti-6Al-4V ELI Grade 23 AM parts, what it does not prove, and what to include in a comparable RFQ.',
   structuredData: [
     createBreadcrumbSchema([
       { name: 'Home', item: '/' },
@@ -121,8 +121,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText
     tagline="Ti-6Al-4V ELI / Grade 23"
-    title="ASTM F3001 titanium 3D printing for Ti-6Al-4V ELI parts"
-    subtitle="ASTM F3001 defines a powder bed fusion material and purchasing framework for Ti-6Al-4V ELI components. A quote still needs the specification revision, part function, delivered condition, critical features, inspection, testing, documentation, quantity, and delivery scope."
+    title="ASTM F3001 explained for Grade 23 titanium parts"
+    subtitle="ASTM F3001 defines a powder bed fusion material and purchasing framework for Ti-6Al-4V ELI components. It does not replace part-specific requirements for function, delivered condition, critical features, inspection, testing, documentation, quantity, or delivery."
     callToAction={{
       text: 'Submit Grade 23 RFQ',
       href: '/rfq/?project=Grade%2023%20ELI#rfq-form',
@@ -209,7 +209,9 @@ const metadata = {
     <div class="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
       <div>
         <p class="text-xs font-semibold uppercase text-primary">Specification scope</p>
-        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">What ASTM F3001 controls</h2>
+        <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+          ASTM F3001 explained: what the specification controls
+        </h2>
         <p class="mt-4 leading-7 text-muted">
           The current project must name the applicable revision. Do not rely on a supplier statement that simply says
           "meets ASTM" without mapping the purchase requirements and any supplementary requirements.
@@ -361,6 +363,13 @@ const metadata = {
             >qualification and inspection guide</a
           >
           to connect the material specification to CMM, CT, coupons, density, surface, and traceability decisions.
+        </p>
+        <p>
+          Use the <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-am-standards-specifications-f2924-f3001-52948/">titanium AM standards map</a
+          >
+          when the purchase team also needs to compare F3001 with F2924, ISO/ASTM 52911, or ISO/ASTM 52930.
         </p>
       </div>
     </div>
