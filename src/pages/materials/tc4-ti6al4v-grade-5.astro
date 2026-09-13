@@ -112,9 +112,9 @@ const faqItems = [
 ];
 
 const metadata = {
-  title: 'TC4 Titanium 3D Printing | Ti-6Al-4V Grade 5 LPBF',
+  title: 'Ti-6Al-4V 3D Printing | Grade 5 / TC4 RFQ',
   description:
-    'TC4, Ti-6Al-4V Grade 5 and Ti64 titanium 3D printing service guide for LPBF parts: standards, DfAM, heat treatment, machining, CT/CMM, traceability, and RFQ inputs.',
+    'Source custom Ti-6Al-4V Grade 5 / TC4 parts. Compare LPBF and EBM scope, ASTM F2924, machining, inspection, and the CAD inputs needed for an RFQ.',
   openGraph: {
     images: [
       {
@@ -167,8 +167,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     tagline="TC4 / Grade 5 material route"
-    title="TC4 titanium 3D printing for Ti-6Al-4V Grade 5 parts"
-    subtitle="TC4, Ti-6Al-4V, Grade 5, and Ti64 may describe the same broad alloy family in different sourcing contexts. A reliable quote goes further: it controls the AM process, material condition, critical features, inspection evidence, and delivered scope."
+    title="Ti-6Al-4V Grade 5 3D printing for custom TC4 parts"
+    subtitle="Review custom Ti-6Al-4V parts for LPBF or EBM with the required machining, finishing, and inspection scope. Grade 5, TC4, and Ti64 are useful sourcing names, but a comparable quote also needs a controlled material specification, delivered condition, CAD, drawing, and quantity."
     actions={[
       {
         variant: 'primary',
@@ -211,6 +211,60 @@ const metadata = {
     ]}
     classes={{ container: 'py-10 md:py-12 lg:py-14' }}
   />
+
+  <section id="quote-scope" class={sectionClass}>
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase text-primary">Choose the quote scope</p>
+      <h2 class="mt-2 text-3xl font-bold text-heading md:text-4xl">
+        What should a Ti-6Al-4V 3D printing quote deliver?
+      </h2>
+      <p class="mt-4 text-base leading-7 text-muted md:text-lg">
+        State the project stage before comparing suppliers. These are RFQ scope choices, not fixed service packages; the
+        actual material, process, inspection route, and availability require project-specific confirmation.
+      </p>
+    </div>
+    <dl class="mt-8 border-t border-page-border">
+      <div class="grid gap-3 border-b border-page-border py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+        <dt class="font-semibold text-heading">Feasibility prototype</dt>
+        <dd class="leading-7 text-muted">
+          Identify what the prototype must demonstrate and where as-built surfaces are acceptable. Ask the quote to name
+          support removal, thermal condition, dimensional checks, and exclusions; do not use a geometry-only prototype
+          to approve production performance.
+        </dd>
+      </div>
+      <div class="grid gap-3 border-b border-page-border py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+        <dt class="font-semibold text-heading">Machined functional part</dt>
+        <dd class="leading-7 text-muted">
+          Mark datums, bores, threads, seal faces, machining stock, and surface-specific acceptance. Confirm the
+          <a
+            class="text-link underline underline-offset-4"
+            href="/posts/titanium-3d-printing-post-processing-hip-machining-surface-finish/">post-processing sequence</a
+          >
+          rather than assuming “finished” means every surface is machined.
+        </dd>
+      </div>
+      <div class="grid gap-3 border-b border-page-border py-5 md:grid-cols-[12rem_1fr] md:gap-8">
+        <dt class="font-semibold text-heading">Controlled production</dt>
+        <dd class="leading-7 text-muted">
+          Add the approved specification revisions, powder/build genealogy, thermal records, inspection coverage,
+          sampling, change control, and release authority. Use the
+          <a
+            class="text-link underline underline-offset-4"
+            href="/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/"
+            >qualification and inspection guide</a
+          >
+          to define what the evidence must prove, not simply which reports to request.
+        </dd>
+      </div>
+    </dl>
+    <p class="mt-6 text-sm leading-6 text-muted">
+      Have CAD but an incomplete drawing? List the unresolved requirements in the
+      <a class="font-semibold text-link underline underline-offset-4" href="/rfq/?project=TC4%20Grade%205#rfq-form"
+        >Ti-6Al-4V RFQ</a
+      >
+      and identify whether you need a budgetary review or a production-intent quotation.
+    </p>
+  </section>
 
   <section id="material-name-map" class={`${sectionClass} border-y border-page-border`}>
     <div class="max-w-3xl">
@@ -415,11 +469,21 @@ const metadata = {
       </div>
       <div class="space-y-5 text-base leading-7 text-muted">
         <p>
-          <a class="font-semibold text-link underline underline-offset-4" href="https://store.astm.org/standards/f2924"
-            >ASTM F2924</a
+          <a class="font-semibold text-link underline underline-offset-4" href="https://store.astm.org/f2924-14r21.html"
+            >ASTM F2924-14(2021)</a
           >
           covers Ti-6Al-4V components made by full-melt powder bed fusion and provides a purchasing and producer framework
           for feedstock, component classification, chemistry, microstructure, mechanical properties, and supplementary requirements.
+        </p>
+        <p>
+          F2924-14(2021) is listed as Active by ASTM at this review on September 13, 2026. It is a Ti-6Al-4V PBF
+          component specification, not proof that a particular supplier or part meets your application requirements. If
+          the drawing requires Ti-6Al-4V ELI, review the existing
+          <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/materials/ti6al4v-eli-grade-23-astm-f3001/">Grade 23 / ASTM F3001 material path</a
+          >
+          instead of treating ELI and Grade 5 as interchangeable.
         </p>
         <p>
           <a class="font-semibold text-link underline underline-offset-4" href="https://www.iso.org/standard/82919.html"
@@ -434,6 +498,16 @@ const metadata = {
           >
           provides design recommendations for laser-based metal powder bed fusion. The applicable contract, industry rules,
           customer specifications, and drawing requirements still control the final acceptance path.
+        </p>
+        <p>
+          For fatigue-critical, pressure-retaining, flight, or medical hardware, define the part-level qualification and
+          acceptance authority separately. This page supplies no universal strength, fatigue life, tolerance, HIP cycle,
+          or product approval. Use the
+          <a
+            class="font-semibold text-link underline underline-offset-4"
+            href="/posts/titanium-am-standards-specifications-f2924-f3001-52948/">existing titanium AM standards map</a
+          >
+          when several specifications must flow into one purchase order.
         </p>
       </div>
     </div>
