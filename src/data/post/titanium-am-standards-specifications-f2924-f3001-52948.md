@@ -1,14 +1,14 @@
 ---
 title: 'Titanium AM Standards Map: F2924, F3001, ISO/ASTM 52948 and the Purchase Order'
 publishDate: 2026-07-24
-updateDate: 2026-07-24
-excerpt: 'A procurement map for selecting titanium AM material, process, design, qualification, NDT, data, and application standards without mistaking a cited document for finished-part approval.'
+updateDate: 2026-09-17
+excerpt: 'Map titanium AM standards to the purchase order, review F3001 and F2924 supplier responses, and separate material certificates from finished-part acceptance.'
 category: 'Engineering Guides'
 tags: ['standards', 'specification', 'qualification', 'F2924', 'F3001', 'ISO/ASTM 52948', 'NDT', 'RFQ']
 author: 'TITANIUM 3DP Engineering'
 metadata:
   title: 'Titanium AM Standards Map: F2924, F3001 & 52948'
-  description: 'Map titanium AM standards to material, PBF process, design, machine qualification, NDT, data, aviation or medical scope, and a controlled purchase order.'
+  description: 'Map titanium AM standards to a purchase order, review F3001/F2924 supplier evidence, and understand ISO/ASTM 52941:2026 machine qualification boundaries.'
   canonical: https://titanium3dp.com/posts/titanium-am-standards-specifications-f2924-f3001-52948/
 ---
 
@@ -22,7 +22,9 @@ The useful buyer task is to build a **standards stack** around the delivered par
 4. Translate failure modes into design, inspection, test, and traceability requirements.
 5. Put project-specific acceptance values, revisions, responsibilities, and deliverables in the drawing, specification, and purchase order.
 
-This guide maps the major documents used in titanium powder bed fusion as of July 2026. It is a scope map, not a substitute for licensed standards, contract review, regulatory advice, or a customer qualification plan.
+This guide maps the major documents used in titanium powder bed fusion. The September 17, 2026 update adds a supplier-response review and the published ISO/ASTM 52941:2026 machine-qualification reference. It is a scope map, not a substitute for licensed standards, contract review, regulatory advice, or a customer qualification plan.
+
+Already reviewing a quotation? Go to the [F3001/F2924 supplier-response checks](#review-an-f3001-or-f2924-supplier-response) before accepting a certificate description or a proposed material substitution.
 
 ## Quick Answer
 
@@ -48,6 +50,7 @@ Build the remaining stack from the actual project. ISO/ASTM 52904 and 52920 addr
 | Critical PBF production control | ISO/ASTM 52904:2024 | Operation and production control for laser- and electron-beam PBF used in critical applications | Approved process definition, essential variables, sampling, deviations, equivalence and customer approval |
 | AM production-site quality | ISO/ASTM 52920:2023 | Quality-relevant processes, characteristics, activities and production-site controls | Industry QMS, supplier approval, part qualification, contract-specific records and acceptance |
 | PBF-LB machine IQ/OQ/PQ | ISO/ASTM TS 52930:2021 | Installation, operational and performance qualification topics directly related to equipment | Feedstock qualification, post-processing beyond depowdering, part-specific process validation and release |
+| Aerospace PBF-LB machine tests | ISO/ASTM 52941:2026 | Machine qualification and requalification tests | Contract revision, applicable machine records, part/process qualification and customer release authority |
 | Metal PBF design | ISO/ASTM 52911-1:2019 | Process characteristics and detailed PBF-LB/M design recommendations | Supplier-specific limits, orientation, supports, margins, surface state, machining and validated design values |
 | Test and supply agreement | ISO/ASTM 52927:2024 | Quality characteristics, specimen building, test procedures and agreement content | Required values, locations, frequency, uncertainty, failed-test disposition and acceptance authority |
 | Property orientation | ISO/ASTM 52909:2024 | Reporting orientation and location dependence for metal AM specimens and parts | Project allowables, representativeness, geometry effects, surface state and production sampling |
@@ -82,6 +85,26 @@ Grade 1, Grade 2, TA1, TA2, TA2G, and “CP titanium” need the same discipline
 
 For corrosion- or ductility-driven projects, use the [Grade 2 / TA2 / CP titanium feasibility path](/materials/grade-2-cp-titanium-ta2-3d-printing/) and request the supplier’s actual specification route rather than forcing an unsupported equivalence.
 
+## Review an F3001 or F2924 Supplier Response
+
+A quote that says “ASTM material with certificate” leaves two separate questions unanswered: what is being offered, and what evidence will accompany the delivered component? ASTM lists **F3001-14(2021)** and **F2924-14(2021)** as active at this review. Record the edition required by your contract; a catalogue status check does not amend an existing purchase requirement.
+
+The following are illustrative supplier statements and recommended buyer follow-ups, not quotations from actual suppliers or a reproduction of standard clauses. Use them to resolve exceptions before placing an order.
+
+| If the reply says | Ask for this clarification | Keep this decision open until resolved |
+| --- | --- | --- |
+| “ELI powder certificate included” | Does the offer cover the F3001 component requirement or only feedstock identity? Identify the component evidence, delivered condition, and link from powder lot to delivered part. | Finished-part acceptance cannot rest on a powder certificate alone. |
+| “Grade 5 is equivalent to Grade 23” | List the proposed specification and chemistry differences, affected design basis, and the person authorized to approve substitution. | Do not accept an unapproved F2924 route against an F3001 requirement. |
+| “Material test report supplied” | Identify the specimen or sample, build association, orientation, processing state, test method, and applicable acceptance requirement. A proposed report format can establish scope before production. | The report must answer the contracted material question and identify what it represents. |
+| “HIP and CT included” | State the agreed thermal route, scan timing, inspected zones, demonstrated detectability, report scope, and disposition responsibility. | A process name or a scan file is not an agreed pass/fail decision. |
+| “Certificate of conformity at shipment” | Identify the part number/revision, delivered serial or lot identities, specification edition, included supporting records, and approved exceptions to be referenced. | Confirm what is being declared conforming and how records can be retrieved. |
+
+For example, consider an **illustrative Grade 23 prototype** ordered to a controlled drawing. The quotation includes ELI powder and stress relief but excludes machining and inspection of the sealing face. This is a scope gap, not proof of a defective part or a compliant finished component. Before ordering, either obtain a revised finished-part quote or explicitly purchase an intermediate blank and assign the remaining work and acceptance responsibility. The price comparison is meaningful only after that decision.
+
+Return open items as a short exception list: requirement reference, supplier proposal, missing evidence, effect on cost or delivery, and customer decision owner. Mark each item **included**, **conditional**, **excluded**, or **not supported**. Do not interpret silence as acceptance. The [qualification and inspection guide](/posts/titanium-am-qualification-inspection-ct-cmm-tensile-coupons/) defines the separate evidence questions; the [RFQ package guide](/posts/titanium-am-rfq-procurement-cost-traceability-deliverables/) covers files and commercial scope.
+
+For a project review, send the controlled CAD/drawing, required F3001 or F2924 edition, quantity, delivered state, and unresolved requirements through the [titanium specification RFQ](/rfq/?project=Titanium%20specification%20review#rfq-form). Request a written scope and exception response. Share only documents you are authorized to disclose; supplier and application approval remain with the responsible customer authorities.
+
 ## Process and Production Qualification Are Separate Layers
 
 [ISO/ASTM 52904:2024](https://www.iso.org/standard/82919.html) addresses the operation and production control of metal powder bed fusion machines and processes used for critical applications. Its scope covers laser- and electron-beam PBF for production parts and mechanical test specimens. The 2019 first edition was withdrawn when the 2024 second edition was published; a contract should therefore name the intended revision rather than rely on an obsolete citation.
@@ -105,7 +128,9 @@ Do not collapse those layers into the claim “the supplier is certified for tit
 
 The electron-beam counterpart, ISO/ASTM TS 52949:2025, follows the same need for a process-specific equipment qualification route. A machine-qualification record does not release a complex titanium part. It supports one layer of the evidence chain.
 
-As of July 24, 2026, ISO lists the second edition of [ISO/ASTM 52941](https://www.iso.org/standard/86784.html), the aerospace PBF-LB machine performance and reliability standard, as **under publication**. The 2020 edition remains the published predecessor until the new edition is formally issued and contract adoption is decided. A purchase order should name the exact revision or contract date instead of saying “latest edition” and leaving the requirement movable.
+[ISO/ASTM 52941:2026](https://www.iso.org/standard/86784.html), edition 2, was published in August 2026; ISO lists the 2020 edition as withdrawn. It addresses qualification and requalification of aerospace metal PBF laser machines, including testing after maintenance or repair. Contractual use can extend to non-aerospace work.
+
+For procurement, confirm the specified edition and the applicable machine-test record. Publication does not automatically change an existing contract or establish material, process, supplier, or part approval. Have the responsible customer authority decide any revision change and its effect on the approved route before production.
 
 ## Design Standards Do Not Supply Supplier Limits
 
